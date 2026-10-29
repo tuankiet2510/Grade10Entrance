@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình quạt tròn và hình vành khuyên - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 21: Hình quạt tròn và hình vành khuyên</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hình quạt tròn là gì? Cách tính diện tích hình tròn. Cách tính diện tích hình quạt tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Hình quạt tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749461205605-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Hình quạt tròn </em>là phần hình tròn giới hạn bởi một cung tròn và hai bán kính đi qua hai đầu mút của cung đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính diện tích hình tròn</h3>
+<div><p><em>Diện tích hình tròn</em> bán kính R: $S=\pi {{R}^{2}}$.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính diện tích hình quạt tròn</h3>
+<div><p><em>Diện tích ${{S}_{q}}$ của hình quạt tròn</em> bán kính R ứng với cung $n{}^\circ $:</p>
+<p>${{S}_{q}}=\frac{n}{360}\pi {{R}^{2}}=\frac{l.R}{2}$</p>
+<p><em>Ví dụ: </em>Diện tích hình quạt tròn có độ dài tương ứng với nó là $l=4\pi $cm, bán kính là R = 5cm là:</p>
+<p>${{S}_{q}}=\frac{l.R}{2}=\frac{4\pi .5}{2}=10\pi \left( c{{m}^{2}} \right)$</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tròn $\left( {O,10\,cm} \right)$, đường kính $AB.$. Điểm \(M \in (O)\) sao cho \(\widehat {BAM} = {45^0}\).  Tính diện tích hình quạt $AOM$ .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(5\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(25\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(50\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\dfrac{{25}}{2}\pi (c{m^2})\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Xét đường tròn $\left( O \right)$ có: \(OA = OM\) và \(\widehat {MAO} = {45^0}\) nên \(\Delta AOM\) là tam giác vuông cân.</p>
+<p style="text-align: left;">Suy ra \(\widehat {MOA} = {90^0}.\)</p>
+<p style="text-align: left;">Vậy diện tích hình quạt $AOM$ là \(S = \dfrac{{\pi {R^2}n}}{{360}} = \dfrac{{\pi {{.10}^2}.90}}{{360}} = 25\pi (c{m^2})\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho h&igrave;nh vu&ocirc;ng \(ABCD\) c&oacute; cạnh \(2R.\)</p><p style="text-align: left;">Diện t&iacute;ch \(S\) phần m&agrave;u xanh trong h&igrave;nh vu&ocirc;ng \(ABCD\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(S = 4{R^2} - \pi {R^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(S = \pi {R^2} - {R^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(S = 4{R^2} + \pi {R^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(S = 4\pi {R^2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi \(S,\,{S_1},\,{S_2}\) lần lượt l&agrave; diện t&iacute;ch phần m&agrave;u xanh, diện t&iacute;ch h&igrave;nh vu&ocirc;ng v&agrave; diện t&iacute;ch phần c&ograve;n lại.</p>
+<p style="text-align: left;">Khi đ&oacute; ta c&oacute; \({S_1} = {\left( {2R} \right)^2}=4R^2\,\,\left( 1 \right).\)</p>
+<p style="text-align: left;">Nhận thấy mỗi h&igrave;nh quạt&nbsp;\(AEH,BHG,CGF,DFE\) l&agrave;&nbsp;\(\dfrac{1}{4}\) h&igrave;nh tr&ograve;n b&aacute;n k&iacute;nh&nbsp;\(R= \dfrac{{AB}}{2}\)</p>
+<p style="text-align: left;">N&ecirc;n tổng diện t&iacute;ch \(4\) h&igrave;nh quạt \(AEH,BHG,CGF,DFE\) ch&iacute;nh bằng diện t&iacute;ch của h&igrave;nh tr&ograve;n b&aacute;n k&iacute;nh $R$ .</p>
+<p style="text-align: left;">Hay \({S_2} = \pi {R^2}\,\,\left( 2 \right).\)</p>
+<p style="text-align: left;">Từ \(\left( 1 \right)\) v&agrave; \(\left( 2 \right)\) ta suy ra \(S = 4{R^2} - \pi {R^2}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n $\left( {O,8\,cm} \right)$, đường k&iacute;nh $AB.$&nbsp; Điểm \(M \in (O)\) sao cho \(\widehat {BAM} = {60^0}\).&nbsp; T&iacute;nh diện t&iacute;ch h&igrave;nh quạt $AOM$ .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(32\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\dfrac{{16\pi }}{3}(c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac{{32\pi }}{3}(c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(23\pi (c{m^2})\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t đường tr&ograve;n $\left( O \right)$ c&oacute;\(\widehat {BAM} = 60^\circ \) suy ra số đo cung \(MB\) bằng \(2.60^\circ&nbsp; = 120^\circ \)</p>
+<p>Suy ra số đo cung \(AM\) bằng \(n^\circ&nbsp; = 180^\circ&nbsp; - 120^\circ&nbsp; = 60^\circ \)</p>
+<p>Vậy diện t&iacute;ch h&igrave;nh quạt $AOM$&nbsp;&nbsp; l&agrave; \(S = \dfrac{{\pi {R^2}n}}{{360}} = \dfrac{{\pi {{.8}^2}.60}}{{360}} = \dfrac{{32\pi }}{3}(c{m^2})\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Tại một v&ograve;ng xoay ng&atilde; tư, người ta cần l&agrave;m c&aacute;c bồn trồng hoa như h&igrave;nh 1. Em h&atilde;y t&iacute;nh phần diện t&iacute;ch của 1 bồn hoa ở h&igrave;nh 2 (phần được t&ocirc; đậm). Biết rằng b&aacute;n k&iacute;nh của v&ograve;ng tr&ograve;n lớn l&agrave; 7m, v&ograve;ng tr&ograve;n nhỏ l&agrave; 3m, số đo cung tr&ograve;n đ&oacute; l&agrave; \(60^\circ \). <em>(l&agrave;m tr&ograve;n đến h&agrave;ng phần mười)</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2024/0703/1720000260270-mceclip0.png" /></em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(20,9{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(41,9{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2,1{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(10,5{m^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch h&igrave;nh quạt tr&ograve;n lớn l&agrave;: \(\frac{{\pi {{.7}^2}.60}}{{360}} = \frac{{49\pi }}{6}\left( {{m^2}} \right)\)</p>
+<p>Diện t&iacute;ch h&igrave;nh quạt tr&ograve;n nhỏ l&agrave;: \(\frac{{\pi {{.3}^2}.60}}{{360}} = \frac{{3\pi }}{2}\left( {{m^2}} \right)\)</p>
+<p>Diện t&iacute;ch phần bồn hoa l&agrave;: \(\frac{{49\pi }}{6} - \frac{{3\pi }}{2} = \frac{{20\pi }}{3} \approx 20,9\left( {{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Khi căng một chiếc quạt giấy ta được một h&igrave;nh quạt với k&iacute;ch thước như h&igrave;nh vẽ minh họa. H&atilde;y t&iacute;nh diện t&iacute;ch phần giấy để l&agrave;m một c&aacute;i quạt (kh&ocirc;ng t&iacute;nh m&eacute;p v&agrave; phần thừa). L&agrave;m tr&ograve;n kết quả tới chữ số thập ph&acirc;n thứ 2.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1720000590264-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(130,69c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(392,69c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(1047,20c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(654,50c{m^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: OC = OM + MC = 10 + 20 = 30 cm.</p>
+<p>Diện t&iacute;ch h&igrave;nh quạt c&oacute; b&aacute;n k&iacute;nh OC l&agrave;:</p>
+<p>\({S_1} = \frac{{\pi {{.30}^2}.150}}{{360}} = 375\pi \left( {c{m^2}} \right)\)</p>
+<p>Diện t&iacute;ch h&igrave;nh quạt c&oacute; b&aacute;n k&iacute;nh OM l&agrave;:</p>
+<p>\({S_2} = \frac{{\pi {{.10}^2}.150}}{{360}} = \frac{{125}}{3}\pi \left( {c{m^2}} \right)\)</p>
+<p>Diện t&iacute;ch phần giấy cần d&ugrave;ng l&agrave;m quạt l&agrave;:</p>
+<p>\({S_1} - {S_2} = 375\pi&nbsp; - \frac{{125}}{3}\pi&nbsp; = \frac{{1000}}{2}\pi&nbsp; \approx 1047,20\left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Một h&igrave;nh quạt tr&ograve;n c&oacute; b&aacute;n k&iacute;nh 6cm, số đo cung l&agrave; \(36^\circ \). Diện t&iacute;ch h&igrave;nh quạt tr&ograve;n đ&oacute; l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(3,6\pi \left( {cm} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(3,6\pi \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(7,2\pi \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(6\pi \left( {c{m^2}} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch h&igrave;nh quạt tr&ograve;n đ&oacute; l&agrave;: \({S_q} = \frac{{\pi {{.6}^2}.36}}{{360}} = 3,6\pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Hình vành khuyên là gì? Cách tính diện tích hình vành khuyên</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hình vành khuyên là gì?</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749461240822-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Hình vành khuyên </em>(còn gọi là hình vành khăn) là phần nằm giữa hai đường tròn có cùng tâm và bán kính khác nhau (còn gọi là hai đường tròn đồng tâm)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính diện tích hình vành khuyên</h3>
+<div><p><em>Diện tích ${{S}_{v}}$ của hình vành khuyên </em>tạo bởi hai đường tròn đồng tâm và có bán kính R và r:</p>
+<p>${{S}_{v}}=\pi \left( {{R}^{2}}-{{r}^{2}} \right)$ (với R &gt; r)</p>
+<p>Tỉ số giữa diện tích hình quạt tròn ứng với cung $n{}^\circ $ và diện tích hình tròn (cùng bán kính) đúng bằng $\frac{n}{360}$ và bằng tỉ số giữa độ dài cung $n{}^\circ $ và độ dài đường tròn.</p>
+<p><em>Ví dụ: </em>Diện tích hình vành khuyên nằm giữa hai đường tròn đồng tâm có bán kính là 3m và 5m là:</p>
+<p>${{S}_{v}}=\pi \left( {{5}^{2}}-{{3}^{2}} \right)=16\pi \left( {{m}^{2}} \right)$</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Diện t&iacute;ch h&igrave;nh v&agrave;nh khuy&ecirc;n giới hạn bởi hai đường tr&ograve;n \(\left( {O;r} \right)\) v&agrave; \(\left( {O;R} \right)\) (với \(R &gt; r\)) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(S = \pi \left( {{R^2} + {r^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(S = \pi \left( {{R^2} - {r^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(S = \frac{{{r^2} + {R^2}}}{\pi }\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(S = \pi rR\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch h&igrave;nh v&agrave;nh khuy&ecirc;n l&agrave;: \(S = \pi \left( {{R^2} - {r^2}} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh diện t&iacute;ch h&igrave;nh v&agrave;nh khuy&ecirc;n khi \({R_1} = 12cm,{R_2} = 7cm\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(5\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(19\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(95\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(150c{m^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch h&igrave;nh v&agrave;nh khuy&ecirc;n l&agrave;:</p>
+<p>\(S = \pi .\left( {{{12}^2} - {7^2}} \right) = 95\pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>V&ograve;ng đệm l&agrave; một trong những chi tiết l&oacute;t kh&ocirc;ng thể thiếu giữa đai ốc v&agrave; c&aacute;c thiết bị gh&eacute;p nối trong c&aacute;c m&aacute;y m&oacute;c c&ocirc;ng nghiệp. V&ograve;ng đệm c&oacute; t&aacute;c dụng ph&acirc;n bố đều lực &eacute;p l&ecirc;n đai ốc, l&agrave;m tăng độ chặt giữa c&aacute;c mối gh&eacute;p. Một v&ograve;ng đệm c&oacute; thiết kế như h&igrave;nh vẽ b&ecirc;n, với A l&agrave; t&acirc;m của hai đường tr&ograve;n b&aacute;n k&iacute;nh AD v&agrave; AC. Biết D l&agrave; trung điểm của AC v&agrave; AD = 5cm. T&iacute;nh diện t&iacute;ch phần t&ocirc; đậm, kết quả l&agrave;m tr&ograve;n đến cm (cho \(\pi&nbsp; = 3,14\))</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1720000882542-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(16c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(47c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(236c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(393c{m^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Độ d&agrave;i cạnh AC l&agrave;: \(AC = 2AD = 2.5 = 10\left( {cm} \right)\)</p>
+<p>Diện t&iacute;ch phần t&ocirc; đậm l&agrave;: \(\pi \left( {{{10}^2} - {5^2}} \right) = 3,14.75 \approx 236\left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Giả sử một quả dưa hấu kh&ocirc;ng hạt ruột đỏ dạng h&igrave;nh cầu c&oacute; đường k&iacute;nh 25cm v&agrave; phần vỏ d&agrave;y 2cm. T&iacute;nh diện t&iacute;ch phần ruột trắng của mặt cắt tr&aacute;i dưa hấu đ&oacute;.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1720000965367-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(25\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(10,5\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(23\pi c{m^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(46\pi c{m^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh của mặt cắt tr&aacute;i dưa hấu đ&oacute; l&agrave;: \(\frac{{25}}{2} = 12,5\left( {cm} \right)\)</p>
+<p>B&aacute;n k&iacute;nh phần ruột đỏ l&agrave;: \(12,5 - 2 = 10,5\left( {cm} \right)\)</p>
+<p>Diện t&iacute;ch phần ruột trắng l&agrave;:</p>
+<p>\(\pi \left( {12,{5^2} - 10,{5^2}} \right) = 46\pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1125/1732518892375-mceclip0.png" /></p>
+<p>Diện t&iacute;ch phần t&ocirc; m&agrave;u l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(10\sqrt 3 \pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(300\pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(200\pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(150\pi \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh đường tr&ograve;n lớn l&agrave;:</p>
+<p>10 + 10 = 20.</p>
+<p>Diện t&iacute;ch phần t&ocirc; m&agrave;u ch&iacute;nh l&agrave; nửa h&igrave;nh v&agrave;nh khuy&ecirc;n tạo bởi hai đường tr&ograve;n đồng t&acirc;m c&oacute; b&aacute;n k&iacute;nh l&agrave; 20 v&agrave; 10 n&ecirc;n diện t&iacute;ch phần t&ocirc; m&agrave;u l&agrave;:</p>
+<p>\(S = \frac{1}{2}.{S_{vk}} = \frac{1}{2}.\pi .\left( {{{20}^2} - {{10}^2}} \right) = 150\pi \).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Hình viên phân là gì? Cách tính diện tích hình viên phân</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hình viên phân</h3>
+<div><p>Hình viên phân là hình giới hạn bởi một cung tròn và dây cung (tương ứng) của đường tròn (minh hoạ bởi phần tô đậm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749461269345-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính diện tích hình viên phân</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749461280365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Để tính diện tích hình viên phân trong hình vẽ, ta làm như sau:</p>
+<p>+ Tính diện tích tam giác OAB: $S=\frac{1}{2}.$ chiều cao. đáy tương ứng.</p>
+<p>+ Tính diện tích hình quạt tròn: $S=\frac{\pi {{R}^{2}}n}{360}$</p>
+<p>+ Diện tích hình viên phân = diện tích hình quạt tròn – diện tích hình tam giác.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính diện tích hình quạt tròn</h3>
+<div><p><em>Diện tích ${{S}_{q}}$ của hình quạt tròn</em> bán kính R ứng với cung $n{}^\circ $:</p>
+<p>${{S}_{q}}=\frac{n}{360}\pi {{R}^{2}}=\frac{l.R}{2}$</p>
+<p><em>Ví dụ: </em>Diện tích hình quạt tròn có độ dài tương ứng với nó là $l=4\pi $cm, bán kính là R = 5cm là:</p>
+<p>${{S}_{q}}=\frac{l.R}{2}=\frac{4\pi .5}{2}=10\pi \left( c{{m}^{2}} \right)$</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n $\left( O \right)$ đường k&iacute;nh $AB = $ \(4\sqrt 3 \) $cm$ .</p>
+<p style="text-align: left;">Điểm \(C \in (O)\) sao cho \(\widehat {ABC} = {30^0}\). T&iacute;nh diện t&iacute;ch h&igrave;nh vi&ecirc;n ph&acirc;n$AC$ . (H&igrave;nh vi&ecirc;n ph&acirc;n l&agrave; phần h&igrave;nh tr&ograve;n giới hạn bởi một cung tr&ograve;n v&agrave; d&acirc;y căng cung ấy).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\pi&nbsp; - 3\sqrt 3 \) $ cm^2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\pi&nbsp; - 3\sqrt 3 \)&nbsp;$ cm^2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(4\pi&nbsp; - 3\sqrt 3 \)&nbsp;$ cm^2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(2\pi&nbsp; - \sqrt 3 \)&nbsp;$ cm^2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t đường tr&ograve;n $(O)$ c&oacute;:</p>
+<p style="text-align: left;">\(\widehat {ABC}\) v&agrave; \(\widehat {AOC}\)&nbsp;&nbsp; l&agrave; g&oacute;c nội tiếp v&agrave; g&oacute;c ở t&acirc;m c&ugrave;ng chắn cung$AC$&nbsp; \( \Rightarrow \widehat {AOC} = 2.\widehat {ABC} = {2.30^0} = {60^0}\)\( \Rightarrow {S_{qAOC}} = \dfrac{{\pi {R^2}.60}}{{360}} = \dfrac{{\pi {R^2}}}{6}\)</p>
+<p style="text-align: left;">X&eacute;t&nbsp; \(\Delta AOC\) c&oacute;&nbsp;&nbsp; \(\widehat {AOC} = {60^\circ }\)&nbsp; v&agrave; $OA=OC=R$&nbsp;n&ecirc;n tam gi&aacute;c $AOC$ đều cạnh bằng $R$ .</p>
+<p style="text-align: left;">Gọi $CH$ l&agrave; đường cao của tam gi&aacute;c $AOC$ , ta c&oacute;:</p>
+<p style="text-align: left;">\(CH = CO.\sin {60^0} = \dfrac{{\sqrt 3 }}{2}.R \Rightarrow {S_{AOC}} = \dfrac{1}{2}CH.OA = \dfrac{1}{2}.\dfrac{{\sqrt 3 }}{2}.R.R = \dfrac{{\sqrt 3 }}{4}.{R^2}.\)</p>
+<p style="text-align: left;">Diện t&iacute;ch h&igrave;nh vi&ecirc;n ph&acirc;n $AC$ l&agrave;:</p>
+<p style="text-align: left;">\({S_{qAOC}} - {S_{AOC}} = \dfrac{{\pi {R^2}}}{6} - \dfrac{{\sqrt 3 }}{4}.{R^2} = \left( {\dfrac{\pi }{6} - \dfrac{{\sqrt 3 }}{4}} \right).{R^2} \)</p>
+<p style="text-align: left;">\(= \left( {\dfrac{{2\pi&nbsp; - 3\sqrt 3 }}{{12}}} \right).{\left( {2\sqrt 3 } \right)^2} \)</p>
+<p style="text-align: left;">\(= 2\pi&nbsp; - 3\sqrt 3 \, cm^2.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n $\left( O \right)$ đường k&iacute;nh \(AB = 2\sqrt 2 \;cm\). Điểm \(C \in (O)\) sao cho \(\widehat {ABC} = {30^0}\).&nbsp; T&iacute;nh diện t&iacute;ch h&igrave;nh giới hạn bởi đường tr&ograve;n $\left( O \right)$ v&agrave; $AC,BC$ .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\pi&nbsp; - \sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\pi&nbsp; - 2\sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\pi&nbsp; - 3\sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(2\pi&nbsp; - \sqrt 3 \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Diện t&iacute;ch h&igrave;nh tr&ograve;n $\left( O \right)$ l&agrave;: \({S_{(O)}} = \pi {R^2}\)</p>
+<p style="text-align: left;">Ta c&oacute; g&oacute;c \(\widehat {ACB}\) l&agrave; g&oacute;c nội tiếp chắn nửa đường tr&ograve;n \( \Rightarrow \widehat {ACB} = {90^0}\)\( \Rightarrow \widehat {BAC} = {90^0} - \widehat {CBA} = {90^0} - {30^0} = {60^0}.\)</p>
+<p style="text-align: left;">Tam gi&aacute;c $AOC$ c&oacute; \(\widehat {CAO} = {60^\circ }\)&nbsp; v&agrave;&nbsp; $OA = OC = R$ &nbsp;n&ecirc;n tam gi&aacute;c $AOC$ đều cạnh bằng $R$ .</p>
+<p style="text-align: left;">Giả sử $CH$ l&agrave; đường cao của tam gi&aacute;c $ABC$ , ta c&oacute;:</p>
+<p style="text-align: left;">\(CH = CO.\sin {60^0} = \dfrac{{\sqrt 3 }}{2}.R \Rightarrow {S_{ABC}} = \dfrac{1}{2}CH.AB\)</p>
+<p style="text-align: left;">$= \dfrac{1}{2}.\dfrac{{\sqrt 3 }}{2}R.2R$</p>
+<p style="text-align: left;">\(= \dfrac{{\sqrt 3 }}{2}{R^2}.\)</p>
+<p style="text-align: left;">Diện t&iacute;ch h&igrave;nh giới hạn bởi đường tr&ograve;n $\left( O \right)$ v&agrave; $AC,BC$ l&agrave;:</p>
+<p style="text-align: left;">$\dfrac{1}{2}{S_{(O)}} - {S_{ABC}} = \dfrac{1}{2}\pi {R^2} - \dfrac{{\sqrt 3 }}{2}{R^2} = \dfrac{1}{2}\left( {\pi&nbsp; - \sqrt 3 } \right){R^2} = \dfrac{1}{2}\left( {\pi&nbsp; - \sqrt 3 } \right){\left( {\sqrt 2 } \right)^2} = \pi&nbsp; - \sqrt 3 .$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n $\left( O \right)$ đường k&iacute;nh $AB = $ $3\sqrt 3 $$cm$ . Điểm \(C \in (O)\) sao cho \(\widehat {ABC} = {60^0}\). T&iacute;nh diện t&iacute;ch h&igrave;nh vi&ecirc;n ph&acirc;n$BC$ . (H&igrave;nh vi&ecirc;n ph&acirc;n l&agrave; phần h&igrave;nh tr&ograve;n giới hạn bởi một cung tr&ograve;n v&agrave; d&acirc;y căng cung ấy)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$\dfrac{{18\pi&nbsp; - 27\sqrt 3 }}{{16}}\left( {c{m^2}} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$\dfrac{{18\pi&nbsp; - 9\sqrt 3 }}{{16}}\left( {c{m^2}} \right)$&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$\dfrac{{2\pi&nbsp; - 3\sqrt 3 }}{{16}}\left( {c{m^2}} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$\dfrac{{18\pi&nbsp; - 27\sqrt 3 }}{4}\left( {c{m^2}} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t đường tr&ograve;n (O) c&oacute;:</p>
+<p>\(\widehat {ACB} = 90^\circ \) (g&oacute;c nội tiếp chắn nửa đường tr&ograve;n)</p>
+<p>Suy ra \(\widehat {CAB} = 90^\circ&nbsp; - \widehat {CBA} = 30^\circ \) (tam gi&aacute;c \(ABC\) vu&ocirc;ng tại \(C\))</p>
+<p>\(\widehat {ACB}\) v&agrave; \(\widehat {BOC}\)&nbsp;&nbsp; l&agrave; g&oacute;c nội tiếp v&agrave; g&oacute;c ở t&acirc;m c&ugrave;ng chắn cung $AC$&nbsp; \( \Rightarrow \widehat {BOC} = 2.\widehat {ACB} = {2.30^0} = {60^0}\)\( \Rightarrow {S_{quạt\,\,AOC}} = \dfrac{{\pi {R^2}.60}}{{360}} = \dfrac{{\pi {R^2}}}{6}\)</p>
+<p>X&eacute;t&nbsp; \(\Delta BOC\) c&oacute;&nbsp;&nbsp; \(\widehat {BOC} = {60^\circ }\)&nbsp; v&agrave;&nbsp; $\;OA = OC = R$ n&ecirc;n tam gi&aacute;c $AOC$ đều cạnh bằng $R$ .</p>
+<p>Gọi $CH$ l&agrave; đường cao của tam gi&aacute;c $AOC$ , ta c&oacute;:</p>
+<p>\(CH = CO.\sin {60^0} = \dfrac{{\sqrt 3 }}{2}.R\)\( \Rightarrow {S_{AOC}} = \dfrac{1}{2}CH.OA = \dfrac{1}{2}.\dfrac{{\sqrt 3 }}{2}.R.R \)\(= \dfrac{{\sqrt 3 }}{4}.{R^2}.\)</p>
+<p>Diện t&iacute;ch h&igrave;nh vi&ecirc;n ph&acirc;n $BC$ l&agrave;:</p>
+<p>${S_{quạt\,\,BOC}} - {S_{\Delta {\rm B}OC}} = \dfrac{{\pi {R^2}}}{6} - \dfrac{{\sqrt 3 }}{4}.{R^2} $$= \left( {\dfrac{\pi }{6} - \dfrac{{\sqrt 3 }}{4}} \right).{R^2} $$= \left( {\dfrac{{2\pi&nbsp; - 3\sqrt 3 }}{{12}}} \right).{\left( {\dfrac{{3\sqrt 3 }}{2}} \right)^2} $$= \dfrac{{18\pi&nbsp; - 27\sqrt 3 }}{{16}}\left( {c{m^2}} \right)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n $\left( O \right)$ đường k&iacute;nh \(AB = 4\sqrt 2 \;cm\). Điểm \(C \in (O)\) sao cho \(\widehat {ABC} = {30^0}\).&nbsp; T&iacute;nh diện t&iacute;ch hai h&igrave;nh vi&ecirc;n ph&acirc;n giới hạn bởi nửa đường tr&ograve;n $\left( O \right)$ v&agrave; d&acirc;y $AC,BC$ .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\pi&nbsp; - \sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2\pi&nbsp; - 2\sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\pi&nbsp; - 3\sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2\pi&nbsp; - \sqrt 3 \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch h&igrave;nh tr&ograve;n $\left( O \right)$ l&agrave;: \({S_{(O)}} = \pi {R^2}\)</p>
+<p>Ta c&oacute; g&oacute;c \(\widehat {ACB}\) l&agrave; g&oacute;c nội tiếp chắn nửa đường tr&ograve;n \( \Rightarrow \widehat {ACB} = {90^0}\)\( \Rightarrow \widehat {BAC} = {90^0} - \widehat {CBA} = {90^0} - {30^0} = {60^0}.\)</p>
+<p>Tam gi&aacute;c $AOC$ c&oacute;&nbsp;&nbsp; \(\widehat {CAO} = {60^\circ }\)&nbsp; v&agrave;&nbsp; $\;OA = OC = R$ n&ecirc;n tam gi&aacute;c $AOC$ đều cạnh bằng $R$ .</p>
+<p>Giả sử $CH$ l&agrave; đường cao của tam gi&aacute;c $ABC$ , ta c&oacute;:</p>
+<p>\(CH = CO.\sin {60^0} = \dfrac{{\sqrt 3 }}{2}.R \)\(\Rightarrow {S_{ABC}} = \dfrac{1}{2}CH.AB \)\(= \dfrac{1}{2}.\dfrac{{\sqrt 3 }}{2}R.2R = \dfrac{{\sqrt 3 }}{2}{R^2}.\)</p>
+<p>Diện t&iacute;ch h&igrave;nh giới hạn bởi đường tr&ograve;n $\left( O \right)$ v&agrave; $AC,BC$ l&agrave;:</p>
+<p>$\dfrac{1}{2}{S_{(O)}} - {S_{ABC}} = \dfrac{1}{2}\pi {R^2} - \dfrac{{\sqrt 3 }}{2}{R^2} $$= \dfrac{1}{2}\left( {\pi&nbsp; - \sqrt 3 } \right){R^2} $$= \dfrac{1}{2}\left( {\pi&nbsp; - \sqrt 3 } \right){\left( {2\sqrt 2 } \right)^2} = 2\pi&nbsp; - 2\sqrt 3 .$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

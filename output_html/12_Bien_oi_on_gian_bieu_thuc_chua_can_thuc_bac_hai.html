@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biến đổi đơn giản biểu thức chứa căn thức bậc hai - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 12: Biến đổi đơn giản biểu thức chứa căn thức bậc hai</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách đưa thừa số ra ngoài dấu căn bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của căn thức bậc hai</h3>
+<div><p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách đưa thừa số ra ngoài dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {{a^2}b}  = \left| a \right|\sqrt b \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số ra ngoài dấu căn.</em></p>
+<p>Tổng quát, với hai biểu thức A và B mà \(B \ge 0\), ta có \(\sqrt {{A^2}B}  = \left| A \right|\sqrt B \).</p>
+<p>Với những căn thức bậc hai mà biểu thức dưới dấu căn có mẫu, ta thường <em>khử mẫu của biểu thức lấy căn</em> (biến đổi căn thức bậc hai đó thành một biểu thức mà trong căn thức không còn mẫu).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho c&aacute;c biểu thức với $A &lt; 0$ v&agrave; $B \ge 0$ , khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt {{A^2}B}&nbsp; = A\sqrt B $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt {{A^2}B}&nbsp; =&nbsp; - A\sqrt B $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {{A^2}B}&nbsp; = -B\sqrt A $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {{A^2}B}&nbsp; = B\sqrt A $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với hai biểu thức $A,B$ m&agrave; $B \ge 0$, ta c&oacute; $\sqrt {{A^2}B}&nbsp; = \left| A \right|\sqrt B&nbsp; = \left\{ \begin{array}{l}A\sqrt B \,\,{\rm{khi}}\,\,A \ge 0\\ - A\sqrt B \,{\rm{khi}}\,A &lt; 0\end{array} \right.$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Đưa thừa số $\sqrt {81{{\left( {2 - y} \right)}^4}} $ ra ngo&agrave;i&nbsp; dấu căn ta được ?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$9\left( {2 - y} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$81{\left( {2 - y} \right)^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$9{\left( {2 - y} \right)^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 9{\left( {2 - y} \right)^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {81{{\left( {2 - y} \right)}^4}}&nbsp; = \sqrt {81.{{\left[ {{{\left( {2 - y} \right)}^2}} \right]}^2}}&nbsp; = \left| {{{\left( {2 - y} \right)}^2}} \right|\sqrt {81}&nbsp; = 9{\left( {2 - y} \right)^2}$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; \(\sqrt {32x}&nbsp; + \sqrt {50x}&nbsp; - 2\sqrt {8x}&nbsp; + \sqrt {18x} \) với $x \ge 0$ ta được kết quả l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$8\sqrt {2x} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$10\sqrt 2 x$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$20\sqrt x $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2\sqrt {10x} $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(\sqrt {32x}&nbsp; + \sqrt {50x}&nbsp; - 2\sqrt {8x}&nbsp; + \sqrt {18x} \)$ = \sqrt {16.2x}&nbsp; + \sqrt {25.2x}&nbsp; - 2\sqrt {4.2x}&nbsp; + \sqrt {9.2x}&nbsp; = \sqrt {{4^2}.2x}&nbsp; + \sqrt {{5^2}.2x}&nbsp; - 2\sqrt {{2^2}.2x}&nbsp; + \sqrt {{3^2}.2x} $</p>
+<p style="text-align: left;">$ = 4\sqrt {2x}&nbsp; + 5\sqrt {2x}&nbsp; - 4\sqrt {2x}&nbsp; + 3\sqrt {2x}&nbsp; = \sqrt {2x} \left( {4 + 5 - 4 + 3} \right) = 8\sqrt {2x} $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; \(5\sqrt a&nbsp; - 4b\sqrt {25{a^3}}&nbsp; + 5a\sqrt {16a{b^2}}&nbsp; - \sqrt {9a} \) với $a \ge 0;b \ge 0$ ta được kết quả l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2\sqrt {2a} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$4\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$8\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2\sqrt a $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(5\sqrt a&nbsp; - 4b\sqrt {25{a^3}}&nbsp; + 5a\sqrt {16a{b^2}}&nbsp; - \sqrt {9a} \)$ = 5\sqrt a&nbsp; - 4\sqrt {25{a^3}{b^2}}&nbsp; + 5\sqrt {16a{b^2}.{a^2}}&nbsp; - \sqrt 9 .\sqrt a $</p>
+<p style="text-align: left;">$ = 5\sqrt a&nbsp; - 4\sqrt {25} .\sqrt {{a^3}{b^2}}&nbsp; + 5\sqrt {16} .\sqrt {{a^3}{b^2}}&nbsp; - 3\sqrt a $$ = \left( {5\sqrt a&nbsp; - 3\sqrt a } \right) - \left( {4.5\sqrt {{a^3}{b^2}}&nbsp; - 5.4\sqrt {{a^3}{b^2}} } \right)$$ = 2\sqrt a $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Phương tr&igrave;nh \(\dfrac{2}{3}\sqrt {9x - 9}&nbsp; - \dfrac{1}{4}\sqrt {16x - 16}&nbsp; + 27\sqrt {\dfrac{{x - 1}}{{81}}}&nbsp; = 4\) c&oacute; mấy nghiệm?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện: $\left\{ \begin{array}{l}9x - 9 \ge 0\\16x - 16 \ge 0\\\dfrac{{x - 1}}{{81}} \ge 0\end{array} \right. $</p>
+<p>$\left\{ \begin{array}{l}9\left( {x - 1} \right) \ge 0\\16\left( {x - 1} \right) \ge 0\\x - 1 \ge 0\end{array} \right. \\ x - 1 \ge 0 \\ x \ge 1$</p>
+<p>Ta c&oacute; \(\dfrac{2}{3}\sqrt {9x - 9}&nbsp; - \dfrac{1}{4}\sqrt {16x - 16}&nbsp; + 27\sqrt {\dfrac{{x - 1}}{{81}}}&nbsp; = 4\)$ \\\dfrac{2}{3}\sqrt {9\left( {x - 1} \right)}&nbsp; - \dfrac{1}{4}\sqrt {16\left( {x - 1} \right)}&nbsp; + 27\sqrt {\dfrac{1}{{81}}.\left( {x - 1} \right)}&nbsp; = 4$</p>
+<p>\( \dfrac{2}{3}.3\sqrt {x - 1}&nbsp; - \dfrac{1}{4}.4\sqrt {x - 1}&nbsp; + 27.\dfrac{1}{9}.\sqrt {x - 1}&nbsp; = 4\)<br />\( 2\sqrt {x - 1}&nbsp; - \sqrt {x - 1}&nbsp; + 3\sqrt {x - 1}&nbsp; = 4\)</p>
+<p>\( 4\sqrt {x - 1}&nbsp; = 4 \)</p>
+<p>\( \sqrt {x - 1}&nbsp; = 1\)</p>
+<p>\( x - 1 = 1 \)</p>
+<p>\( x = 2\left( {TM} \right)\)</p>
+<p>Vậy phương tr&igrave;nh c&oacute; một nghiệm \(x = 2\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách đưa thừa số vào trong dấu căn bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của căn thức bậc hai</h3>
+<div><p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách đưa thừa số vào trong dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có:</p>
+<p>+ Nếu \(a \ge 0\) thì \(a\sqrt b  = \sqrt {{a^2}b} \).</p>
+<p>+ Nếu \(a &lt; 0\) thì \(a\sqrt b  =  - \sqrt {{a^2}b} \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số vào trong dấu căn.</em></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Đưa thừa số $5y\sqrt y $ ($y \ge 0$) v&agrave;o trong dấu căn ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt {5{y^2}} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt {25{y^3}} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {5{y^3}} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {25y\sqrt y } $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $5y\sqrt y $$ = \sqrt {{{\left( {5y} \right)}^2}y}&nbsp; = \sqrt {25{y^2}.y}&nbsp; = \sqrt {25{y^3}} $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Đưa thừa số $x\sqrt {\dfrac{{ - 35}}{x}} $ ($x &lt; 0$) v&agrave;o trong dấu căn ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt { - 35x} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ - \sqrt { - 35x} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {35} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {35{x^2}} $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $x\sqrt {\dfrac{{ - 35}}{x}} $$ =&nbsp; - \sqrt {{x^2}.\dfrac{{ - 35}}{x}}&nbsp; =&nbsp; - \sqrt { - 35x} $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh hai&nbsp; số $5\sqrt 3 $ v&agrave; $4\sqrt 5 $</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$5\sqrt 3&nbsp; &gt; 4\sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$5\sqrt 3&nbsp; = 4\sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$5\sqrt 3&nbsp; \ge 4\sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$5\sqrt 3&nbsp; &lt; 4\sqrt 5 $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $5\sqrt 3&nbsp; = \sqrt {{5^2}.3}&nbsp; = \sqrt {25.3}&nbsp; = \sqrt {75} $; $4\sqrt 5&nbsp; = \sqrt {{4^2}.5}&nbsp; = \sqrt {16.5}&nbsp; = \sqrt {80} $</p>
+<p style="text-align: left;">V&igrave; $75 &lt; 80 $ n&ecirc;n $\sqrt {75}&nbsp; &lt; \sqrt {80}&nbsp; $ hay $ 5\sqrt 3&nbsp; &lt; 4\sqrt 5 $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Khử mẫu biểu thức sau $ - xy\sqrt {\dfrac{3}{{xy}}} $ với $x < 0;y < 0$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt {xy} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt { - xy} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {3xy} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - \sqrt {3xy} $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Vì $x < 0;y < 0$ nên $xy > 0$. Từ đó ta có</p>
+<p style="text-align: left;">$ - xy\sqrt {\dfrac{3}{{xy}}} $$ =  - xy.\dfrac{{\sqrt {3xy} }}{{xy}} =  - \sqrt {3xy} $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Khử mẫu biểu thức sau $ xy\sqrt {\dfrac{4}{{x^2y^2}}} $ với $x &gt; 0;y &gt; 0$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt { - xy} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {2} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ 2 $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&igrave; $x &gt; 0;y &gt; 0$ n&ecirc;n $xy &gt; 0$. Từ đ&oacute; ta c&oacute;</p>
+<p style="text-align: left;">$ xy\sqrt {\dfrac{4}{{x^2y^2}}} $$ =&nbsp; xy.\dfrac{{\sqrt {4} }}{\sqrt{x^2y^2}} = xy.\dfrac{2}{xy}= 2 $.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Trục căn thức ở mẫu là gì? Cách trục căn thức ở mẫu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của căn thức bậc hai</h3>
+<div><p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Khái niệm Trục căn thức ở mẫu</h3>
+<div><p>Trục căn thức ở mẫu là phép biến đổi để làm mất dấu căn ở dưới mẫu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách trục căn thức ở mẫu</h3>
+<div><p>- Với các biểu thức A, B và B &gt; 0, ta có \(\frac{A}{{\sqrt B }} = \frac{{A\sqrt B }}{B}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,A \ne {B^2}\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + B}} = \frac{{C\left( {\sqrt A  - B} \right)}}{{A - {B^2}}};\frac{C}{{\sqrt A  - B}} = \frac{{C\left( {\sqrt A  + B} \right)}}{{A - {B^2}}}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,B \ge 0,A \ne B\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + \sqrt B }} = \frac{{C\left( {\sqrt A  - \sqrt B } \right)}}{{A - B}};\frac{C}{{\sqrt A  - \sqrt B }} = \frac{{C\left( {\sqrt A  + \sqrt B } \right)}}{{A - B}}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Sau&#xA0; khi r&#xFA;t g&#x1ECD;n bi&#x1EC3;u th&#x1EE9;c $\dfrac{1}{{5 + 3\sqrt 2 }} + \dfrac{1}{{5 - 3\sqrt 2 }}$ ta &#x111;&#x1B0;&#x1EE3;c ph&#xE2;n s&#x1ED1; t&#x1ED1;i gi&#x1EA3;n $\dfrac{a}{b},\left( {a,b \in \mathbb{Z}} \right)$. Khi &#x111;&#xF3; $2a$ c&#xF3; gi&#xE1; tr&#x1ECB; l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$20$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$7$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$14$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; $\dfrac{1}{{5 + 3\sqrt 2 }} + \dfrac{1}{{5 - 3\sqrt 2 }} \\= \dfrac{{5 - 3\sqrt 2 }}{{\left( {5 + 3\sqrt 2 } \right)\left( {5 - 3\sqrt 2 } \right)}} + \dfrac{{5 + 3\sqrt 2 }}{{\left( {5 + 3\sqrt 2 } \right)\left( {5 - 3\sqrt 2 } \right)}}\\ =\dfrac{{5 - 3\sqrt 2+5 + 3\sqrt 2 }}{{\left( {5 + 3\sqrt 2 } \right)\left( {5 - 3\sqrt 2 } \right)}} \\= \dfrac{{10}}{{{5^2} - {{\left( {3\sqrt 2 } \right)}^2}}} = \dfrac{{10}}{{25 - 18}} = \dfrac{{10}}{7}$</p>
+<p style="text-align: left;">Suy ra $a = 10;b = 7 $</p>
+<p style="text-align: left;">Do &#x111;&#xF3; $2a = 2.10 = 20$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Trục căn thức ở mẫu&nbsp; biểu thức&nbsp; \(\dfrac{{2a}}{{2 - \sqrt a }}\)với $a \ge 0;a \ne 4$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{{ - 2a\sqrt a&nbsp; + 4a}}{{4 - a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{{2a\sqrt a&nbsp; - 4a}}{{4 - a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{{2a\sqrt a&nbsp; + 4a}}{{4 - a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - \dfrac{{2a\sqrt a&nbsp; + 4a}}{{4 - a}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\dfrac{{2a}}{{2 - \sqrt a }} = \dfrac{{2a\left( {2 + \sqrt a } \right)}}{{\left( {2 - \sqrt a } \right)\left( {2 + \sqrt a } \right)}} = \dfrac{{2a\sqrt a&nbsp; + 4a}}{{4 - a}}.$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Trục căn thức ở mẫu&nbsp; biểu thức&nbsp; \(\dfrac{6}{{\sqrt x&nbsp; + \sqrt {2y} }}\)với $x \ge 0;y \ge 0$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{{6\left( {\sqrt x&nbsp; - \sqrt {2y} } \right)}}{{x - 4y}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{{6\left( {\sqrt x&nbsp; + \sqrt {2y} } \right)}}{{x - 2y}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{{6\left( {\sqrt x&nbsp; - \sqrt {2y} } \right)}}{{x - 2y}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\dfrac{{6\left( {\sqrt x&nbsp; + \sqrt {2y} } \right)}}{{x + 2y}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(\dfrac{6}{{\sqrt x&nbsp; + \sqrt {2y} }}\)$ = \dfrac{{6\left( {\sqrt x&nbsp; - \sqrt {2y} } \right)}}{{\left( {\sqrt x&nbsp; + \sqrt {2y} } \right)\left( {\sqrt x&nbsp; - \sqrt {2y} } \right)}} = \dfrac{{6\left( {\sqrt x&nbsp; - \sqrt {2y} } \right)}}{{x - 2y}}$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&iacute;nh gi&aacute; trị biểu thức\(\left( {\dfrac{{\sqrt {14}&nbsp; - \sqrt 7 }}{{1 - \sqrt 2 }} + \dfrac{{\sqrt {15}&nbsp; - \sqrt 5 }}{{1 - \sqrt 3 }}} \right):\dfrac{1}{{\sqrt 7&nbsp; - \sqrt 5 }}.\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$ - 3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ - 2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$2$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(\left( {\dfrac{{\sqrt {14}&nbsp; - \sqrt 7 }}{{1 - \sqrt 2 }} + \dfrac{{\sqrt {15}&nbsp; - \sqrt 5 }}{{1 - \sqrt 3 }}} \right):\dfrac{1}{{\sqrt 7&nbsp; - \sqrt 5 }}\)$ = \left( {\dfrac{{\sqrt 2 .\sqrt 7&nbsp; - \sqrt 7 }}{{1 - \sqrt 2 }} + \dfrac{{\sqrt 5 .\sqrt 3&nbsp; - \sqrt 5 }}{{1 - \sqrt 3 }}} \right):\dfrac{1}{{\sqrt 7&nbsp; - \sqrt 5 }}$</p>
+<p style="text-align: left;">$ = \left( {\dfrac{{\sqrt 7 \left( {\sqrt 2&nbsp; - 1} \right)}}{{1 - \sqrt 2 }} + \dfrac{{\sqrt 5 \left( {\sqrt 3&nbsp; - 1} \right)}}{{1 - \sqrt 3 }}} \right).\left( {\sqrt 7&nbsp; - \sqrt 5 } \right)$</p>
+<p style="text-align: left;">$ = \left( { - \sqrt 7&nbsp; - \sqrt 5 } \right).\left( {\sqrt 7&nbsp; - \sqrt 5 } \right)$</p>
+<p style="text-align: left;">$=&nbsp; - \left( {\sqrt 7&nbsp; + \sqrt 5 } \right)\left( {\sqrt 7&nbsp; - \sqrt 5 } \right)$</p>
+<p style="text-align: left;">$=&nbsp; - \left( {7 - 5} \right) =&nbsp; - 2$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị biểu thức $\dfrac{3}{2}\sqrt 6&nbsp; + 2\sqrt {\dfrac{2}{3}}&nbsp; - 4\sqrt {\dfrac{3}{2}} $ l&agrave; gi&aacute; trị n&agrave;o sau đ&acirc;y?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{{\sqrt 6 }}{6}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt 6 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{{\sqrt 6 }}{2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\dfrac{{\sqrt 6 }}{3}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\dfrac{3}{2}\sqrt 6&nbsp; + 2\sqrt {\dfrac{2}{3}}&nbsp; - 4\sqrt {\dfrac{3}{2}}&nbsp; = \dfrac{3}{2}\sqrt 6&nbsp; + 2.\dfrac{{\sqrt 6 }}{3} - 4\dfrac{{\sqrt 6 }}{2}$$ = \sqrt 6 \left( {\dfrac{3}{2} + \dfrac{2}{3} - \dfrac{4}{2}} \right) = \dfrac{{\sqrt 6 }}{6}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị của biểu thức \(\sqrt {\dfrac{3}{{20}}}&nbsp; + \sqrt {\dfrac{1}{{60}}}&nbsp; - 2\sqrt {\dfrac{1}{{15}}} \) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$1$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(\sqrt {\dfrac{3}{{20}}}&nbsp; + \sqrt {\dfrac{1}{{60}}}&nbsp; - 2\sqrt {\dfrac{1}{{15}}} \)\( = \dfrac{{\sqrt {3.20} }}{{20}} + \dfrac{{\sqrt {60} }}{{60}} - \dfrac{{2\sqrt {15} }}{{15}}\)\( = \dfrac{{3\sqrt {60}&nbsp; + \sqrt {60}&nbsp; - 4.\sqrt {4.15} }}{{60}} = \dfrac{{4\sqrt {60}&nbsp; - 4\sqrt {60} }}{{60}} = 0.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức \(\dfrac{a}{{\sqrt 5&nbsp; + 1}} + \dfrac{a}{{\sqrt 5&nbsp; - 2}} - \dfrac{a}{{3 - \sqrt 5 }} - \sqrt 5 a\) ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$12a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(\dfrac{a}{{\sqrt 5&nbsp; + 1}} + \dfrac{a}{{\sqrt 5&nbsp; - 2}} - \dfrac{a}{{3 - \sqrt 5 }} - \sqrt 5 a\)$ = \dfrac{{a\left( {\sqrt 5&nbsp; - 1} \right)}}{{\left( {\sqrt 5&nbsp; - 1} \right)\left( {\sqrt 5&nbsp; + 1} \right)}} + \dfrac{{a\left( {\sqrt 5&nbsp; + 2} \right)}}{{\left( {\sqrt 5&nbsp; - 2} \right)\left( {\sqrt 5&nbsp; + 2} \right)}} - \dfrac{{a\left( {3 + \sqrt 5 } \right)}}{{\left( {3 + \sqrt 5 } \right)\left( {3 - \sqrt 5 } \right)}} - \sqrt 5 a$</p>
+<p style="text-align: left;">$ = \dfrac{{a\left( {\sqrt 5&nbsp; - 1} \right)}}{4} + \dfrac{{a\left( {\sqrt 5&nbsp; + 2} \right)}}{1} - \dfrac{{a\left( {3 + \sqrt 5 } \right)}}{4} - \sqrt 5 a$$ = \dfrac{{a\left( {\sqrt 5&nbsp; - 1} \right) + 4a\left( {2 + \sqrt 5 } \right) - a\left( {3 + \sqrt 5 } \right) - 4\sqrt 5 a}}{4}$</p>
+<p style="text-align: left;">$ = \dfrac{{a\left( {\sqrt 5&nbsp; - 1 + 8+ 4\sqrt 5&nbsp; - 3 - \sqrt 5&nbsp; - 4\sqrt 5 } \right)}}{4} = \dfrac{{4a}}{4} = a$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Biểu thức liên hợp là gì? Các dạng liên hợp cơ bản thường gặp là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Biểu thức liên hợp</h3>
+<div><p>Biểu thức liên hợp là một công cụ mạnh mẽ trong toán học, giúp giải quyết nhiều vấn đề phức tạp từ đại số đến giải tích</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Các dạng liên hợp cơ bản thường gặp</h3>
+<div><p>- Căn bậc hai: \(\sqrt A  - \sqrt B \) và \(\sqrt A  + \sqrt B \) là hai biểu thức liên hợp.</p>
+<p>                        \(A - \sqrt B \) và \(A + \sqrt B \) là hai biểu thức liên hợp.</p>
+<p>- Căn bậc ba: \(\sqrt[3]{A} + \sqrt[3]{B}\) và \({\left( {\sqrt[3]{A}} \right)^2} - \sqrt[3]{A}.\sqrt[3]{B} + {\left( {\sqrt[3]{B}} \right)^2}\) là hai biểu thức liên hợp.</p>
+<p>                        \(\sqrt[3]{A} - \sqrt[3]{B}\) và \({\left( {\sqrt[3]{A}} \right)^2} + \sqrt[3]{A}.\sqrt[3]{B} + {\left( {\sqrt[3]{B}} \right)^2}\) là hai biểu thức liên hợp.</p>
+<p>                        \(A + \sqrt[3]{B}\) và \({A^2} - A.\sqrt[3]{B} + {\left( {\sqrt[3]{B}} \right)^2}\) là hai biểu thức liên hợp.</p>
+<p>\(A - \sqrt[3]{B}\) và \({A^2} + A.\sqrt[3]{B} + {\left( {\sqrt[3]{B}} \right)^2}\) là hai biểu thức liên hợp.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách rút gọn biểu thức chứa căn thức bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách rút gọn biểu thức chứa căn thức bậc hai</h3>
+<div><p>Khi rút gọn biểu thức có chứa căn thức bậc hai, ta cần phối hợp các phép tính (cộng, trừ, nhân, chia) và các phép biến đổi đã học (đưa thừa số ra ngoài hoặc vào trong dấu căn; khử mẫu của biểu thức lấy căn; trục căn thức ở mẫu).</p>
+<p>Khi rút gọn biểu thức, ta cần thực hiện theo các bước sau:</p>
+<p><em>+ Bước 1: </em>Tìm điều kiện xác định (nếu cần);</p>
+<p><em>+ Bước 2: </em>Phân tích mẫu thành nhân tử để tìm mẫu thức chung rồi quy đồng;</p>
+<p><em>+ Bước 3: </em>Áp dụng các phép toán (cộng, trừ, nhân, chia) phân thức kết hoặc các phép biến đổi khai căn để rút gọn phân thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định hay có nghĩa khi \(A \ge 0\). Từ đó ta giải bất phương trình để tìm điều kiện xác định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách rút gọn căn thức bậc hai</h3>
+<div><p>Để rút gọn căn thức bậc hai, ta dựa vào các kiến thức:</p>
+<p>- Đưa các biểu thức dưới dấu căn về hằng đẳng thức. Thông thường là</p>
+<p>· \({\left( {a + b} \right)^2} = {a^2} + 2ab + {b^2}\)</p>
+<p>· \({\left( {a - b} \right)^2} = {a^2} - 2ab + {b^2}\)</p>
+<p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách đưa thừa số ra ngoài dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {{a^2}b}  = \left| a \right|\sqrt b \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số ra ngoài dấu căn.</em></p>
+<p>Tổng quát, với hai biểu thức A và B mà \(B \ge 0\), ta có \(\sqrt {{A^2}B}  = \left| A \right|\sqrt B \).</p>
+<p>Với những căn thức bậc hai mà biểu thức dưới dấu căn có mẫu, ta thường <em>khử mẫu của biểu thức lấy căn</em> (biến đổi căn thức bậc hai đó thành một biểu thức mà trong căn thức không còn mẫu).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách đưa thừa số vào trong dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có:</p>
+<p>+ Nếu \(a \ge 0\) thì \(a\sqrt b  = \sqrt {{a^2}b} \).</p>
+<p>+ Nếu \(a &lt; 0\) thì \(a\sqrt b  =  - \sqrt {{a^2}b} \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số vào trong dấu căn.</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>7. Cách trục căn thức ở mẫu</h3>
+<div><p>- Với các biểu thức A, B và B &gt; 0, ta có \(\frac{A}{{\sqrt B }} = \frac{{A\sqrt B }}{B}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,A \ne {B^2}\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + B}} = \frac{{C\left( {\sqrt A  - B} \right)}}{{A - {B^2}}};\frac{C}{{\sqrt A  - B}} = \frac{{C\left( {\sqrt A  + B} \right)}}{{A - {B^2}}}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,B \ge 0,A \ne B\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + \sqrt B }} = \frac{{C\left( {\sqrt A  - \sqrt B } \right)}}{{A - B}};\frac{C}{{\sqrt A  - \sqrt B }} = \frac{{C\left( {\sqrt A  + \sqrt B } \right)}}{{A - B}}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức \(5\sqrt a&nbsp; + 2\sqrt {\dfrac{a}{4}}&nbsp; - a\sqrt {\dfrac{4}{a}}&nbsp; - \sqrt {25a} \)&nbsp; với \(a &gt; 0\) ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$4\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - \sqrt a $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(5\sqrt a&nbsp; + 2\sqrt {\dfrac{a}{4}}&nbsp; - a\sqrt {\dfrac{4}{a}}&nbsp; - \sqrt {25a} \)\( = 5\sqrt a&nbsp; + 2.\dfrac{{\sqrt a }}{{\sqrt 4 }} - a\dfrac{{\sqrt {4a} }}{a} - 5\sqrt a \)\( = 5\sqrt a&nbsp; + \sqrt a&nbsp; - 2\sqrt a&nbsp; - 5\sqrt a \)</p>
+<p style="text-align: left;">\( =&nbsp; - \sqrt a \)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức \(2\sqrt a&nbsp; - \sqrt {9{a^3}}&nbsp; + {a^2}\sqrt {\dfrac{{16}}{a}}&nbsp; + \dfrac{2}{{{a^2}}}\sqrt {36{a^5}} \) với $a &gt; 0$ ta được&nbsp;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$14\sqrt a&nbsp; + a\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14\sqrt a&nbsp; - a\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$14\sqrt a&nbsp; + 2a\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$20\sqrt a&nbsp; - 2a\sqrt a $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với $a&gt;0$ ta c&oacute; \(2\sqrt a&nbsp; - \sqrt {9{a^3}}&nbsp; + {a^2}\sqrt {\dfrac{{16}}{a}}&nbsp; + \dfrac{2}{{{a^2}}}\sqrt {36{a^5}} \)$ = 2\sqrt a&nbsp; - \sqrt {9{a^2}.a}&nbsp; + {a^2}\dfrac{{\sqrt {16a} }}{a} + \dfrac{2}{{{a^2}}}.\sqrt {36{a^4}.a} $</p>
+<p style="text-align: left;">$ = 2\sqrt a&nbsp; - 3a\sqrt a&nbsp; + 4a\sqrt a&nbsp; + \dfrac{2}{{{a^2}}}.6{a^2}\sqrt a $$ = 2\sqrt a&nbsp; - 3a\sqrt a&nbsp; + 4a\sqrt a&nbsp; + 12\sqrt a&nbsp; = 14\sqrt a&nbsp; + a\sqrt a $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức \(3\sqrt {8a}&nbsp; + \dfrac{1}{4}\sqrt {\dfrac{{32a}}{{25}}}&nbsp; - \dfrac{a}{{\sqrt 3 }}.\sqrt {\dfrac{3}{{2a}}}&nbsp; - \sqrt {2a} \) với \(a &gt; 0\) ta được:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\dfrac{{47}}{{10}}\sqrt a \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\dfrac{{21}}{5}\sqrt a \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\dfrac{{47}}{{10}}\sqrt {2a} \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\dfrac{{47}}{5}\sqrt {2a} \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(3\sqrt {8a}&nbsp; + \dfrac{1}{4}\sqrt {\dfrac{{32a}}{{25}}}&nbsp; - \dfrac{a}{{\sqrt 3 }}.\sqrt {\dfrac{3}{{2a}}}&nbsp; - \sqrt {2a} \) \(&nbsp; = 3\sqrt {4.2a}&nbsp; + \dfrac{1}{4}\dfrac{{\sqrt {16.2a} }}{{\sqrt {25} }} - \dfrac{a}{{\sqrt 3 }}.\dfrac{{\sqrt 3 }}{{\sqrt {2a} }} - \sqrt {2a} \) \( = 3.2\sqrt {2a}&nbsp; + \dfrac{1}{4}.\dfrac{{4\sqrt {2a} }}{5} - \dfrac{a}{{\sqrt 3 }}.\dfrac{{\sqrt 3 .\sqrt {2a} }}{{2a}} - \sqrt {2a} \) \( = 6\sqrt {2a}&nbsp; + \dfrac{1}{5}\sqrt {2a}&nbsp; - \dfrac{1}{2}\sqrt {2a}&nbsp; - \sqrt {2a} \)</p>
+<p style="text-align: left;">\( = \sqrt {2a} .\left( {6 + \dfrac{1}{5} - \dfrac{1}{2} - 1} \right) = \dfrac{{47}}{{10}}\sqrt {2a} \)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức \(\left( {\dfrac{1}{2}\sqrt {\dfrac{a}{2}}&nbsp; - \dfrac{3}{2}\sqrt {2a}&nbsp; + \dfrac{4}{5}\sqrt {200a} } \right):\dfrac{1}{8}\) ta được:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(66\sqrt {2a} \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(52\sqrt {2a} \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(54\sqrt a \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(54\sqrt {2a} \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;:</p>
+<p>\(\left( {\frac{1}{2}\sqrt {\frac{a}{2}} {\rm{\;}} - \frac{3}{2}\sqrt {2a} {\rm{\;}} + \frac{4}{5}\sqrt {200a} } \right):\frac{1}{8}\)\( = \left( {\frac{{\sqrt {2a} }}{4} - \frac{3}{2}\sqrt 2 a.{\rm{\;}} + \frac{4}{5}\sqrt {100} .\sqrt {2a} } \right).8\)</p>
+<p>\( = 2\sqrt {2a} {\rm{\;}} - 12\sqrt {2a} {\rm{\;}} + 64\sqrt {2a} {\rm{\;}} = 54\sqrt {2a} \)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(A = \sqrt {1 + \dfrac{1}{{{a^2}}} + \dfrac{1}{{{{\left( {a + 1} \right)}^2}}}} \) với \(\left( {a &gt; 0} \right)\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(A = \dfrac{{{a^2} + a + 1}}{{a\left( {a - 1} \right)}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(A = \dfrac{{{a^2} + a + 1}}{{a\left( {a + 1} \right)}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(A = \dfrac{{{a^2} - a + 1}}{{a\left( {a - 1} \right)}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(A = \dfrac{{{a^2} - a - 1}}{{a\left( {a - 1} \right)}}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(\begin{array}{l}A = \sqrt {1 + \dfrac{1}{{{a^2}}} + \dfrac{1}{{{{\left( {a + 1} \right)}^2}}}} \\ \Rightarrow {A^2} = {\left( {\sqrt {1 + \dfrac{1}{{{a^2}}} + \dfrac{1}{{{{\left( {a + 1} \right)}^2}}}} } \right)^2}\\ = 1 + \dfrac{1}{{{a^2}}} + \dfrac{1}{{{{\left( {a + 1} \right)}^2}}}\\ = \dfrac{{{a^2}{{\left( {a + 1} \right)}^2} + {{\left( {a + 1} \right)}^2} + {a^2}}}{{{a^2}{{\left( {a + 1} \right)}^2}}}\\ = \dfrac{{{a^2}\left( {{a^2} + 2a + 1 + 1} \right) + {{\left( {a + 1} \right)}^2}}}{{{a^2}{{\left( {a + 1} \right)}^2}}}\\ = \dfrac{{{a^4} + 2{a^2}\left( {a + 1} \right) + {{\left( {a + 1} \right)}^2}}}{{{a^2}{{\left( {a + 1} \right)}^2}}}\\ = \dfrac{{{{\left( {{a^2} + a + 1} \right)}^2}}}{{{a^2}{{\left( {a + 1} \right)}^2}}} = {\left[ {\dfrac{{{a^2} + a + 1}}{{a\left( {a + 1} \right)}}} \right]^2}.\end{array}\)</p>
+<p style="text-align: left;">Do \(a &gt; 0\) n&ecirc;n \(A &gt; 0\) v&agrave; \(A = \dfrac{{{a^2} + a + 1}}{{a\left( {a + 1} \right)}}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(\frac{2}{{\sqrt 7&nbsp; - 3}} - \frac{2}{{\sqrt 7&nbsp; + 3}}\) ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt 7&nbsp; + 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sqrt 7&nbsp; - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\( - 6\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\begin{array}{l}\frac{2}{{\sqrt 7&nbsp; - 3}} - \frac{2}{{\sqrt 7&nbsp; + 3}}\\ = \frac{{2\left( {\sqrt 7&nbsp; + 3} \right)}}{{\left( {\sqrt 7&nbsp; - 3} \right)\left( {\sqrt 7&nbsp; + 3} \right)}} - \frac{{2\left( {\sqrt 7&nbsp; - 3} \right)}}{{\left( {\sqrt 7&nbsp; - 3} \right)\left( {\sqrt 7&nbsp; + 3} \right)}}\\ = \frac{{2\left( {\sqrt 7&nbsp; + 3} \right) - 2\left( {\sqrt 7&nbsp; - 3} \right)}}{{\left( {\sqrt 7&nbsp; - 3} \right)\left( {\sqrt 7&nbsp; + 3} \right)}}\\ = \frac{{2\sqrt 7&nbsp; + 6 - 2\sqrt 7&nbsp; + 6}}{{7 - 9}}\\ = \frac{{12}}{{ - 2}} =&nbsp; - 6\end{array}\)</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Sau khi r&uacute;t gọn biểu thức \(\frac{2}{{2 - \sqrt 3 }} + \frac{2}{{2 + \sqrt 3 }}\) ta được ph&acirc;n số tối giản \(\frac{a}{b}\), gi&aacute; trị \(a + b\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>10.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>7.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\frac{2}{{2 - \sqrt 3 }} + \frac{2}{{2 + \sqrt 3 }} = \frac{{2\left( {2 + \sqrt 3 } \right) + 2\left( {2 - \sqrt 3 } \right)}}{{\left( {2 - \sqrt 3 } \right)\left( {2 + \sqrt 3 } \right)}} = \frac{{4 + 2\sqrt 3&nbsp; + 4 - 2\sqrt 3 }}{{4 - 3}} = \frac{8}{1}\).</p>
+<p>Suy ra \(a + b = 8 + 1 = 9\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(\frac{2}{5}.\sqrt {25} &nbsp;- \frac{9}{2}.\sqrt {\frac{{16}}{{81}}}&nbsp; + \sqrt {169} \) ta được kết quả l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>15.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>14.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>13.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>12.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\begin{array}{l}\frac{2}{5}.\sqrt {25}&nbsp; - \frac{9}{2}.\sqrt {\frac{{16}}{{81}}}&nbsp; + \sqrt {169} \\ = \frac{2}{5}.5 - \frac{9}{2}.\frac{4}{9} + 13\\ = 2 - 2 + 13\\ = 13\end{array}\)</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách rút gọn biểu thức và tính giá trị của biểu thức khi x = m</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách rút gọn biểu thức và tính giá trị của biểu thức khi x = m</h3>
+<div><p>- Khi tính giá trị của biểu thức, ta nên rút gọn biểu thức trước sau đó thay giá trị của m vào biểu thức đó.</p>
+<p>- Nếu m là biểu thức chứa căn, cần rút gọn trước khi thay giá trị của x vào biểu thức đề bài cho.</p>
+<p><strong><em>Chú ý:</em></strong> Cần đối chiếu điều kiện xác định để kiểm tra xem x = m có thoả mãn hay không.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách rút gọn biểu thức chứa căn thức bậc hai</h3>
+<div><p>Khi rút gọn biểu thức có chứa căn thức bậc hai, ta cần phối hợp các phép tính (cộng, trừ, nhân, chia) và các phép biến đổi đã học (đưa thừa số ra ngoài hoặc vào trong dấu căn; khử mẫu của biểu thức lấy căn; trục căn thức ở mẫu).</p>
+<p>Khi rút gọn biểu thức, ta cần thực hiện theo các bước sau:</p>
+<p><em>+ Bước 1: </em>Tìm điều kiện xác định (nếu cần);</p>
+<p><em>+ Bước 2: </em>Phân tích mẫu thành nhân tử để tìm mẫu thức chung rồi quy đồng;</p>
+<p><em>+ Bước 3: </em>Áp dụng các phép toán (cộng, trừ, nhân, chia) phân thức kết hoặc các phép biến đổi khai căn để rút gọn phân thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách rút gọn căn thức bậc hai</h3>
+<div><p>Để rút gọn căn thức bậc hai, ta dựa vào các kiến thức:</p>
+<p>- Đưa các biểu thức dưới dấu căn về hằng đẳng thức. Thông thường là</p>
+<p>· \({\left( {a + b} \right)^2} = {a^2} + 2ab + {b^2}\)</p>
+<p>· \({\left( {a - b} \right)^2} = {a^2} - 2ab + {b^2}\)</p>
+<p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách đưa thừa số ra ngoài dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {{a^2}b}  = \left| a \right|\sqrt b \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số ra ngoài dấu căn.</em></p>
+<p>Tổng quát, với hai biểu thức A và B mà \(B \ge 0\), ta có \(\sqrt {{A^2}B}  = \left| A \right|\sqrt B \).</p>
+<p>Với những căn thức bậc hai mà biểu thức dưới dấu căn có mẫu, ta thường <em>khử mẫu của biểu thức lấy căn</em> (biến đổi căn thức bậc hai đó thành một biểu thức mà trong căn thức không còn mẫu).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách đưa thừa số vào trong dấu căn bậc hai</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có:</p>
+<p>+ Nếu \(a \ge 0\) thì \(a\sqrt b  = \sqrt {{a^2}b} \).</p>
+<p>+ Nếu \(a &lt; 0\) thì \(a\sqrt b  =  - \sqrt {{a^2}b} \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số vào trong dấu căn.</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách trục căn thức ở mẫu</h3>
+<div><p>- Với các biểu thức A, B và B &gt; 0, ta có \(\frac{A}{{\sqrt B }} = \frac{{A\sqrt B }}{B}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,A \ne {B^2}\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + B}} = \frac{{C\left( {\sqrt A  - B} \right)}}{{A - {B^2}}};\frac{C}{{\sqrt A  - B}} = \frac{{C\left( {\sqrt A  + B} \right)}}{{A - {B^2}}}\).</p>
+<p>- Với các biểu thức A, B, C mà \(A \ge 0,B \ge 0,A \ne B\), ta có:</p>
+<p>\(\frac{C}{{\sqrt A  + \sqrt B }} = \frac{{C\left( {\sqrt A  - \sqrt B } \right)}}{{A - B}};\frac{C}{{\sqrt A  - \sqrt B }} = \frac{{C\left( {\sqrt A  + \sqrt B } \right)}}{{A - B}}\).</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách tìm x để biểu thức rút gọn là số nguyên</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách tìm x để biểu thức rút gọn là số nguyên</h3>
+<div><p><em><strong>Phương pháp 1: </strong></em><em>Đưa biểu thức về dạng phân thức mà chứa tử thức là số nguyên, tìm giá trị của biến để mẫu thức là ước của tử thức.</em></p>
+<p><em>+  Bước 1:</em> Biến đổi biểu thức về dạng \(A = f\left( x \right) + \frac{k}{{g\left( x \right)}}\) trong đó f(x) là một biểu thức nguyên khi x nguyên và k có giá trị là số nguyên.</p>
+<p><em>+ Bước 2:</em> Áp dụng điều kiện cùng với các bất đẳng thức đã được, chứng minh m &lt; A &lt; M trong đó m, M là các số nguyên.</p>
+<p><em>+ Bước 3:</em> Trong khoảng từ m đến M, tìm các giá trị nguyên.</p>
+<p><em>+ Bước 4:</em> Với mỗi giá trị nguyên ấy, tìm giá trị của biến x</p>
+<p><em>+ Bước 5:</em> Kết hợp với điều kiện đề bài, loại bỏ những giá trị không phù hợp rồi kết luận.</p>
+<p><strong><em>Phương pháp 2: </em></strong><em>Đánh giá khoảng giá trị của biểu thức, từ khoảng giá trị đó ra có các giá trị nguyên mà biểu thức có thể đạt được.</em></p>
+<p><em>+ Bước 1:</em> Đặt điều kiện của x để biểu thức A có nghĩa.</p>
+<p><em>+ Bước 2:</em> Rút gọn biểu thức A.</p>
+<p><em>+ Bước 3:</em> Đánh giá khoảng giá trị mà biểu thức A có thể đạt được, từ khoảng giá trị đó ta có các giá trị nguyên mà biểu thức A có thể đạt được.</p>
+<p><em>+ Bước 4:</em> Giải phương trình vế trái là biểu thức A đã rút gọn, vế phải là các giá trị nguyên nằm trong miền giá trị của A, đối chiếu điều kiện và kết luận.</p>
+<p><strong><em>Phương pháp 3: </em></strong><em>Đặt biểu thức bằng một tham số nguyên, tìm khoảng giá trị của tham số, từ khoảng giá trị đó ta xét các giá trị nguyên của tham số, giải ra tìm ẩn.</em></p>
+<p><em>+ Bước 1:</em><strong> </strong>Đặt điều kiện của x để biểu thức A có nghĩa</p>
+<p><em>+ Bước 2:</em><strong> </strong>Rút gọn biểu thức A</p>
+<p><em>+ Bước 3:</em><strong> </strong>Đánh giá khoảng giá trị mà biểu thức A có thể đạt được, từ khoảng giá trị đó ta có các giá trị nguyên mà biểu thức A có thể đạt được</p>
+<p><em>+ Bước 4:</em><strong> </strong>Giải phương trình vế trái là biểu thức A đã rút gọn, vế phải là các giá trị nguyên nằm trong miền giá trị của A, đối chiếu điều kiện và kết luận.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tìm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định hay có nghĩa khi \(A \ge 0\). Từ đó ta giải bất phương trình để tìm điều kiện xác định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách rút gọn căn thức bậc hai</h3>
+<div><p>Để rút gọn căn thức bậc hai, ta dựa vào các kiến thức:</p>
+<p>- Đưa các biểu thức dưới dấu căn về hằng đẳng thức. Thông thường là</p>
+<p>· \({\left( {a + b} \right)^2} = {a^2} + 2ab + {b^2}\)</p>
+<p>· \({\left( {a - b} \right)^2} = {a^2} - 2ab + {b^2}\)</p>
+<p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách rút gọn biểu thức chứa căn thức bậc hai</h3>
+<div><p>Khi rút gọn biểu thức có chứa căn thức bậc hai, ta cần phối hợp các phép tính (cộng, trừ, nhân, chia) và các phép biến đổi đã học (đưa thừa số ra ngoài hoặc vào trong dấu căn; khử mẫu của biểu thức lấy căn; trục căn thức ở mẫu).</p>
+<p>Khi rút gọn biểu thức, ta cần thực hiện theo các bước sau:</p>
+<p><em>+ Bước 1: </em>Tìm điều kiện xác định (nếu cần);</p>
+<p><em>+ Bước 2: </em>Phân tích mẫu thành nhân tử để tìm mẫu thức chung rồi quy đồng;</p>
+<p><em>+ Bước 3: </em>Áp dụng các phép toán (cộng, trừ, nhân, chia) phân thức kết hoặc các phép biến đổi khai căn để rút gọn phân thức.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $P = \dfrac{2}{{\sqrt x&nbsp; + 1}}$<span lang="PT-BR">. </span></p>
+<p style="text-align: left;"><span lang="PT-BR">C&oacute; bao nhi&ecirc;u gi&aacute; trị </span>$x \in \mathbb{Z}$<span lang="PT-BR"> để </span>$P \in \mathbb{Z}$ ?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; để $P = \dfrac{2}{{\sqrt x&nbsp; + 1}}$ th&igrave; $2 \vdots \left( {\sqrt x&nbsp; + 1} \right)$ <br />$ \left( {\sqrt x&nbsp; + 1} \right) \in $Ư$\left( 2 \right) = \left\{ {1; - 1;2; - 2} \right\}$</p>
+<p>M&agrave; $\sqrt x&nbsp; + 1 &gt; 0$ với $x \ge 0$ n&ecirc;n $\sqrt x&nbsp; + 1 \in \left\{ {1;2} \right\}$</p>
+<p>+) $\sqrt x&nbsp; + 1 = 1 $ hay $ x = 0$ (TM )</p>
+<p>+) $\sqrt x&nbsp; + 1 = 2 $ hay $ x = 1$ (TM )</p>
+<p>Vậy c&oacute; hai gi&aacute; trị của $x$ thỏa m&atilde;n điều kiện.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(P = \dfrac{{\sqrt x  + 3}}{{\sqrt x  - 2}}\) với \(x \ge 0;x \ne 4\). Có bao nhiêu giá trị \(x \in \mathbb{Z}\) để \(P \in \mathbb{Z}\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>TH1: \(\sqrt x \) là số vô tỉ thì \(\dfrac{{\sqrt x  + 3}}{{\sqrt x  - 2}}\) là số vô tỉ hay \(P\) là số vô tỉ (loại).</p>
+<p>TH2: \(\sqrt x \) là số nguyên.</p>
+<p>Ta có: \(P = \dfrac{{\sqrt x  + 3}}{{\sqrt x  - 2}} = \dfrac{{\sqrt x  - 2 + 5}}{{\sqrt x  - 2}} \)\(= \dfrac{{\sqrt x  - 2}}{{\sqrt x  - 2}} + \dfrac{5}{{\sqrt x  - 2}} = 1 + \dfrac{5}{{\sqrt x  - 2}}\)</p>
+<p>Vì \(1 \in \mathbb{Z}\) nên để \(P = 1 + \dfrac{5}{{\sqrt x  - 2}}\) nhận giá trị nguyên thì \(\dfrac{5}{{\sqrt x  - 2}} \in \mathbb{Z}\) hay<br>\(5 \,\vdots \,\left( {\sqrt x  - 2} \right) \\\left( {\sqrt x  - 2} \right) \in Ư\left( 5 \right) = \left\{ {1; - 1;5; - 5} \right\}\)</p>
+<p>+) \(\sqrt x  - 2 = 1 \) <br>\( \sqrt x  = 3 \\x = 9\left( {tm} \right)\)</p>
+<p>+) \(\sqrt x  - 2 =  - 1 \) <br>\( \sqrt x  = 1 \\ x = 1\left( {tm} \right)\)</p>
+<p>+) \(\sqrt x  - 2 = 5 \) <br>\( \sqrt x  = 7 \\ x = 49\left( {tm} \right)\)</p>
+<p>+) \(\sqrt x  - 2 =  - 5 \) <br>\( \sqrt x  =  - 3\) (vô nghiệm vì \(\sqrt x  \ge 0\) với mọi \( x \ge 0\))</p>
+<p>Vậy có ba giá trị của \(x\) thỏa mãn điều kiện là \(x = 1;x = 9;x = 49\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách tìm giá trị lớn nhất, giá trị nhỏ nhất của biểu thức rút gọn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách tìm giá trị lớn nhất, giá trị nhỏ nhất của biểu thức rút gọn</h3>
+<div><p><strong>+ Cách 1:</strong> Biến đổi biểu thức về dạng tổng hoặc hiệu của một số không âm với hằng số</p>
+<p>- Khi biến đổi biểu thức thành <strong>tổng</strong> của một số không âm với hằng số, ta sẽ tìm được giá trị nhỏ nhất của biểu thức ấy.</p>
+<p>- Khi biến đổi biểu thức thành <strong>hiệu</strong> của một số với một số không âm, ta sẽ tìm được giá trị lớn nhất của biểu thức ấy.</p>
+<p><strong>+ Cách 2:</strong> Áp dụng bất đẳng thức Cauchy (Cô-si)</p>
+<p>- Theo bất đẳng thức Cauchy với hai số a, b không âm ta có: \(a + b \ge 2ab\).</p>
+<p>Dấu “=” xảy ra khi và chỉ khi a = b</p>
+<p><strong>+ Cách 3:</strong> Áp dụng bất đẳng thức chứa dấu giá trị tuyệt đối:</p>
+<ul>
+<li>\(\left| a \right| + \left| b \right| \ge \left| {a + b} \right|\). Dấu “=” xảy ra khi và chỉ khi \(a.b \ge 0\)</li>
+<li>\(\left| {a - b} \right| \le \left| a \right| + \left| b \right|\). Dấu “=” xảy ra khi và chỉ khi \(a.b \le 0\)</li>
+</ul></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Bất đẳng thức giữa trung bình cộng và trung bình nhân (AG - GM) (Bất đẳng thức Cauchy)</h3>
+<div><p>Cho hai số \(a,b \ge 0\). <em>Trung bình cộng</em> của hai số là \(\frac{{a + b}}{2}\); <em>Trung bình nhân</em> của hai số là \(\sqrt {ab} \).</p>
+<p>Khi đó, ta luôn có:</p>
+<p>\(\frac{{a + b}}{2} \ge \sqrt {ab} \) (1)</p>
+<p>Bất đẳng thức (1) được gọi là <strong><em>bất đẳng thức giữa trung bình cộng và trung bình nhân</em></strong> cho hai số không âm a và b (thường viết tắt là AM – GM). Ta cũng thường gọi bất đẳng thức trên là <strong><em>bất đẳng thức Cauchy</em></strong>.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình nón - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 40: Hình nón</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hình nón là gì? Hình nón có các yếu tố gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915190141-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình nón trên, ta có:</p>
+<p>- Điểm A là đỉnh;</p>
+<p>- Hình tròn tâm O bán kính OC là mặt đáy;</p>
+<p>- Độ dài cạnh OC được gọi là bán kính đáy;</p>
+<p>- Độ dài cạnh AO được gọi là chiều cao;</p>
+<p>- Cạnh AC quét nên mặt xung quanh của hình nón, mỗi vị trí của cạnh AC được gọi là một đường sinh.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915274347-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Hình nón có:</p>
+<p>+ A là đỉnh;</p>
+<p>+ chiều cao là 6cm;</p>
+<p>+ bán kính đáy là 4cm.</p>
+<p>+ các đường sinh là: AB, AC, AD.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một dụng cụ trộn b&ecirc; t&ocirc;ng gồm một phần c&oacute; dạng h&igrave;nh trụ, phần c&ograve;n lại c&oacute; dạng h&igrave;nh n&oacute;n. C&aacute;c k&iacute;ch thước cho bởi h&igrave;nh b&ecirc;n. Chi&ecirc;̀u cao của b&ocirc;̣ ph&acirc;̣n hình nón là:</p><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818384766-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1,60m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>0,7m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>0,9m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>0,6m.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Chi&ecirc;̀u cao của b&ocirc;̣ ph&acirc;̣n hình nón là:</p>
+<p>1,60 &ndash; 0,7 = 0,9 m</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Đ&aacute;y của h&igrave;nh n&oacute;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Một đường tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Một h&igrave;nh cầu.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Một h&igrave;nh elip.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Một h&igrave;nh tr&ograve;n.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đ&aacute;y của h&igrave;nh n&oacute;n l&agrave; một h&igrave;nh tr&ograve;n.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n (h&igrave;nh vẽ). Quan s&aacute;t h&igrave;nh v&agrave; cho biết độ d&agrave;i đường sinh của h&igrave;nh n&oacute;n l&agrave;:</p><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818205726-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>3cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>4cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>5cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>6cm</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đường sinh SB = 5cm.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>H&igrave;nh n&oacute;n c&oacute; đường sinh \(l\), chiều cao \(h\), b&aacute;n k&iacute;nh đ&aacute;y \(r.\) Ph&aacute;t biểu đ&uacute;ng l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(l = r + h\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({h^2} = {l^2} - {r^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(l = h\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\({h^2} = {l^2} + {r^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818676010-mceclip0.png" /></p><p>Ta c&oacute;: \({l^2} = {r^2} + {h^2}\) suy ra \({h^2} = {l^2} - {r^2}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tạo lập hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tạo lập hình nón</h3>
+<div><p>Để tạo hình nón có chiều cao <em>h </em>và bán kính đáy <em>r </em> ta làm ba bước như sau:<br/><strong>Bước 1: </strong>Cắt miếng bìa có dạng hình tròn với bán kính <em>r </em>(hình 1).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915310097-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/><strong>Bước 2: </strong>Cắt một tấm bìa hình quạt tròn có bán kính bằng độ dài đường sinh \({l^2} = {r^2} + {h^2}\) và độ dài<br/>cung của hình quạt tròn bằng \(2\pi r\) (hình 2).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915304430-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/><strong>Bước 3: </strong>Ghép và dán các miếng bìa vừa cắt ở bước 1, bước 2 (hình 3), ta được một hình nón (hình 4).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915300813-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Khi quay một h&igrave;nh tam gi&aacute;c vu&ocirc;ng một v&ograve;ng xung quanh đường thẳng cố định chứa một cạnh g&oacute;c vu&ocirc;ng ta được:<br /><br /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>H&igrave;nh n&oacute;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>H&igrave;nh lập phương.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>H&igrave;nh cầu.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>H&igrave;nh trụ.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0404/1743754722552-mceclip0.png" /></p><p>H&igrave;nh n&oacute;n l&agrave; h&igrave;nh được tạo ra khi quay một h&igrave;nh tam gi&aacute;c vu&ocirc;ng một v&ograve;ng xung quanh đường thẳng cố định chứa một cạnh g&oacute;c vu&ocirc;ng của tam gi&aacute;c đ&oacute;.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Khi cắt mặt xung quanh của một h&igrave;nh n&oacute;n dọc theo một đường sinh của n&oacute; rồi trải phẳng ra, ta được h&igrave;nh:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>H&igrave;nh quạt tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>H&igrave;nh tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Tam gi&aacute;c đều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Tam gi&aacute;c vu&ocirc;ng.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818607982-mceclip0.png" /></p><p>Khi cắt mặt xung quanh của một h&igrave;nh n&oacute;n dọc theo một đường sinh của n&oacute; rồi trải phẳng ra, ta được h&igrave;nh quạt tr&ograve;n.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Khi quay tam gi&aacute;c vu&ocirc;ng \(ABC\) (\(\widehat A = {90^0}\) ) quanh cạnh g&oacute;c vu&ocirc;ng AB ta thu được h&igrave;nh n&oacute;n c&oacute; đường k&iacute;nh đ&aacute;y l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>AB</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.AC</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>2.AB</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>AC</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818484786-mceclip0.png" /></p><p>H&igrave;nh n&oacute;n tạo th&agrave;nh c&oacute; b&aacute;n k&iacute;nh đ&aacute;y l&agrave; AC n&ecirc;n đường k&iacute;nh đ&aacute;y l&agrave; 2AC.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách tính diện tích xung quanh của hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915190141-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình nón trên, ta có:</p>
+<p>- Điểm A là đỉnh;</p>
+<p>- Hình tròn tâm O bán kính OC là mặt đáy;</p>
+<p>- Độ dài cạnh OC được gọi là bán kính đáy;</p>
+<p>- Độ dài cạnh AO được gọi là chiều cao;</p>
+<p>- Cạnh AC quét nên mặt xung quanh của hình nón, mỗi vị trí của cạnh AC được gọi là một đường sinh.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915274347-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Hình nón có:</p>
+<p>+ A là đỉnh;</p>
+<p>+ chiều cao là 6cm;</p>
+<p>+ bán kính đáy là 4cm.</p>
+<p>+ các đường sinh là: AB, AC, AD.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Diện tích xung quanh của hình nón</h3>
+<div><p>Diện tích xung quanh \({S_{xq}}\) của hình nón có bán kính đáy r, độ dài đường sinh l là:</p>
+<p style="text-align: center;">\({S_{xq}} = \pi rl\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915350372-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Diện tích xung quanh của hình nón là:</p>
+<p>\({S_{xq}} = \pi rl = \pi .6.10 = 60\pi \left( {c{m^2}} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n c&oacute; b&aacute;n k&iacute;nh đ&aacute;y \(\pi&nbsp; = \sqrt 3 cm\), độ d&agrave;i đường sinh \(l = 4cm\). T&iacute;nh diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n đ&oacute;?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt {39} \pi \)\(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(4\sqrt 3 \pi \) \(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(12\pi \) \(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(8\sqrt 3 \pi \) \(\left( {c{m^2}} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n l&agrave;:</p>
+<p>\({S_{xq}} = \pi rl = \pi .\sqrt 3 .4 = 4\sqrt 3 \pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>N&oacute;n l&aacute;&nbsp;l&agrave; một vật dụng d&ugrave;ng để che nắng, che mưa, l&agrave;m quạt ... v&agrave; l&agrave; một biểu tượng đặc trưng của người phụ nữ Việt Nam. N&oacute;n c&oacute; cấu tạo l&agrave; h&igrave;nh n&oacute;n tr&ograve;n xoay c&oacute; đến 16 c&aacute;i v&agrave;nh tr&ograve;n khung, v&agrave;nh n&oacute;n to nhất c&oacute; đường k&iacute;nh BC = 50 cm, b&ecirc;n ngo&agrave;i đan c&aacute;c lớp l&aacute; (l&aacute; cọ, l&aacute; bu&ocirc;ng, rơm, tre hoặc l&aacute; cối, ...). Diện t&iacute;ch lớp l&aacute; đan b&ecirc;n ngo&agrave;i chiếc n&oacute;n l&agrave; bao nhi&ecirc;u? Biết chiều cao của n&oacute;n l&agrave; h = 30 cm.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(115\pi \sqrt {61} \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(120\pi \sqrt {61} \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(125\pi \sqrt {61} \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(130\pi \sqrt {61} \left( {c{m^2}} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818914961-mceclip0.png" /></p><p>B&aacute;n k&iacute;nh đ&aacute;y n&oacute;n l&agrave;:</p>
+<p>\(R = OB = \frac{{BC}}{2} = \frac{{50}}{2} = 25\left( {cm} \right)\)</p>
+<p>X&eacute;t \(\Delta AOB\) vu&ocirc;ng tại O, &aacute;p dụng định l&iacute; Pythagore trong tam gi&aacute;c vu&ocirc;ng, ta c&oacute;:</p>
+<p>\(A{O^2} + O{B^2} = A{B^2}\)</p>
+<p>Suy ra \(l = AB = \sqrt {{{30}^2} + {{25}^2}}&nbsp; = 5\sqrt {61} \left( {cm} \right)\)</p>
+<p>Diện t&iacute;ch c&aacute;c lớp l&aacute; đan b&ecirc;n ngo&agrave;i chiếc n&oacute;n l&agrave;:</p>
+<p>\({S_{xq}} = \pi Rl = \pi .25.5\sqrt {61}&nbsp; = 125\pi \sqrt {61} \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cái mũ của chú hề với các kích thước theo hình vẽ. Hãy tính tổng diện tích vải cần có để làm nên cái mũ (không kể riềm, mép, phần thừa).</p><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818805075-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(375\pi \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(475\pi \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(575\pi \left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(675\pi \left( {c{m^2}} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện tích vải cần có để làm nên cái mũ là diện tích xung quanh của hình nón và diện tích của vành mũ hình vành khuyên.</p>
+<p>Bán kính đường tròn đáy của hình nón là: </p>
+<p>\(r = \frac{{35 - 2.10}}{2} = 7,5(cm)\)</p>
+<p>Diện tích xung quanh của hình nón là:</p>
+<p>\({S_{xq}} = \pi rl{\rm{ }} = \pi .7,5.30{\rm{ }} = {\rm{ }}225\pi \left( {c{m^2}} \right)\)</p>
+<p>Diện tích vành nón (hình vành khuyên) là:</p>
+<p>\({S_{vk}} = \pi  \cdot \left[ {{{\left( {\frac{{35}}{2}} \right)}^2} - 7,{5^2}} \right] = 250\pi \left( {c{m^2}} \right)\)</p>
+<p>Diện tích vải cần dùng là:</p>
+<p>\(S{\rm{ }} = {\rm{ }}{S_{xq}} + {S_{vk}} = 225\pi  + 250\pi  = 475\pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n c&oacute; b&aacute;n k&iacute;nh đ&aacute;y R = 3 (cm) v&agrave; đường sinh l = 5 (cm). Diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>25&pi; (cm<sup>2</sup>).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>12&pi; (cm<sup>2</sup>).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>20&pi; (cm<sup>2</sup>).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>15&pi; (cm<sup>2</sup>).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733818748413-mceclip0.png" /></p><p>Diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n l&agrave;: \({S_{xq}} = \pi .3.5 = 15\pi \left( {c{m^2}} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính diện tích toàn phần của hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915190141-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình nón trên, ta có:</p>
+<p>- Điểm A là đỉnh;</p>
+<p>- Hình tròn tâm O bán kính OC là mặt đáy;</p>
+<p>- Độ dài cạnh OC được gọi là bán kính đáy;</p>
+<p>- Độ dài cạnh AO được gọi là chiều cao;</p>
+<p>- Cạnh AC quét nên mặt xung quanh của hình nón, mỗi vị trí của cạnh AC được gọi là một đường sinh.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915274347-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Hình nón có:</p>
+<p>+ A là đỉnh;</p>
+<p>+ chiều cao là 6cm;</p>
+<p>+ bán kính đáy là 4cm.</p>
+<p>+ các đường sinh là: AB, AC, AD.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Diện tích xung quanh của hình nón</h3>
+<div><p>Diện tích xung quanh \({S_{xq}}\) của hình nón có bán kính đáy r, độ dài đường sinh l là:</p>
+<p style="text-align: center;">\({S_{xq}} = \pi rl\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915350372-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Diện tích xung quanh của hình nón là:</p>
+<p>\({S_{xq}} = \pi rl = \pi .6.10 = 60\pi \left( {c{m^2}} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Diện tích toàn phần của hình nón</h3>
+<div><p>Diện tích toàn phần \({S_{tp}}\) của hình nón bằng tổng của diện tích xung quanh và diện tích mặt đáy của hình nón đó:</p>
+<p style="text-align: center;">\({S_{tp}} = \pi rl + \pi {r^2} = \pi r\left( {l + r} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n c&oacute; đỉnh S, đường sinh \(SA = 2a\), O l&agrave; t&acirc;m đường tr&ograve;n đ&aacute;y. Biết \(\widehat {SAO} = 60^\circ \), diện t&iacute;ch to&agrave;n phần của h&igrave;nh n&oacute;n bằng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(4\pi {a^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(3\pi {a^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2\pi {a^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\pi {a^2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0412/1744426406967-mceclip0.png" /></p><p>X&eacute;t tam gi&aacute;c SOA c&oacute; SO l&agrave; đường cao của h&igrave;nh n&oacute;n n&ecirc;n tam gi&aacute;c SOA vu&ocirc;ng tại O. Do đ&oacute;:</p>
+<p>\(\cos \widehat {SAO} = \frac{{OA}}{{SA}}\) n&ecirc;n \(OA = SA.\cos 60^\circ&nbsp; = 2a.\frac{1}{2} = a\).</p>
+<p>Diện t&iacute;ch to&agrave;n phần của h&igrave;nh n&oacute;n l&agrave;:</p>
+<p>\({S_{tp}} = \pi rl + \pi {r^2} = \pi .a.2a + \pi {a^2} = 3\pi {a^2}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n c&oacute; độ d&agrave;i đường sinh l&agrave; \(5\), b&aacute;n k&iacute;nh đ&aacute;y l&agrave; \(3\). Diện t&iacute;ch to&agrave;n phần của h&igrave;nh n&oacute;n bằng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(15\pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(48\pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(39\pi \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(24\pi \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện t&iacute;ch to&agrave;n phần của h&igrave;nh n&oacute;n l&agrave;:</p>
+<p>${{S}_{tp}}={{S}_{xq}}+{{S}_{đ&aacute;y}}=\pi .3.5+\pi {{.3}^{2}}=15\pi +9\pi =24\pi $.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách tính thể tích hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915190141-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình nón trên, ta có:</p>
+<p>- Điểm A là đỉnh;</p>
+<p>- Hình tròn tâm O bán kính OC là mặt đáy;</p>
+<p>- Độ dài cạnh OC được gọi là bán kính đáy;</p>
+<p>- Độ dài cạnh AO được gọi là chiều cao;</p>
+<p>- Cạnh AC quét nên mặt xung quanh của hình nón, mỗi vị trí của cạnh AC được gọi là một đường sinh.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915274347-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Hình nón có:</p>
+<p>+ A là đỉnh;</p>
+<p>+ chiều cao là 6cm;</p>
+<p>+ bán kính đáy là 4cm.</p>
+<p>+ các đường sinh là: AB, AC, AD.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Thể tích của hình nón</h3>
+<div><p>Thể tích V của hình nón có bán kính đáy r và chiều cao h là:</p>
+<p>\(V = \frac{1}{3}\pi {r^2}h\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915397827-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Tam giác SOB vuông tại O nên theo định lí Pythagore ta có:</p>
+<p>\(\begin{array}{l}O{B^2} + S{O^2} = S{B^2}\\{6^2} + S{O^2} = {10^2}\\S{O^2} = 100 - 36 = 64\\SO = 8cm.\end{array}\)</p>
+<p>Thể tích của hình nón là \(V = \frac{1}{3}\pi {r^2}h = \frac{1}{3}\pi {.6^2}.8 = 96\pi \left( {c{m^3}} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh n&oacute;n c&oacute; b&aacute;n k&iacute;nh đ&aacute;y \(r = 2cm\). Biết diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n l&agrave; \(2\sqrt 5 \pi c{m^3}\), t&iacute;nh thể t&iacute;ch của h&igrave;nh n&oacute;n.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\pi c{m^3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{5}{3}\pi c{m^3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{4}{3}\pi {\rm{c}}{{\rm{m}}^{\rm{3}}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{2}{3}\pi {\rm{c}}{{\rm{m}}^{\rm{3}}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; diện t&iacute;ch xung quanh của h&igrave;nh n&oacute;n bằng \(2\sqrt 5 \pi c{m^3}\) n&ecirc;n ta c&oacute;:</p>
+<p>\({S_{xq}} = \pi rl\)</p>
+<p>hay \(2\sqrt 5 \pi&nbsp; = \pi .2.l\)</p>
+<p>suy ra \(l = \frac{{2\sqrt 5 \pi }}{{2\pi }} = \sqrt 5 \).</p>
+<p>Ta lại c&oacute;: \({l^2} = {r^2} + {h^2}\) hay \({\left( {\sqrt 5 } \right)^2} = {2^2} + {h^2}\)</p>
+<p>suy ra \({h^2} = 5 - 4 = 1\) do đ&oacute; \(h = 1\).</p>
+<p>Vậy thể t&iacute;ch của h&igrave;nh n&oacute;n l&agrave;: \(V = \frac{1}{3}\pi {r^2}h = \frac{1}{3}\pi {.2^2}.1 = \frac{4}{3}\pi \)\(c{m^3}\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một hình trụ có bán kính đáy 1cm và chiều cao 2cm, người ta khoan đi một phần có dạng hình nón như hình vẽ. Thể tích của phần khoan đi là</p><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733819844407-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\pi \) cm<sup>3</sup>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{2}{3}\pi \) cm<sup>3</sup>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{3}\pi \) cm<sup>3</sup>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{4}{3}\pi \) cm<sup>3</sup>.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thể tích của phần khoan đi là:</p>
+<p>V = \(\frac{1}{3}\) π.r<sup>2</sup>h = \(\frac{1}{3}\) π.1<sup>2</sup>.2 = \(\frac{2}{3}\) π (cm<sup>3</sup> )</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Một h&igrave;nh n&oacute;n c&oacute; chiều cao h = 8cm,&nbsp;đường k&iacute;nh d = 12cm. Thể t&iacute;ch h&igrave;nh n&oacute;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(96\pi (c{m^3})\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(288\pi (c{m^3})\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(144\pi (c{m^3})\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(32\pi (c{m^3})\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh đ&aacute;y của h&igrave;nh n&oacute;n: R = 12: 2 = 6 (cm)</p>
+<p>Thể t&iacute;ch của h&igrave;nh n&oacute;n: \(V = \frac{1}{3}\pi {R^2}h = \frac{1}{3}\pi {.6^2}.8 = 96\pi (c{m^3})\)</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Tổng hợp về hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915190141-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình nón trên, ta có:</p>
+<p>- Điểm A là đỉnh;</p>
+<p>- Hình tròn tâm O bán kính OC là mặt đáy;</p>
+<p>- Độ dài cạnh OC được gọi là bán kính đáy;</p>
+<p>- Độ dài cạnh AO được gọi là chiều cao;</p>
+<p>- Cạnh AC quét nên mặt xung quanh của hình nón, mỗi vị trí của cạnh AC được gọi là một đường sinh.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915274347-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Hình nón có:</p>
+<p>+ A là đỉnh;</p>
+<p>+ chiều cao là 6cm;</p>
+<p>+ bán kính đáy là 4cm.</p>
+<p>+ các đường sinh là: AB, AC, AD.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức tính độ dài đường sinh</h3>
+<div><p>Nếu gọi độ dài đường sinh, chiều cao và bán kính đáy của hình nón lần lượt là \(l,h,r\) thì theo định lí Pythagore ta có:</p>
+<p>\({l^2} = {r^2} + {h^2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tạo lập hình nón</h3>
+<div><p>Để tạo hình nón có chiều cao <em>h </em>và bán kính đáy <em>r </em> ta làm ba bước như sau:<br/><strong>Bước 1: </strong>Cắt miếng bìa có dạng hình tròn với bán kính <em>r </em>(hình 1).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915310097-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/><strong>Bước 2: </strong>Cắt một tấm bìa hình quạt tròn có bán kính bằng độ dài đường sinh \({l^2} = {r^2} + {h^2}\) và độ dài<br/>cung của hình quạt tròn bằng \(2\pi r\) (hình 2).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915304430-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/><strong>Bước 3: </strong>Ghép và dán các miếng bìa vừa cắt ở bước 1, bước 2 (hình 3), ta được một hình nón (hình 4).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915300813-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Diện tích xung quanh của hình nón</h3>
+<div><p>Diện tích xung quanh \({S_{xq}}\) của hình nón có bán kính đáy r, độ dài đường sinh l là:</p>
+<p style="text-align: center;">\({S_{xq}} = \pi rl\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915350372-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Diện tích xung quanh của hình nón là:</p>
+<p>\({S_{xq}} = \pi rl = \pi .6.10 = 60\pi \left( {c{m^2}} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Diện tích toàn phần của hình nón</h3>
+<div><p>Diện tích toàn phần \({S_{tp}}\) của hình nón bằng tổng của diện tích xung quanh và diện tích mặt đáy của hình nón đó:</p>
+<p style="text-align: center;">\({S_{tp}} = \pi rl + \pi {r^2} = \pi r\left( {l + r} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>7. Thể tích của hình nón</h3>
+<div><p>Thể tích V của hình nón có bán kính đáy r và chiều cao h là:</p>
+<p>\(V = \frac{1}{3}\pi {r^2}h\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915397827-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Tam giác SOB vuông tại O nên theo định lí Pythagore ta có:</p>
+<p>\(\begin{array}{l}O{B^2} + S{O^2} = S{B^2}\\{6^2} + S{O^2} = {10^2}\\S{O^2} = 100 - 36 = 64\\SO = 8cm.\end{array}\)</p>
+<p>Thể tích của hình nón là \(V = \frac{1}{3}\pi {r^2}h = \frac{1}{3}\pi {.6^2}.8 = 96\pi \left( {c{m^3}} \right)\).</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

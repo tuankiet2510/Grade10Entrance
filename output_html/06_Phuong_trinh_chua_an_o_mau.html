@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình chứa ẩn ở mẫu - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 06: Phương trình chứa ẩn ở mẫu</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phương trình chứa ẩn ở mẫu là gì? Điều kiện xác định của phương trình là gì? Điều kiện xác định của phương trình chứa ẩn ở mẫu là gì? Cách tìm điều kiện xác định của phương trình chứa ẩn ở mẫu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phương trình chứa ẩn ở mẫu</h3>
+<div><p>Phương trình chứa ẩn ở mẫu là loại phương trình mà biến số xuất hiện ở mẫu số của biểu thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định (ĐKXĐ) của phương trình</h3>
+<div><p>Điều kiện xác định (ĐKXĐ) của phương trình là giá trị của ẩn để phương trình được xác định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Khái niệm điều kiện xác định (ĐKXĐ) của phương trình chứa ẩn ở mẫu</h3>
+<div><p>Đối với phương trình chứa ẩn ở mẫu, ta thường đặt điều kiện cho ẩn để tất cả các mẫu thức trong phương trình đều khác 0 và gọi đó là <em>điều kiện xác định </em>(viết tắt là ĐKXĐ) của phương trình.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm điều kiện xác định của phương trình chứa ẩn ở mẫu</h3>
+<div><p>Dựa vào khái niệm điều kiện xác định của phương trình chứa ẩn ở mẫu: Điều kiện xác định (ĐKXĐ) của phương trình chứa ẩn ở mẫu là giá trị của ẩn để tất cả các mẫu thức trong phương trình đều khác 0.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Điều kiện xác định của phương trình \(\frac{{x - 1}}{{x + 2}} = {\rm{ \;}} - 5\) là:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ne 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(x \ne {\rm{ \;}} - 2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(x \ne 1\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(x \ne 2\) và \(x \ne 1\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>ĐKXĐ: \(x + 2 \ne 0\) hay \(x \ne {\rm{ \;}} - 2\)</p>
+<p><strong>Chọn B.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>&#x110;i&#x1EC1;u ki&#x1EC7;n x&#xE1;c &#x111;&#x1ECB;nh c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\frac{{4x - 5}}{{x - 1}} = 2x + \frac{1}{{{x^2}}}\) l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ne 1;x \ne 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x \ne&nbsp; - 1\) v&agrave; \(x \ne 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ne 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ne 0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&#x110;i&#x1EC1;u ki&#x1EC7;n x&#xE1;c &#x111;&#x1ECB;nh c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\frac{{4x - 5}}{{x - 1}} = 2x + \frac{1}{{{x^2}}}\) l&#xE0; \(x - 1 \ne 0\) v&#xE0; \({x^2} \ne 0\).</p>
+<p>Suy ra \(x \ne 1;x \ne 0\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{{x + 2}}{{x - 4}} + 1 = \frac{1}{{x + 3}}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ne 4\) v&agrave; \(x \ne 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x \ne&nbsp; - 4\) v&agrave; \(x \ne 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ne 4\) v&agrave; \(x \ne&nbsp; - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ne&nbsp; - 4\) v&agrave; \(x \ne&nbsp; - 3\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{{x + 2}}{{x - 4}} + 1 = \frac{1}{{x + 3}}\) l&agrave; \(x - 4 \ne 0\) v&agrave; \(x + 3 \ne 0\).</p>
+<p>Suy ra \(x \ne 4\) v&agrave; \(x \ne&nbsp; - 3\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{{x + 3}}{{x - 1}} + \frac{{x - 2}}{x} = 2\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ne 0;x \ne 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = 0;x = 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ne 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ne 1\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{{x + 3}}{{x - 1}} + \frac{{x - 2}}{x} = 2\) l&agrave;:</p>
+<p>\(x - 1 \ne 0\) v&agrave; \(x \ne 0\)</p>
+<p>hay \(x \ne 1\) v&agrave; \(x \ne 0\).</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{6}{{{x^2} - 9}} + \frac{2}{{x - 3}} = 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ne 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x \ne&nbsp; - 3;x \ne 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ne 0;x \ne 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ne 9\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện x&aacute;c định của phương tr&igrave;nh \(\frac{6}{{{x^2} - 9}} + \frac{2}{{x - 3}} = 0\) l&agrave;:</p>
+<p>\({x^2} - 9 \ne 0\) v&agrave; \(x - 3 \ne 0\)</p>
+<p>hay \(x \ne&nbsp; - 3\) v&agrave; \(x \ne 3\).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách giải phương trình chứa ẩn ở mẫu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phương trình chứa ẩn ở mẫu</h3>
+<div><p>Phương trình chứa ẩn ở mẫu là loại phương trình mà biến số xuất hiện ở mẫu số của biểu thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải phương trình chứa ẩn ở mẫu</h3>
+<div><p><em>Bước 1: </em>Tìm điều kiện xác định của phương trình.</p>
+<p><em>Bước 2:</em> Quy đồng mẫu hai vế của phương trình rồi khử mẫu.</p>
+<p><em>Bước 3: </em>Giải phương trình vừa tìm được.</p>
+<p><em>Bước 4 (Kết luận):</em> Trong các giá trị tìm được của ẩn ở Bước 3, giá trị nào thoả mãn điều kiện xác định chính là nghiệm của phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm điều kiện xác định của phương trình chứa ẩn ở mẫu</h3>
+<div><p>Dựa vào khái niệm điều kiện xác định của phương trình chứa ẩn ở mẫu: Điều kiện xác định (ĐKXĐ) của phương trình chứa ẩn ở mẫu là giá trị của ẩn để tất cả các mẫu thức trong phương trình đều khác 0.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Nghiệm của phương tr&igrave;nh \(\frac{{x + 1}}{{x - 2}} - 1 = \frac{{24}}{{\left( {x + 3} \right)\left( {x - 2} \right)}}\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x =&nbsp; - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x =&nbsp; - 5\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>ĐKXĐ: \(x - 2 \ne 0\) v&agrave; \(x + 3 \ne 0\) hay \(x \ne 2\) v&agrave; \(x \ne&nbsp; - 3\)</p>
+<p>Ta c&oacute;: \(\frac{{x + 1}}{{x - 2}} - 1 = \frac{{24}}{{\left( {x + 3} \right)\left( {x - 2} \right)}}\)</p>
+<p>\(\begin{array}{l}\frac{{\left( {x + 1} \right)\left( {x + 3} \right)}}{{\left( {x + 3} \right)\left( {x - 2} \right)}} - \frac{{\left( {x + 3} \right)\left( {x - 2} \right)}}{{\left( {x + 3} \right)\left( {x - 2} \right)}} = \frac{{24}}{{\left( {x + 3} \right)\left( {x - 2} \right)}}\\\left( {x + 1} \right)\left( {x + 3} \right) - \left( {x + 3} \right)\left( {x - 2} \right) = 24\\{x^2} + 4x + 3 - {x^2} - x + 6 = 24\\{x^2} + 4x - {x^2} - x = 24 - 6 - 3\\3x = 15\\x = 5\left( {TM} \right)\end{array}\)</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Nghiệm của phương tr&igrave;nh \(\frac{{x + 2}}{{x - 4}} - 1 = \frac{{30}}{{\left( {x + 3} \right)\left( {x - 4} \right)}}\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x =&nbsp; - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 4\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x =&nbsp; - 2\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>ĐKXĐ: \(x - 4 \ne 0\) v&agrave; \(x + 3 \ne 0\) hay \(x \ne 4\) v&agrave; \(x \ne&nbsp; - 3\).</p>
+<p>Ta c&oacute;: \(\frac{{x + 2}}{{x - 4}} - 1 = \frac{{30}}{{\left( {x + 3} \right)\left( {x - 4} \right)}}\)</p>
+<p>\(\frac{{\left( {x + 2} \right)\left( {x + 3} \right)}}{{\left( {x + 3} \right)\left( {x - 4} \right)}} - \frac{{\left( {x + 3} \right)\left( {x - 4} \right)}}{{\left( {x + 3} \right)\left( {x - 4} \right)}} = \frac{{30}}{{\left( {x + 3} \right)\left( {x - 4} \right)}}\)</p>
+<p>\(\left( {x + 2} \right)\left( {x + 3} \right) - \left( {x + 3} \right)\left( {x - 4} \right) = 30\)</p>
+<p>\(\begin{array}{l}{x^2} + 5x + 6 - \left( {{x^2} - x - 12} \right) = 30\\{x^2} + 5x + 6 - {x^2} + x + 12 = 30\\\left( {{x^2} - {x^2}} \right) + \left( {5x + x} \right) = 30 - 12 - 6\\6x = 12\\x = 2\left( {TM} \right)\end{array}\)</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho phương tr&igrave;nh: \(\dfrac{1}{{{x^2} + 3x + 2}} + \dfrac{1}{{{x^2} + 5x + 6}} + \dfrac{1}{{{x^2} + 7x + 12}} + \dfrac{1}{{{x^2} + 9x + 20}} = \dfrac{1}{3}\).</p>
+<p style="text-align: left;">Tổng b&igrave;nh phương c&aacute;c nghiệm của phương tr&igrave;nh tr&ecirc;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\( - 48\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(48\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\( - 50\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(50\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \({x^2} + 3x + 2 = \left( {x + 1} \right)\left( {x + 2} \right)\)</p>
+<p>\({x^2} + 5x + 6 = \left( {x + 2} \right)\left( {x + 3} \right)\)</p>
+<p>\({x^2} + 7x + 12 = \left( {x + 3} \right)\left( {x + 4} \right)\)</p>
+<p>\({x^2} + 9x + 20 = \left( {x + 4} \right)\left( {x + 5} \right)\)</p>
+<p>Khi đ&oacute;:</p>
+<p>\(\dfrac{1}{{\left( {x + 1} \right)\left( {x + 2} \right)}} + \dfrac{1}{{\left( {x + 2} \right)\left( {x + 3} \right)}} + \dfrac{1}{{\left( {x + 3} \right)\left( {x + 4} \right)}} + \dfrac{1}{{\left( {x + 4} \right)\left( {x + 5} \right)}} = \dfrac{1}{3}\)</p>
+<p>ĐKXĐ: \(x \ne - 1; - 2; - 3; - 4; - 5\) .</p>
+<p>Khi đ&oacute;:</p>
+<p>\(\dfrac{1}{{x + 1}} - \dfrac{1}{{x + 2}} + \dfrac{1}{{x + 2}} - \dfrac{1}{{x + 3}} + \dfrac{1}{{x + 3}} - \dfrac{1}{{x + 4}} + \dfrac{1}{{x + 4}} - \dfrac{1}{{x + 5}} = \dfrac{1}{3}\)</p>
+<p>\(\dfrac{1}{{x + 1}} - \dfrac{1}{{x + 5}} = \dfrac{1}{3}\)</p>
+<p>\(\dfrac{{1\left( {x + 5} \right) - 1\left( {x + 1} \right)}}{{\left( {x + 1} \right)\left( {x + 5} \right)}} = \dfrac{{\left( {x + 1} \right)\left( {x + 5} \right)}}{{3\left( {x + 1} \right)\left( {x + 5} \right)}}\)</p>
+<p>\(3\left[ {x + 5 - \left( {x + 1} \right)} \right] = \left( {x + 1} \right)\left( {x + 5} \right)\)</p>
+<p>\(3\left( {x + 5 - x - 1} \right) = {x^2} + 6x + 5\)</p>
+<p>\({x^2} + 6x - 7 = 0\)</p>
+<p>\(\left( {x - 1} \right)\left( {x + 7} \right) = 0\)</p>
+<p>Suy ra \(x - 1 = 0\) hoặc \(x + 7 = 0\)</p>
+<p>Hay \(x = 1\left( {TM} \right)\) hoặc \(x = - 7\left( {TM} \right)\)</p>
+<p>\(S = \left\{ {1; - 7} \right\}\) n&ecirc;n tổng b&igrave;nh phương c&aacute;c nghiệm l&agrave;: \({1^2} + {\left( { - 7} \right)^2} = 50\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai biểu thức: \(A = 1 - \dfrac{1}{{2 - x}}\) v&agrave; \(B = \dfrac{{12}}{{{x^3} - 8}}\). Gi&aacute; trị của \(x\) để \(A = B\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x = 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x = 1\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Kh&ocirc;ng c&oacute; \(x\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x = 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Để \(A = B\) th&igrave; \(1 - \dfrac{1}{{2 - x}} = \dfrac{{12}}{{{x^3} - 8}}\).</p>
+<p>ĐKXĐ: \(x \ne 2\)</p>
+<p>\(1 - \dfrac{1}{{2 - x}} = \dfrac{{12}}{{{x^3} - 8}}\,\,\\1 + \dfrac{1}{{x - 2}} = \dfrac{{12}}{{\left( {x - 2} \right)\left( {{x^2} + 2x + 4} \right)}}\\\dfrac{{{x^3} - 8 + {x^2} + 2x + 4}}{{\left( {x - 2} \right)\left( {{x^2} + 2x + 4} \right)}} = \dfrac{{12}}{{\left( {x - 2} \right)\left( {{x^2} + 2x + 4} \right)}}\\{x^3} - 8 + {x^2} + 2x + 4 = 12\\{x^3} + {x^2} + 2x - 16 = 0\\{x^3} - 2{x^2} + 3{x^2} - 6x + 8x - 16 = 0\\{x^2}\left( {x - 2} \right) + 3x\left( {x - 2} \right) + 8\left( {x - 2} \right) = 0\\\left( {x - 2} \right)\left( {{x^2} + 3x + 8} \right) = 0\)</p>
+<p>Suy ra \(x - 2 = 0 (KTM)\) hoặc \({x^2} + 3x + 8 = 0\left( 1 \right)\)</p>
+<p>Từ (1) suy ra</p>
+<p>\({x^2} + 2.\dfrac{3}{2}.x + \dfrac{9}{4} + \dfrac{{23}}{4} = 0\) \( \\{\left( {x + \dfrac{3}{2}} \right)^2} + \dfrac{{23}}{4} = 0\) (v&ocirc; nghiệm do \({\left( {x + \dfrac{3}{2}} \right)^2} \ge 0,\dfrac{{23}}{4} &gt; 0\) n&ecirc;n \({\left( {x + \dfrac{3}{2}} \right)^2} + \dfrac{{23}}{4} \ge \dfrac{{23}}{4} &gt; 0,\forall x\))</p>
+<p>Vậy kh&ocirc;ng c&oacute; gi&aacute; trị n&agrave;o của \(x\) để \(A = B\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách giải bài toán thực tế liên quan đến quy về phương trình bậc nhất một ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán thực tế liên quan đến quy về phương trình bậc nhất một ẩn</h3>
+<div><p>Các bước giải bài toán bằng cách lập phương trình:</p>
+<p><em>Bước 1:</em> Lập phương trình.</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết khác theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2:</em> Giải phương trình</p>
+<p><em>Bước 3:</em> Trả lời</p>
+<p>Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không rồi kết luận.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải phương trình tích dạng (ax + b)(cx + d) = 0</h3>
+<div><p>Để giải phương trình tích \(\left( {ax + b} \right)\left( {cx + d} \right) = 0\), ta giải hai phương trình \(ax + b = 0\) và \(cx + d = 0\). Sau đó lấy tất cả các nghiệm của chúng.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải phương trình đưa về phương trình tích</h3>
+<div><p><em>Bước 1: </em>Đưa phương trình về phương trình tích \(\left( {ax + b} \right)\left( {cx + d} \right) = 0\).</p>
+<p><em>Bước 2: </em>Giải phương trình tích tìm được.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách giải phương trình chứa ẩn ở mẫu</h3>
+<div><p><em>Bước 1: </em>Tìm điều kiện xác định của phương trình.</p>
+<p><em>Bước 2:</em> Quy đồng mẫu hai vế của phương trình rồi khử mẫu.</p>
+<p><em>Bước 3: </em>Giải phương trình vừa tìm được.</p>
+<p><em>Bước 4 (Kết luận):</em> Trong các giá trị tìm được của ẩn ở Bước 3, giá trị nào thoả mãn điều kiện xác định chính là nghiệm của phương trình đã cho.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

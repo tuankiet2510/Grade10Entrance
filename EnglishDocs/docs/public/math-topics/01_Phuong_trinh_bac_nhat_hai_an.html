@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình bậc nhất hai ẩn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 01: Phương trình bậc nhất hai ẩn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phương trình bậc nhất hai ẩn là gì? Cách xác định phương trình bậc nhất hai ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p><em>Phương trình bậc nhất hai ẩn x và y</em> là hệ thức dạng</p>
+<p>\(ax + by = c\)</p>
+<p>trong đó a, b và c là các số đã biết (\(a \ne 0\) hoặc \(b \ne 0\)).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định một phương trình có phải là phương trình bậc nhất hai ẩn hay không, ta kiểm tra xem phương trình có dạng \(ax + by = c\) thoả mãn \(a \ne 0\) hoặc \(b \ne 0\) hay không.</p>
+<p>+ Phương trình không có dạng \(ax + by = c\) thì không phải phương trình bậc nhất hai ẩn.</p>
+<p>+ Phương trình có dạng \(ax + by = c\) nhưng \(a = b = 0\) thì không phải phương trình bậc nhất hai ẩn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Phương trình bậc nhất hai ẩn x và y là hệ thức dạng <span class="MTConvertedEquation">\(ax + by = c\), khi đó phương trình </span>\(2x - y + 3 = 0\) có hệ số \(a,b,c\) lần lượt là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a = 2;b =  - 1;c = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(a = 2;b = 1;c = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(a = 2;b =  - 1;c =  - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(a = 2;b = 1;c =  - 3\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương trình \(2x - y + 3 = 0\) hay \(2x - y =  - 3\) có hệ số a, b, c lần lượt là: \(a = 2;b =  - 1;c =  - 3\).</p>
+<p><strong>Đáp án C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh n&agrave;o sau đ&acirc;y <strong>kh&ocirc;ng phải</strong> l&agrave; phương tr&igrave;nh bậc nhất hai ẩn?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2x + 3y = 4\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(3x + 0y = 5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(0x + 4y = 8\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(0x + 0y =&nbsp; - 3\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương tr&igrave;nh \(0x + 0y =&nbsp; - 3\) kh&ocirc;ng phải phương tr&igrave;nh bậc nhất hai ẩn v&igrave; a = b = 0.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Phương trình nào sau đây là phương trình bậc nhất hai ẩn?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2{x^2} + 2 = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$3y - 1 = 5y\left( {y - 2} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2x + \dfrac{y}{2} - 1 = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3\sqrt x  + {y^2} = 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">$2{x^2} + 2 = 0$ không là phương trình bậc nhất hai ẩn vì chỉ có 1 ẩn x.</p>
+<p style="text-align: left;">$3y - 1 = 5y\left( {y - 2} \right)$ không là phương trình bậc nhất hai ẩn vì chỉ có 1 ẩn y.</p>
+<p style="text-align: left;">$3\sqrt x  + {y^2} = 0$ không là phương trình bậc nhất hai ẩn vì bậc của x và bậc của y không phải bậc 1.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Nghiệm của phương trình bậc nhất hai ẩn là gì? Cách xác định nghiệm của phương trình bậc nhất hai ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Nghiệm của phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Nếu tại \(x = {x_0}\) và \(y = {y_0}\) ta có \(a{x_0} + b{y_0} = c\) là một khẳng định đúng thì cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của phương trình \(ax + by = c\).</p>
+<p>Phương trình bậc nhất hai ẩn \(ax + by = c\) luôn luôn có vô số nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định nghiệm của phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định cặp số \(\left( {{x_0};{y_0}} \right)\) có là nghiệm của phương trình \(ax + by = c\) không, ta thay \(x = {x_0}\) và \(y = {y_0}\) vào phương trình \(ax + by = c\):</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) là nghiệm của phương trình \(ax + by = c\).</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) không là nghiệm của phương trình \(ax + by = c\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh \(x - 3y = 0\) c&oacute; nghiệm tổng qu&aacute;t l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \in \mathbb{R},y = 3x\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = 3y,y \in \mathbb{R}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \in \mathbb{R},y = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(y \in \mathbb{R},x = 0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(x - 3y = 0\) n&ecirc;n \(x = 3y\).</p>
+<p>Vậy nghiệm của phương tr&igrave;nh \(x - 3y = 0\) l&agrave; \(x = 3y,y \in \mathbb{R}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(x + 2y = 5\) l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {x;y} \right) = \left( {1; - 2} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {x;y} \right) = \left( {1;2} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {x;y} \right) = \left( {2; - 1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( {x;y} \right) = \left( {2;1} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;: 1 + 2.2 = 5 n&#xEA;n \(\left( {x;y} \right) = \left( {1;2} \right)\) l&#xE0; m&#x1ED9;t nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(x + 2y = 5\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(x + 2y = 0\) l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {x;y} \right) = \left( { - 2;1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {x;y} \right) = \left( {1;1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {x;y} \right) = \left( {2;1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( { - 1; - 1} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;: \(\left( { - 2} \right) + 2.1 = 0\) n&#xEA;n c&#x1EB7;p s&#x1ED1; \(\left( {x;y} \right) = \left( { - 2;1} \right)\) l&#xE0; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(x + 2y = 0\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\left( {2;0} \right)\) v&agrave; \(\left( { - 1; - 2} \right)\) l&agrave; hai nghiệm của phương tr&igrave;nh \(ax + by = 4\). Hệ số a v&agrave; b l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>a = -2; b = -3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>a = 2; b = -3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>a = -2; b = 3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>a = 2; b = 3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(\left( {2;0} \right)\) l&agrave; nghiệm của phương tr&igrave;nh n&ecirc;n ta c&oacute;: \(2a = 4\) hay \(a = 2\).</p>
+<p>Khi đ&oacute; phương tr&igrave;nh trở th&agrave;nh \(2x + by = 4\)</p>
+<p>V&igrave; \(\left( { - 1; - 2} \right)\) l&agrave; nghiệm của phương tr&igrave;nh n&ecirc;n ta c&oacute;: \(2.\left( { - 1} \right) - 2.b = 4\) hay \(b =&nbsp; - 3\).</p>
+<p>Vậy a = 2; b = -3.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Để cặp số \(\left( {2; - 1} \right)\) là nghiệm của phương trình \(mx - 5y = 3m - 1\) thì:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(m =  - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(m = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(m =  - 6\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(m = 6\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(x = 2\) và \(y =  - 1\) vào phương trình \(mx - 5y = 3m - 1\) ta được:</p>
+<p>\(\begin{array}{l}2m - 5.\left( { - 1} \right) = 3m - 1\\2m + 5 = 3m - 1\\2m - 3m =  - 1 - 5\\ - m =  - 6\\m = 6\end{array}\)</p>
+<p>Vậy m = 6 thì \(\left( {2; - 1} \right)\) là nghiệm của phương trình \(m - 5y = 3m - 1\).</p>
+<p><strong>Đáp án D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách biểu diễn hình học nghiệm của phương trình bậc nhất hai ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Nghiệm của phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Nếu tại \(x = {x_0}\) và \(y = {y_0}\) ta có \(a{x_0} + b{y_0} = c\) là một khẳng định đúng thì cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của phương trình \(ax + by = c\).</p>
+<p>Phương trình bậc nhất hai ẩn \(ax + by = c\) luôn luôn có vô số nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định nghiệm của phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định cặp số \(\left( {{x_0};{y_0}} \right)\) có là nghiệm của phương trình \(ax + by = c\) không, ta thay \(x = {x_0}\) và \(y = {y_0}\) vào phương trình \(ax + by = c\):</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) là nghiệm của phương trình \(ax + by = c\).</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) không là nghiệm của phương trình \(ax + by = c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách biểu diễn hình học nghiệm của phương trình bậc nhất hai ẩn</h3>
+<div><p>- Trong mặt phẳng toạ độ Oxy, mỗi nghiệm của phương trình \(ax + by = c\) được biểu diễn bởi một điểm. Nghiệm \(\left( {{x_0};{y_0}} \right)\) được biểu diễn bởi điểm có toạ độ \(\left( {{x_0};{y_0}} \right)\).</p>
+<p>- Tất cả các nghiệm của phương trình đó được biểu diễn bởi một đường thẳng.</p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + 0y = c\left( {a \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + 0y = c\left( {a \ne 0} \right)\) được biểu diễn bởi điểm có toạ độ \(\left( {\frac{c}{a};{y_0}} \right)\) \(\left( {{y_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_1}:x = \frac{c}{a}\). Đường thẳng \({d_1}\) là đường thẳng đi qua điểm \(\frac{c}{a}\) trên trục Ox và vuông góc với trục Ox.</p>
+<p><img height="278" src="https://img.loigiaihay.com/picture/2025/0423/1745402522411-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="309"/></p>
+<p>+ <strong><em>Phương trình </em></strong>\(0x + by = c\left( {b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(0x + by = c\left( {b \ne 0} \right)\) được biểu diễn bởi một điểm có toạ độ \(\left( {{x_0};\frac{c}{b}} \right)\left( {{x_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_2}:y = \frac{c}{b}\). Đường thẳng \({d_2}\) là đường thẳng đi qua điểm \(\frac{c}{b}\) trên trục Oy và vuông góc với trục Oy.</p>
+<p><img height="289" src="https://img.loigiaihay.com/picture/2025/0423/1745402528048-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="309"/></p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + by = c\left( {a \ne 0,b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + by = c\left( {a \ne 0,b \ne 0} \right)\) được biểu diễn bởi một điểm nằm trên đường thẳng \({d_3}:y =  - \frac{a}{b}x + \frac{c}{b}\).</p>
+<p><img height="358" src="https://img.loigiaihay.com/picture/2025/0423/1745402538595-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="337"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định <strong>đ&uacute;ng</strong>. Đường thẳng $d$&nbsp; biểu diễn tập nghiệm của phương tr&igrave;nh $3x - y = 3$ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Đường thẳng song song với trục ho&agrave;nh</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Đường thẳng song song với trục tung</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Đường thẳng đi qua gốc tọa độ</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Đường thẳng&nbsp; đi qua điểm $A\left( {1;0} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $3x - y = 3$$ \Leftrightarrow y = 3x - 3$</p>
+<p style="text-align: left;">Nghiệm tổng qu&aacute;t của phương tr&igrave;nh $\left\{ \begin{array}{l}x \in \mathbb{R}\\y = 3x - 3\end{array} \right.$</p>
+<p style="text-align: left;">Biểu diễn h&igrave;nh học của tập nghiệm l&agrave; đường thẳng $y = 3x - 3$ đi qua điểm $A\left( {1;0} \right)$ v&agrave; $B\left( {0; - 3} \right)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Tập nghiệm của phương tr&igrave;nh \(2x + 0y = 5\) được biểu diễn bởi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>đường thẳng \(y = 2x - 5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>đường thẳng \(y = \frac{5}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>đường thẳng \(y = 5 - 2x\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>đường thẳng \(x = \frac{5}{2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(2x + 0y = 5\) hay \(2x = 5\) suy ra \(x = \frac{5}{2}\).</p>
+<p>Vậy tập nghiệm của phương tr&igrave;nh \(2x + 0y = 5\) được biểu diễn bởi đường thẳng \(x = \frac{5}{2}\).</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Tập nghiệm của \(3x - 4y =  - 1\) được biểu diễn bằng đường thẳng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(y =  - 3x - 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(y = \frac{3}{4}x + \frac{1}{4}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(y = 4x + 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(y = \frac{3}{4}x - \frac{1}{4}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có:</p>
+<p>\(\begin{array}{l}3x - 4y =  - 1\\4y = 3x + 1\\y = \frac{3}{3}x + \frac{1}{4}\end{array}\)</p>
+<p>Vậy tập nghiệm của \(3x - 4y =  - 1\) là đường thẳng \(y = \frac{3}{4}x + \frac{1}{4}\).</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>H&igrave;nh ảnh dưới đ&acirc;y minh họa tập nghiệm của phương tr&igrave;nh n&agrave;o?</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0930/1727684936077-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2x + 0y = 5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(0x + 2y = 5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(0x - y = 2,5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\( - 2x + 0y = 5\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t h&igrave;nh vẽ, ta thấy đường thẳng biểu diễn tập nghiệm đi qua điểm \(\left( {0;2,5} \right)\).</p>
+<p>Ta c&oacute; \(0.0 + 2.2,5 = 5\) n&ecirc;n đ&acirc;y l&agrave; h&igrave;nh minh họa tập nghiệm của phương tr&igrave;nh \(0x + 2y = 5\).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tìm điều kiện của tham số để đường thẳng ax + by = c thoả mãn điều kiện cho trước của đề bài</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p><em>Phương trình bậc nhất hai ẩn x và y</em> là hệ thức dạng</p>
+<p>\(ax + by = c\)</p>
+<p>trong đó a, b và c là các số đã biết (\(a \ne 0\) hoặc \(b \ne 0\)).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Nghiệm của phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Nếu tại \(x = {x_0}\) và \(y = {y_0}\) ta có \(a{x_0} + b{y_0} = c\) là một khẳng định đúng thì cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của phương trình \(ax + by = c\).</p>
+<p>Phương trình bậc nhất hai ẩn \(ax + by = c\) luôn luôn có vô số nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định nghiệm của phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định cặp số \(\left( {{x_0};{y_0}} \right)\) có là nghiệm của phương trình \(ax + by = c\) không, ta thay \(x = {x_0}\) và \(y = {y_0}\) vào phương trình \(ax + by = c\):</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) là nghiệm của phương trình \(ax + by = c\).</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) thì \(\left( {{x_0};{y_0}} \right)\) không là nghiệm của phương trình \(ax + by = c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách biểu diễn hình học nghiệm của phương trình bậc nhất hai ẩn</h3>
+<div><p>- Trong mặt phẳng toạ độ Oxy, mỗi nghiệm của phương trình \(ax + by = c\) được biểu diễn bởi một điểm. Nghiệm \(\left( {{x_0};{y_0}} \right)\) được biểu diễn bởi điểm có toạ độ \(\left( {{x_0};{y_0}} \right)\).</p>
+<p>- Tất cả các nghiệm của phương trình đó được biểu diễn bởi một đường thẳng.</p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + 0y = c\left( {a \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + 0y = c\left( {a \ne 0} \right)\) được biểu diễn bởi điểm có toạ độ \(\left( {\frac{c}{a};{y_0}} \right)\) \(\left( {{y_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_1}:x = \frac{c}{a}\). Đường thẳng \({d_1}\) là đường thẳng đi qua điểm \(\frac{c}{a}\) trên trục Ox và vuông góc với trục Ox.</p>
+<p><img height="278" src="https://img.loigiaihay.com/picture/2025/0423/1745402522411-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="309"/></p>
+<p>+ <strong><em>Phương trình </em></strong>\(0x + by = c\left( {b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(0x + by = c\left( {b \ne 0} \right)\) được biểu diễn bởi một điểm có toạ độ \(\left( {{x_0};\frac{c}{b}} \right)\left( {{x_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_2}:y = \frac{c}{b}\). Đường thẳng \({d_2}\) là đường thẳng đi qua điểm \(\frac{c}{b}\) trên trục Oy và vuông góc với trục Oy.</p>
+<p><img height="289" src="https://img.loigiaihay.com/picture/2025/0423/1745402528048-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="309"/></p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + by = c\left( {a \ne 0,b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + by = c\left( {a \ne 0,b \ne 0} \right)\) được biểu diễn bởi một điểm nằm trên đường thẳng \({d_3}:y =  - \frac{a}{b}x + \frac{c}{b}\).</p>
+<p><img height="358" src="https://img.loigiaihay.com/picture/2025/0423/1745402538595-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="337"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm điều kiện của tham số để đường thẳng ax + by = c thoả mãn điều kiện cho trước của đề bài</h3>
+<div><p>- Trường hợp 1: Nếu \(a \ne 0\) và \(b = 0\) thì phương trình đường thẳng d: ax + by = c có dạng: \(x = \frac{c}{a}\) suy ra đường thẳng d song song hoặc trùng với Oy (trục tung của trục toạ độ)</p>
+<p>- Trường hợp 2: Nếu a = 0 và b ≠ 0 thì phương trình đường thẳng d: ax + by = c có dạng: \(y = \frac{c}{b}\) suy ra đường thẳng d song song hoặc trùng với Ox (trục hoành của trục toạ độ)</p>
+<p>- Trường hợp 3: Đường thẳng d: \(ax + by = c\) đi qua điểm \(M\left( {{x_0};{y_0}} \right)\) khi và chỉ khi \(a{x_0} + b{y_0} = c\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường thẳng $d$ c&oacute; phương tr&igrave;nh&nbsp; $(m - 2)x + (3m - 1)y = 6m - 2$</p>
+<p style="text-align: left;">T&igrave;m c&aacute;c gi&aacute; trị của tham số m để $d$ song song với trục ho&agrave;nh.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$m = 2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m = 3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m = 4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Để $d$ song song với trục ho&agrave;nh th&igrave; $\left\{ \begin{array}{l}m - 2 = 0\\3m - 1 \ne 0\\6m - 2 \ne 0\end{array} \right. \Leftrightarrow \left\{ \begin{array}{l}m = 2\\m \ne \dfrac{1}{3}\end{array} \right. \Leftrightarrow m = 2$</p>
+<p style="text-align: left;">Vậy $m = 2$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường thẳng $d$ c&oacute; phương tr&igrave;nh&nbsp; $(m - 2)x + (3m - 1)y = 6m + 2$</p>
+<p style="text-align: left;">T&igrave;m c&aacute;c gi&aacute; trị của tham số $m$ để $d$ song song với trục tung.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m = \dfrac{1}{3}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$m = \dfrac{2}{3}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m \ne 2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m \ne \dfrac{1}{3}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Để $d$ song song với trục tung th&igrave; $\left\{ \begin{array}{l}m - 2 \ne 0\\3m - 1 = 0\\6m + 2 \ne 0\end{array} \right. \Leftrightarrow \left\{ \begin{array}{l}m \ne 2\\m = \dfrac{1}{3}\\m \ne&nbsp; - \dfrac{1}{3}\end{array} \right.$</p>
+<p style="text-align: left;">$\Leftrightarrow m = \dfrac{1}{3}$</p>
+<p style="text-align: left;">Vậy $m = \dfrac{1}{3}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường thẳng $d$ c&oacute; phương tr&igrave;nh&nbsp; $(m - 2)x + (3m - 1)y = 6m - 2$</p>
+<p style="text-align: left;">T&igrave;m c&aacute;c gi&aacute; trị của tham số $m$ để $d$ đi qua gốc tọa độ.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m = \dfrac{1}{3}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$m = \dfrac{2}{3}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m \ne 2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m \ne \dfrac{1}{3}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Để $d$ đi qua gốc tọa độ th&igrave; $\left( {m - 2} \right).0 + \left( {3m - 1} \right).0 = 6m - 2 \Leftrightarrow m = \dfrac{1}{3}$</p>
+<p style="text-align: left;">Vậy $m = \dfrac{1}{3}$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách xác định các điểm mà đường thẳng đi qua</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Nghiệm của phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Nếu tại \(x = {x_0}\) và \(y = {y_0}\) ta có \(a{x_0} + b{y_0} = c\) là một khẳng định đúng thì cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của phương trình \(ax + by = c\).</p>
+<p>Phương trình bậc nhất hai ẩn \(ax + by = c\) luôn luôn có vô số nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định các điểm mà đường thẳng đi qua</h3>
+<div><p>- Trong mặt phẳng toạ độ, tập hợp các điểm có toạ độ (x; y) thoả mãn phương trình bậc nhất hai ẩn ax + by = c là một đường thẳng. Đường thẳng đó gọi là đường thẳng ax + by = c.</p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + 0y = c\left( {a \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + 0y = c\left( {a \ne 0} \right)\) được biểu diễn bởi điểm có toạ độ \(\left( {\frac{c}{a};{y_0}} \right)\) \(\left( {{y_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_1}:x = \frac{c}{a}\). Đường thẳng \({d_1}\) là đường thẳng đi qua điểm \(\frac{c}{a}\) trên trục Ox và vuông góc với trục Ox.</p>
+<p>+ <strong><em>Phương trình </em></strong>\(0x + by = c\left( {b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(0x + by = c\left( {b \ne 0} \right)\) được biểu diễn bởi một điểm có toạ độ \(\left( {{x_0};\frac{c}{b}} \right)\left( {{x_0} \in \mathbb{R}} \right)\) nằm trên đường thẳng \({d_2}:y = \frac{c}{b}\). Đường thẳng \({d_2}\) là đường thẳng đi qua điểm \(\frac{c}{b}\) trên trục Oy và vuông góc với trục Oy.</p>
+<p>+ <strong><em>Phương trình </em></strong>\(ax + by = c\left( {a \ne 0,b \ne 0} \right)\)</p>
+<p>Mỗi nghiệm của phương trình \(ax + by = c\left( {a \ne 0,b \ne 0} \right)\) được biểu diễn bởi một điểm nằm trên đường thẳng \({d_3}:y =  - \frac{a}{b}x + \frac{c}{b}\).</p>
+<p>- Đường thẳng d: \(ax + by = c\) luôn đi qua điểm \(M\left( {{x_0};{y_0}} \right)\) khi và chỉ khi \(a{x_0} + b{y_0} = c\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tập nghiệm của phương trình bậc nhất hai ẩn nào được biểu diễn ở đồ thị sau?</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0628/1719558251885-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2x + y = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2x - y = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2x + y =  - 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2x - y =  - 2\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta thấy, các điểm (1;0) và (0;-2) thuộc đường thẳng cần tìm.</p>
+<p>Thay lần lượt hai điểm vào các đường thẳng trong đáp án, ta thấy các điểm (1;0) và (0;-2) thuộc đường thẳng \(2x - y = 2\).</p>
+<p>Vậy hình vẽ bên biểu diễn tập nghiệm của phương trình bậc nhất hai ẩn \(2x - y = 2\).</p>
+<p><strong>Đáp án </strong><strong>B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách tìm nghiệm nguyên của phương trình bậc nhất hai ẩn ax + by = c</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Nghiệm của phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Nếu tại \(x = {x_0}\) và \(y = {y_0}\) ta có \(a{x_0} + b{y_0} = c\) là một khẳng định đúng thì cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của phương trình \(ax + by = c\).</p>
+<p>Phương trình bậc nhất hai ẩn \(ax + by = c\) luôn luôn có vô số nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tìm nghiệm nguyên của phương trình bậc nhất hai ẩn ax + by = c</h3>
+<div><p>Để tìm được các nghiệm nguyên của phương trình bậc nhất 2 ẩn đã cho, ta thực hiện các bước sau:</p>
+<p><strong>Cách 1:</strong></p>
+<p>· Bước 1: Rút gọn biểu thức phương trình, lưu ý đến tính chia hết của các ẩn</p>
+<p>· Bước 2: Biểu thị ẩn mà hệ số của ẩn này có giá trị tuyệt đối nhỏ (giả sử là x) theo ẩn kia.</p>
+<p>· Bước 3: Tách riêng phần giá trị nguyên ở biểu thức của x</p>
+<p>· Bước 4:  Đặt điều kiện để phân số trong biểu thức của x thông qua số nguyên t ta được phương trình bậc nhất 2 ẩn y và t</p>
+<p>Tiếp tục làm các bước như trên cho đến khi các ẩn của phương trình đều được biểu thị dưới dạng một đa thức với các hệ số nguyên.</p>
+<p><strong>Cách 2:</strong></p>
+<p>· Bước 1: Tìm 1 cặp nghiệm nguyên của phương trình \(\left( {{x_1};{y_1}} \right)\)</p>
+<p>· Bước 2: Đưa phương trình trên về dạng \(a\left( {x - {x_1}} \right) + b\left( {y - {y_1}} \right) = c\) từ đó có thể dễ dàng tìm được các nghiệm nguyên của phương trình đã cho.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Tìm nghiệm nguyên âm lớn nhất của phương trình $ - 5x + 2y = 7$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( { - 7; - 14} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( { - 1; - 2} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( { - 3; - 4} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$\left( { - 5; - 9} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có \( - 5x + 2y = 7 \)</p>
+<p style="text-align: left;">\(2y = 7 + 5x \)</p>
+<p style="text-align: left;">\( y = \dfrac{{5x + 7}}{2} \)</p>
+<p style="text-align: left;">\(y = 2x + \dfrac{{x + 7}}{2}\)</p>
+<p style="text-align: left;">Đặt \(\dfrac{{x + 7}}{2} = t \) suy ra \( x = 2t - 7 \)</p>
+<p style="text-align: left;">\(y = 2.\left( {2t - 7} \right) + t \)</p>
+<p style="text-align: left;">\(y = 5t - 14\,\left( {t \in \mathbb{Z}} \right)\)</p>
+<p style="text-align: left;">Nên nghiệm nguyên của phương trình là $\left\{ \begin{array}{l}x = 2t - 7\\y = 5t - 14\end{array} \right.\,\,\,\left( {t \in \mathbb{Z}} \right)$</p>
+<p>Vì $x,y$ nguyên âm nên \(\left\{ \begin{array}{l}x < 0\\y < 0\end{array} \right. \)</p>
+<p>suy ra \(\left\{ \begin{array}{l}2t - 7 < 0\\5t - 14 < 0\end{array} \right.\)</p>
+<p>\(\left\{ \begin{array}{l}t < \dfrac{7}{2}\\t < \dfrac{{14}}{5}\end{array} \right. \)</p>
+<p>\( t < \dfrac{{14}}{5}\)</p>
+<p>mà \(t \in \mathbb{Z} \) nên \(t \le 2\).</p>
+<p>Nghiệm nguyên âm lớn nhất nhất của phương trình đạt được khi \(t = 2 \) suy ra \(\left\{ \begin{array}{l}x = 2.2 - 7=  - 3\\y = 5.2 - 14=  - 4\end{array} \right. \)</p>
+<p>Vậy nghiệm cần tìm là \(\left( { - 3; - 4} \right)\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

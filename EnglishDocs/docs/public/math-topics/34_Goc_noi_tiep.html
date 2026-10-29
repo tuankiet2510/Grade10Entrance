@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góc nội tiếp - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 34: Góc nội tiếp</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Góc nội tiếp là gì? Cách xác định góc nội tiếp của đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Xác định góc nội tiếp của đường tròn</h3>
+<div><p>Để xác định góc nội tiếp của đường tròn, ta dựa vào khái niệm góc nội tiếp để xác định.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">H&igrave;nh n&agrave;o dưới đ&acirc;y biểu diễn g&oacute;c nội tiếp?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">H&igrave;nh \(1\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">H&igrave;nh \(2\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">H&igrave;nh $3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">H&igrave;nh \(4\)&nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">H&igrave;nh \(1\) g&oacute;c \(\widehat {BOA}\) l&agrave; g&oacute;c ở t&acirc;m .</p>
+<p style="text-align: left;">H&igrave;nh \(3\) c&oacute; \(1\) cạnh kh&ocirc;ng phải l&agrave; d&acirc;y của đường tr&ograve;n.</p>
+<p style="text-align: left;">H&igrave;nh \(4\) đỉnh $B$ kh&ocirc;ng nằm tr&ecirc;n đường tr&ograve;n.</p>
+<p style="text-align: left;">H&igrave;nh \(2\) g&oacute;c \(\widehat {BCA}\) l&agrave; g&oacute;c nội tiếp chắn cung \(AB\)&nbsp;</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cung bị chắn là gì? Cách xác định cung bị chắn bởi góc nội tiếp của một đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cung bị chắn</h3>
+<div><p>Cung nằm bên trong góc nội tiếp được gọi là<strong><em> cung bị chắn.</em></strong></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137222302-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+Góc nội tiếp BAC chắn cung $\overset\frown{BmC}$.</div>
+</div>
+<div style="padding: 7px">
+<h3>3. Xác định cung bị chắn bởi góc nội tiếp của một đường tròn</h3>
+<div><p>Để xác định cung bị chắn bởi góc nội tiếp của một đường tròn, ta dựa vào khái niệm và cung bị chắn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n (O; R). Lấy A, B, C thuộc đường tr&ograve;n (O; R). G&oacute;c nội tiếp ABC chắn cung n&agrave;o?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>AB.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>AC.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>OC.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>BC.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1125/1732527877896-mceclip0.png" /></p><p>G&oacute;c nội tiếp ABC chắn cung AC.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Góc nội tiếp và góc ở tâm cùng chắn một cung có mối liên hệ gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cung bị chắn</h3>
+<div><p>Cung nằm bên trong góc nội tiếp được gọi là<strong><em> cung bị chắn.</em></strong></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137222302-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+Góc nội tiếp BAC chắn cung $\overset\frown{BmC}$.</div>
+</div>
+<div style="padding: 7px">
+<h3>3. Mối liên hệ giữa góc nội tiếp và góc ở tâm cùng chắn một cung</h3>
+<div><p>- Trong một đường tròn, số đo của góc ở tâm bằng số đo của cung bị chắn.</p>
+<p>- Trong một đường tròn, số đo của góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng nửa số đo cung bị chắn.</p>
+<p>Như vậy, số đo góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng một nửa số đo góc ở tâm cùng chắn một cung.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC nội tiếp đường tr&ograve;n (O). Biết \(\widehat {BOC} = 120^\circ \) v&agrave; \(\widehat {OCA} = 40^\circ \). T&iacute;nh số đo g&oacute;c BAO.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(40^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(60^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(20^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(80^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0303/1740987747002-mceclip0.png" width="300" /></p><p>V&igrave; tam gi&aacute;c AOC c&acirc;n n&ecirc;n \(\widehat {OAC} = \widehat {OCA} = 40^\circ \)</p>
+<p>V&igrave; tam gi&aacute;c ABC nội tiếp đường tr&ograve;n (O) n&ecirc;n \(\widehat {BAC}\) l&agrave; g&oacute;c nội tiếp chắn cung BC. M&agrave; \(\widehat {BOC}\) l&agrave; g&oacute;c ở t&acirc;m chắn cung BC n&ecirc;n \(\widehat {BAC} = \frac{1}{2}\widehat {BOC} = \frac{1}{2}.120^\circ&nbsp; = 60^\circ \).</p>
+<p>M&agrave; \(\widehat {BAO} + \widehat {OAC} = \widehat {BAC}\) n&ecirc;n ta c&oacute;:</p>
+<p>\(\widehat {BAO} = \widehat {BAC} - \widehat {OAC} = 60^\circ&nbsp; - 40^\circ&nbsp; = 20^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính số đo góc, cung</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Mối liên hệ giữa góc nội tiếp và góc ở tâm cùng chắn một cung</h3>
+<div><p>- Trong một đường tròn, số đo của góc ở tâm bằng số đo của cung bị chắn.</p>
+<p>- Trong một đường tròn, số đo của góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng nửa số đo cung bị chắn.</p>
+<p>Như vậy, số đo góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng một nửa số đo góc ở tâm cùng chắn một cung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính số đo góc, cung</h3>
+<div><p>Để tính số đo góc, cung liên quan đến góc nội tiếp, ta sử dụng các kiến thức:</p>
+<p>Trong một đường tròn:</p>
+<p>• Các góc nội tiếp bằng nhau chắn các cung bằng nhau.</p>
+<p>• Các góc nội tiếp cùng chắn một cung hoặc các cung bằng nhau thì bằng nhau.</p>
+<p>• Các góc nội tiếp chắn cung nhỏ thì có số đo bằng nửa số đo của góc ở tâm chắn cùng một cung.</p>
+<p>• Góc nội tiếp chắn nửa đường tròn là góc vuông.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC nội tiếp đường tr&ograve;n (O). Biết \(\widehat {BOC} = 120^\circ \) v&agrave; \(\widehat {OCA} = 40^\circ \). T&iacute;nh số đo g&oacute;c BAO.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(40^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(60^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(20^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(80^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0303/1740987747002-mceclip0.png" width="300" /></p><p>V&igrave; tam gi&aacute;c AOC c&acirc;n n&ecirc;n \(\widehat {OAC} = \widehat {OCA} = 40^\circ \)</p>
+<p>V&igrave; tam gi&aacute;c ABC nội tiếp đường tr&ograve;n (O) n&ecirc;n \(\widehat {BAC}\) l&agrave; g&oacute;c nội tiếp chắn cung BC. M&agrave; \(\widehat {BOC}\) l&agrave; g&oacute;c ở t&acirc;m chắn cung BC n&ecirc;n \(\widehat {BAC} = \frac{1}{2}\widehat {BOC} = \frac{1}{2}.120^\circ&nbsp; = 60^\circ \).</p>
+<p>M&agrave; \(\widehat {BAO} + \widehat {OAC} = \widehat {BAC}\) n&ecirc;n ta c&oacute;:</p>
+<p>\(\widehat {BAO} = \widehat {BAC} - \widehat {OAC} = 60^\circ&nbsp; - 40^\circ&nbsp; = 20^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho h&igrave;nh vẽ. Khi đ&oacute; đ&aacute;p &aacute;n đ&uacute;ng l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\widehat {ADC} = {70^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\widehat {ADC} = {80^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\widehat {ADC} = {75^0}\)<strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\widehat {ADC} = {60^0}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t $(O)$ c&oacute;</p>
+<p style="text-align: left;">$\widehat {CAD} = \widehat {CBD}$ (c&ugrave;ng chắn cung \(CD\) ).</p>
+<p style="text-align: left;">Do đ&oacute; ta c&oacute;</p>
+<p style="text-align: left;">\(\widehat {CAD} = {60^0}.\)</p>
+<p style="text-align: left;">Tổng ba g&oacute;c trong một tam gi&aacute;c bằng \({180^0}\)</p>
+<p style="text-align: left;">N&ecirc;n:</p>
+<p style="text-align: left;">$\begin{array}{l}\,\,\,\,\,\,\widehat {CAD} + \widehat {ACD} + \widehat {ADC} = {180^0}\\ \Rightarrow \widehat {ADC} = {180^0} - \left( {\widehat {CAD} + \widehat {ACD}} \right) \\= {180^0} - \left( {{{60}^0} + {{40}^0}} \right) = {80^0}.\end{array}$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho b&#x1ED1;n &#x111;i&#x1EC3;m A, B, C, D thu&#x1ED9;c &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n \(\left( O \right).\) &#xA0;Bi&#x1EBF;t \(\widehat {BOD} = {130^0}\) th&#xEC; s&#x1ED1; &#x111;o \(\widehat {BAD}\) l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({50^0}\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({130^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({15^0}\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\({65^0}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;: \(\widehat {BOD} = {130^0} \) n&#xEA;n \(s&#x111;\,\overparen{BD} = {130^0}\).</p>
+<p>Do &#x111;&#xF3; \(\widehat {BAD} = \dfrac{1}{2}s&#x111;\overparen{BD} = {65^0}\) (g&#xF3;c n&#x1ED9;i ti&#x1EBF;p b&#x1EB1;ng m&#x1ED9;t n&#x1EED;a s&#x1ED1; &#x111;o c&#x1EE7;a cung b&#x1ECB; ch&#x1EAF;n)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho hình vẽ (hai đường tròn có tâm là \(B,C \) và điểm \(B\) nằm trên đường tròn tâm \(C\)). Biết $\widehat {MAN} = {20^0}.$</p><p>Khi đó \(\widehat {PCQ} = ?\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({60^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({70^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({80^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\({90^0}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta nhận thấy \(\widehat {MAN}\) nội tiếp đường tròn tâm \(B\), chắn cung nhỏ \(MN\) của đường tròn \(\left( B \right)\) nên \(\widehat {MAN} = \dfrac{1}{2}\widehat {MBN} = {20^0} \) suy ra \(\widehat {MBN} = {40^0} \) hay \(\widehat {PBQ} = {40^0}.\)</p>
+<p>Ta lại có \(\widehat {PBQ}\) là góc nội tiếp đường tròn tâm \(C\) và \(\widehat {PCQ}\) là góc ở tâm của \(\left( C \right)\) nên</p>
+<p>$\widehat {PBQ} = \dfrac{1}{2}\widehat {PCQ}$ suy ra $\widehat {PCQ} = 2\widehat {PBQ} = {80^0}.$</p>
+<p>Vậy \(\widehat {PCQ} = {80^0}.\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách chứng minh các góc bằng nhau, các cung bằng nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Mối liên hệ giữa góc nội tiếp và góc ở tâm cùng chắn một cung</h3>
+<div><p>- Trong một đường tròn, số đo của góc ở tâm bằng số đo của cung bị chắn.</p>
+<p>- Trong một đường tròn, số đo của góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng nửa số đo cung bị chắn.</p>
+<p>Như vậy, số đo góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng một nửa số đo góc ở tâm cùng chắn một cung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách chứng minh các góc bằng nhau, các cung bằng nhau</h3>
+<div><p>Để chứng minh các góc bằng nhau, các cung bằng nhau liên quan đến góc nội tiếp, ta sử dụng các kiến thức:</p>
+<p>Trong một đường tròn:</p>
+<p>• Các góc nội tiếp bằng nhau chắn các cung bằng nhau.</p>
+<p>• Các góc nội tiếp cùng chắn một cung hoặc các cung bằng nhau thì bằng nhau.</p>
+<p>• Các góc nội tiếp chắn cung nhỏ thì có số đo bằng nửa số đo của góc ở tâm chắn cùng một cung.</p>
+<p>• Góc nội tiếp chắn nửa đường tròn là góc vuông.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \(\left( O \right)\) Tr&ecirc;n \(\left( O \right)\) lấy ba điểm \(A,B,D\) sao cho \(\widehat {AOB} = {120^0},\,\,AD = BD.\)</p><p>Khi đ&oacute; \(\Delta ABD\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Tam gi&aacute;c đều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Tam gi&aacute;c vu&ocirc;ng tại \(D\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Tam gi&aacute;c vu&ocirc;ng c&acirc;n tại \(D\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Tam gi&aacute;c vu&ocirc;ng tại \(A\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Từ mối li&ecirc;n hệ về số đo g&oacute;c ở t&acirc;m v&agrave; số đo g&oacute;c nội tiếp ta c&oacute;</p>
+<p>$\widehat {ADB} = \dfrac{1}{2}\widehat {AOB} = \dfrac{1}{2}{.120^0} = {60^0}.$</p>
+<p>\(\Delta ABD\) c&oacute; \(AD = BD\) n&ecirc;n c&acirc;n tại \(D,\)&nbsp; c&oacute; một&nbsp; g&oacute;c $\widehat {ADB}=60^0$ n&ecirc;n&nbsp;\(\Delta ABD\) l&agrave; tam gi&aacute;c đều.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ b&ecirc;n. Mệnh đề n&agrave;o sau đ&acirc;y l&agrave; sai.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\widehat {AMB} = \widehat {ANB}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$\widehat {AMB} = \dfrac{1}{2}\widehat {AOB}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\widehat {ANB} = \dfrac{1}{2}\widehat {AOB}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\widehat {AMB} = \widehat {ANB} = \widehat {AOB}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; \(\widehat {AMB} = \widehat {ANB}\) v&igrave; hai g&oacute;c nội tiếp c&ugrave;ng chắn cung \(AB.\)</p>
+<p>Ta lại c&oacute; $\widehat {AMB} = \dfrac{1}{2}\widehat {AOB},\widehat {\,\,ANB} = \dfrac{1}{2}\widehat {AOB}$ ( mối li&ecirc;n hệ giữa g&oacute;c nội tiếp v&agrave; g&oacute;c ở t&acirc;m c&ugrave;ng chắn cung \(AB)\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách tính độ dài đoạn thẳng, chứng minh tỉ số bằng nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Góc nội tiếp</h3>
+<div><p><strong><em>Góc nội tiếp </em></strong>là góc có đỉnh nằm trên đường tròn và hai cạnh chứa hai dây cung của đường tròn đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137195009-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Góc BAC là góc nội tiếp của đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Mối liên hệ giữa góc nội tiếp và góc ở tâm cùng chắn một cung</h3>
+<div><p>- Trong một đường tròn, số đo của góc ở tâm bằng số đo của cung bị chắn.</p>
+<p>- Trong một đường tròn, số đo của góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng nửa số đo cung bị chắn.</p>
+<p>Như vậy, số đo góc nội tiếp (nhỏ hơn hoặc bằng \(90^\circ \)) bằng một nửa số đo góc ở tâm cùng chắn một cung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính độ dài đoạn thẳng, chứng minh tỉ số bằng nhau</h3>
+<div><p>Để tính độ dài đoạn thẳng, chứng minh tỉ số bằng nhau liên quan đến góc nội tiếp, ta sử dụng các kiến thức:</p>
+<p>Trong một đường tròn:</p>
+<p>• Các góc nội tiếp bằng nhau chắn các cung bằng nhau.</p>
+<p>• Các góc nội tiếp cùng chắn một cung hoặc các cung bằng nhau thì bằng nhau.</p>
+<p>• Các góc nội tiếp chắn cung nhỏ thì có số đo bằng nửa số đo của góc ở tâm chắn cùng một cung.</p>
+<p>• Góc nội tiếp chắn nửa đường tròn là góc vuông.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \(\left( O \right)\) Tr&ecirc;n \(\left( O \right)\) lấy ba điểm \(A,B,D\) sao cho \(\widehat {AOB} = {120^0},\,\,AD = BD.\)</p><p>Khi đ&oacute; \(\Delta ABD\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Tam gi&aacute;c đều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Tam gi&aacute;c vu&ocirc;ng tại \(D\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Tam gi&aacute;c vu&ocirc;ng c&acirc;n tại \(D\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Tam gi&aacute;c vu&ocirc;ng tại \(A\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Từ mối li&ecirc;n hệ về số đo g&oacute;c ở t&acirc;m v&agrave; số đo g&oacute;c nội tiếp ta c&oacute;</p>
+<p>$\widehat {ADB} = \dfrac{1}{2}\widehat {AOB} = \dfrac{1}{2}{.120^0} = {60^0}.$</p>
+<p>\(\Delta ABD\) c&oacute; \(AD = BD\) n&ecirc;n c&acirc;n tại \(D,\)&nbsp; c&oacute; một&nbsp; g&oacute;c $\widehat {ADB}=60^0$ n&ecirc;n&nbsp;\(\Delta ABD\) l&agrave; tam gi&aacute;c đều.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&#xE1;c ABC n&#x1EB1;m tr&#xEA;n &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n $(O;R), $&#x111;&#x1B0;&#x1EDD;ng cao $AH,$ bi&#x1EBF;t $AB = 9{\rm{ }}cm,$ $AC = 12{\rm{ }}cm,$ $AH = 4{\rm{ }}cm.$ T&#xED;nh b&#xE1;n k&#xED;nh c&#x1EE7;a &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n $(O)$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(13,5\,cm\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$12\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(18\,cm\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$6\,cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>K&#x1EBB; &#x111;&#x1B0;&#x1EDD;ng k&#xED;nh \(AD\)</p>
+<p>X&#xE9;t \(\left( O \right)\) c&#xF3; \(\widehat {ACB} = \widehat {ADB}\)&#xA0; (hai g&#xF3;c n&#x1ED9;i ti&#x1EBF;p c&#xF9;ng ch&#x1EAF;n cung \(AB\) ); \(\widehat {ABD} = 90^\circ \)&#xA0; (g&#xF3;c n&#x1ED9;i ti&#x1EBF;p ch&#x1EAF;n n&#x1EED;a &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n)</p>
+<p>N&#xEA;n \(\Delta ACH \backsim \Delta ADB\left( {g - g} \right)\)</p>
+<p>Suy ra $\dfrac{{AC}}{{AD}} = \dfrac{{AH}}{{AB}}$</p>
+<p>Do &#x111;&#xF3; $AH.AD = AC.AB$</p>
+<p style="text-align: left;">Suy ra \(AD = \dfrac{{AB.AC}}{{AH}} = \dfrac{{9.12}}{4} = 27\)</p>
+<p style="text-align: left;">Do &#x111;&#xF3; \(R = 13,5cm\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam giác $ABC$ có ba đỉnh thuộc đường tròn tâm $(O)$, đường cao $AH$, đường kính $AD.$ Khi đó tích $AB.AC$ bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(AH.HD\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AH.AD$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(AH.HB\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$A{H^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Xét \(\left( O \right)\) có \(\widehat {ACB} = \widehat {ADB}\)  (hai góc nội tiếp cùng chắn cung \(AB\) ); \(\widehat {ABD} = 90^\circ \)  (góc nội tiếp chắn nửa đường tròn)</p>
+<p style="text-align: left;">Xét \(\Delta ACH\) và \(\Delta ADB\) có:</p>
+<p style="text-align: left;">\(\widehat {ACB} = \widehat {ADB}\)</p>
+<p style="text-align: left;">\(\widehat {AHC} = \widehat {ABD} (= 90^\circ) \)</p>
+<p style="text-align: left;">Nên \(\Delta ACH \backsim \Delta ADB\left( {g - g} \right)\)</p>
+<p style="text-align: left;">Suy ra $\dfrac{{AC}}{{AD}} = \dfrac{{AH}}{{AB}} $</p>
+<p style="text-align: left;">Do đó $AH.AD = AC.AB$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường&nbsp; tr&ograve;n $(O)$ v&agrave; hai d&acirc;y cung $AB,AC$ bằng nhau. Qua $A$ vẽ một c&aacute;t tuyến cắt d&acirc;y $BC$ ở $D$ v&agrave; cắt $(O)$ ở $E$. &nbsp;Khi đ&oacute; \(A{B^2}\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(AD.AE\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">&nbsp;\(AD.AC\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(AE.BE\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(AD.BD\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t \(\left( O \right)\) c&oacute; \(\widehat {AEB} = \widehat {ABC}\) (hai g&oacute;c nội tiếp chắn hai cung bằng nhau \(AB = AC\) )</p>
+<p style="text-align: left;">X&eacute;t \(\Delta ABD\) v&agrave; \(\Delta AEB\) c&oacute; \(\widehat A\) chung v&agrave; \(\widehat {AEB} = \widehat {ABC}\) (cmt) n&ecirc;n \(\Delta ABD\backsim\Delta AEB\left( {g - g} \right) \Rightarrow \dfrac{{AB}}{{AE}} = \dfrac{{AD}}{{AB}} \Rightarrow A{B^2} = AE.AD\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \(\left( {O;R} \right)\) v&agrave; một điểm \(M\) b&ecirc;n trong đường tr&ograve;n đ&oacute;. Qua \(M\) kẻ hai d&acirc;y cung \(AB\) v&agrave; \(CD\) vu&ocirc;ng g&oacute;c với nhau (\(C\) thuộc cung nhỏ \(AB\)). &nbsp;Vẽ đường k&iacute;nh \(DE.\) Khi đ&oacute; tứ gi&aacute;c \(ABEC\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>H&igrave;nh b&igrave;nh h&agrave;nh</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>H&igrave;nh thang</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>H&igrave;nh thang c&acirc;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>H&igrave;nh thoi</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Do \(DE\) l&agrave; đường k&iacute;nh của \(\left( {O;R} \right)\) n&ecirc;n \(\widehat {DCE} = {90^0}\) (g&oacute;c nội tiếp chắn nửa đường tr&ograve;n).</p>
+<p>Do đ&oacute; \(CD \bot CE.\) Mặt kh&aacute;c theo giả thiết ta c&oacute; \(CD \bot AB.\)</p>
+<p>Do đ&oacute; \(AB//CE.\) Vậy tứ gi&aacute;c \(ABEC\) l&agrave; h&igrave;nh thang \(\left( 1 \right).\)</p>
+<p>Mặt kh&aacute;c c&aacute;c d&acirc;y \(CE,AB\) l&agrave; hai d&acirc;y song song của \(\left( O \right)\) chắn hai cung \(AC\) v&agrave; \(BE\) n&ecirc;n</p>
+<p>Cung \(AC = \) cung \(BE \) \( \Rightarrow AC=BE\,\,\,\left( 2 \right).\)</p>
+<p>Từ \(\left( 1 \right)\) v&agrave; \(\left( 2 \right)\) suy ra tứ gi&aacute;c \(ABEC\) l&agrave; h&igrave;nh thang c&acirc;n.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

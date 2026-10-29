@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thực hành phần mềm Geogebra - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 44: Thực hành phần mềm Geogebra</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách giải phương trình một ẩn bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải phương trình một ẩn bằng phần mềm GeoGebra</h3>
+<div><p>Để giải phương trình nói chung, phương trình bậc hai một ẩn nói riêng, ta dùng lệnh Solve(&lt;phương trình&gt;) hoặc Solutions(&lt;phương trình&gt;) trên ô lệnh của cửa sổ CAS, kết quả sẽ được hiển thị ngay bên dưới.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753350971634-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nghiệm của phương trình được biểu diễn dưới dạng tập hợp. Chú ý, kí hiệu {} thể hiện phương trình vô nghiệm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753350980192-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Để nhập căn bậc hai của a, ta gõ “sqrt(a)”.</p>
+<p>- Để nhập \({x^2}\) ta gõ “x^2”.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách giải hệ phương trình bậc nhất hai ẩn bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phương trình bậc nhất hai ẩn</h3>
+<div><p><em>Phương trình bậc nhất hai ẩn x và y</em> là hệ thức dạng</p>
+<p>\(ax + by = c\)</p>
+<p>trong đó a, b và c là các số đã biết (\(a \ne 0\) hoặc \(b \ne 0\)).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ phương trình bậc nhất hai ẩn bằng phần mềm GeoGebra</h3>
+<div><p>Để giải hệ hai phương trình bậc nhất hai ẩn, ta có thể sử dụng một trong hai phương pháp sau:</p>
+<p><strong><em>Cách 1. </em></strong>Sử dụng câu lệnh Solve({phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;}, (&lt;biến số thứ nhất&gt;, &lt;biến số thứ hai&gt;}) trên ô lệnh của cửa sổ CAS, kết quả sẽ được hiển thị ngay bên dưới.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351083667-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Kết quả của hệ phương trình có nghĩa: hệ có nghiệm \(\left\{ \begin{array}{l}x =  - 3\\y = 2\end{array} \right.\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351099755-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Kết quả của hệ phương trình có nghĩa: hệ có nghiệm \(\left\{ \begin{align} x=\frac{1}{2}y+\frac{1}{2} \\ y\,\text{tuỳ ý}\text{.} \end{align} \right.\)</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351107124-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Cách 2. </em></strong>Sử dụng lệnh Intersect (&lt;phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;) trên cửa sổ CAS để tìm toạ độ giao điểm của hai đường thẳng có phương trình tương ứng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351115839-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách vẽ đồ thị của hàm số bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách vẽ đồ thị của hàm số bằng phần mềm GeoGebra</h3>
+<div><p>Khởi động GeoGebra và chọn đồng thời hai chế độ Graphic 2 và CAS để vẽ đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) và hàm số bậc nhất \(y = ax + b\left( {a \ne 0} \right)\).</p>
+<p>- Nhập công thức hàm số \(y = a{x^2}\) và \(y = ax + b\) vào từng ô lệnh trong cửa số CAS.</p>
+<p>- Nháy chuột chọn nút <img src="https://img.loigiaihay.com/picture/2025/0724/1753351172778-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> ở đầu mỗi ô lệnh để vẽ đồ thị hàm số trong cửa sổ Graphic 2.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351178136-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Sử dụng lệnh Intersect (&lt;hàm số thứ nhất&gt;, &lt;hàm số thứ hai&gt;) trên cửa sổ CAS. Toạ độ các giao điểm của hai đồ thị hàm số sẽ hiển thị bên dưới ở dạng tập hợp.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351187116-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Chú ý:</em></strong> Nếu muốn sử dụng giao diện tiếng Việt, sau khi khởi động GeoGebra, chọn Options → Language → Vietnamese/Tiếng Việt. Khi đó, thay vì cú pháp lệnh tiếp Anh như trình bày ở trên, ta dùng cú pháp lệnh tiếng Việt tương ứng như trong bảng sau (lưu ý rằng cú pháp lệnh tiếng Việt có thể khác nhau tuỳ theo phiên bản GeoGebra).</p>
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top" width="217">
+<p>Lệnh</p>
+</td>
+<td valign="top" width="217">
+<p>Cú pháp lệnh tiếng Anh</p>
+</td>
+<td valign="top" width="217">
+<p>Cú pháp lệnh tiếng Việt</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" valign="top" width="217">
+<p>Giải phương trình</p>
+</td>
+<td valign="top" width="217">
+<p>Solve(&lt;phương trình&gt;)</p>
+</td>
+<td valign="top" width="217">
+<p>Giai(&lt;phương trình&gt;)</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Solutions(&lt;phương trình&gt;)</p>
+</td>
+<td valign="top" width="217">
+<p>CacNghiem(&lt;phương trình&gt;)</p>
+</td>
+</tr>
+<tr>
+<td rowspan="2" valign="top" width="217">
+<p>Giải hệ phương trình</p>
+</td>
+<td valign="top" width="217">
+<p>Solve({phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;}, (&lt;biến số thứ nhất&gt;, &lt;biến số thứ hai&gt;})</p>
+</td>
+<td valign="top" width="217">
+<p>Giai({phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;}, (&lt;biến số thứ nhất&gt;, &lt;biến số thứ hai&gt;})</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Solutions({phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;}, (&lt;biến số thứ nhất&gt;, &lt;biến số thứ hai&gt;})</p>
+</td>
+<td valign="top" width="217">
+<p>CacNghiem({phương trình thứ nhất&gt;, &lt;phương trình thứ hai&gt;}, (&lt;biến số thứ nhất&gt;, &lt;biến số thứ hai&gt;})</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Tìm giao điểm của hai đồ thị</p>
+</td>
+<td valign="top" width="217">
+<p>Intersect (&lt;hàm số thứ nhất&gt;, &lt;hàm số thứ hai&gt;)</p>
+</td>
+<td valign="top" width="217">
+<p>GiaoDiem (&lt;hàm số thứ nhất&gt;, &lt;hàm số thứ hai&gt;)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tạo công cụ vẽ đồ thị hàm số y = ax² (a ≠ 0) và trải nghiệm tính đối xứng trục của đồ thị hàm số đó</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Trục đối xứng của đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Trục đối xứng của đồ thị hàm số y = ax² (a ≠ 0) là trục tung Oy.</p>
+<p><strong><em>Nhận xét: </em></strong>Do đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) nhận trục tung Oy là trục đối xứng nên ta có thể lập bảng giá trị của hàm số này với những giá trị x không âm và vẽ phần đồ thị tương ứng ở bên phải trục tung, sau đó lấy đối xứng phần đồ thị đã vẽ qua trục tung ta sẽ được đồ thị của hàm số đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tạo công cụ vẽ đồ thị hàm số y = ax² (a ≠ 0) và trải nghiệm tính đối xứng trục của đồ thị hàm số đó</h3>
+<div><p>a) Tạo số a ban đầu</p>
+<p>Nhập lệnh: a = 1 rồi bấm Enter</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351430724-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>b) Tạo các hộp chọn đầu vào</p>
+<p>Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753351436499-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> tạo hộp chọn đầu vào a và đặt tên là “Nhập vào số a (khác 0): a =” rồi tạo liên kết với a.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351445339-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>c) Vẽ đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) khi a thay đổi</p>
+<p>- Nhập lệnh: y = ax^2 rồi bấm Enter</p>
+<p>Khi đó màn hình sẽ xuất hiện đồ thị của hàm số \(y = a{x^2}\).</p>
+<p>- Khi thay giá trị a ở hộp chọn đầu vào, màn hình sẽ xuất hiện đồ thị của hàm số \(y = a{x^2}\) tương ứng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351456181-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351552736-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>d) Trải nghiệm tính chất đối xứng trục của đồ thị hàm số \(y = a{x^2}\).</p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753351568312-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ một điểm A thuộc đồ thị của hàm số \(y = a{x^2}\).</p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753351574215-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> (lần lượt nháy chuột vào điểm A và trục Oy) để vẽ điểm A’ đối xứng với điểm A qua trục Oy (hình 1)</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351598142-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Khi thay giá trị a ở hộp chọn ban đầu vào hay di chuyển điểm A trên đồ thị của hàm số \(y = a{x^2}\), ta thấy điểm A’ luôn thuộc đồ thị của hàm số đó.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách vẽ đường tròn bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa đường tròn</h3>
+<div><p><em>Đường tròn tâm O bán kính R </em>(R &gt; 0), kí hiệu là (O; R), là hình gồm tất cả các điểm cách điểm O một khoảng bằng R.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách vẽ đường tròn bằng phần mềm GeoGebra</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351697928-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Để vẽ đường tròn trên GeoGebra ta thực hiện các thao tác trên hai vùng sau:</p>
+<p>1. Vùng chứa các thanh công cụ</p>
+<p>2. Vùng vẽ hình: chứa các đường tròn vẽ được.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351692615-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách 1. Vẽ đường tròn khi biết tâm và một điểm trên đường tròn.</h3>
+<div><p>1. Khởi động phần mềm đã cài đặt trên máy tính hoặc truy cập vào trang web: <a href="https://www.geogebra.org/">https://www.geogebra.org/</a> để sử dụng phiên bản online.</p>
+<p>2. Các bước thao tác trên GeoGebra:</p>
+<p>- Chọn thẻ vẽ điểm <img src="https://img.loigiaihay.com/picture/2025/0724/1753351769113-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột vào hai điểm tuỳ ý trên vùng vẽ hình.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351773887-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Phần mềm sẽ tự động đặt tên điểm, tuy nhiên ta có thể đổi tên điểm bằng cách nhấp chuột phải vào điểm, chọn đổi điểm và gõ tên mới vào hộp thoại.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351782372-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Chọn thẻ vẽ đường tròn <img src="https://img.loigiaihay.com/picture/2025/0724/1753351789559-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351807090-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Nhấp chuột vào điểm I và điểm M. Phần mềm sẽ tự động vẽ đường tròn tâm I bán kính IM.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách 2. Vẽ đường tròn khi biết tâm và số đo của bán kính.</h3>
+<div><p>1. Khởi động phần mềm đã cài đặt trên máy tính hoặc truy cập vào trang web: <a href="https://www.geogebra.org/">https://www.geogebra.org/</a> để sử dụng phiên bản online.</p>
+<p>2. Các bước thao tác trên GeoGebra:</p>
+<p>- Vẽ trước tâm O và tạo thanh trượt <img src="https://img.loigiaihay.com/picture/2025/0724/1753351848815-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> hiển thị tham số r.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351855815-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Chọn thẻ vẽ đường tròn <img src="https://img.loigiaihay.com/picture/2025/0724/1753351874688-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột vào điểm O và nhập bán kính bằng r vào hộp thoại hiện ra.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351881496-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Phần mềm tự động vẽ đường tròn (O;r).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351887049-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng chuột thay đổi r để thay đổi bán kính.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách 3. Vẽ đường tròn khi biết tâm và một đoạn thẳng có độ dài bằng bán kính (chế độ Compa).</h3>
+<div><p>Thao tác trên phần mềm GeoGebra được thực hiện như sau:</p>
+<p>- Vẽ trước tâm J và một đoạn thẳng PQ.</p>
+<p>- Chọn thẻ vẽ đường tròn <img src="https://img.loigiaihay.com/picture/2025/0724/1753351924848-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột vào tâm J, sau đó nhấp chuột vào đoạn thẳng PQ.</p>
+<p>- Ta có đường tròn tâm J bán kính r = PQ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753351935975-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách 4. Vẽ đường tròn đi qua ba điểm</h3>
+<div><p>Thao tác trên phần mềm GeoGebra được thực hiện như sau:</p>
+<p>- Vẽ trước ba điểm A, B, C không thẳng hàng.</p>
+<p>- Chọn thẻ vẽ đường tròn <img height="70" src="https://img.loigiaihay.com/picture/2025/0724/1753353487766-0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="82"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột lần lượt vào ba điểm A, B, C.</p>
+<p>- Ta có đường tròn đi qua ba điểm A, B, C như hình bên.</p>
+<p><img height="263" src="https://img.loigiaihay.com/picture/2025/0724/1753353499563-1-1.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="254"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách tính diện tích hình tròn bằng phần mềm Geogebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa hình tròn:</h3>
+<div><p><em>Hình tròn</em> tâm O bán kính R là hình gồm các điểm nằm trên và nằm trong đường tròn (O;R).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính diện tích hình tròn</h3>
+<div><p><em>Diện tích hình tròn</em> bán kính R: $S=\pi {{R}^{2}}$.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính diện tích hình tròn bằng phần mềm Geogebra</h3>
+<div><p>1. Khởi động phần mềm đã cài đặt trên máy tính hoặc truy cập vào trang web: <a href="https://www.geogebra.org/">https://www.geogebra.org/</a> để sử dụng phiên bản online.</p>
+<p>2. Các bước thao tác trên GeoGebra:</p>
+<p>- Vẽ trước tâm O và tạo thanh trượt <img src="https://img.loigiaihay.com/picture/2025/0724/1753351995816-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> hiển thị tham số r.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352002170-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Chọn thẻ vẽ đường tròn <img src="https://img.loigiaihay.com/picture/2025/0724/1753352008913-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột vào điểm O và nhập bán kính bằng r vào hộp thoại hiện ra.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352014355-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Phần mềm tự động vẽ đường tròn (O;r).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352022345-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng chuột thay đổi r để thay đổi bán kính.</p>
+<p>- Chọn chức năng đo diện tích <img src="https://img.loigiaihay.com/picture/2025/0724/1753352029110-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> trên thanh công cụ.</p>
+<p>- Nhấp chuột vào đường tròn tâm O bán kính r.</p>
+<p>- Ta có diện tích hình tròn vừa vẽ (theo \(c{m^2}\)) như hình dưới đây.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352034263-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng chuột kéo con trỏ chay để thay đổi bán kính r. Quan sát diện tích hình tròn thay đổi khi thay đổi bán kính r.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352040388-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img height="174" src="https://img.loigiaihay.com/picture/2025/0724/1753353537623-0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="399"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách xác định tâm, bán kính, vẽ đường tròn ngoại tiếp tam giác bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm đường tròn ngoại tiếp tam giác</h3>
+<div><p><strong><em>Đường tròn ngoại tiếp </em></strong>của một tam giác là đường tròn đi qua ba đỉnh của tam giác đó.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137567782-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Đường tròn (O) ngoại tiếp tam giác ABC. Tam giác ABC nội tiếp đường tròn (O).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định tâm và bán kính đường tròn ngoại tiếp tam giác</h3>
+<div><p><strong><em>• Tâm đường tròn ngoại tiếp tam giác</em></strong> là giao của ba đường trung trực của tam giác đó.</p>
+<p><strong><em>• Bán kính đường tròn ngoại tiếp tam giác</em></strong> bằng khoảng cách từ giao điểm ba đường trung trực đến mỗi đỉnh của tam giác đó.</p>
+<p><strong><em>Nhận xét: </em></strong></p>
+<p>- Vì ba đường trung trực của tam giác cùng đi qua một điểm nên tâm đường tròn ngoại tiếp tam giác đó là giao điểm hai đường trung trực bất kì của tam giác đó.</p>
+<p>- Mỗi tam giác có đúng một đường tròn ngoại tiếp.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định tâm, bán kính, vẽ đường tròn ngoại tiếp tam giác bằng phần mềm GeoGebra</h3>
+<div><p>Ta có thể vẽ tam giác ABC rồi xác định tâm, bán kính và vẽ đường tròn ngoại tiếp tam giác ABC đó như sau:</p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352074320-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các đỉnh A, B, C.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352078570-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352109678-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các cạnh AB, BC, CA.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352119118-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352127833-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các đường trung trực a và b lần lượt của các cạnh AB và BC.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352135738-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352142474-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để xác định tâm O của đường tròn ngoại tiếp tam giác ABC (điểm O là giao điểm của a và b)</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352149868-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352156439-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đoạn thẳng OA là bán kính của đường tròn ngoại tiếp tam giác ABC.</p>
+<p><img height="355" src="https://img.loigiaihay.com/picture/2025/0724/1753353624933-0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="352"/></p>
+<p>- Dùng <img height="65" src="https://img.loigiaihay.com/picture/2025/0724/1753353639470-1-1.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="67"/> để vẽ đường tròn ngoại tiếp tam giác ABC có tâm O đi qua A.</p>
+<p><img height="401" src="https://img.loigiaihay.com/picture/2025/0724/1753353646887-1.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="350"/></p>
+<p>- Ẩn các tên và các đối tượng không cần thiết, ta có tam giác ABC và đường tròn ngoại tiếp tam giác ABC tâm O bán kính OA.</p>
+<p><img height="401" src="https://img.loigiaihay.com/picture/2025/0724/1753353656272-2.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="351"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách xác định tâm, bán kính, vẽ đường tròn nội tiếp tam giác bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Đường tròn nội tiếp tam giác</h3>
+<div><p>Đường tròn tiếp xúc với ba cạnh của tam giác được gọi là <strong>đường tròn nội tiếp</strong> tam giác. Tam giác đó được gọi là ngoại tiếp đường tròn.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0710/1752137829422-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Đường tròn (I) nội tiếp tam giác ABC. Tam giác ABC ngoại tiếp đường tròn (I).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Xác định tâm và bán kính đường tròn nội tiếp tam giác</h3>
+<div><p><em>• </em><strong><em>Tâm đường tròn nội tiếp tam giác</em></strong> là giao ba đường phân giác của tam giác.<br/><em>• </em><strong><em>Bán kính đường tròn nội tiếp tam</em></strong><strong> giác </strong>bằng khoảng cách từ giao điểm ba đường phân giác đến mỗi cạnh của tam giác đó.</p>
+<p><strong><em>Nhận xét:</em></strong></p>
+<p>- Vì ba đường phân giác của một tam giác cùng đi qua một điểm nên tâm đường tròn nội tiếp là giao điểm hai đường phân giác bất kì của tam giác đó.</p>
+<p>- Mỗi tam giác có đúng một đường tròn nội tiếp.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định tâm và bán kính đường tròn nội tiếp tam giác đều</h3>
+<div><strong><em>Để xác định tâm và bán kính đường tròn nội tiếp tam giác đều</em></strong>, ta vẽ hai đường trung tuyến bất kì của tam giác ABC. Giao điểm của hai đường trung tuyến chính là tâm đường tròn ngoại tiếp tam giác đều, bán kính là khoảng cách từ tâm đến các cạnh của tam giác.</div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách xác định tâm, bán kính, vẽ đường tròn nội tiếp tam giác bằng phần mềm GeoGebra</h3>
+<div><p>Ta có thể vẽ tam giác ABC rồi xác định tâm, bán kính và vẽ đường tròn nội tiếp của tam giác ABC đó như sau:</p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753353938520-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các điểm A, B, C.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353943773-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753353952426-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các cạnh AB, BC, CA.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353959676-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753353966987-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các đường phân giác c và d lần lượt của góc A và góc B.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353970922-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753353977875-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để xác định tâm I của đường tròn nội tiếp tam giác ABC (điểm I là giao điểm của c và d).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353983020-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753353989528-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đường thẳng e đi qua I và vuông góc với cạnh BC.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353994153-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354000249-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để xác định giao điểm H của đường thẳng e và cạnh BC.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354005438-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Ẩn các đường thẳng: c, d, e.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354013402-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354021026-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đoạn thẳng IH là bán kính của đường tròn nội tiếp tam giác ABC.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354029008-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354045250-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đường tròn nội tiếp tam giác ABC có tâm I và đi qua H.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354050427-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Ẩn các tên và các đối tượng không cần thiết, ta có tam giác ABC có đường tròn nội tiếp tam giác ABC với tâm I, bán kính IH.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354060161-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 9</span>
+                <h2 class="lesson-title">9. Cách vẽ hình quạt tròn bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Hình quạt tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749461205605-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Hình quạt tròn </em>là phần hình tròn giới hạn bởi một cung tròn và hai bán kính đi qua hai đầu mút của cung đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách vẽ hình quạt tròn nội tiếp tam giác bằng phần mềm GeoGebra</h3>
+<div><p>Ta sẽ sử dụng nhóm công cụ góc và đường tròn trong GeoGebra để vẽ hình quạt tròn với số đo góc ở tâm cho trước.</p>
+<p><em>Bước 1. </em>Vẽ góc \(70^\circ \).</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753352676556-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> (góc với độ lớn cho trước): Lần lượt chọn các điểm A, B và nhập số đo \(70^\circ \).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352685030-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Vẽ hình quạt tròn.</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753352691322-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/>→ Lần lượt nháy nút trái chuột vào các điểm B, A, A’ ta được hình quạt tròn với góc ở tâm B bằng \(70^\circ \) như hình.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352698309-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 10</span>
+                <h2 class="lesson-title">10. Cách vẽ phép quay bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phép quay</h3>
+<div><p>Phép quay là một phép biến đổi hình học quay một hình quanh một điểm cố định, gọi là tâm quay, một góc xác định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Phép quay thuận chiều</h3>
+<div><p>Phép quay thuận chiều \(\alpha ^\circ \) (0° &lt; \(\alpha ^\circ \) &lt; 360°) tâm O giữ nguyên điểm O, biến điểm A khác điểm O thành điểm B thuộc đường tròn (O; OA) sao cho tia OA quay thuận chiều kim đồng hồ đến tia OB thì điểm A tạo nên cung AB có số đo \(\alpha ^\circ \) (hình a).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0710/1752138792776-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Phép quay ngược chiều</h3>
+<div><p>Định nghĩa tương tự cho phép quay ngược chiều \(\alpha ^\circ \) tâm O (hình b).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0710/1752138824427-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Chú ý: </em></strong>Phép quay 0° và phép quay 360° giữ nguyên mọi điểm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Phép quay giữ nguyên một đa giác</h3>
+<div><p>Cho hình đa giác đều \({A_1}{A_2} \ldots {A_n}(n \ge 3,n \in {\rm{N}})\) có tâm \(O\). Phép quay giữ nguyên hình đa giác đều \({A_1}{A_2} \ldots {A_n}\) là phép quay tâm \(O\) biến mỗi đỉnh của hình đa giác đều thành một đỉnh của hình đa giác đểu đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách vẽ phép quay bằng phần mềm GeoGebra</h3>
+<div><p>Ta có thể vẽ tam giác A’B’C’ có được qua phép quay thuận chiều \(50^\circ \) tâm O tam giác ABC như sau:</p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352738135-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ tam giác ABC.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352743518-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352751336-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> và đổi tên điểm (nếu cần) để vẽ điểm O.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352756835-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352765510-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> (nháy chuột vào tam giác ABC, điểm O, nhập vào \(50^\circ \) và lựa chọn <strong>theo chiều kim đồng hồ</strong>) để vẽ tam giác A’B’C’.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352771394-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong hình vẽ dưới đây, tam giác A’B’C’ có được qua phép quay thuận chiều \(50^\circ \) tâm O tam giác ABC:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352779823-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 11</span>
+                <h2 class="lesson-title">11. Cách tạo hình trụ bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình trụ</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752914874880-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình trụ là hình được tạo ra khi quay một hình chữ nhật một vòng xung quanh một đường thẳng cố định chứa một cạnh của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Hình trụ trong thực tiễn</h3>
+<div><p>Nhiều đồ vật trong cuộc sống được thiết kế, chế tạo ở dạng hình trụ, chẳng hạn, giếng nước ở các làng quê Việt Nam.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266580417-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình ảnh cây đa – giếng nước – sân đình, những nét điển hình của làng quê, vẫn luôn được giữ gìn, khắc sâu trong tâm hồn mỗi con người Việt Nam như một biểu tượng về văn hoá, lịch sử truyền thống của dân tộc.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tạo hình trụ bằng phần mềm GeoGebra</h3>
+<div><p><strong><em>Cách 1. </em></strong>Để vẽ được các hình không gian ba chiều, ta chọn thẻ “Hiển thị” trên thanh công cụ của GeoGebra và chọn “Hiển thị dạng 3D”.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352842517-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Vùng làm việc của GeoGebra sẽ hiển thị như hình:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352847990-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong đó phần màu ghi thể hiện là mặt phẳng đưới đáy nơi ta có thể chọn các điểm.</p>
+<p>Vẽ hình trụ có đáy là các đường tròn tâm A, B bán kính 2 như sau:</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753352857685-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/>(hình trụ) → Chọn điểm A, chọn điểm B, nhập bán kính bằng 2, ẩn các trục toạ độ ta được hình trụ cần dựng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352864143-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Cách 2.</em></strong> Ta có thể tạo lập hình trụ như sau:</p>
+<p>* Thực hiện trong <strong>Vùng làm việc</strong></p>
+<p>- Dùng Circle: Center &amp; Radius để vẽ đường tròn tâm A là gốc toạ độ và bán kính là 2.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352872700-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352882295-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352888094-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ điểm B thuộc đường tròn vừa vẽ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352894443-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Chọn <strong>Hiển thị</strong> và <strong>Hiển thị dạng 3D</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352900799-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352910417-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>* Thực hiện trong cửa số <strong>Hiển thị dạng 3D</strong></p>
+<p><em>Vẽ hình chữ nhật ABCD:</em></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352918952-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để nối A và B.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753352924738-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753352933089-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đường thẳng d đi qua B và song song với trục màu xanh cô ban (cobalt).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354265319-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354269805-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ điểm C thuộc đường thẳng d.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354285500-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354289871-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ đường thẳng m đi qua C và song song với đường thẳng AB.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354297828-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354306257-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ điểm D là giao điểm của đường thẳng m và trục màu xanh cô ban (cobalt).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354312614-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Ẩn các đối tượng không cần thiết. Dùng <img src="https://img.loigiaihay.com/picture/2025/0724/1753354321442-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> để vẽ các cạnh BC, CD và DA của hình chữ nhật.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354326073-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Cho hình chữ nhật ABCD quay xung quanh cạnh AD:</em></p>
+<p>- Nháy chuột phải lần lượt vào các cạnh AB, BC, CD và chọn <strong>Mở dấu vết khi di chuyển</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354331686-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Nháy chuột phải vào các điểm B, C và chọn <strong>Mở dấu vết khi di chuyển</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354338713-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Cho điểm B di chuyển trên đường tròn (A; 2), ta thấy hình chữ nhật ABCD quay xung quanh cạnh AD tạo ra hình trụ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753354385578-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 12</span>
+                <h2 class="lesson-title">12. Cách tạo hình nón bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình nón</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915146186-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Hình nón trong thực tiễn</h3>
+<div><p>Trong thực tiễn, có nhiều đồ vật được thiết kế, chế tạo ở dạng hình nón, chẳng hạn, chiếc nón lá. Chiếc nón lá không chỉ là một vật dụng thiết yếu trong đời sống sinh hoạt hằng ngày mà đã trở thành một nét đặc trưng cho văn hoá nước ta. Hình ảnh tiền thân của chiếc nón lá đã được chạm khắc trên trống đồng Ngọc Lũ, thạp đồng Đào Thịnh vào khoảng 2500 – 3000 năm trước Công nguyên.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266517056-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/>Ngày nay nón lá cũng là quà tặng đặc biệt cho du khách nước ngoài khi đến tham quan Việt Nam. Hình ảnh chiếc nón lá cũng đã đi vào kiến trúc như nhà hát Cao Văn Lầu ở Bạc Liêu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266522946-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tạo hình nón bằng phần mềm GeoGebra</h3>
+<div><p>Để vẽ được các hình không gian ba chiều, ta chọn thẻ “Hiển thị” trên thanh công cụ của GeoGebra và chọn “Hiển thị dạng 3D”.</p>
+<p>Vùng làm việc của GeoGebra sẽ hiển thị như hình:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353075584-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong đó phần màu ghi thể hiện là mặt phẳng đưới đáy nơi ta có thể chọn các điểm.</p>
+<p>Vẽ hình nón có đáy là hình tròn tâm A bán kính 2, đỉnh B như sau:</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753353084194-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> → Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753353090478-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> → Chọn điểm A, chọn điểm B (nhấn nút trái chuột vào một điểm trên vùng làm việc và kéo thả điểm đó đến vị trí thích hợp), nhập bán kính bằng 2, ẩn các trục ta được hình nón cần dựng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353097271-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353103985-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 13</span>
+                <h2 class="lesson-title">13. Cách tạo hình cầu bằng phần mềm GeoGebra</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915696375-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tạo hình cầu bằng phần mềm GeoGebra</h3>
+<div><p>Để vẽ được các hình không gian ba chiều, ta chọn thẻ “Hiển thị” trên thanh công cụ của GeoGebra và chọn “Hiển thị dạng 3D”.</p>
+<p>Vùng làm việc của GeoGebra sẽ hiển thị như hình:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353129557-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong đó phần màu ghi thể hiện là mặt phẳng đưới đáy nơi ta có thể chọn các điểm.</p>
+<p>a) Vẽ mặt cầu tâm A đi qua điểm B như sau:</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753353139467-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> → Lần lượt chọn các điểm A, B ta được mặt cầu tâm A đi qua B.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353147231-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>b) Vẽ mặt cầu tâm A bán kính bằng 3 như sau:</p>
+<p>Chọn <img src="https://img.loigiaihay.com/picture/2025/0724/1753353153998-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/> → Chọn điểm A và nhập bán kính 3, ta được mặt cầu tâm A bán kính 3.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0724/1753353158984-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

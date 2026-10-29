@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phép thử ngẫu nhiên và không gian mẫu - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 32: Phép thử ngẫu nhiên và không gian mẫu</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phép thử ngẫu nhiên là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phép thử ngẫu nhiên</h3>
+<div><p>Một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời mà kết quả của chúng không thể biết được trước khi thực hiện nhưng có thể liệt kê được tất cả các kết quả có thể xảy ra, được gọi là một <strong><em>phép thử ngẫu nhiên</em></strong>, gọi tắt là <em>phép thử</em>.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Ph&eacute;p thử nghiệm: Chọn một ng&agrave;y trong tuần để đi chơi. Sự kiện n&agrave;o sau đ&acirc;y kh&ocirc;ng thể xảy ra</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>&ldquo;Ng&agrave;y được chọn l&agrave; thứ Hai&rdquo;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>&ldquo;Ng&agrave;y được chọn l&agrave; Chủ nhật&rdquo;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>&ldquo;Ng&agrave;y được chọn l&agrave; thứ Ch&iacute;n&rdquo;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>&ldquo;Ng&agrave;y được chọn l&agrave; thứ Bảy&rdquo;.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thực tế kh&ocirc;ng c&oacute; ng&agrave;y thứ Ch&iacute;n n&ecirc;n kh&ocirc;ng thể xảy ra sự kiện n&agrave;y.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Trong các hoạt động sau, hoạt động nào là phép thử ngẫu nhiên?</p><p><img src="https://img.loigiaihay.com/picture/2024/1203/1733215837031-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Gieo 2 khối gỗ h&igrave;nh lập phương, mỗi khối gỗ được sơn một m&agrave;u như <em>h&igrave;nh a </em>v&agrave; quan s&aacute;t m&agrave;u sắc của mặt xuất hiện b&ecirc;n tr&ecirc;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Chọn bất k&igrave; 1 c&acirc;y b&uacute;t bi từ hộp c&oacute; 4 c&acirc;y b&uacute;t bi như <em>H&igrave;nh b.</em></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Chọn ra đồng thời 2 que gỗ từ hộp c&oacute; 2 que gỗ như <em>H&igrave;nh c.</em></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>&ldquo;Dế m&egrave;n phi&ecirc;u lưu k&iacute;&rdquo; l&agrave; quyển s&aacute;ch duy nhất c&oacute; tr&ecirc;n b&agrave;n như h&igrave;nh d. Bạn Minh lấy một quyển s&aacute;ch tr&ecirc;n b&agrave;n để đọc.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><strong>A.</strong> Hoạt động gieo 2 khối gỗ hình lập phương <strong><em>không là phép thử ngẫu nhiên</em></strong> vì ta biết trước chỉ có một kết quả xảy ra là xuất hiện 1 mặt màu xanh và 1 mặt màu vàng.</p>
+<p><strong>B.</strong> Hoạt động lấy 1 cây bút bi <strong><em>là phép thử ngẫu nhiên</em></strong> vì ta không thể biết trước được kết quả của nó, nhưng biết tất cả 4 kết quả có thể xảy ra.</p>
+<p><strong>C.</strong> Hoạt động lấy ra đồng thời 2 que gỗ <strong><em>không là phép thử ngẫu nhiên</em></strong> vì ta biết chỉ có một kết quả xảy ra là lấy được 1 que gỗ màu xanh và 1 que gỗ màu đỏ.</p>
+<p><strong>D.</strong> Khi bạn Minh lấy một quyển sách trên bàn để đọc thì kết quả chắc chắn xảy ra là sẽ lấy được quyển “Dế mèn phiêu lưu kí” (vì trên bàn chỉ có quyển sách này). Như vậy ta đã biết trước được kết quả của hành động lấy sách trong trường hợp này <strong><em>không là một phép thử ngẫu nhiên</em></strong>.</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Trong c&aacute;c th&iacute; nghiệm sau th&iacute; nghiệm n&agrave;o kh&ocirc;ng phải l&agrave; ph&eacute;p thử ngẫu nhi&ecirc;n?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Gieo đồng tiền xem n&oacute; mặt ngửa hay mặt sấp.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Gieo đồng tiền v&agrave; xem c&oacute; mấy đồng tiền lật ngửa.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Chọn bất k&igrave; 1 học sinh trong lớp v&agrave; xem l&agrave; nam hay nữ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Bỏ hai vi&ecirc;n bi xanh v&agrave; ba vi&ecirc;n bi đỏ trong một chiếc hộp, sau đ&oacute; lấy từng vi&ecirc;n một để đếm xem c&oacute; tất cả bao nhi&ecirc;u vi&ecirc;n bi.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Dựa v&agrave;o định nghĩa: Ph&eacute;p thử ngẫu nhi&ecirc;n l&agrave; ph&eacute;p thử m&agrave; ta kh&ocirc;ng thể biết được trước khi thực hiện nhưng c&oacute; thể liệt k&ecirc; được tất cả c&aacute;c kết quả c&oacute; thể xảy ra.</p>
+<p>Đ&aacute;p &aacute;n D kh&ocirc;ng phải l&agrave; ph&eacute;p thử v&igrave; ta biết chắc chắn kết quả chỉ c&oacute; thể l&agrave; một số cụ thể số bi xanh v&agrave; số bi đỏ.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Không gian mẫu của phép thử là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phép thử ngẫu nhiên</h3>
+<div><p>Một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời mà kết quả của chúng không thể biết được trước khi thực hiện nhưng có thể liệt kê được tất cả các kết quả có thể xảy ra, được gọi là một <strong><em>phép thử ngẫu nhiên</em></strong>, gọi tắt là <em>phép thử</em>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Kết quả của phép thử</h3>
+<div><p>Tập hợp tất cả các kết quả có thể xảy ra của phép thử (gọi tắt là tập tất cả các kết quả có thể của phép thử) được gọi là không gian mẫu của phép thử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Không gian mẫu</h3>
+<div><p>Không gian mẫu của phép thử được kí hiệu là \(\Omega \).</p>
+<p><em>Ví dụ:</em> Bạn Lan gieo một con xúc xắc và bạn Hoà gieo một đồng xu được gọi là phép thử.</p>
+<p>Kết quả của phép thử là số chấm xuất hiện trên con xúc xác và mặt xuất hiện của đồng xu.</p>
+<p>Các kết quả có thể của phép thử là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0709/1752052958678-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Mỗi ô là một kết quả có thể. Không gian mẫu là tập hợp 12 ô của bảng trên.</p>
+<p>Do đó không gian mẫu của phép thử là:</p>
+<p>\(\Omega  = {\rm{\{ (1,S);(2,S);(3,S);(4,S);(5,S);(6,S);(1,N);(2,N);(3,N);(4,N);(5,N);(6,N)\} }}{\rm{.}}\)</p>
+<p>Vậy không gian mẫu có 12 phần tử.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Không gian mẫu của phép thử là:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>số kết quả có thể xảy ra của phép thử</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> kết quả có thể xảy ra của phép thử</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> tập hợp tất cả các kết quả thuận lợi của một biến cố</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> tập hợp tất cả các kết quả có thể xảy ra của phép thử</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Không gian mẫu của phép thử là tập hợp tất cả các kết quả có thể xảy ra của phép thử.</p>
+<p><strong>Chọn D.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>X&eacute;t ph&eacute;p thử &ldquo;Gieo một đồng xu hai lần li&ecirc;n tiếp&rdquo;. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(4\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu của ph&eacute;p thử l&agrave;: \(\Omega&nbsp; = \left\{ {SS,SN,NS,NN} \right\}\).</p>
+<p>Số phần tử của kh&ocirc;ng gian mẫu l&agrave; 4.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tập hợp A l&agrave; tập c&aacute;c số tự nhi&ecirc;n c&oacute; hai chữ số kh&aacute;c nhau được lập ra từ c&aacute;c chữ số 0; 5; 7. Chọn ngẫu nhi&ecirc;n một phần tử của tập hợp A. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>8.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu của ph&eacute;p thử l&agrave;:</p>
+<p>\(\Omega = \left\{ {50;57;70;75} \right\}\)</p>
+<p>Vậy kh&ocirc;ng gian mẫu c&oacute; \(4\) phần tử.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>K&iacute;ch thước kh&ocirc;ng gian mẫu của ph&eacute;p thử &ldquo;Bạn An liệt k&ecirc; c&aacute;c số ch&iacute;nh phương c&oacute; hai chữ số&rdquo; l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>100.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>10.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>12.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>6.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&oacute; 6 số ch&iacute;nh phương c&oacute; hai chữ số, đ&oacute; l&agrave;: 16; 25; 36; 49; 64; 81.</p>
+<p>Vậy k&iacute;ch thước kh&ocirc;ng gian mẫu l&agrave; 6.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body">Bạn Lan gieo đồng thời hai đồng xu cân đối và đồng chất và quan sát mặt xuất hiện của đồng xu, thì không gian mẫu nhận được là:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {S;S} \right),\left( {S;N} \right),\left( {N;S} \right),\left( {N;N} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\left( {S;S} \right),{\mkern 1mu} {\mkern 1mu} \left( {N;N} \right)\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(\left( {S;N} \right),{\mkern 1mu} {\mkern 1mu} \left( {N;S} \right)\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\left( {S;S} \right),{\mkern 1mu} {\mkern 1mu} \left( {S;N} \right),{\mkern 1mu} {\mkern 1mu} \left( {N;N} \right)\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Không gian mẫu thu được là \(\left( {S;S} \right),\left( {S;N} \right),\left( {N;S} \right),\left( {N;N} \right)\)</p>
+<p><strong>Chọn A.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>C&oacute; 2 c&aacute;i hộp, đựng những tấm b&igrave;a cứng giống nhau. Hộp thứ nhất đựng 3 tấm b&igrave;a, lần lượt ghi c&aacute;c số 1, 2, 3. Hộp thứ hai đựng 6 tấm b&igrave;a, ghi lần lượt mỗi tấm b&igrave;a một số trong c&aacute;c số 4,5,6,7,8,9. Trộn đều c&aacute;c tấm b&igrave;a trong mỗi hộp v&agrave; r&uacute;t ngẫu nhi&ecirc;n mỗi hộp 1 tấm b&igrave;a. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>18.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu l&agrave;: \(\Omega&nbsp; = \left\{ {\left( {i,k} \right)|i,k \in N,1 \le i \le 3,4 \le k \le 9} \right\}\)</p>
+<p>Hay theo c&aacute;ch liệt k&ecirc;, kh&ocirc;ng gian mẫu l&agrave;:</p>
+<p>\(\begin{array}{l}\Omega&nbsp; = {\rm{\{ }}(1;4);(1;5);(1;6);(1;7);(1;8);(1:9);\\(2;4);(2;5);(2;6);(2;7);(2;8);(2;9);\\(3;4);(3;5);(3;6);(3;7);(3;8);(3;9){\rm{\} }}{\rm{.}}\end{array}\)</p>
+<p>Vậy số phần tử của kh&ocirc;ng gian mẫu l&agrave;: 18 (phần tử).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>C&oacute; 2 c&aacute;i hộp, đựng những tấm b&igrave;a cứng giống nhau. Hộp thứ nhất đựng 3 tấm b&igrave;a, lần lượt ghi c&aacute;c số 1, 2, 3. Hộp thứ hai đựng 6 tấm b&igrave;a, ghi lần lượt mỗi tấm b&igrave;a một số trong c&aacute;c số 4,5,6,7,8,9. Trộn đều c&aacute;c tấm b&igrave;a trong mỗi hộp v&agrave; r&uacute;t ngẫu nhi&ecirc;n mỗi hộp 1 tấm b&igrave;a. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>18.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu l&agrave;: \(\Omega&nbsp; = \left\{ {\left( {i,k} \right)|i,k \in N,1 \le i \le 3,4 \le k \le 9} \right\}\)</p>
+<p>Hay theo c&aacute;ch liệt k&ecirc;, kh&ocirc;ng gian mẫu l&agrave;:</p>
+<p>\(\begin{array}{l}\Omega&nbsp; = {\rm{\{ }}(1;4);(1;5);(1;6);(1;7);(1;8);(1:9);\\(2;4);(2;5);(2;6);(2;7);(2;8);(2;9);\\(3;4);(3;5);(3;6);(3;7);(3;8);(3;9){\rm{\} }}{\rm{.}}\end{array}\)</p>
+<p>Vậy số phần tử của kh&ocirc;ng gian mẫu l&agrave;: 18 (phần tử).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Chọn ngẫu nhi&ecirc;n một số nguy&ecirc;n tố kh&ocirc;ng lớn hơn 9. M&ocirc; tả kh&ocirc;ng gian mẫu?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\Omega&nbsp; = \left\{ {1;2;3;5;7} \right\}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\Omega&nbsp; = \left\{ {2;3;5;7} \right\}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\Omega&nbsp; = \left\{ {2;3;5;7;9;11} \right\}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\Omega&nbsp; = \left\{ {1;3;5;7;9} \right\}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số nguy&ecirc;n tố kh&ocirc;ng lớn hơn 9 l&agrave;: 2;3;5;7.</p>
+<p>Do đ&oacute; kh&ocirc;ng gian mẫu l&agrave; \(\Omega&nbsp; = \left\{ {2;3;5;7} \right\}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách xác định phép thử và kết quả của phép thử</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phép thử ngẫu nhiên</h3>
+<div><p>Một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời mà kết quả của chúng không thể biết được trước khi thực hiện nhưng có thể liệt kê được tất cả các kết quả có thể xảy ra, được gọi là một <strong><em>phép thử ngẫu nhiên</em></strong>, gọi tắt là <em>phép thử</em>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Kết quả của phép thử</h3>
+<div><p>Tập hợp tất cả các kết quả có thể xảy ra của phép thử (gọi tắt là tập tất cả các kết quả có thể của phép thử) được gọi là không gian mẫu của phép thử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định phép thử</h3>
+<div><p>Muốn xác định một phép thử, ta sử dụng kiến thức về phép thử để tìm: Một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời mà kết quả của chúng không thể biết được trước khi thực hiện nhưng có thể liệt kê các kết quả có thể xảy ra, được gọi là một phép thử ngẫu nhiên, gọi tắt là phép thử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách xác định kết quả của phép thử</h3>
+<div><p>Muốn tìm không gian mẫu của một phép thử, ta liệt kê các kết quả có thể của phép thử đó. Số kết quả có thể cũng chính là số phần tử của không gian mẫu.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Bạn Lan gieo một con x&uacute;c xắc li&ecirc;n tiếp 2 lần. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(4\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(6\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(36\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu của ph&eacute;p thử l&agrave;:</p>
+<p>\(\Omega&nbsp; = \left\{ \begin{array}{l}\left( {1;1} \right),\left( {1;2} \right),\left( {1;3} \right),\left( {1;4} \right),\left( {1;5} \right),\left( {1;6} \right),\\\left( {2;1} \right),\left( {2;2} \right),\left( {2;3} \right),\left( {2;4} \right),\left( {2;5} \right),\left( {2;6} \right),\\\left( {3;1} \right),\left( {3;2} \right),\left( {3;3} \right),\left( {3;4} \right),\left( {3;5} \right),\left( {3;6} \right),\\\left( {4;1} \right),\left( {4;2} \right),\left( {4;3} \right),\left( {4;4} \right),\left( {4;5} \right),\left( {4;6} \right),\\\left( {5;1} \right),\left( {5;2} \right),\left( {5;3} \right),\left( {5;4} \right),\left( {5;5} \right),\left( {5;6} \right),\\\left( {6;1} \right),\left( {6;2} \right),\left( {6;3} \right),\left( {6;4} \right),\left( {6;5} \right),\left( {6;6} \right)\end{array} \right\}\).</p>
+<p>Số phần tử của kh&ocirc;ng gian mẫu l&agrave; 36.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body">Một hộp chứa ba viên bi có kích thước đôi một khác nhau. Bạn Nam lấy ngẫu nhiên hai viên bi từ trong hộp. Số phần tử của không gian mẫu của phép thử là:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 3.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 4.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 5.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Giả sử 3 viên bi là \({a_1},{\mkern 1mu} {\mkern 1mu} {a_2},{\mkern 1mu} {\mkern 1mu} {a_3}\)</p>
+<p>Không gian mẫu của phép thử trên là \(\left\{ {\left( {{a_1};{a_2}} \right),{\mkern 1mu} {\mkern 1mu} \left( {{a_2};{a_3}} \right),{\mkern 1mu} {\mkern 1mu} \left( {{a_3};{a_2}} \right)} \right\}\)</p>
+<p>Số phần tử của không gian mẫu là 3</p>
+<p><strong>Chọn B.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>X&eacute;t ph&eacute;p thử: &ldquo;Tung ba đồng xu đồng chất v&agrave; c&acirc;n đối&rdquo;. Số phần tử của kh&ocirc;ng gian mẫu l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>10.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Khi tung ba đồng xu ph&acirc;n biệt c&ugrave;ng một l&uacute;c th&igrave; kh&ocirc;ng gian mẫu sẽ l&agrave;:</p>
+<p>\(\Omega&nbsp; = \left\{ {NNN;SSS;NNS;SSN;NSN;SNS;NSS;SNN} \right\}\).</p>
+<p>V&igrave; vậy số phần tử của kh&ocirc;ng gian mẫu sẽ l&agrave;: 8 (phần tử).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

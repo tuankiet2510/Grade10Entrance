@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mật độ dân số - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 48: Mật độ dân số</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Dân số là gì? Mật độ dân số là gì? Cách tính mật độ dân số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Dân số</h3>
+<div><p>Dân số là tập hợp người sinh sống trong một quốc gia, khu vực, vùng địa lí kinh tế hoặc một đơn vị hành chính (Căn cứ khoản 1, Điều 3, Pháp lệnh dân số 2003).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Mật độ dân số</h3>
+<div><p>Mật độ dân số là số dân tính bình quân trên một kilômét vuông diện tích lãnh thổ.</p>
+<p>Mật độ dân số có thể tính cho toàn quốc hoặc riêng từng vùng (nông thôn, thành thị, vùng kinh tế), từng tỉnh, từng huyện, từng xã,... nhằm phản ánh tình hình phân bố dân số theo địa lí vào một thời gian nhất định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính mật độ dân số</h3>
+<div><p>Mật độ dân số được tính bằng cách chia dân số (thời điểm hoặc bình quân) của một vùng dân cư nhất định cho diện tích lãnh thổ (đơn vị: \(k{m^2}\)) của vùng đó. Công thức tính như sau:</p>
+<p style="text-align: center;">\(\text{Mật độ dân số (người/km}^2) = \frac{\text{Số lượng dân số (người)}}{\text{Diện tích lãnh thổ (km}^2)}\) </p>
+<p><em>Ví dụ:</em> Năm 2021, mật độ dân số (người/\(k{m^2}\)) của các tỉnh, thành phố: Sơn La; Yên Bái; Hà Nội; Hà Nam; Ninh Bình; Thái Bình; Nghệ An; Hà Tĩnh; Thừa Thiên Huế; Khánh Hoà; Bà Rịa – Vũng Tàu; Long An; Thành phố Hồ Chí Minh; Hậu Giang lần lượt là: 88; 122; 2 398; 941; 642; 1 138; 207; 219; 233,2; 240; 593; 384; 4 640; 495.</p>
+<p style="text-align: right;"><em>(Nguồn: Niên giám Thống kê 2021, NXB Thống kê, 2022)</em></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Thống kê mật độ dân số để làm gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Dân số</h3>
+<div><p>Dân số là tập hợp người sinh sống trong một quốc gia, khu vực, vùng địa lí kinh tế hoặc một đơn vị hành chính (Căn cứ khoản 1, Điều 3, Pháp lệnh dân số 2003).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Mật độ dân số</h3>
+<div><p>Mật độ dân số là số dân tính bình quân trên một kilômét vuông diện tích lãnh thổ.</p>
+<p>Mật độ dân số có thể tính cho toàn quốc hoặc riêng từng vùng (nông thôn, thành thị, vùng kinh tế), từng tỉnh, từng huyện, từng xã,... nhằm phản ánh tình hình phân bố dân số theo địa lí vào một thời gian nhất định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Mục đích thống kê mật độ dân số</h3>
+<div><p>Dữ liệu thống kê về mật độ dân số sẽ giúp cho mỗi quốc gia:</p>
+<p>- Nắm được tình hình dân số sinh sống ở một vùng địa lí (hoặc một không gian nhất định). Qua đó, có thể đánh giá dân số ở một vùng (hoặc một không gian nhất định) một cách khái quát nhất có thể, tính toán lượng tài nguyên cần sử dụng cho khu vực đó, cũng như có thể điều chỉnh, đề xuất kế hoạch để tạo việc làm, điều kiện sống tốt cho dân cư ở những nơi có điều kiện kinh tế khó khăn mà mật độ dân số cao.</p>
+<p>Ngoài ra, căn cứ vào mật độ dân số, tiến hành phân bổ dân cư hợp lí giữa các khu vực, vùng địa lí để tạo điều kiện phát triển kinh tế - xã hội tốt nhất thông qua các chương trình, dự án khai thác đất đai, tài nguyên tiềm năng nhằm phát huy thế mạnh của từng khu vực (Căn cứ khoản 1, Điều 16, Pháp lệnh dân số 2003).</p>
+<p>- Thực hiện việc quy hoạch các đô thị.</p>
+<p>Chẳng hạn, mật độ dân số là một trong các tiêu chí cơ bản để phân loại đo thị: loại đặc biệt, I, II, III (Điều 140, Luật Tổ chức chính quyền địa phương 2015). Cụ thể là:</p>
+<table border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td valign="top" width="217">
+<p>Loại đô thị</p>
+</td>
+<td valign="top" width="217">
+<p>Mật độ dân số toàn đô thị (người/\(k{m^2}\))</p>
+</td>
+<td valign="top" width="217">
+<p>Mật độ dân số khu vực nội thành, nội thị (người/\(k{m^2}\))</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Loại đặc biệt</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 3 000 trở lên</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 12 000 trở lên</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Loại I</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 2 000 trở lên</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 10 000 trở lên</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Loại II</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 1 800 trở lên</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 8 000 trở lên</p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="217">
+<p>Loại III</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 1 400 trở lên</p>
+</td>
+<td valign="top" width="217">
+<p>Từ 7 000 trở lên</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-align: right;"><em>(Nguồn: Phụ lục số 3 ban hành kèm Nghị quyết số 1210/2016/UBTVQH13)</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tính mật độ dân số</h3>
+<div><p>Mật độ dân số được tính bằng cách chia dân số (thời điểm hoặc bình quân) của một vùng dân cư nhất định cho diện tích lãnh thổ (đơn vị: \(k{m^2}\)) của vùng đó. Công thức tính như sau:</p>
+<p style="text-align: center;">\(\text{Mật độ dân số (người/km}^2) = \frac{\text{Số lượng dân số (người)}}{\text{Diện tích lãnh thổ (km}^2)}\) </p>
+<p><em>Ví dụ:</em> Năm 2021, mật độ dân số (người/\(k{m^2}\)) của các tỉnh, thành phố: Sơn La; Yên Bái; Hà Nội; Hà Nam; Ninh Bình; Thái Bình; Nghệ An; Hà Tĩnh; Thừa Thiên Huế; Khánh Hoà; Bà Rịa – Vũng Tàu; Long An; Thành phố Hồ Chí Minh; Hậu Giang lần lượt là: 88; 122; 2 398; 941; 642; 1 138; 207; 219; 233,2; 240; 593; 384; 4 640; 495.</p>
+<p style="text-align: right;"><em>(Nguồn: Niên giám Thống kê 2021, NXB Thống kê, 2022)</em></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

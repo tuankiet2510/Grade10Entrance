@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bất đẳng thức và tính chất - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 07: Bất đẳng thức và tính chất</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Thứ tự trong tập hợp số thực là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Thứ tự trong tập hợp số thực</h3>
+<div><p>Trên tập số thực, với hai số a và b có ba trường hợp sau:</p>
+<p>a) Số a bằng số b, kí hiệu \(a = b\).</p>
+<p>b) Số a lớn hơn số b, kí hiệu \(a &gt; b\).</p>
+<p>c) Số a nhỏ hơn số b, kí hiệu \(a &lt; b\).</p>
+<p>Khi biểu diễn số thực trên trục số, điểm biểu diễn số bé hơn nằm trước điểm biểu diễn số lớn hơn.</p>
+<p>Số a lớn hơn hoặc bằng số b, tức là \(a &gt; b\) hoặc \(a = b\), kí hiệu là \(a \ge b\).</p>
+<p>Số a nhỏ hơn hoặc bằng số b, tức là \(a &lt; b\) hoặc \(a = b\), kí hiệu là \(a \le b\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Nếu điểm biểu diễn số a nằm b&ecirc;n tr&aacute;i điểm biểu diễn số b tr&ecirc;n trục số th&igrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a &lt; b\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(a &gt; b\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(a \le b\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(a \ge b\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu điểm a nằm b&ecirc;n tr&aacute;i điểm b tr&ecirc;n trục số th&igrave; a &lt; b.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Bất đẳng thức biểu thị đ&uacute;ng thứ tự c&aacute;c số l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - 7 \le&nbsp; - 6 - 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(5\left( { - 3} \right) &gt;&nbsp; - 16\).&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(12 &lt; \left( { - 3} \right).5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(4\left( { - 2} \right) &gt; \left( { - 7} \right)\left( { - 2} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>A. \( - 7 = - 6 - 1\) n&ecirc;n bất đẳng thức A sai.</p>
+<p>B. \(5\left( { - 3} \right) = - 15 &gt; - 16\) n&ecirc;n bất đẳng thức B đ&uacute;ng.</p>
+<p>C. \(12 &gt; - 15 = \left( { - 3} \right).5\) n&ecirc;n bất đẳng thức c sai.</p>
+<p>D. \(4\left( { - 2} \right) = - 8 &lt; 14 = \left( { - 7} \right)\left( { - 2} \right)\) n&ecirc;n bất đẳng thức d sai.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Bất đẳng thức là gì? Vế trái là gì? Vế phải là gì? Cách xác định bất đẳng thức. Cách biểu diễn một bất đẳng thức theo yêu cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định bất đẳng thức</h3>
+<div><p>Dựa vào khái niệm của bất đẳng thức:</p>
+<p>+ Nếu hệ thức có dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) thì hệ thức là một bất đẳng thức.</p>
+<p>+ Nếu hệ thức có dạng \(a = b\) thì hệ thức là một đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách biểu diễn một bất đẳng thức theo yêu cầu</h3>
+<div><p>Dựa vào tình huống mà yêu cầu đưa ra để biểu diễn một bất đẳng thức phù hợp. Một số từ ngữ thường gặp khi diễn tả một bất đẳng thức:</p>
+<p>“\( &lt; \)”: nhỏ hơn, dưới</p>
+<p>“\( &gt; \)”: lớn hơn, trên</p>
+<p>“\( \ge \)”: không nhỏ hơn, từ … trở lên</p>
+<p>“\( \le \)”: không lớn hơn, không vượt quá</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Bất đẳng thức \(a + 1 &lt; 3\) c&oacute; vế tr&aacute;i l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a + 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(a\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(3\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vế tr&aacute;i của bất đẳng thức l&agrave; \(a + 1\).</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Hệ thức n&agrave;o sau đ&acirc;y l&agrave; bất đẳng thức?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(1 - x = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({x^2} - 5x + 6 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({y^2} \ge 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = y\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Trong c&aacute;c đ&aacute;p &aacute;n tr&ecirc;n, chỉ c&oacute; hệ thức \({y^2} \ge 0\) l&agrave; bất đẳng thức.</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Bất đẳng thức \(n \le 5\) c&oacute; thể được ph&aacute;t biểu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>n lớn hơn 5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>n nhỏ hơn 5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>n kh&ocirc;ng nhỏ hơn 5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>n kh&ocirc;ng lớn hơn 5.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Bất đẳng thức \(n \le 5\) c&oacute; thể được ph&aacute;t biểu l&agrave; n kh&ocirc;ng lớn hơn 5.</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Hệ thức n&agrave;o sau đ&acirc;y l&agrave; bất đẳng thức?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(1 - x = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({x^2} - 5x + 6 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({y^2} \ge 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = y\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ thức \({y^2} \ge 0\) l&agrave; bất đẳng thức.</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Hệ thức \(2a \le a + 1\) l&agrave; một bất đẳng thức v&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a + 1\) l&agrave; vế tr&aacute;i, \(2a\) l&agrave; vế phải.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(a + 1\) l&agrave; vế trước, \(2a\) l&agrave; vế sau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(a + 1\) l&agrave; vế sau, \(2a\) l&agrave; vế trước.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2a\) l&agrave; vế tr&aacute;i, \(a + 1\) l&agrave; vế phải.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ thức \(2a \le a + 1\) c&oacute; \(2a\) l&agrave; vế tr&aacute;i, \(a + 1\) l&agrave; vế phải.</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ, coi a, b, c l&agrave; khối lượng của c&aacute;c vật nặng. Khi đ&oacute;, ta biểu diễn:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0701/1719819402413-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a &gt; b + c\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(b + c &gt; a\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(b + c \ge a\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(b + c \le a\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t h&igrave;nh vẽ, ta thấy \(b + c &gt; a\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Bất đẳng thức m&ocirc; tả t&igrave;nh huống: &ldquo;Để được điều khiển xe m&aacute;y điện th&igrave; số tuổi x của một người phải &iacute;t nhất l&agrave; 16 tuổi&rdquo;.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x &lt; 16\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x &gt; 16\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \le 16\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ge 16\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Bất đẳng thức m&ocirc; tả l&agrave; \(x \ge 16\) (v&igrave; số tuổi x &iacute;t nhất l&agrave; 16 tuổi).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\Delta ABC\), khẳng định n&agrave;o sau đ&acirc;y l&agrave; khẳng định đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\widehat A + \widehat B + \widehat C &gt; 180^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\widehat A + \widehat B &lt; 180^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\widehat B + \widehat C \le 180^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\widehat A + \widehat B \ge 180^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Trong tam gi&aacute;c ABC, ta c&oacute;: \(\widehat A + \widehat B + \widehat C = 180^\circ \) n&ecirc;n khẳng định A sai.</p>
+<p>V&igrave; 3 g&oacute;c của một tam gi&aacute;c kh&ocirc;ng thể bằng \(0^\circ \) n&ecirc;n C. \(\widehat B + \widehat C \le 180^\circ \) v&agrave; D. \(\widehat A + \widehat B \ge 180^\circ \) sai.</p>
+<p>Vậy chỉ c&oacute; khẳng định B l&agrave; khẳng định đ&uacute;ng.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Hai bất đẳng thức cùng chiều là gì? Hai bất đẳng thức ngược chiều là gì? Cách xác định bất đẳng thức cùng chiều, ngược chiều</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Hai bất đẳng thức cùng chiều</h3>
+<div><p>Hai bất đẳng thức \(a &lt; b\) và \(c &lt; d\) (hay \(a &gt; b\) và \(c &gt; d\); \(a \le b\) và \(c \le d\); \(a \ge b\) và \(c \ge d\)) được gọi là <em>hai bất đẳng thức cùng chiều.</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Hai bất đẳng thức ngược chiều</h3>
+<div><p>Hai bất đẳng thức \(a &lt; b\) và \(c &lt; d\) (hay \(a &gt; b\) và \(c &lt; d\); \(a \le b\) và \(c \ge d\); \(a \ge b\) và \(c \le d\))  được gọi là <em>hai bất đẳng thức ngược chiều.</em></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Khẳng định n&agrave;o sau đ&acirc;y đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Hai bất đẳng thức \(a &gt; b\) v&agrave; \(c &gt; d\) l&agrave; hai bất đẳng thức ngược chiều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Hai bất đẳng thức \(a &gt; b\) v&agrave; \(c &lt; d\) l&agrave; hai bất đẳng thức c&ugrave;ng chiều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Hai bất đẳng thức \(a \ge b\) v&agrave; \(c \ge d\) l&agrave; hai bất đẳng thức ngược chiều.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Hai bất đẳng thức \(a &gt; b\) v&agrave; \(c &gt; d\) l&agrave; hai bất đẳng thức c&ugrave;ng chiều.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai bất đẳng thức \(a &gt; b\) v&agrave; \(c &gt; d\) l&agrave; hai bất đẳng thức c&ugrave;ng chiều.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Tính chất bắc cầu là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất bắc cầu</h3>
+<div><p>Nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).</p>
+<p>Nếu \(a &gt; b\) và \(b &gt; c\) thì \(a &gt; c\).</p>
+<p>Nếu \(a \le b\) và \(b \le c\) thì \(a \le c\).</p>
+<p>Nếu \(a \ge b\) và \(b \ge c\) thì \(a \ge c\).</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Tính chất của đẳng thức liên quan đến phép cộng là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của đẳng thức liên quan đến phép cộng</h3>
+<div><p>Khi cộng cùng một số vào hai vế của một bất đẳng thức ta được bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p>Nếu \(a &lt; b\) thì \(a + c &lt; b + c\).</p>
+<p>Nếu \(a &gt; b\) thì \(a + c &gt; b + c\).</p>
+<p>Nếu \(a \le b\) thì \(a + c \le b + c\).</p>
+<p>Nếu \(a \ge b\) thì \(a + c \ge b + c\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>So s&aacute;nh hai số 2 v&agrave; \(1 + \sqrt 2 \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Kh&ocirc;ng thể so s&aacute;nh.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2 = 1 + \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2 &gt; 1 + \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2 &lt; 1 + \sqrt 2 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(1 &lt; 2\) n&ecirc;n \(1 &lt; \sqrt 2 \) suy ra \(1 + 1 &lt; 1 + \sqrt 2 \) hay \(2 &lt; 1 + \sqrt 2 \).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với \(a,b\) bất kỳ. Chọn khẳng định <strong>sai</strong>.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} + 3 &gt;&nbsp; - 2a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(4a + 4 \le {a^2} + 8\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} + 1 &lt; a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(ab - {b^2} \le {a^2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">* \({a^2} + 3 + 2a\)\( = {a^2} + 2a + 1 + 2\) \( = {(a + 1)^2} + 2 &gt; 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 3 &gt;&nbsp; - 2a\) n&ecirc;n A đ&uacute;ng.</p>
+<p style="text-align: left;">* \({a^2} + 8 - 4a - 4\) \( = {a^2} - 4a + 4 = {\left( {a - 2} \right)^2} \ge 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 8 \ge 4a + 4\) hay \(4a + 4 \le {a^2} + 8\) n&ecirc;n B đ&uacute;ng.</p>
+<p style="text-align: left;">* \({a^2} + 1 - a\)\( = {a^2} - 2a.\dfrac{1}{2} + \dfrac{1}{4} + \dfrac{3}{4}\) \( = {\left( {a - \dfrac{1}{2}} \right)^2} + \dfrac{3}{4} &gt; 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 1 &gt; a\) hay C sai.</p>
+<p style="text-align: left;">* Ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}{a^2} \ge ab - {b^2} \\{a^2} - ab + {b^2} \ge 0\\ {a^2} - 2a.\dfrac{b}{2} + \dfrac{{{b^2}}}{4} + \dfrac{{3{b^2}}}{4} \ge 0\\ {\left( {a - \dfrac{b}{2}} \right)^2} + \dfrac{{3{b^2}}}{4} \ge 0\end{array}\)</p>
+<p style="text-align: left;">V&igrave; \({\left( {a - \dfrac{b}{2}} \right)^2} + \dfrac{{3{b^2}}}{4} \ge 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} \ge ab - {b^2}\) hay D đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a - 3 &lt; b\). So s&aacute;nh \(a + 10\) v&agrave; \(b + 13\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a + 10 &lt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a + 10 &gt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a + 10 = b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng đủ dữ kiện để so s&aacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(a - 3 &lt; b\) với \(13\) ta được:</p>
+<p style="text-align: left;">\(a - 3 &lt; b\)</p>
+<p style="text-align: left;">\( a - 3 + 13 &lt; b + 13\)</p>
+<p style="text-align: left;">\(a + 10 &lt; b + 13\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh \(m\) v&agrave; \(n\) biết \(m + \dfrac{1}{2} = n\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(m &lt; n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(m = n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(m &gt; n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B, C đều đ&uacute;ng</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(m + \dfrac{1}{2} = n\)</p>
+<p style="text-align: left;">\( m - n =&nbsp; - \dfrac{1}{2}\)</p>
+<p style="text-align: left;">\( m - n &lt; 0 \)</p>
+<p style="text-align: left;">\(m &lt; n\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(x-5 \le y-5 \). So s&aacute;nh \(x\) v&agrave; \(y\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x &lt; y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x = y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x &gt;y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x \le y\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(x-5 \le y-5\) với \( 5\) ta được:</p>
+<p style="text-align: left;">\(x-5 +5\le y-5+5 \)</p>
+<p style="text-align: left;">\(&nbsp; x \le&nbsp; y\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Tính chất của bất đẳng thức liên quan đến phép nhân là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của bất đẳng thức liên quan đến phép nhân</h3>
+<div><p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>dương </em>ta được bất đẳng thức mới <em>cùng chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &gt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \le bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \ge bc\).</p>
+<p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>âm</em> ta được bất đẳng thức mới <em>ngược chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &lt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \ge bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \le bc\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Với 3 số a, b, c v&agrave; \(a \ge b\):</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>nếu \(c &gt; 0\) th&igrave; \(ac \le bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>nếu \(c &lt; 0\) th&igrave; \(ac &gt; bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>nếu \(c &lt; 0\) th&igrave; \(ac \ge bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>nếu \(c &gt; 0\) th&igrave; \(ac \ge bc\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu \(c &gt; 0\) th&igrave; \(ac \ge bc\) n&ecirc;n A sai, D đ&uacute;ng.</p>
+<p>Nếu \(c &lt; 0\) th&igrave; \(ac \le bc\) n&ecirc;n B v&agrave; C sai.</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a,b\) l&agrave; c&aacute;c số thực dương. Chọn khẳng định <strong>đ&uacute;ng nhất</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} &lt; 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} \ge 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} = 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} &gt; 4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(P = \dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} - 4 = \dfrac{{{{\left( {a + b} \right)}^2} - 4ab}}{{ab}}\)\( = \dfrac{{{a^2} + 2ab + {b^2} - 4ab}}{{ab}}\)\( = \dfrac{{{a^2} - 2ab + {b^2}}}{{ab}} = \dfrac{{{{\left( {a - b} \right)}^2}}}{{ab}}\)</p>
+<p style="text-align: left;">Do \(ab &gt; 0\) v&agrave; \({\left( {a - b} \right)^2} \ge 0,\forall a,b\) n&ecirc;n \(\dfrac{{{{\left( {a - b} \right)}^2}}}{{ab}} \ge 0 \Rightarrow P \ge 0\) hay \(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} \ge 4\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \( - 2020a &gt;&nbsp; - 2020b\). Khi đ&oacute;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a &lt; b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a &gt; b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a = b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B, C đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \( - 2020a &gt;&nbsp; - 2020b\)</p>
+<p style="text-align: left;">Nh&acirc;n cả hai vế với \(- \dfrac{1}{{2020}}\) ta được</p>
+<p style="text-align: left;">\(&nbsp; - 2020.\left( { - \dfrac{1}{{2020}}} \right)a &lt;&nbsp; - 2020.\left( { - \dfrac{1}{{2020}}} \right)b\)</p>
+<p style="text-align: left;">hay \( a &lt; b\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a &gt; b\) v&agrave; \(c &gt; 0\), chọn kết luận <strong>đ&uacute;ng.</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(ac &gt; bc\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(ac &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(ac \le bc\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(bc &gt; ac\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Khi nh&acirc;n cả hai vế của một bất đẳng thức với c&ugrave;ng một số dương, ta được một bất đẳng thức mới c&ugrave;ng chiều với bất đẳng thức đ&atilde; cho.</p>
+<p style="text-align: left;">Từ đ&oacute; với \(a &gt; b\) v&agrave; \(c &gt; 0\) th&igrave; \(ac &gt; bc\) n&ecirc;n A đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \( - 2018a &lt;&nbsp; - 2018b\). Khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a &lt; b\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a &gt; b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a = b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả <strong>A, B, C</strong> đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \( - 2018a &lt;&nbsp; - 2018b\)</p>
+<p style="text-align: left;">Nh&acirc;n cả hai vế với \(- \dfrac{1}{{2018}}\) ta được</p>
+<p style="text-align: left;">\(&nbsp; - 2018.\left( { - \dfrac{1}{{2018}}} \right)a &gt;&nbsp; - 2018.\left( { - \dfrac{1}{{2018}}} \right)b \)</p>
+<p style="text-align: left;">hay \( a &gt; b\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a + 1 \le b + 2\). So s&aacute;nh &nbsp;$2$ &nbsp;số \(2a + 2\) v&agrave; \(2b + 4\) n&agrave;o dưới đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(2a + 2 &gt; 2b + 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2a + 2 &lt; 2b + 4\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(2a + 2 \ge 2b + 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(2a + 2 \le 2b + 4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Nh&acirc;n cả hai vế của bất đẳng thức \(a + 1 \le b + 2\) với \(2 &gt; 0\) ta được</p>
+<p style="text-align: left;">\(2\left( {a + 1} \right) \le 2\left( {b + 2} \right)\)</p>
+<p style="text-align: left;">\( 2a + 2 \le 2b + 4\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hãy chọn câu <strong>sai:</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Nếu \(a &gt; b\) v&agrave; $c &lt; 0$ th&igrave; \(ac &gt; bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Nếu \(a &lt; b\) v&agrave; $c &lt; 0$ th&igrave; \(ac &gt; bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Nếu \(a \ge b\) v&agrave; $c &lt; 0$ th&igrave; \(ac \le bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Nếu \(a \ge b\) v&agrave; $c &gt; 0$ th&igrave; \(ac \ge bc\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Khi nhân cả hai vế của một bất đẳng thức với cùng một số <strong><em>âm</em></strong>, ta được một bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p style="text-align: left;">Từ đó với \(a > b\) và $c < 0$ thì \(ac < bc\) nên <strong>A</strong> sai.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Tổng hợp tính chất của bất đẳng thức</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất bắc cầu</h3>
+<div><p>Nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).</p>
+<p>Nếu \(a &gt; b\) và \(b &gt; c\) thì \(a &gt; c\).</p>
+<p>Nếu \(a \le b\) và \(b \le c\) thì \(a \le c\).</p>
+<p>Nếu \(a \ge b\) và \(b \ge c\) thì \(a \ge c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của đẳng thức liên quan đến phép cộng</h3>
+<div><p>Khi cộng cùng một số vào hai vế của một bất đẳng thức ta được bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p>Nếu \(a &lt; b\) thì \(a + c &lt; b + c\).</p>
+<p>Nếu \(a &gt; b\) thì \(a + c &gt; b + c\).</p>
+<p>Nếu \(a \le b\) thì \(a + c \le b + c\).</p>
+<p>Nếu \(a \ge b\) thì \(a + c \ge b + c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tính chất của bất đẳng thức liên quan đến phép nhân</h3>
+<div><p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>dương </em>ta được bất đẳng thức mới <em>cùng chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &gt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \le bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \ge bc\).</p>
+<p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>âm</em> ta được bất đẳng thức mới <em>ngược chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &lt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \ge bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \le bc\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a - 3 &lt; b\). So s&aacute;nh \(a + 10\) v&agrave; \(b + 13\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a + 10 &lt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a + 10 &gt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a + 10 = b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng đủ dữ kiện để so s&aacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(a - 3 &lt; b\) với \(13\) ta được:</p>
+<p style="text-align: left;">\(a - 3 &lt; b\)</p>
+<p style="text-align: left;">\( a - 3 + 13 &lt; b + 13\)</p>
+<p style="text-align: left;">\(a + 10 &lt; b + 13\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh \(m\) v&agrave; \(n\) biết \(m + \dfrac{1}{2} = n\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(m &lt; n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(m = n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(m &gt; n\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B, C đều đ&uacute;ng</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(m + \dfrac{1}{2} = n\)</p>
+<p style="text-align: left;">\( m - n =&nbsp; - \dfrac{1}{2}\)</p>
+<p style="text-align: left;">\( m - n &lt; 0 \)</p>
+<p style="text-align: left;">\(m &lt; n\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(x-5 \le y-5 \). So s&aacute;nh \(x\) v&agrave; \(y\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x &lt; y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x = y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x &gt;y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x \le y\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(x-5 \le y-5\) với \( 5\) ta được:</p>
+<p style="text-align: left;">\(x-5 +5\le y-5+5 \)</p>
+<p style="text-align: left;">\(&nbsp; x \le&nbsp; y\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \( - 2018a &lt;&nbsp; - 2018b\). Khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a &lt; b\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a &gt; b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a = b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả <strong>A, B, C</strong> đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \( - 2018a &lt;&nbsp; - 2018b\)</p>
+<p style="text-align: left;">Nh&acirc;n cả hai vế với \(- \dfrac{1}{{2018}}\) ta được</p>
+<p style="text-align: left;">\(&nbsp; - 2018.\left( { - \dfrac{1}{{2018}}} \right)a &gt;&nbsp; - 2018.\left( { - \dfrac{1}{{2018}}} \right)b \)</p>
+<p style="text-align: left;">hay \( a &gt; b\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a + 1 \le b + 2\). So s&aacute;nh &nbsp;$2$ &nbsp;số \(2a + 2\) v&agrave; \(2b + 4\) n&agrave;o dưới đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(2a + 2 &gt; 2b + 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2a + 2 &lt; 2b + 4\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(2a + 2 \ge 2b + 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(2a + 2 \le 2b + 4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Nh&acirc;n cả hai vế của bất đẳng thức \(a + 1 \le b + 2\) với \(2 &gt; 0\) ta được</p>
+<p style="text-align: left;">\(2\left( {a + 1} \right) \le 2\left( {b + 2} \right)\)</p>
+<p style="text-align: left;">\( 2a + 2 \le 2b + 4\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hãy chọn câu <strong>sai:</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Nếu \(a &gt; b\) v&agrave; $c &lt; 0$ th&igrave; \(ac &gt; bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Nếu \(a &lt; b\) v&agrave; $c &lt; 0$ th&igrave; \(ac &gt; bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Nếu \(a \ge b\) v&agrave; $c &lt; 0$ th&igrave; \(ac \le bc\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Nếu \(a \ge b\) v&agrave; $c &gt; 0$ th&igrave; \(ac \ge bc\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Khi nhân cả hai vế của một bất đẳng thức với cùng một số <strong><em>âm</em></strong>, ta được một bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p style="text-align: left;">Từ đó với \(a > b\) và $c < 0$ thì \(ac < bc\) nên <strong>A</strong> sai.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách so sánh các số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách so sánh các số</h3>
+<div><p>Sử dụng các tính chất của bất đẳng thức để so sánh:</p>
+<p>+ Tính chất bắc cầu</p>
+<p>+ Tính chất của đẳng thức liên quan đến phép cộng</p>
+<p>+ Tính chất của bất đẳng thức liên quan đến phép nhân</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất bắc cầu</h3>
+<div><p>Nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).</p>
+<p>Nếu \(a &gt; b\) và \(b &gt; c\) thì \(a &gt; c\).</p>
+<p>Nếu \(a \le b\) và \(b \le c\) thì \(a \le c\).</p>
+<p>Nếu \(a \ge b\) và \(b \ge c\) thì \(a \ge c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tính chất của đẳng thức liên quan đến phép cộng</h3>
+<div><p>Khi cộng cùng một số vào hai vế của một bất đẳng thức ta được bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p>Nếu \(a &lt; b\) thì \(a + c &lt; b + c\).</p>
+<p>Nếu \(a &gt; b\) thì \(a + c &gt; b + c\).</p>
+<p>Nếu \(a \le b\) thì \(a + c \le b + c\).</p>
+<p>Nếu \(a \ge b\) thì \(a + c \ge b + c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Tính chất của bất đẳng thức liên quan đến phép nhân</h3>
+<div><p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>dương </em>ta được bất đẳng thức mới <em>cùng chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &gt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \le bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \ge bc\).</p>
+<p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>âm</em> ta được bất đẳng thức mới <em>ngược chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &lt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \ge bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \le bc\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>So s&aacute;nh hai số 2 v&agrave; \(1 + \sqrt 2 \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Kh&ocirc;ng thể so s&aacute;nh.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2 = 1 + \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2 &gt; 1 + \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2 &lt; 1 + \sqrt 2 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(1 &lt; 2\) n&ecirc;n \(1 &lt; \sqrt 2 \) suy ra \(1 + 1 &lt; 1 + \sqrt 2 \) hay \(2 &lt; 1 + \sqrt 2 \).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh \({m^3}\) v&agrave; \({m^2}\) với \(0 &lt; m &lt; 1\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({m^2} &gt; {m^3}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({m^2} &lt; {m^3}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({m^3} = {m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng so s&aacute;nh được</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t hiệu \({m^2} - {m^3} = {m^2}\left( {1 - m} \right)\) ta c&oacute;:</p>
+<p style="text-align: left;">V&igrave; \(0 &lt; m &lt; 1 \) n&ecirc;n&nbsp;\(1 - m &gt; 0\)</p>
+<p style="text-align: left;">Do đ&oacute; \(m^2\left( {1 - m} \right) &gt; 0\)</p>
+<p style="text-align: left;">hay \({m^2} - {m^3} &gt; 0\)</p>
+<p style="text-align: left;">\({m^2} &gt; {m^3}.\)</p>
+<p style="text-align: left;">Vậy \({m^2} &gt; {m^3}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a &gt; b &gt; 0.\) So s&aacute;nh \({a^3}.....{b^3}\), dấu cần điền v&agrave;o chỗ chấm l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\( &gt; \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\( &lt; \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\( = \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng đủ dữ kiện để so s&aacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">*&nbsp; Với \(a &gt; b &gt; 0\) ta c&oacute;:</p>
+<p style="text-align: left;">+) \(a.a &gt; a.b \) hay \({a^2} &gt; ab\)</p>
+<p style="text-align: left;">+) Ta c&oacute;: \({a^2} &gt; ab \) n&ecirc;n \({a^2}.a &gt; a.ab \) hay \( {a^3} &gt; {a^2}b\)</p>
+<p style="text-align: left;">M&agrave; \(a &gt; b &gt; 0 \) suy ra \( ab &gt; b.b \)</p>
+<p style="text-align: left;">hay \( ab &gt; {b^2}\)</p>
+<p style="text-align: left;">\(&nbsp; ab.a &gt; {b^2}.b \)</p>
+<p style="text-align: left;">\({a^2}b &gt; {b^3}.\)</p>
+<p style="text-align: left;">\( {a^2}b &gt; {b^3} \)</p>
+<p style="text-align: left;">\({a^3} &gt; {a^2}b &gt; {b^3}\)</p>
+<p style="text-align: left;">\({a^3} &gt; {b^3}\)</p>
+<p style="text-align: left;">Vậy \({a^3} &gt; {b^3}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \( - 3x - 1 &lt;&nbsp; - 3y - 1\). So s&aacute;nh \(x\) v&agrave; \(y\). Đ&aacute;p &aacute;n n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x &lt; y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x &gt; y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x = y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng so s&aacute;nh được</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Theo đề b&agrave;i ta c&oacute;: \( - 3x - 1 &lt;&nbsp; - 3y - 1\)</p>
+<p style="text-align: left;">\(\begin{array}{l}&nbsp; &nbsp;- 3x - 1 + 1 &lt;&nbsp; - 3y - 1 + 1\\&nbsp; - 3x &lt;&nbsp; - 3y\\&nbsp; - 3.\left( { - \dfrac{1}{3}} \right)x &gt;&nbsp; - 3.\left( { - \dfrac{1}{3}} \right)y\\ x &gt; y.\end{array}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh \(m\) v&agrave; \({m^2}\) với \(0 &lt; m &lt; 1\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({m^2} &gt; m\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({m^2} &lt; m\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({m^2} \ge m\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\({m^2} \le m\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t hiệu \({m^2} - m = m\left( {m - 1} \right)\) ta c&oacute;:</p>
+<p style="text-align: left;">V&igrave; \(0 &lt; m &lt; 1\) n&ecirc;n \(m - 1 &lt; 0 \)</p>
+<p style="text-align: left;">Do đ&oacute; \(m\left( {m - 1} \right) &lt; 0.\)</p>
+<p style="text-align: left;">Hay \({m^2} - m &lt; 0 \)</p>
+<p style="text-align: left;">\({m^2} &lt; m.\)</p>
+<p style="text-align: left;">Vậy \({m^2} &lt; m.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a &gt; b &gt; 0.\) So s&aacute;nh \({a^2}\) v&agrave; \(ab\); \({a^3}\) v&agrave; \({b^3}\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} &lt; ab\) v&agrave; \({a^3} &gt; {b^3}.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({a^2} &gt; ab\) v&agrave; \({a^3} &gt; {b^3}.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} &lt; ab\) v&agrave; \({a^3} &lt; {b^3}.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\({a^2} &gt; ab\) v&agrave; \({a^3} &lt; {b^3}.\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">*&nbsp; Với \(a &gt; b &gt; 0\) ta c&oacute;:</p>
+<p style="text-align: left;">+) \(a.a &gt; a.b\) hay \({a^2} &gt; ab\;\;\)</p>
+<p style="text-align: left;">+) Ta c&oacute;: \({a^2} &gt; ab \) suy ra \( {a^2}.a &gt; a.ab \) hay \( {a^3} &gt; {a^2}b\)</p>
+<p style="text-align: left;">M&agrave; \(a &gt; b &gt; 0 \) suy ra \( ab &gt; b.b \) hay \( ab &gt; {b^2}\)</p>
+<p style="text-align: left;">Suy ra \(ab.a &gt; {b^2}.b\) n&ecirc;n \( {a^2}b &gt; {b^3}.\)</p>
+<p style="text-align: left;">Suy ra \({a^2}b &gt; {b^3} \)</p>
+<p style="text-align: left;">Do đ&oacute; \({a^3} &gt; {a^2}b &gt; {b^3}\) hay \( {a^3} &gt; {b^3}\)</p>
+<p style="text-align: left;">Vậy \({a^2} &gt; ab\) v&agrave; \({a^3} &gt; {b^3}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \( - 2x + 3 &lt;&nbsp; - 2y + 3\). So s&aacute;nh $x$ &nbsp;v&agrave; $y$ . Đ&aacute;p &aacute;n n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x &lt; y\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x &gt; y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x \le y\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x \ge y\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Theo đề b&agrave;i ta c&oacute;: \( - 2x + 3 &lt;&nbsp; - 2y + 3\)</p>
+<p style="text-align: left;">&nbsp;\(\begin{array}{l} - 2x + 3 - 3 &lt;&nbsp; - 2y + 3 - 3\\&nbsp; &nbsp;- 2x &lt;&nbsp; - 2y\\&nbsp; &nbsp;- 2.\left( { - \dfrac{1}{2}} \right)x &gt;&nbsp; - 2.\left( { - \dfrac{1}{2}} \right)y\\&nbsp; x &gt; y.\end{array}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho biết \(a = b - 1 = c - 3\). H&atilde;y sắp xếp c&aacute;c số \(a,b,c\) theo thứ tự tăng dần.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(b &lt; \,c &lt; \,a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a &lt; b &lt; c\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(b &lt; a &lt; c\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(a &lt; c &lt; b\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Từ \(a = b - 1\) suy ra \(b = a + 1\)</p>
+<p style="text-align: left;">Từ \(a = c-3\) suy ra \(c = a + 3\).</p>
+<p style="text-align: left;">M&agrave; \(a &lt; a + 1 &lt; a + 3\) n&ecirc;n&nbsp; \(a &lt; b &lt; c\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a - 3 &lt; b\). So s&aacute;nh \(a + 10\) v&agrave; \(b + 13\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a + 10 &lt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a + 10 &gt; b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a + 10 = b + 13\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng đủ dữ kiện để so s&aacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(a - 3 &lt; b\) với \(13\) ta được:</p>
+<p style="text-align: left;">\(a - 3 &lt; b\)</p>
+<p style="text-align: left;">\( a - 3 + 13 &lt; b + 13\)</p>
+<p style="text-align: left;">\(a + 10 &lt; b + 13\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 9</span>
+                <h2 class="lesson-title">9. Cách chứng minh bất đẳng thức</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách chứng minh bất đẳng thức</h3>
+<div><p>- Sử dụng các tính chất của bất đẳng thức:</p>
+<p>+ Tính chất bắc cầu</p>
+<p>+ Tính chất của đẳng thức liên quan đến phép cộng</p>
+<p>+ Tính chất của bất đẳng thức liên quan đến phép nhân</p>
+<p>- Để chứng minh \(A &gt; B\), ta có thể chứng minh \(A - B &gt; 0\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất bắc cầu</h3>
+<div><p>Nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).</p>
+<p>Nếu \(a &gt; b\) và \(b &gt; c\) thì \(a &gt; c\).</p>
+<p>Nếu \(a \le b\) và \(b \le c\) thì \(a \le c\).</p>
+<p>Nếu \(a \ge b\) và \(b \ge c\) thì \(a \ge c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tính chất của đẳng thức liên quan đến phép cộng</h3>
+<div><p>Khi cộng cùng một số vào hai vế của một bất đẳng thức ta được bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p>Nếu \(a &lt; b\) thì \(a + c &lt; b + c\).</p>
+<p>Nếu \(a &gt; b\) thì \(a + c &gt; b + c\).</p>
+<p>Nếu \(a \le b\) thì \(a + c \le b + c\).</p>
+<p>Nếu \(a \ge b\) thì \(a + c \ge b + c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Tính chất của bất đẳng thức liên quan đến phép nhân</h3>
+<div><p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>dương </em>ta được bất đẳng thức mới <em>cùng chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &gt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \le bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \ge bc\).</p>
+<p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>âm</em> ta được bất đẳng thức mới <em>ngược chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &lt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \ge bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \le bc\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a &gt; 1 &gt; b\), chọn khẳng định <strong>kh&ocirc;ng</strong> đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(a - 1 &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(a - b &lt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(1 - b &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(a - b &gt; 0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Từ \(a &gt; b\), cộng \( - b\) v&agrave;o hai vế ta được \(a - b &gt; b - b,\) tức l&agrave; \(a - b &gt; 0\).</p>
+<p style="text-align: left;">Do đ&oacute; D đ&uacute;ng, B sai.</p>
+<p style="text-align: left;">Ngo&agrave;i ra A, C đ&uacute;ng v&igrave;:</p>
+<p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(a &gt; 1\) với \(\left( { - 1} \right)\) ta được: \(a + \left( { - 1} \right) &gt; 1 + \left( { - 1} \right)\) hay \(a - 1 &gt; 0\).</p>
+<p style="text-align: left;">Cộng cả hai vế của bất đẳng thức \(1 &gt; b\) với \( - b\) ta được: \(1 + \left( { - b} \right) &gt; b + \left( { - b} \right)\) hay \(1 - b &gt; 0\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a\) bất kỳ, chọn c&acirc;u <strong>sai.</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\( - 2a - 5 &lt;&nbsp; - 2a + 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(3a - 3 &lt; 3a - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(4a &lt; 4a + 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\( - 5a + 1 &lt;&nbsp; - 5a - 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+ V&igrave; \( - 5 &lt; 1\) n&ecirc;n cộng hai vế của bất đẳng thức với số \( - 2a\) bất k&igrave; ta được: \( - 2a - 5 &lt;&nbsp; - 2a + 1 \Rightarrow \) A đ&uacute;ng.</p>
+<p style="text-align: left;">+ V&igrave; \(0 &lt; 1\) n&ecirc;n cộng hai vế của bất đẳng thức với số \(4a\) bất k&igrave; ta được: \(4a &lt; 4a + 1\) \( \Rightarrow \)&nbsp;C đ&uacute;ng.</p>
+<p style="text-align: left;">+ V&igrave; \(1 &gt;&nbsp; - 2\) n&ecirc;n cộng hai vế của bất đẳng thức với số \( - 5a\) bất k&igrave; ta được: \( - 5a + 1 &gt;&nbsp; - 5a - 2 \Rightarrow \) D sai.</p>
+<p style="text-align: left;">+ V&igrave; \( - 3 &lt;&nbsp; - 1\) n&ecirc;n cộng hai vế của bất đẳng thức với số \(3a\) bất k&igrave; ta được: \(3a - 3 &lt; 3a - 1 \Rightarrow \) B đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho biết \(a &lt; b\). Trong c&aacute;c khẳng định sau, số khẳng định <strong>đ&uacute;ng </strong>l&agrave;:</p>
+<p style="text-align: left;">(I) \(a - 1 &lt; b - 1\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (II) \(a - 1 &lt; b\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (III) \(a + 2 &lt; b + 1\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+ V&igrave; \(a &lt; b\), cộng hai vế của bất đẳng thức với \( - 1\) ta được: \(a - 1 &lt; b - 1 \Rightarrow \) (I) đ&uacute;ng.</p>
+<p style="text-align: left;">+ V&igrave; \(a - 1 &lt; b - 1\,\left( {cmt} \right)\) m&agrave; \(b - 1 &lt; b\) n&ecirc;n \(a - 1 &lt; b\) \( \Rightarrow \) (II) đ&uacute;ng</p>
+<p style="text-align: left;">+ V&igrave; \(a &lt; b\), cộng hai vế của bất đẳng thức với \(1\) ta được: \(a + 1 &lt; b + 1\) m&agrave; \(a + 1 &lt; a + 2\) n&ecirc;n ta chưa đủ dữ kiện để n&oacute;i rằng \(a + 2 &lt; b + 1 \Rightarrow \) (III) sai.</p>
+<p style="text-align: left;">Do đ&oacute; c&oacute; \(2\) khẳng định đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(x &gt; 0;y &gt; 0\). T&igrave;m khẳng định đ&uacute;ng trong c&aacute;c khẳng định sau?</p>
+<p style="text-align: left;">\(\left( 1 \right)\;\dfrac{1}{x} + \dfrac{1}{y} \ge \dfrac{4}{{x + y}}\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p style="text-align: left;">\(\left( 2 \right)\;{x^2} + {y^2} &lt; 0\)</p>
+<p style="text-align: left;">\(\left( 3 \right)\;{x^3} + {y^3} \ge {x^2} + {y^2}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">(1)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">(2)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">(3)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">(1); (2)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Theo đề b&agrave;i ta c&oacute;:</p>
+<p>\(\begin{array}{l}\left( 1 \right):\;\left( {x + y} \right)\left( {\dfrac{1}{x} + \dfrac{1}{y}} \right) \ge 4\\ 1 + \dfrac{x}{y} + \dfrac{y}{x} + 1 \ge 4\\ \dfrac{{{x^2} + {y^2}}}{{xy}} \ge 2\\ {x^2} + {y^2} \ge 2xy\;\;\left( {do\;\;x,\;y &gt; 0 \Rightarrow xy &gt; 0} \right)\\ {x^2} - 2xy + {y^2} \ge 0\\ {\left( {x - y} \right)^2} \ge 0,\forall x,y &gt; 0.\end{array}\)</p>
+<p>\( \Rightarrow \) Khẳng định (1) đ&uacute;ng.</p>
+<p>\(\left( 2 \right):\;{x^2} + {y^2} &lt; 0.\)</p>
+<p>Với \(\left\{ \begin{array}{l}x &gt; 0\\y &gt; 0\end{array} \right. \Rightarrow \left\{ \begin{array}{l}{x^2} &gt; 0\\{y^2} &gt; 0\end{array} \right. \Rightarrow {x^2} + {y^2} &gt; 0.\)</p>
+<p>\( \Rightarrow \) Khẳng định (2) sai.</p>
+<p>(3) sai v&igrave; với \(x = y = \dfrac{1}{2}\) th&igrave; \({x^3} + {y^3} = \dfrac{1}{8} + \dfrac{1}{8} = \dfrac{1}{4}\) v&agrave; \({x^2} + {y^2} = \dfrac{1}{4} + \dfrac{1}{4} = \dfrac{1}{2}\).</p>
+<p>M&agrave; \(\dfrac{1}{4} &lt; \dfrac{1}{2}\) n&ecirc;n \({x^3} + {y^3} &lt; {x^2} + {y^2}\) với \(x = y = \dfrac{1}{2}\).</p>
+<p>Vậy chỉ c&oacute; (1) đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a,b\) l&agrave; c&aacute;c số thực dương. Chọn khẳng định <strong>đ&uacute;ng nhất</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} &lt; 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} \ge 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} = 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} &gt; 4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(P = \dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} - 4 = \dfrac{{{{\left( {a + b} \right)}^2} - 4ab}}{{ab}}\)\( = \dfrac{{{a^2} + 2ab + {b^2} - 4ab}}{{ab}}\)\( = \dfrac{{{a^2} - 2ab + {b^2}}}{{ab}} = \dfrac{{{{\left( {a - b} \right)}^2}}}{{ab}}\)</p>
+<p style="text-align: left;">Do \(ab &gt; 0\) v&agrave; \({\left( {a - b} \right)^2} \ge 0,\forall a,b\) n&ecirc;n \(\dfrac{{{{\left( {a - b} \right)}^2}}}{{ab}} \ge 0 \Rightarrow P \ge 0\) hay \(\dfrac{{{{\left( {a + b} \right)}^2}}}{{ab}} \ge 4\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Bất đẳng thức n&agrave;o sau đ&acirc;y <strong>đ&uacute;ng </strong>với mọi \(a &gt; 0,b &gt; 0:\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^3} + {b^3} \le a{b^2} + {a^2}b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({a^3} + {b^3} \ge a{b^2} + {a^2}b\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(a{b^2} + {a^2}b = {a^3} + {b^3}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(a{b^2} + {a^2}b &gt; {a^3} + {b^3}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \({a^3} + {b^3} - a{b^2} - {a^2}b = {a^2}(a - b) - {b^2}(a - b)\)</p>
+<p style="text-align: left;">\( = {(a - b)^2}(a + b) \ge 0\) (v&igrave; \({\left( {a - b} \right)^2} \ge 0\) với mọi \(a,b\) v&agrave; \(a + b &gt; 0\) với \(a &gt; 0,b &gt; 0\)).</p>
+<p style="text-align: left;">Do đ&oacute; \({a^3} + {b^3} - a{b^2} - {a^2}b \ge 0\) hay \({a^3} + {b^3} \ge a{b^2} + {a^2}b\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 10</span>
+                <h2 class="lesson-title">10. Áp dụng bất đẳng thức để tìm giá trị lớn nhất, giá trị nhỏ nhất của một biểu thức</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm bất đẳng thức</h3>
+<div><p>Ta gọi hệ thức dạng \(a &gt; b\) (hay \(a &lt; b\), \(a \ge b\), \(a \le b\)) là bất đẳng thức.</p>
+<p>Trong đó a là <strong>vế trái</strong>, b là <strong>vế phải</strong> của bất đẳng thức.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất bắc cầu</h3>
+<div><p>Nếu \(a &lt; b\) và \(b &lt; c\) thì \(a &lt; c\).</p>
+<p>Nếu \(a &gt; b\) và \(b &gt; c\) thì \(a &gt; c\).</p>
+<p>Nếu \(a \le b\) và \(b \le c\) thì \(a \le c\).</p>
+<p>Nếu \(a \ge b\) và \(b \ge c\) thì \(a \ge c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của đẳng thức liên quan đến phép cộng</h3>
+<div><p>Khi cộng cùng một số vào hai vế của một bất đẳng thức ta được bất đẳng thức mới cùng chiều với bất đẳng thức đã cho.</p>
+<p>Nếu \(a &lt; b\) thì \(a + c &lt; b + c\).</p>
+<p>Nếu \(a &gt; b\) thì \(a + c &gt; b + c\).</p>
+<p>Nếu \(a \le b\) thì \(a + c \le b + c\).</p>
+<p>Nếu \(a \ge b\) thì \(a + c \ge b + c\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tính chất của bất đẳng thức liên quan đến phép nhân</h3>
+<div><p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>dương </em>ta được bất đẳng thức mới <em>cùng chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &gt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \le bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \ge bc\).</p>
+<p>- Khi nhân cả hai vế của một bất đẳng thức với cùng một số <em>âm</em> ta được bất đẳng thức mới <em>ngược chiều </em>với bất đẳng thức đã cho.</p>
+<p>Với ba số a, b, c và c &lt; 0, ta có:</p>
+<p>Nếu \(a &lt; b\) thì \(ac &gt; bc\).</p>
+<p>Nếu \(a &gt; b\) thì \(ac &lt; bc\).</p>
+<p>Nếu \(a \le b\) thì \(ac \ge bc\).</p>
+<p>Nếu \(a \ge b\) thì \(ac \le bc\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Áp dụng bất đẳng thức để tìm giá trị lớn nhất, giá trị nhỏ nhất của một biểu thức</h3>
+<div><p>- Nếu \(f\left( x \right) \ge k\) (\(k\) là hằng số) và dấu “=” xảy ra khi và chỉ khi \(x = a\) thì giá trị nhỏ nhất của \(f\left( x \right)\) là \(k\) khi và chỉ khi \(x = a\).</p>
+<p>Ta viết \(\min f\left( x \right) = k\) khi và chỉ khi \(x = a\).</p>
+<p>- Nếu \(f\left( x \right) \le k\) (\(k\) là hằng số) và dấu “=” xảy ra khi và chỉ khi \(x = a\) thì giá trị lớn nhất của \(f\left( x \right)\) là \(k\) khi và chỉ khi \(x = a\).</p>
+<p>Ta viết \(\max f\left( x \right) = k\) khi và chỉ khi \(x = a\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với \(a,b\) bất kỳ. Chọn khẳng định <strong>sai</strong>.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} + 3 &gt;&nbsp; - 2a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(4a + 4 \le {a^2} + 8\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} + 1 &lt; a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(ab - {b^2} \le {a^2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">* \({a^2} + 3 + 2a\)\( = {a^2} + 2a + 1 + 2\) \( = {(a + 1)^2} + 2 &gt; 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 3 &gt;&nbsp; - 2a\) n&ecirc;n A đ&uacute;ng.</p>
+<p style="text-align: left;">* \({a^2} + 8 - 4a - 4\) \( = {a^2} - 4a + 4 = {\left( {a - 2} \right)^2} \ge 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 8 \ge 4a + 4\) hay \(4a + 4 \le {a^2} + 8\) n&ecirc;n B đ&uacute;ng.</p>
+<p style="text-align: left;">* \({a^2} + 1 - a\)\( = {a^2} - 2a.\dfrac{1}{2} + \dfrac{1}{4} + \dfrac{3}{4}\) \( = {\left( {a - \dfrac{1}{2}} \right)^2} + \dfrac{3}{4} &gt; 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} + 1 &gt; a\) hay C sai.</p>
+<p style="text-align: left;">* Ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}{a^2} \ge ab - {b^2} \\{a^2} - ab + {b^2} \ge 0\\ {a^2} - 2a.\dfrac{b}{2} + \dfrac{{{b^2}}}{4} + \dfrac{{3{b^2}}}{4} \ge 0\\ {\left( {a - \dfrac{b}{2}} \right)^2} + \dfrac{{3{b^2}}}{4} \ge 0\end{array}\)</p>
+<p style="text-align: left;">V&igrave; \({\left( {a - \dfrac{b}{2}} \right)^2} + \dfrac{{3{b^2}}}{4} \ge 0\) (lu&ocirc;n đ&uacute;ng) n&ecirc;n \({a^2} \ge ab - {b^2}\) hay D đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với \(a,b,c\) bất kỳ. H&atilde;y so s&aacute;nh \({a^2} + {b^2} + {c^2}\) v&agrave; \(ab + bc + ca\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} = ab + bc + ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} \ge ab + bc + ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} \le ab + bc + ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} &gt; ab + bc + ca\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t hiệu:</p>
+<p style="text-align: left;">\({a^2} + {b^2} + {c^2} - ab - bc - ca\) \( = \dfrac{1}{2}\left( {2{a^2} + 2{b^2} + 2{c^2} - 2ab - 2bc - 2ca} \right)\)</p>
+<p style="text-align: left;">\( = \dfrac{1}{2}\left[ {\left( {{a^2} - 2ab + {b^2}} \right) + \left( {{b^2} - 2bc + {c^2}} \right) + \left( {{c^2} - 2ca + {a^2}} \right)} \right]\)</p>
+<p style="text-align: left;">\( = \dfrac{1}{2}\left[ {{{\left( {a - b} \right)}^2} + {{\left( {b - c} \right)}^2} + {{\left( {c - a} \right)}^2}} \right] \ge 0\)</p>
+<p style="text-align: left;">(v&igrave; \({(a - b)^2} \ge 0;\,{(b - c)^2} \ge 0;\,{(c - a)^2} \ge 0\) với mọi \(a,b,c\))</p>
+<p style="text-align: left;">N&ecirc;n \({a^2} + {b^2} + {c^2} \ge ab + bc + ca\).</p>
+<p style="text-align: left;">Dấu &ldquo;=&rdquo; xảy ra khi \(a = b = c\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với \(x,y\) bất kỳ. Chọn khẳng định <strong>đ&uacute;ng</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({\left( {x + y} \right)^2} \ge 2xy\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({\left( {x + y} \right)^2} = 2xy\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({\left( {x + y} \right)^2} &lt; 2xy\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B, C đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(P = {\left( {x + y} \right)^2} - 2xy = {x^2} + 2xy + {y^2} - 2xy\) \( = {x^2} + {y^2} \ge 0,\forall x,y\)</p>
+<p style="text-align: left;">Do đ&oacute; \(P \ge 0;\,\forall x;y\). Suy ra \({\left( {x + y} \right)^2} \ge 2xy\).</p>
+<p style="text-align: left;">Dấu &ldquo;=&rdquo; xảy ra khi \(x = y = 0\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với mọi \(a,b,c\). Khẳng định n&agrave;o sau đ&acirc;y l&agrave; <strong>đ&uacute;ng</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} \le 2ab + 2bc - 2ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} \ge 2ab + 2bc - 2ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} + {b^2} + {c^2} = 2ab + 2bc - 2ca\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B, C đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}{a^2} + {b^2} + {c^2} - \left( {2ab + 2bc - 2ca} \right)\\ = {a^2} + {b^2} + {c^2} - 2ab - 2bc + 2ca\\ = {a^2} + {b^2} + {c^2} + 2a\left( { - b} \right) + 2c\left( { - b} \right) + 2ac\\ = {\left[ {a + \left( { - b} \right) + c} \right]^2}\\ = {\left( {a - b + c} \right)^2} \ge 0,\forall a,b,c\end{array}\)</p>
+<p style="text-align: left;">Do đ&oacute; \({a^2} + {b^2} + {c^2} - \left( {2ab + 2bc - 2ca} \right) \ge 0\)</p>
+<p style="text-align: left;">\( \Rightarrow {a^2} + {b^2} + {c^2} \ge 2ab + 2bc - 2ca\)</p>
+<p style="text-align: left;">Dấu &ldquo;=&rdquo; xảy ra khi \(a - b + c = 0\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a,b\) bất k&igrave;. Chọn c&acirc;u <strong>đ&uacute;ng</strong> nhất.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\({a^2} + {b^2} &lt; 2ab\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\({a^2} + {b^2} \le 2ab\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\({a^2} + {b^2} \ge 2ab\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\({a^2} + {b^2} &gt; 2ab\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t hiệu \(P = {a^2} + {b^2} - 2ab\) \( = {\left( {a - b} \right)^2} \ge 0\) (lu&ocirc;n đ&uacute;ng với mọi \(a,\,b\) )</p>
+<p style="text-align: left;">N&ecirc;n \({a^2} + {b^2} \ge 2ab\) với mọi \(a,b\).</p>
+<p style="text-align: left;">Dấu &ldquo;=&rdquo; xảy ra khi \(a = b\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

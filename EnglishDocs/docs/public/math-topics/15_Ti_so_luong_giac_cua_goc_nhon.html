@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tỉ số lượng giác của góc nhọn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 15: Tỉ số lượng giác của góc nhọn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Tỉ số lượng giác của góc nhọn là gì? Cách xác định sin, cosin, tang, cotang của góc α</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam giác \(MNP\) vuông tại \(M\). Khi đó \(\tan \widehat {MNP}\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\dfrac{{MN}}{{NP}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\dfrac{{MP}}{{NP}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac{{MN}}{{MP}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\dfrac{{MP}}{{MN}}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có \(\tan \widehat {MNP} = \dfrac{{MP}}{{MN}}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại B. Khi đ&oacute; \(\sin C\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin C = \frac{{AB}}{{BC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin C = \frac{{BC}}{{AC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sin C = \frac{{AC}}{{BC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sin C = \frac{{AB}}{{AC}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0923/1727084815860-mceclip0.png" /></p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c của tam gi&aacute;c vu&ocirc;ng v&agrave;o tam gi&aacute;c ABC, ta c&oacute;: \(\sin C = \frac{{AB}}{{AC}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC c&oacute; AB = 5, AC = 12, BC = 13. Khi đ&oacute; tỉ số lượng gi&aacute;c cosB l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{{13}}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{5}{{13}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{12}}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{5}{{12}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0926/1727324084657-mceclip0.png" /></p><p>X&eacute;t tam gi&aacute;c ABC c&oacute; \(A{B^2} + A{C^2} = {5^2} + {12^2} = 169 = {13^2} = B{C^2}\) n&ecirc;n tam gi&aacute;c ABC vu&ocirc;ng tại A.</p>
+<p>Tỉ số lượng gi&aacute;c cosB l&agrave;: \(\cos B = \frac{{AB}}{{BC}} = \frac{5}{{13}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; AB = 8cm, AC = 6cm. T&iacute;nh tỉ số lượng gi&aacute;c tanC?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{3}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{4}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{3}{4}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{4}{3}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUAAAAGuCAMAAAGhBx/8AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALZUExURf////z8/PT09PLy8vv7+/Pz8/X19fn5+enp6dDQ0Ly8vLe3t7m5ucLCwsnJycjIyMvLy8rKyt/f3+rq6rGxsVlZWS0tLTQ0NG5ubpycnJWVlXBwcEVFRT8/P3d3d/7+/sTExFNTUwAAAAQEBG1tbba2tmxsbElJSTs7O2RkZLW1te3t7ezs7IuLiyIiIiMjI6Kiovr6+sPDw1FRURQUFFhYWP39/ZOTkygoKCkpKaurq3x8fAsLCx8fH5SUlO7u7o2NjSQkJAoKCg8PD4eHh/j4+CYmJqOjo/b29g4ODjk5Oaqqqo6Ojh0dHYGBgdPT09TU1KioqHp6ej09PUBAQJaWluPj44+PjycnJxgYGJiYmFxcXBISEmtra9fX1xwcHHt7e8fHx2BgYCAgICUlJZeXl8/Pz56enlpaWisrK0tLS6enp6GhoSEhIVtbW6mpqcXFxU5OTgICAjw8PL6+vu/v75GRkURERMbGxoWFhRkZGR4eHvf39+Hh4X19fQwMDOXl5dLS0qampnh4eAcHB1JSUru7u+jo6G9vbzU1NUNDQ35+frS0tH9/f15eXkpKSmpqavHx8dbW1rKysqCgoKWlpebm5t7e3uvr69ra2tnZ2dvb2+Dg4Ofn57i4uFRUVGhoaIyMjMHBwWNjY7CwsL+/vy4uLq+vrywsLF1dXc7OznNzc4iIiCoqKoKCglVVVWdnZ8DAwF9fX3R0dK2trfDw8JmZmYqKitXV1Zubm3V1dWlpabq6utjY2NHR0WZmZoSEhGVlZXFxcXJyct3d3eLi4pKSkqysrHl5eWJiYrOzs2FhYYmJiVdXV52dnYCAgL29vdzc3OTk5HZ2dp+fn8zMzIaGhq6urpCQkJqamlBQUM3NzYODg6SkpDc3N01NTUJCQjExMU9PTzIyMhAQEEhISDg4OExMTDY2NhUVFTMzMxoaGgEBAQgICBEREVZWVj4+PhYWFgAAALJfDwcAAADzdFJOU///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////AHXY/3wAAAAJcEhZcwAAFxEAABcRAcom8z8AABnASURBVHhe7Z3L2asgEIatxMUpIC1YgAWlA6vJ82Tn1o0t2EQWfw1nbiAaL4CAJuE95xcGzDB+Ga/RpDibapDKLq2Ue1S1VM7ANsgo2A/+kPIU7N+fUspTiBFmJWVA3tefCpDqhKeUior+7QCu6N/mjOQHZ1qfC8MUV/BvGe554JA07Do8R4+FtCxBQvCsK1AHeZHZ1t1pZ2LP1SRoDprLcNRLKahhyOEmPKOa32Rm86CLdFIKG0Nab4jtWR9szizMDSKEaY/9mh5jJ/T847JvuNylOnUD+kXYCl782Sby3T7jT8T+OMF+TvuNgjUxDnwihGmdRQ6bw48Nc3fvh9A+cmVGY7eKM9CMy3PqXTV0r8+F4AzYvTUX98AE/+Mr1sFuOEjZmAk7yQ38L1e8USPNhP/Qmh1RGJAzmC46EqAXZ6OpZv4CtNV83KJ4P4yksCQ0k/mBz7uvZezm2mHx+GyRUw98EhxR3KXcZWNGhwMJJed6kjI3KffVOvOEPmPLrZDD01DcimeIDcFnEf6wsN9bEd2x37bagnvJwIRX0v5apTURgvyEt/szlLQ/ELYlfJAOR+u2nBik/ZHfXpB47IreHI4lVw8z2JXy5uBx4WzTdEV+7b0R6lRXHUzz68WRky819INq/MfN0uEEvkbcFFUrJjXIDJbo+dkT/1UVBkmN3OkIRmJ6o7BQSWyxg+bEF9LLcYIGFwqnD3/49exYuZIug53rFfIaea3hackX0672IPI6ccfFhjNm8+SAX0xOxM2eO2BTSfS172LOepDuvpja94XrhL9eG+HkNvz+oQmvZNIgS8DnJHUzSOvTdpNhJUiMsMOJO+8LdvQ8b77YXTleC/BiaCMcBmUyGXeaIfA+Bw4G7D+2saFtAl+pgvBeUg1DV3fhd4mZo9xCX1u5hU1sumYqtUDAntnptGYXcBj2iiQeOwQNkQ5GQsrIRzcB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" /></p><p>Tam gi&aacute;c ABC vu&ocirc;ng tại A n&ecirc;n tỉ số lượng gi&aacute;c \(\tan C = \frac{{AB}}{{AC}} = \frac{8}{6} = \frac{4}{3}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&#xE1;c ABC vu&#xF4;ng t&#x1EA1;i A, c&#xF3; \(AB = \frac{2}{3}BC\). T&#xED;nh \(\cot C\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cot C = \frac{{3\sqrt 5 }}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cot C = \frac{{\sqrt 5 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\cot C = \frac{6}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cot C = \frac{{6\sqrt 5 }}{5}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0930/1727688451561-mceclip0.png"></p>
+<p>&#xC1;p d&#x1EE5;ng &#x111;&#x1ECB;nh l&#xED; Pythagore v&#xE0;o tam gi&#xE1;c vu&#xF4;ng ABC, ta c&#xF3;:</p>
+<p>\(AC = \sqrt {B{C^2} - A{B^2}}&#xA0; = \sqrt {B{C^2} - {{\left( {\frac{2}{3}BC} \right)}^2}}&#xA0; = \sqrt {B{C^2} - \frac{4}{9}B{C^2}}&#xA0; = \frac{{\sqrt 5 }}{3}BC\)</p>
+<p>&#xC1;p d&#x1EE5;ng t&#x1EC9; s&#x1ED1; l&#x1B0;&#x1EE3;ng gi&#xE1;c c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng v&#xE0;o tam gi&#xE1;c ABC, ta c&#xF3;:</p>
+<p>\(\cot C = \frac{{AC}}{{AB}} = \frac{{\frac{{\sqrt 5 }}{3}BC}}{{\frac{2}{3}BC}} = \frac{{\sqrt 5 }}{3}:\frac{2}{3} = \frac{{\sqrt 5 }}{2}\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC c&oacute; AB = 9cm, AC = 12cm, BC = 15cm. Độ d&agrave;i đường cao AH (H \( \in \) BC) của tam gi&aacute;c ABC l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>8,4cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>7,2cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>6,8cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>4,2cm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="data:image/png;base64,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" /></p><p>V&igrave; \(A{B^2} + A{C^2} = {9^2} + {12^2} = 225 = {15^2} = B{C^2}\) n&ecirc;n tam gi&aacute;c ABC vu&ocirc;ng tại A.</p>
+<p>Khi đ&oacute; \(\sin B = \frac{{AC}}{{BC}} = \frac{{12}}{{15}} = \frac{4}{5}\).</p>
+<p>M&agrave; tam gi&aacute;c ABH vu&ocirc;ng tại H n&ecirc;n \(\sin B = \frac{{AH}}{{AB}} = \frac{{AH}}{9}\).</p>
+<p>Suy ra \(\frac{{AH}}{9} = \frac{4}{5}\).</p>
+<p>Do đ&oacute; \(AH = 9.\frac{4}{5} = \frac{{36}}{5} = 7,2\left( {cm} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Giá trị lượng giác của các góc 30°, 45°, 60°</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Giá trị lượng giác của các góc 30°, 45°, 60°</h3>
+<div><p>- Giá trị lượng giác của các góc đặc biệt:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747905912507-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p> </p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tính số đo góc nhọn \(\alpha \) biết \(10{\sin ^2}\alpha  + 6{\cos ^2}\alpha  = 8\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(\alpha  = {30^0}.\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\alpha  = {45^0}.\)</p>
+<p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(\alpha  = {60^0}.\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\alpha  = {120^0}.\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(10{\sin ^2}\alpha&nbsp; + 6{\cos ^2}\alpha&nbsp; = 8\)</p>
+<p style="text-align: left;">\(\begin{array}{l} \Leftrightarrow 4{\sin ^2}\alpha&nbsp; + 6\left( {{{\sin }^2}\alpha&nbsp; + {{\cos }^2}\alpha } \right) = 8\\ \Leftrightarrow 4{\sin ^2}\alpha&nbsp; + 6 = 8\\ \Leftrightarrow {\sin ^2}\alpha&nbsp; = \dfrac{1}{2} \Leftrightarrow \sin \alpha&nbsp; =&nbsp; \pm \dfrac{{\sqrt 2 }}{2}\end{array}\)</p>
+<p style="text-align: left;">\(Do\,\,\alpha&nbsp; &lt; {90^0} \Rightarrow \sin \alpha&nbsp; &gt; 0 \Leftrightarrow \sin \alpha&nbsp; = \dfrac{{\sqrt 2 }}{2}.\)</p>
+<p style="text-align: left;">Vậy \(\alpha&nbsp; = {45^0}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Số \(\frac{1}{{\sqrt 3 }}\) l&agrave; gi&aacute; trị của</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cot 30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cos 45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sin 45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\tan 30^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Theo bảng gi&aacute;c trị lượng gi&aacute;c của c&aacute;c g&oacute;c đặc biệt, ta c&oacute; \(\tan 30^\circ&nbsp; = \frac{1}{{\sqrt 3 }}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>D&ugrave;ng bảng lượng gi&aacute;c, t&iacute;nh g&oacute;c nhọn \(\alpha \) biết rằng \(\sin \alpha&nbsp; = \sqrt 3 \cos \alpha \).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(0^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(60^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sin \alpha&nbsp; = \sqrt 3 \cos \alpha&nbsp; \Rightarrow \frac{{\sin \alpha }}{{\cos \alpha }} = \sqrt 3 \) hay \(\tan \alpha&nbsp; = \sqrt 3 \).</p>
+<p>Dựa v&agrave;o bảng gi&aacute; trị lượng gi&aacute;c ta c&oacute; \(\alpha&nbsp; = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; \(AC = 5\sqrt 3 cm\), \(AB + BC = 15cm\). T&iacute;nh \(\tan \frac{B}{2}\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719993579147-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt 3 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{\sqrt 3 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{\sqrt 3 }}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{1}{2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&Aacute;p dụng định l&iacute; Pythagore v&agrave;o tam gi&aacute;c vu&ocirc;ng ABC, ta c&oacute;:</p>
+<p>\(\begin{array}{l}B{C^2} - A{B^2} = A{C^2}\\\left( {BC - AB} \right)\left( {BC + AB} \right) = {\left( {5\sqrt 3 } \right)^2}\\\left( {BC - AB} \right).15 = 75\\BC - AC = 5\end{array}\)</p>
+<p>Ta c&oacute;:</p>
+<p>\(\left\{ \begin{array}{l}BC + AB = 15\\BC - AB = 5\end{array} \right. \Rightarrow \left\{ \begin{array}{l}BC = 10\\AB = 5\end{array} \right.\)</p>
+<p>Suy ra \(\sin B = \frac{{5\sqrt 3 }}{{10}} = \frac{{\sqrt 3 }}{2} \Rightarrow \widehat B = 60^\circ \)</p>
+<p>Từ đ&oacute; ta c&oacute; \(\tan \frac{B}{2} = \tan 30^\circ&nbsp; = \frac{{\sqrt 3 }}{3}\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; \(AC = 6cm\), \(BC = 12cm\). Số đo g&oacute;c \(ACB\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(15^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(60^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0923/1727084954377-mceclip0.png" /></p><p>Trong tam gi&aacute;c ABC vu&ocirc;ng tại A, ta c&oacute;: \(\cos ACB = \frac{{AC}}{{BC}} = \frac{6}{{12}} = \frac{1}{2}\) suy ra \(\widehat {ACB} = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Gi&aacute; trị của biểu thức \(A = \tan 45^\circ .\sin 60^\circ .\cot 30^\circ \) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{{\sqrt 3 }}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{\sqrt 6 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{\sqrt 3 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{3}{2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(A = \tan 45^\circ .\sin 60^\circ .\cot 30^\circ \) \( = 1.\frac{{\sqrt 3 }}{2}.\sqrt 3&nbsp; = \frac{3}{2}\)</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Hai góc phụ nhau là gì? Tỉ số lượng giác của hai góc phụ nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Khái niệm hai góc phụ nhau</h3>
+<div><p>Hai góc nhọn có tổng bằng \(90^\circ \) được gọi là <em>hai góc phụ nhau.</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tỉ số lượng giác của hai góc phụ nhau:</h3>
+<div><p>Nếu hai góc phụ nhau thì sin góc này bằng côsin góc kia, tang góc này bằng côtang góc kia.</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Chọn đ&aacute;p &aacute;n đ&uacute;ng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cot 37^\circ&nbsp; = \cot 53^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cos 37^\circ&nbsp; = \sin 53^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\tan 37^\circ&nbsp; = \cos 37^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sin 37^\circ&nbsp; = \sin 53^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(37^\circ \) v&agrave; \(53^\circ \) l&agrave; hai g&oacute;c phụ nhau n&ecirc;n \(\sin 37^\circ&nbsp; = \cos 53^\circ ;\) \(\cos 37^\circ&nbsp; = \sin 53^\circ ;\) \(\tan 37^\circ&nbsp; = \cot 53^\circ ;\) \(\tan 53^\circ&nbsp; = \cot 37^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Với g&oacute;c nhọn \(\alpha \), ta c&oacute;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({\rm{cos}}\left( {90^\circ&nbsp; - \alpha } \right) = \cot \alpha \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin \left( {90^\circ&nbsp; - \alpha } \right) = \tan \alpha \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sin \left( {90^\circ&nbsp; - \alpha } \right) = \cot \alpha \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sin \left( {90^\circ&nbsp; - \alpha } \right) = \cos \alpha \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Theo tỉ số lượng gi&aacute;c của hai g&oacute;c phụ nhau, ta c&oacute; \(\sin \left( {90^\circ&nbsp; - \alpha } \right) = \cos \alpha \).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin B + \cos C = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin B - \cot B = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\tan B - \cot C = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\tan B + \cot C = 0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Trong tam gi&aacute;c ABC vu&ocirc;ng tại A th&igrave; \(\widehat B\) v&agrave; \(\widehat C\) l&agrave; hai g&oacute;c phụ nhau.</p>
+<p>Ta c&oacute;: \(\sin B = \cos C,\tan B = \cot C\).</p>
+<p>Dẫn đến \(\sin B - \cos C = 0\) v&agrave; \(\tan B - \cot C = 0\) n&ecirc;n đ&aacute;p &aacute;n <strong><em>C đ&uacute;ng</em></strong>.</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Tỉ số lượng gi&aacute;c n&agrave;o sau đ&acirc;y bằng \(\sin 40^\circ \)?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin 50^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cos 50^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\tan 50^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cot 50^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tỉ số lượng gi&aacute;c bằng \(\sin 40^\circ \) l&agrave; \(\cos \left( {90^\circ&nbsp; - 40^\circ } \right) = \cos 50^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha \) v&agrave; \(\beta \) l&agrave; hai g&oacute;c phụ nhau, khi đ&oacute;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin \alpha&nbsp; = \cos \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin \alpha&nbsp; = \cot \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sin \alpha&nbsp; = \tan \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cos \alpha&nbsp; = \cot \beta \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\alpha \) v&agrave; \(\beta \) l&agrave; hai g&oacute;c phụ nhau th&igrave; \(\sin \alpha&nbsp; = \cos \beta ;\tan \alpha&nbsp; = \cot \beta \) n&ecirc;n đ&aacute;p &aacute;n A đ&uacute;ng.</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh \(\sin 40^\circ&nbsp; - \cos 50^\circ \).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(40^\circ&nbsp; + 50^\circ&nbsp; = 90^\circ \) n&ecirc;n \(\sin 40^\circ&nbsp; = \cos 50^\circ \) suy ra \(\sin 40^\circ&nbsp; - \cos 50^\circ&nbsp; = 0\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha&nbsp; = 35^\circ ;\beta&nbsp; = 55^\circ \). Khẳng định n&agrave;o sau đ&acirc;y l&agrave; sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin \alpha&nbsp; = \sin \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin \alpha&nbsp; = \cos \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\tan \alpha&nbsp; = \cot \beta \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cos \alpha&nbsp; = \sin \beta \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(\alpha&nbsp; + \beta&nbsp; = 35^\circ&nbsp; + 55^\circ&nbsp; = 90^\circ \) n&ecirc;n \(\alpha \) v&agrave; \(\beta \) l&agrave; hai g&oacute;c phụ nhau. Từ đ&oacute; suy ra:</p>
+<p>\(\sin \alpha&nbsp; = \cos \beta \)</p>
+<p>\(\tan \alpha&nbsp; = \cot \beta \)</p>
+<p>\(\tan \alpha&nbsp; = \cot \beta \)</p>
+<p>Vậy đ&aacute;p &aacute;n A sai.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Giá trị của biểu thức \(P = {\cos ^2}{20^0} + {\cos ^2}{40^0} + {\cos ^2}{50^0} + {\cos ^2}{70^0}\) bằng<em></em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(0\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(1\)  </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(3\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có:</p>
+<p>\(P = {\cos ^2}{20^0} + {\cos ^2}{40^0} + {\cos ^2}{50^0} + {\cos ^2}{70^0}\)</p>
+<p>\(= {\cos ^2}{20^0} + {\cos ^2}{40^0} + {\sin ^2}{40^0} + {\sin ^2}{20^0}\)</p>
+<p>\(= \left( {{{\cos }^2}{{20}^0} + {{\sin }^2}{{20}^0}} \right) + \left( {{{\cos }^2}{{40}^0} + {{\sin }^2}{{40}^0}} \right)\)</p>
+<p>\(= 1 + 1 = 2\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách sử dụng máy tính cầm tay để tính sin, cosin, tang, cotang của một góc nhọn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tỉ số lượng giác của hai góc phụ nhau:</h3>
+<div><p>Nếu hai góc phụ nhau thì sin góc này bằng côsin góc kia, tang góc này bằng côtang góc kia.</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách sử dụng máy tính cầm tay để tính sin, cosin, tang, cotang của một góc nhọn</h3>
+<div><p>Người ta thường dùng các đơn vị số đo góc là độ (kí hiệu: \(^\circ \)), phút (kí hiệu: \('\)), giây (kí hiệu: \(''\)).</p>
+<p>Ta có thể sử dụng nhiều loại máy tính cầm tay để tính các tỉ số lượng giác của góc nhọn và tính số đo của góc nhọn khi biết một tỉ số lượng giác của nó.</p>
+<p><strong><em>Lưu ý:</em></strong> ta cần đổi đơn vị đo về độ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747906074116-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Tính các tỉ số lượng giác của các góc nhọn</h3>
+<div><p>Để tính tỉ số lượng giác của một góc \(\alpha \), ta dùng các nút:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747906107303-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Để tính \(\cot \alpha \), ta tính \(\cot \alpha  = \frac{1}{{\tan \alpha }}\) hoặc \(\tan \left( {90^\circ  - \alpha } \right)\).</p>
+<p style="text-align: center;"><strong>Bảng tóm tắt cách tính tỉ số lượng giác của một góc nhọn</strong></p>
+<p style="text-align: center;"><strong><img src="https://img.loigiaihay.com/picture/2025/0522/1747906131507-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Gi&aacute; trị của biểu thức \({\sin ^2}25^\circ&nbsp; + {\cos ^2}25^\circ \) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Bấm m&aacute;y t&iacute;nh, ta được: \({\sin ^2}25^\circ&nbsp; + {\cos ^2}25^\circ&nbsp; = 1\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0926/1727324295878-mceclip0.png" /></p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Điền v&agrave;o chỗ trống: \(\sin 35^\circ \) &hellip; \(\tan 37^\circ \).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>&lt;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>&nbsp;&gt;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>=.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\( \ge \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Sử dụng m&aacute;y t&iacute;nh cầm tay, ta t&iacute;nh được:</p>
+<p>\(\sin 35^\circ&nbsp; \approx 0,574\)</p>
+<p>\(\tan 37^\circ&nbsp; \approx 0,754\)</p>
+<p>V&igrave; \(0,574 &lt; 0,754\) n&ecirc;n \(\sin 35^\circ&nbsp; &lt; \tan 37^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; AC = 6cm; BC = 12cm. Số đo g&oacute;c ACB bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(60^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(90^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1126/1732603869702-mceclip0.png" /></p><p>&Aacute;p dụng hệ thức lượng trong tam gi&aacute;c vu&ocirc;ng v&agrave;o tam gi&aacute;c ABC, ta c&oacute;:</p>
+<p>\(\cos ACB = \frac{{AC}}{{BC}} = \frac{6}{{12}} = \frac{1}{2}\) suy ra \(\widehat {ACB} = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Biết \(\cos \alpha&nbsp; = \frac{1}{2}\) th&igrave; \(\alpha \) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(35^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(60^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\cos \alpha&nbsp; = \frac{1}{2}\) th&igrave; \(\alpha&nbsp; = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam giác ABC vuông tại A có AB = 5, BC = 8. Số đo góc C là: <em>(làm tròn đến độ)</em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\widehat C \approx 52^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\widehat C \approx 38^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\widehat C \approx 51^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\widehat C \approx 39^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0919/1726740357022-mceclip0.png"></p>
+<p>Ta có: \(\sin C = \frac{5}{8}\) suy ra \(\widehat C \approx 39^\circ \).</p>
+<p><strong>Đáp án D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Để vẽ một tam gi&aacute;c c&acirc;n c&oacute; g&oacute;c ở đ&aacute;y l&agrave; \(50^\circ \) m&agrave; kh&ocirc;ng c&oacute; thước đo g&oacute;c, An vẽ một tam gi&aacute;c c&acirc;n c&oacute; cạnh b&ecirc;n l&agrave; 3cm v&agrave; cạnh đ&aacute;y l&agrave; 4cm. G&oacute;c ở đ&aacute;y của tam gi&aacute;c c&acirc;n n&agrave;y c&oacute; sai số so với \(50^\circ \) l&agrave; bao nhi&ecirc;u? <em>(l&agrave;m tr&ograve;n đến ph&uacute;t)</em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(1^\circ 47'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(1^\circ 48'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(1^\circ 49'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(1^\circ 50'\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994095950-mceclip0.png" /></p>
+<p>Giả sử tam gi&aacute;c An vẽ l&agrave; tam gi&aacute;c ABC c&oacute; AB = AC = 3cm, BC = 4cm.</p>
+<p>Kẻ \(AH \bot BC\). Ta c&oacute;: \(BH = \frac{1}{2}BC = \frac{4}{2} = 2\left( {cm} \right)\)</p>
+<p>Tam gi&aacute;c ABC vu&ocirc;ng tại H n&ecirc;n ta c&oacute;: \(\cos B = \frac{{BH}}{{AB}} = \frac{2}{3}\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994110967-mceclip0.png" /></p>
+<p>Suy ra \(\widehat B \approx 48^\circ 11'\)</p>
+<p>Vậy sai số l&agrave; \(50^\circ&nbsp; - 48^\circ 11' = 1^\circ 49'\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p><em>(L&agrave;m tr&ograve;n đến h&agrave;ng đơn vị)</em> Số đo g&oacute;c C khoảng</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719993981808-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(18^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(71^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(19^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(72^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\tan C = \frac{{AB}}{{AC}} = \frac{1}{3}\)</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994030525-mceclip0.png" /></p>
+<p>\( \Rightarrow \widehat C \approx 18^\circ \)</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách sử dụng máy tính cầm tay để tính số đo của góc nhọn khi biết một tỉ số lượng giác của góc đó</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Giá trị lượng giác của các góc 30°, 45°, 60°</h3>
+<div><p>- Giá trị lượng giác của các góc đặc biệt:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747905912507-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p> </p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách sử dụng máy tính cầm tay để tính số đo của góc nhọn khi biết một tỉ số lượng giác của góc đó</h3>
+<div><p><strong>Bảng tóm tắt cách tính số đo của một góc nhọn khi biết một tỉ số lượng giác</strong></p>
+<p>Để tìm \(\alpha \) khi biết \(\cot \alpha \), ta tính \(\tan \alpha  = \frac{1}{{\cot \alpha }}\) và dùng \(\tan \alpha \) để tính \(\alpha \).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0705/1751679749947-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0705/1751679755142-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; AC = 6cm; BC = 12cm. Số đo g&oacute;c ACB bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(60^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(90^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1126/1732603869702-mceclip0.png" /></p><p>&Aacute;p dụng hệ thức lượng trong tam gi&aacute;c vu&ocirc;ng v&agrave;o tam gi&aacute;c ABC, ta c&oacute;:</p>
+<p>\(\cos ACB = \frac{{AC}}{{BC}} = \frac{6}{{12}} = \frac{1}{2}\) suy ra \(\widehat {ACB} = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Biết \(\cos \alpha&nbsp; = \frac{1}{2}\) th&igrave; \(\alpha \) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(35^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(45^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(30^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(60^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\cos \alpha&nbsp; = \frac{1}{2}\) th&igrave; \(\alpha&nbsp; = 60^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam giác ABC vuông tại A có AB = 5, BC = 8. Số đo góc C là: <em>(làm tròn đến độ)</em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\widehat C \approx 52^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\widehat C \approx 38^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\widehat C \approx 51^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\widehat C \approx 39^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0919/1726740357022-mceclip0.png"></p>
+<p>Ta có: \(\sin C = \frac{5}{8}\) suy ra \(\widehat C \approx 39^\circ \).</p>
+<p><strong>Đáp án D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Để vẽ một tam gi&aacute;c c&acirc;n c&oacute; g&oacute;c ở đ&aacute;y l&agrave; \(50^\circ \) m&agrave; kh&ocirc;ng c&oacute; thước đo g&oacute;c, An vẽ một tam gi&aacute;c c&acirc;n c&oacute; cạnh b&ecirc;n l&agrave; 3cm v&agrave; cạnh đ&aacute;y l&agrave; 4cm. G&oacute;c ở đ&aacute;y của tam gi&aacute;c c&acirc;n n&agrave;y c&oacute; sai số so với \(50^\circ \) l&agrave; bao nhi&ecirc;u? <em>(l&agrave;m tr&ograve;n đến ph&uacute;t)</em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(1^\circ 47'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(1^\circ 48'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(1^\circ 49'\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(1^\circ 50'\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994095950-mceclip0.png" /></p>
+<p>Giả sử tam gi&aacute;c An vẽ l&agrave; tam gi&aacute;c ABC c&oacute; AB = AC = 3cm, BC = 4cm.</p>
+<p>Kẻ \(AH \bot BC\). Ta c&oacute;: \(BH = \frac{1}{2}BC = \frac{4}{2} = 2\left( {cm} \right)\)</p>
+<p>Tam gi&aacute;c ABC vu&ocirc;ng tại H n&ecirc;n ta c&oacute;: \(\cos B = \frac{{BH}}{{AB}} = \frac{2}{3}\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994110967-mceclip0.png" /></p>
+<p>Suy ra \(\widehat B \approx 48^\circ 11'\)</p>
+<p>Vậy sai số l&agrave; \(50^\circ&nbsp; - 48^\circ 11' = 1^\circ 49'\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p><em>(L&agrave;m tr&ograve;n đến h&agrave;ng đơn vị)</em> Số đo g&oacute;c C khoảng</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719993981808-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(18^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(71^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(19^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(72^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\tan C = \frac{{AB}}{{AC}} = \frac{1}{3}\)</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0703/1719994030525-mceclip0.png" /></p>
+<p>\( \Rightarrow \widehat C \approx 18^\circ \)</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Các công thức lượng giác mở rộng</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Các công thức lượng giác mở rộng</h3>
+<div><p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ là góc nhọn bất kỳ. Chọn khẳng định đúng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sin \alpha  + \cos \alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">${\sin ^3}\alpha  + {\cos ^3}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sin \alpha  - cos\alpha  = 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039162265-mceclip0.png"></p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Giả sử ta có tam giác vuông có các cạnh và góc $\alpha $ như hình vẽ.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Áp dụng tỉ số lượng giác của góc nhọn, ta có:</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Ta có: ${{\sin }^{2}}\alpha +{{\cos }^{2}}\alpha ={{\left( \frac{b}{a} \right)}^{2}}+{{\left( \frac{c}{a} \right)}^{2}}=\frac{{{b}^{2}}+{{c}^{2}}}{{{a}^{2}}}=\frac{{{a}^{2}}}{{{a}^{2}}}=1$</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Vậy ${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ l&agrave; g&oacute;c nhọn bất kỳ. Chọn khẳng định <strong>sai.</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\tan \alpha .\cot \alpha&nbsp; = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">${\tan ^2}\alpha&nbsp; - 1 = {\cos ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039459208-mceclip0.png" /></p>
+<p>Giả sử ta c&oacute; tam gi&aacute;c vu&ocirc;ng c&oacute; c&aacute;c cạnh v&agrave; g&oacute;c $\alpha $ như h&igrave;nh vẽ.</p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c của g&oacute;c nhọn, ta c&oacute;:</p>
+<p>$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p>Ta c&oacute;:</p>
+<p>$\tan \alpha =\frac{b}{c}=\frac{b}{a}.\frac{a}{c}=\frac{b}{a}:\frac{c}{a}=\frac{\sin \alpha }{\cos \alpha }$ n&ecirc;n A đ&uacute;ng.</p>
+<p>$\cot \alpha =\frac{c}{b}=\frac{c}{a}.\frac{a}{b}=\frac{c}{a}:\frac{b}{a}=\frac{\cos \alpha }{\sin \alpha }$ n&ecirc;n B đ&uacute;ng.</p>
+<p>$\tan \alpha .\cot \alpha =\tan \alpha .\frac{1}{\tan \alpha }=1$ n&ecirc;n C đ&uacute;ng.</p>
+<p>${{\tan }^{2}}\alpha -1={{\left( \frac{b}{c} \right)}^{2}}-1=\frac{{{b}^{2}}-{{c}^{2}}}{{{c}^{2}}}\ne {{\left( \frac{c}{a} \right)}^{2}}={{\cos }^{2}}\alpha $ n&ecirc;n D sai.</p>
+<p><strong><em>Từ đ&acirc;y, ta c&oacute; c&aacute;c c&ocirc;ng thức lượng gi&aacute;c mở rộng sau:</em></strong></p>
+<p><strong><em>$\tan \alpha =\frac{\sin \alpha }{\cos \alpha };\cot \alpha =\frac{\cos \alpha }{\sin \alpha };\tan \alpha .\cot \alpha =1$</em></strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Cho $\alpha $ là góc nhọn bất kỳ. Biểu thức $Q = \dfrac{{1 + {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }}$ bằng</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$Q = 1 + {\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$Q = 1 + 2{\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$Q = 1 - 2{\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$Q = 2{\tan ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Với $\tan \alpha  = \dfrac{{sin\alpha }}{{\cos \alpha }};{\cos ^2}\alpha  = 1 - {\sin ^2}\alpha $.</span></p>
+<p style="text-align: left;"><span lang="FR">$Q = \dfrac{{1 + {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }}$$ = \dfrac{{1 - {{\sin }^2}\alpha  + 2{{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }} = \dfrac{{1 - {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }} + \dfrac{{2{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}$</span></p>
+<p style="text-align: left;"><span lang="FR">$ = 1 + 2.{\left( {\dfrac{{\sin \alpha }}{{\cos \alpha }}} \right)^2} = 1 + 2{\tan ^2}\alpha $</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $Q = 1 + 2{\tan ^2}\alpha $.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Cho $\tan \alpha  = 2$. Tính giá trị của biểu thức $G = \dfrac{{2\sin \alpha  + \cos \alpha }}{{\cos \alpha  - 3\sin \alpha }}$</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$G =1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$G =  - \dfrac{4}{5}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$G =  - \dfrac{6}{5}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$G =  - 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Vì $\tan \alpha  = 2$ nên $\cos \alpha  \ne 0$</span></p>
+<p style="text-align: left;"><span lang="FR">Ta có $G = \dfrac{{2\sin \alpha  + \cos \alpha }}{{\cos \alpha  - 3\sin \alpha }}$$ = \dfrac{{2\dfrac{{\sin \alpha }}{{\cos \alpha }} + \dfrac{{\cos \alpha }}{{\cos \alpha }}}}{{\dfrac{{\cos \alpha }}{{\cos \alpha }} - 3.\dfrac{{\sin \alpha }}{{\cos \alpha }}}}$$ = \dfrac{{2.\tan \alpha  + 1}}{{1 - 3\tan \alpha }}$</span></p>
+<p style="text-align: left;"><span lang="FR">Thay $\tan \alpha  = 2$ ta được $G = \dfrac{{2.2 + 1}}{{1 - 3.2}} =  - \dfrac{5}{5}=-1$.</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $G =  - 1$.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha \) l&agrave; g&oacute;c nhọn bất kỳ. Khi đ&oacute; \(C={\sin ^6}\alpha&nbsp; + {\cos ^6}\alpha&nbsp; + 3{\sin ^2}\alpha {\cos ^2}\alpha \) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(C = 1 - 3{\sin ^2}\alpha .{\cos ^2}\alpha \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$C=1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(C = {\sin ^2}\alpha .{\cos ^2}\alpha \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(C = 3{\sin ^2}\alpha .{\cos ^2}\alpha&nbsp; - 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; \({\sin ^6}\alpha&nbsp; + {\cos ^6}\alpha&nbsp; + 3{\sin ^2}\alpha .{\cos ^2}\alpha &nbsp;= {\sin ^6}\alpha&nbsp; + {\cos ^6}\alpha&nbsp; + 3{\sin ^2}\alpha .{\cos ^2}\alpha .1\)</p>
+<p>\( = {\sin ^6}\alpha&nbsp; + {\cos ^6}\alpha&nbsp; + 3{\sin ^2}\alpha .{\cos ^2}\alpha .\left( {{{\sin }^2}\alpha&nbsp; + {{\cos }^2}\alpha } \right)\)&nbsp; (v&igrave; \({\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1\))</p>
+<p>\( = {\left( {{{\sin }^2}\alpha } \right)^3} + 3{\left( {{{\sin }^2}\alpha } \right)^2}.{\cos ^2}\alpha&nbsp; + 3{\sin ^2}\alpha .{\left( {{{\cos }^2}\alpha } \right)^2} + {\left( {{{\cos }^2}\alpha } \right)^3}\)</p>
+<p>\( = {\left( {{{\sin }^2}\alpha &nbsp;+ {{\cos }^2}\alpha } \right)^3} = 1\) (v&igrave; \({\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1)\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha \) l&agrave; g&oacute;c nhọn bất kỳ. Cho \(P = \left( {1 - {{\sin }^2}\alpha } \right).{\tan ^2}\alpha&nbsp; + \left( {1 - {{\cos }^2}\alpha } \right){\cot ^2}\alpha \), chọn kết luận đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(P &gt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(P &lt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(P = 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(P = 2{\sin ^2}\alpha \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }};\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }};{\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1 \Rightarrow {\sin ^2}\alpha&nbsp; = 1 - {\cos ^2}\alpha ,\,{\cos ^2}\alpha&nbsp; = 1 - {\sin ^2}\alpha .\)</p>
+<p>\(P = \left( {1 - {{\sin }^2}\alpha } \right).{\tan ^2}\alpha&nbsp; + \left( {1 - {{\cos }^2}\alpha } \right){\cot ^2}\alpha \)\( = {\cos ^2}\alpha .\dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }} + {\sin ^2}\alpha .\dfrac{{{{\cos }^2}\alpha }}{{{{\sin }^2}\alpha }} = {\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1\)</p>
+<p>Vậy \(P = 1.\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách tính tỉ số lượng giác. Cách tính giá trị biểu thức lượng giác</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tỉ số lượng giác của hai góc phụ nhau:</h3>
+<div><p>Nếu hai góc phụ nhau thì sin góc này bằng côsin góc kia, tang góc này bằng côtang góc kia.</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Các công thức lượng giác mở rộng</h3>
+<div><p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tính tỉ số lượng giác</h3>
+<div><p>Để tính tỉ số lượng giác, ta dựa vào khái niệm sin, cos, tan, cot và các công thức lượng giác liên quan:</p>
+<p>+) \(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>+) \(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách tính giá trị biểu thức lượng giác</h3>
+<div><p>Sử dụng kết hợp các kiến thức về tỉ số lượng giác để tính giá trị biểu thức lượng giác:</p>
+<p>- Giá trị lượng giác của các góc đặc biệt:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747906218002-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Tỉ số lượng giác của hai góc phụ nhau:</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p>
+<p>- Các công thức lượng giác liên quan:</p>
+<p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Cho $\alpha $ l&agrave; g&oacute;c nhọn bất kỳ. Khi đ&oacute; $C = {\sin ^4}\alpha&nbsp; + {\cos ^4}\alpha $ bằng</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$C = 1 - 2{\sin ^2}\alpha .{\cos ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$C = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$C = {\sin ^2}\alpha .{\cos ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$C = 1 + 2{\sin ^2}\alpha .{\cos ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Ta c&oacute; $C = {\sin ^4}\alpha&nbsp; + {\cos ^4}\alpha&nbsp; = {\sin ^4}\alpha&nbsp; + {\cos ^4}\alpha&nbsp; + 2{\sin ^2}\alpha .{\cos ^2}\alpha&nbsp; - 2{\sin ^2}\alpha .{\cos ^2}\alpha $</span></p>
+<p style="text-align: left;"><span lang="FR">$ = {\left( {{{\sin }^2}\alpha&nbsp; + {{\cos }^2}\alpha } \right)^2} - 2{\sin ^2}\alpha .{\cos ^2}\alpha&nbsp; = 1 - 2{\sin ^2}\alpha .{\cos ^2}\alpha $</span><span lang="FR"> (v&igrave; ${\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1$)</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $C = 1 - 2{\sin ^2}\alpha .{\cos ^2}\alpha $.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Cho $\alpha $ là góc nhọn bất kỳ. Biểu thức $Q = \dfrac{{1 + {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }}$ bằng</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$Q = 1 + {\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$Q = 1 + 2{\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$Q = 1 - 2{\tan ^2}\alpha $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$Q = 2{\tan ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Với $\tan \alpha  = \dfrac{{sin\alpha }}{{\cos \alpha }};{\cos ^2}\alpha  = 1 - {\sin ^2}\alpha $.</span></p>
+<p style="text-align: left;"><span lang="FR">$Q = \dfrac{{1 + {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }}$$ = \dfrac{{1 - {{\sin }^2}\alpha  + 2{{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }} = \dfrac{{1 - {{\sin }^2}\alpha }}{{1 - {{\sin }^2}\alpha }} + \dfrac{{2{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}$</span></p>
+<p style="text-align: left;"><span lang="FR">$ = 1 + 2.{\left( {\dfrac{{\sin \alpha }}{{\cos \alpha }}} \right)^2} = 1 + 2{\tan ^2}\alpha $</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $Q = 1 + 2{\tan ^2}\alpha $.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Cho $\tan \alpha  = 2$. Tính giá trị của biểu thức $G = \dfrac{{2\sin \alpha  + \cos \alpha }}{{\cos \alpha  - 3\sin \alpha }}$</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$G =1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$G =  - \dfrac{4}{5}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$G =  - \dfrac{6}{5}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$G =  - 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Vì $\tan \alpha  = 2$ nên $\cos \alpha  \ne 0$</span></p>
+<p style="text-align: left;"><span lang="FR">Ta có $G = \dfrac{{2\sin \alpha  + \cos \alpha }}{{\cos \alpha  - 3\sin \alpha }}$$ = \dfrac{{2\dfrac{{\sin \alpha }}{{\cos \alpha }} + \dfrac{{\cos \alpha }}{{\cos \alpha }}}}{{\dfrac{{\cos \alpha }}{{\cos \alpha }} - 3.\dfrac{{\sin \alpha }}{{\cos \alpha }}}}$$ = \dfrac{{2.\tan \alpha  + 1}}{{1 - 3\tan \alpha }}$</span></p>
+<p style="text-align: left;"><span lang="FR">Thay $\tan \alpha  = 2$ ta được $G = \dfrac{{2.2 + 1}}{{1 - 3.2}} =  - \dfrac{5}{5}=-1$.</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $G =  - 1$.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha \) l&agrave; g&oacute;c nhọn bất kỳ. Biểu thức \(Q = \dfrac{{{{\cos }^2}\alpha&nbsp; - {{\sin }^2}\alpha }}{{\cos \alpha .\sin \alpha }}\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(Q = \cot \alpha&nbsp; - \tan \alpha \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(Q = \cot \alpha&nbsp; + \tan \alpha \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(Q = \tan \alpha&nbsp; - \cot \alpha \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(Q = 2\tan \alpha \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }};\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }}\) ta c&oacute;</p>
+<p>\(Q = \dfrac{{{{\cos }^2}\alpha&nbsp; - {{\sin }^2}\alpha }}{{\cos \alpha .\sin \alpha }}\)\( = \dfrac{{{{\cos }^2}\alpha }}{{\sin \alpha .\cos \alpha }} - \dfrac{{{{\sin }^2}\alpha }}{{\sin \alpha .\cos \alpha }} = \dfrac{{\cos \alpha }}{{\sin \alpha }} - \dfrac{{\sin \alpha }}{{\cos \alpha }} = \cot \alpha&nbsp; - \tan \alpha \)</p>
+<p>Vậy \(Q = \cot \alpha&nbsp; - \tan \alpha \).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\tan \alpha  = 4\). Tính giá trị của biểu thức \(P = \dfrac{{3\sin \alpha  - 5\cos \alpha }}{{4\cos \alpha  + \sin \alpha }}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(P = \dfrac{7}{8}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(P = \dfrac{{17}}{8}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(P = \dfrac{8}{7}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(P = \dfrac{5}{8}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vì \(\tan \alpha  = 4\) nên \(\cos \alpha  \ne 0\), chia cả tử và mẫu của \(P\) cho \(\cos \alpha \) ta được</p>
+<p>Ta có \(P = \dfrac{{3\sin \alpha  - 5\cos \alpha }}{{4\cos \alpha  + \sin \alpha }}\)\( = \dfrac{{3.\dfrac{{\sin \alpha }}{{\cos \alpha }} - 5\dfrac{{\cos \alpha }}{{\cos \alpha }}}}{{4\dfrac{{\cos \alpha }}{{\cos \alpha }} + \dfrac{{\sin \alpha }}{{\cos \alpha }}}}\)\( = \dfrac{{3.\tan \alpha  - 5}}{{4 + \tan \alpha }}\)</p>
+<p>Thay \(\tan \alpha  = 4\) ta được \(P = \dfrac{{3.4 - 5}}{{4 + 4}} = \dfrac{7}{8}\).</p>
+<p>Vậy \(P = \dfrac{7}{8}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Chọn kết luận đ&uacute;ng về gi&aacute; trị biểu thức \(B = \dfrac{{{{\cos }^2}\alpha&nbsp; - 3{{\sin }^2}\alpha }}{{3 - {{\sin }^2}\alpha }}\)&nbsp; biết \(\tan \alpha&nbsp; = 3.\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(B &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(B &lt; 0\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(0 &lt; B &lt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(B = 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(\tan \alpha&nbsp; = 3 \ne 0 \Rightarrow \cos \alpha&nbsp; \ne 0.\) Chia cả tử v&agrave; mẫu của \(B\) cho \({\cos ^2}\alpha \) ta được</p>
+<p>\(B = \dfrac{{\dfrac{{{{\cos }^2}\alpha }}{{{{\cos }^2}\alpha }} - 3\dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}}}{{\dfrac{3}{{{{\cos }^2}\alpha }} - \dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}}} = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3.\dfrac{1}{{{{\cos }^2}\alpha }} - {{\tan }^2}\alpha }}\)</p>
+<p>\( = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3\left( {1 + {{\tan }^2}\alpha } \right) - {{\tan }^2}\alpha }} = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3 + 2{{\tan }^2}\alpha }}\)</p>
+<p>\( = \dfrac{{1 - 3.9}}{{3 + 2.9}} =&nbsp; - \dfrac{{26}}{{21}}\)</p>
+<p>Hay \(B =&nbsp; - \dfrac{{26}}{{21}} &lt; 0\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách tính giá trị biểu thức lượng giác</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tỉ số lượng giác của hai góc phụ nhau:</h3>
+<div><p>Nếu hai góc phụ nhau thì sin góc này bằng côsin góc kia, tang góc này bằng côtang góc kia.</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách so sánh các tỉ số lượng giác</h3>
+<div><p>Sử dụng các kiến thức:</p>
+<p>- Cho α, β là hai góc nhọn. Nếu α &lt; β thì:</p>
+<p>+) sinα &lt; sinβ; tanα &lt; tanβ</p>
+<p>+) cosα &gt; cosβ; cotα &gt; cotβ</p>
+<p>- Ta có: sinα &lt; tanα và cosα &lt; cotα</p>
+<p>- Với \({0^0} &lt; \alpha  &lt; {90^0}\), ta có:</p>
+<p>\(\sin \left( {{{90}^0} - \alpha } \right) = \cos \alpha \); \(\cos \left( {{{90}^0} - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {{{90}^0} - \alpha } \right) = \cot \alpha \); \(\cot \left( {{{90}^0} - \alpha } \right) = \tan \alpha \).</p>
+<p><strong>Phương pháp giải:</strong></p>
+<p>- Đưa các tỉ số lượng giác về cùng một loại.</p>
+<p>- Biểu diễn tỉ số lượng giác của các góc đặc biệt trên trục số.</p>
+<p>- Chèn các tỉ số cần sắp xếp lên trục số ta được thứ tự của chúng.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 9</span>
+                <h2 class="lesson-title">9. Cách tính tỉ số lượng giác trong tam giác vuông</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính tỉ số lượng giác trong tam giác vuông</h3>
+<div><p>Sử dụng kết hợp các kiến thức về tỉ số lượng giác để tính giá trị biểu thức lượng giác:</p>
+<p>- Giá trị lượng giác của các góc đặc biệt:</p>
+<p><img height="316" src="https://img.loigiaihay.com/picture/2025/0522/1747906257369-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;" width="586"/></p>
+<p>- Tỉ số lượng giác của hai góc phụ nhau:</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p>
+<p>- Các công thức lượng giác liên quan:</p>
+<p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giá trị lượng giác của các góc 30°, 45°, 60°</h3>
+<div><p>- Giá trị lượng giác của các góc đặc biệt:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747905912507-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p> </p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Tỉ số lượng giác của hai góc phụ nhau:</h3>
+<div><p>Nếu hai góc phụ nhau thì sin góc này bằng côsin góc kia, tang góc này bằng côtang góc kia.</p>
+<p>Với \(0^\circ  &lt; \alpha  &lt; 90^\circ \), ta có:</p>
+<p>\(\sin \left( {90^\circ  - \alpha } \right) = \cos \alpha \); \(\cos \left( {90^\circ  - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {90^\circ  - \alpha } \right) = \cot \alpha \); \(\cot \left( {90^\circ  - \alpha } \right) = \tan \alpha \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Các công thức lượng giác mở rộng</h3>
+<div><p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)         </p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại B. Khi đ&oacute; \(\sin C\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sin C = \frac{{AB}}{{BC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sin C = \frac{{BC}}{{AC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sin C = \frac{{AC}}{{BC}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sin C = \frac{{AB}}{{AC}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0923/1727084815860-mceclip0.png" /></p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c của tam gi&aacute;c vu&ocirc;ng v&agrave;o tam gi&aacute;c ABC, ta c&oacute;: \(\sin C = \frac{{AB}}{{AC}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&#xE1;c ABC vu&#xF4;ng t&#x1EA1;i A, c&#xF3; \(AB = \frac{2}{3}BC\). T&#xED;nh \(\cot C\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cot C = \frac{{3\sqrt 5 }}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cot C = \frac{{\sqrt 5 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\cot C = \frac{6}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cot C = \frac{{6\sqrt 5 }}{5}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0930/1727688451561-mceclip0.png"></p>
+<p>&#xC1;p d&#x1EE5;ng &#x111;&#x1ECB;nh l&#xED; Pythagore v&#xE0;o tam gi&#xE1;c vu&#xF4;ng ABC, ta c&#xF3;:</p>
+<p>\(AC = \sqrt {B{C^2} - A{B^2}}&#xA0; = \sqrt {B{C^2} - {{\left( {\frac{2}{3}BC} \right)}^2}}&#xA0; = \sqrt {B{C^2} - \frac{4}{9}B{C^2}}&#xA0; = \frac{{\sqrt 5 }}{3}BC\)</p>
+<p>&#xC1;p d&#x1EE5;ng t&#x1EC9; s&#x1ED1; l&#x1B0;&#x1EE3;ng gi&#xE1;c c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng v&#xE0;o tam gi&#xE1;c ABC, ta c&#xF3;:</p>
+<p>\(\cot C = \frac{{AC}}{{AB}} = \frac{{\frac{{\sqrt 5 }}{3}BC}}{{\frac{2}{3}BC}} = \frac{{\sqrt 5 }}{3}:\frac{2}{3} = \frac{{\sqrt 5 }}{2}\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ là góc nhọn bất kỳ. Chọn khẳng định đúng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sin \alpha  + \cos \alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">${\sin ^3}\alpha  + {\cos ^3}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sin \alpha  - cos\alpha  = 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039162265-mceclip0.png"></p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Giả sử ta có tam giác vuông có các cạnh và góc $\alpha $ như hình vẽ.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Áp dụng tỉ số lượng giác của góc nhọn, ta có:</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Ta có: ${{\sin }^{2}}\alpha +{{\cos }^{2}}\alpha ={{\left( \frac{b}{a} \right)}^{2}}+{{\left( \frac{c}{a} \right)}^{2}}=\frac{{{b}^{2}}+{{c}^{2}}}{{{a}^{2}}}=\frac{{{a}^{2}}}{{{a}^{2}}}=1$</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Vậy ${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ l&agrave; g&oacute;c nhọn bất kỳ. Chọn khẳng định <strong>sai.</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\tan \alpha .\cot \alpha&nbsp; = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">${\tan ^2}\alpha&nbsp; - 1 = {\cos ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039459208-mceclip0.png" /></p>
+<p>Giả sử ta c&oacute; tam gi&aacute;c vu&ocirc;ng c&oacute; c&aacute;c cạnh v&agrave; g&oacute;c $\alpha $ như h&igrave;nh vẽ.</p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c của g&oacute;c nhọn, ta c&oacute;:</p>
+<p>$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p>Ta c&oacute;:</p>
+<p>$\tan \alpha =\frac{b}{c}=\frac{b}{a}.\frac{a}{c}=\frac{b}{a}:\frac{c}{a}=\frac{\sin \alpha }{\cos \alpha }$ n&ecirc;n A đ&uacute;ng.</p>
+<p>$\cot \alpha =\frac{c}{b}=\frac{c}{a}.\frac{a}{b}=\frac{c}{a}:\frac{b}{a}=\frac{\cos \alpha }{\sin \alpha }$ n&ecirc;n B đ&uacute;ng.</p>
+<p>$\tan \alpha .\cot \alpha =\tan \alpha .\frac{1}{\tan \alpha }=1$ n&ecirc;n C đ&uacute;ng.</p>
+<p>${{\tan }^{2}}\alpha -1={{\left( \frac{b}{c} \right)}^{2}}-1=\frac{{{b}^{2}}-{{c}^{2}}}{{{c}^{2}}}\ne {{\left( \frac{c}{a} \right)}^{2}}={{\cos }^{2}}\alpha $ n&ecirc;n D sai.</p>
+<p><strong><em>Từ đ&acirc;y, ta c&oacute; c&aacute;c c&ocirc;ng thức lượng gi&aacute;c mở rộng sau:</em></strong></p>
+<p><strong><em>$\tan \alpha =\frac{\sin \alpha }{\cos \alpha };\cot \alpha =\frac{\cos \alpha }{\sin \alpha };\tan \alpha .\cot \alpha =1$</em></strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c $ABC$ vu&ocirc;ng tại&nbsp; $A$, đường cao $AH$ c&oacute; \(CH = 4\,cm,\,BH = 3\,cm.\) T&iacute;nh tỉ số lượng gi&aacute;c $\cos C$ (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ $2$ )</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\cos C \approx 0,76$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\cos C \approx 0,77$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\cos C \approx 0,75$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\cos C \approx 0,78$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t tam gi&aacute;c $ABC$ vu&ocirc;ng tại $A$ c&oacute; $BC = BH + CH = 7\,\,cm$</p>
+<p style="text-align: left;">&nbsp;theo hệ thức lượng trong tam gi&aacute;c vu&ocirc;ng ta c&oacute; $A{C^2} = CH.BC \Rightarrow A{C^2} = 4.7 \Rightarrow AC \approx 5,29\,\,cm$</p>
+<p style="text-align: left;">$ \Rightarrow \cos C = \dfrac{{AC}}{{BC}} = \dfrac{{5,29}}{7} \approx 0,76$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&#xE1;c ABC vu&#xF4;ng t&#x1EA1;i A, c&#xF3; \(AB = \frac{2}{3}BC\). T&#xED;nh \(\cot C\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cot C = \frac{{3\sqrt 5 }}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cot C = \frac{{\sqrt 5 }}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\cot C = \frac{6}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cot C = \frac{{6\sqrt 5 }}{5}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0930/1727688451561-mceclip0.png"></p>
+<p>&#xC1;p d&#x1EE5;ng &#x111;&#x1ECB;nh l&#xED; Pythagore v&#xE0;o tam gi&#xE1;c vu&#xF4;ng ABC, ta c&#xF3;:</p>
+<p>\(AC = \sqrt {B{C^2} - A{B^2}}&#xA0; = \sqrt {B{C^2} - {{\left( {\frac{2}{3}BC} \right)}^2}}&#xA0; = \sqrt {B{C^2} - \frac{4}{9}B{C^2}}&#xA0; = \frac{{\sqrt 5 }}{3}BC\)</p>
+<p>&#xC1;p d&#x1EE5;ng t&#x1EC9; s&#x1ED1; l&#x1B0;&#x1EE3;ng gi&#xE1;c c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng v&#xE0;o tam gi&#xE1;c ABC, ta c&#xF3;:</p>
+<p>\(\cot C = \frac{{AC}}{{AB}} = \frac{{\frac{{\sqrt 5 }}{3}BC}}{{\frac{2}{3}BC}} = \frac{{\sqrt 5 }}{3}:\frac{2}{3} = \frac{{\sqrt 5 }}{2}\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c nhọn \(ABC\) hai đường cao \(AD\) v&agrave; \(BE\) cắt nhau tại \(H\). Biết \(HD:HA = 1:2\). Khi đ&oacute; \(\tan \widehat {ABC}.\tan \widehat {ACB}\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t tam gi&aacute;c vu&ocirc;ng $ABD$ v&agrave; $ADC$, ta c&oacute;: \(\tan B = \dfrac{{AD}}{{BD}};tanC = \dfrac{{AD}}{{CD}}\).</p>
+<p style="text-align: left;">Suy ra \(\tan B.\tan C = \dfrac{{A{D^2}}}{{BD.CD}}\)&nbsp;&nbsp; (1)</p>
+<p style="text-align: left;">Lại c&oacute; \(\widehat {HBD} = \widehat {CAD}\) (c&ugrave;ng phụ với \(\widehat {ACB}\)) v&agrave; \(\widehat {HDB} = \widehat {ADC} = {90^0}\).</p>
+<p style="text-align: left;">Do đ&oacute; \(\Delta BDH \backsim \Delta ADC\) (g.g), suy ra \(\dfrac{{DH}}{{DC}} = \dfrac{{BD}}{{AD}}\), do đ&oacute; \(BD.DC = DH.AD\)&nbsp; (2).</p>
+<p style="text-align: left;">Từ (1) v&agrave; (2) suy ra \(\tan B.\tan C = \dfrac{{A{D^2}}}{{DH.AD}} = \dfrac{{AD}}{{DH}}\)&nbsp; (3).</p>
+<p style="text-align: left;">Theo giả thiết \(\dfrac{{HD}}{{AH}} = \dfrac{1}{2}\) suy ra \(\dfrac{{HD}}{{AH + HD}} = \dfrac{1}{{2 + 1}}\) hay \(\dfrac{{HD}}{{AD}} = \dfrac{1}{3}\), suy ra \(AD = 3HD\).</p>
+<p class="MsoNormal" style="margin-bottom: 0.0001pt; line-height: 150%; text-align: left;">Thay v&agrave;o (3) ta được: \(\tan B.\tan C = \dfrac{{3HD}}{{DH}} = 3\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&#xE1;c \(ABC\) vu&#xF4;ng t&#x1EA1;i \(A\), &#x111;&#x1B0;&#x1EDD;ng cao \(AH\) c&#xF3; \(CH = 11\,cm,\,BH = 12\,cm.\) T&#xED;nh t&#x1EC9; s&#x1ED1; l&#x1B0;&#x1EE3;ng gi&#xE1;c \(\cos C\) (l&#xE0;m tr&#xF2;n &#x111;&#x1EBF;n ch&#x1EEF; s&#x1ED1; th&#x1EAD;p ph&#xE2;n th&#x1EE9; \(2\) )</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\cos C \approx 0,79\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\cos C \approx 0,69\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\cos C \approx 0,96\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\cos C \approx 0,66\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&#xE9;t tam gi&#xE1;c \(ABC\) vu&#xF4;ng t&#x1EA1;i \(A\) c&#xF3; \(BC = BH + CH = 11 + 12\, = 23\,cm\)</p>
+<p>X&#xE9;t \(\Delta AHC\) v&#xE0; \(\Delta BAC\) c&#xF3;:</p>
+<p>\(\widehat A = \widehat H = 90^\circ\)</p>
+<p>\(\widehat C\) chung</p>
+<p>Suy ra \(\Delta AHC \backsim \Delta BAC\) (g.g) suy ra \(\frac{AC}{CH} = \frac{BC}{AC}\)</p>
+<p>Do &#x111;&#xF3; \(A{C^2} = CH.BC&#xA0;= 11.23 = 253\)</p>
+<p>Suy ra \(AC = \sqrt {253} \,\,cm\)</p>
+<p>&#xC1;p d&#x1EE5;ng h&#x1EC7; th&#x1EE9;c l&#x1B0;&#x1EE3;ng trong tam gi&#xE1;c vu&#xF4;ng ABC, ta c&#xF3;:</p>
+<p>\(\cos C = \dfrac{{AC}}{{BC}} = \dfrac{{\sqrt {253} }}{{23}} \approx 0,69\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 10</span>
+                <h2 class="lesson-title">10. Cách chứng minh đẳng thức</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tỉ số lượng giác của góc nhọn</h3>
+<div><p>Tỉ số lượng giác của góc nhọn là các tỉ số của góc nhọn và các cạnh tương ứng xuất hiện trong các tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách chứng minh đẳng thức</h3>
+<div><p>Để chứng minh đẳng thức liên quan đến tí số lượng giác, ta sử dụng các kiến thức:</p>
+<p>- Khái niệm tỉ số lượng giác:</p>
+<p>+) \(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>+) \(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p>- Nhân hay chia theo vế các tỉ số lượng giác.</p>
+<p>- Áp dụng định lí Pythagore:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747906287672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong tam giác ABC vuông tại A, ta có: \(B{C^2} = A{B^2} + A{C^2}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Chọn kết luận đ&uacute;ng về gi&aacute; trị biểu thức \(B = \dfrac{{{{\cos }^2}\alpha&nbsp; - 3{{\sin }^2}\alpha }}{{3 - {{\sin }^2}\alpha }}\)&nbsp; biết \(\tan \alpha&nbsp; = 3.\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(B &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(B &lt; 0\) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(0 &lt; B &lt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(B = 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(\tan \alpha&nbsp; = 3 \ne 0 \Rightarrow \cos \alpha&nbsp; \ne 0.\) Chia cả tử v&agrave; mẫu của \(B\) cho \({\cos ^2}\alpha \) ta được</p>
+<p>\(B = \dfrac{{\dfrac{{{{\cos }^2}\alpha }}{{{{\cos }^2}\alpha }} - 3\dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}}}{{\dfrac{3}{{{{\cos }^2}\alpha }} - \dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }}}} = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3.\dfrac{1}{{{{\cos }^2}\alpha }} - {{\tan }^2}\alpha }}\)</p>
+<p>\( = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3\left( {1 + {{\tan }^2}\alpha } \right) - {{\tan }^2}\alpha }} = \dfrac{{1 - 3{{\tan }^2}\alpha }}{{3 + 2{{\tan }^2}\alpha }}\)</p>
+<p>\( = \dfrac{{1 - 3.9}}{{3 + 2.9}} =&nbsp; - \dfrac{{26}}{{21}}\)</p>
+<p>Hay \(B =&nbsp; - \dfrac{{26}}{{21}} &lt; 0\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\alpha \) l&agrave; g&oacute;c nhọn bất kỳ. Cho \(P = \left( {1 - {{\sin }^2}\alpha } \right).{\tan ^2}\alpha&nbsp; + \left( {1 - {{\cos }^2}\alpha } \right){\cot ^2}\alpha \), chọn kết luận đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(P &gt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(P &lt; 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(P = 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(P = 2{\sin ^2}\alpha \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }};\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }};{\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1 \Rightarrow {\sin ^2}\alpha&nbsp; = 1 - {\cos ^2}\alpha ,\,{\cos ^2}\alpha&nbsp; = 1 - {\sin ^2}\alpha .\)</p>
+<p>\(P = \left( {1 - {{\sin }^2}\alpha } \right).{\tan ^2}\alpha&nbsp; + \left( {1 - {{\cos }^2}\alpha } \right){\cot ^2}\alpha \)\( = {\cos ^2}\alpha .\dfrac{{{{\sin }^2}\alpha }}{{{{\cos }^2}\alpha }} + {\sin ^2}\alpha .\dfrac{{{{\cos }^2}\alpha }}{{{{\sin }^2}\alpha }} = {\sin ^2}\alpha&nbsp; + {\cos ^2}\alpha&nbsp; = 1\)</p>
+<p>Vậy \(P = 1.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ l&agrave; g&oacute;c nhọn bất kỳ. Chọn khẳng định <strong>sai.</strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\tan \alpha&nbsp; = \dfrac{{\sin \alpha }}{{\cos \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\cot \alpha&nbsp; = \dfrac{{\cos \alpha }}{{\sin \alpha }}\,\,$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\tan \alpha .\cot \alpha&nbsp; = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">${\tan ^2}\alpha&nbsp; - 1 = {\cos ^2}\alpha $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039459208-mceclip0.png" /></p>
+<p>Giả sử ta c&oacute; tam gi&aacute;c vu&ocirc;ng c&oacute; c&aacute;c cạnh v&agrave; g&oacute;c $\alpha $ như h&igrave;nh vẽ.</p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c của g&oacute;c nhọn, ta c&oacute;:</p>
+<p>$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p>Ta c&oacute;:</p>
+<p>$\tan \alpha =\frac{b}{c}=\frac{b}{a}.\frac{a}{c}=\frac{b}{a}:\frac{c}{a}=\frac{\sin \alpha }{\cos \alpha }$ n&ecirc;n A đ&uacute;ng.</p>
+<p>$\cot \alpha =\frac{c}{b}=\frac{c}{a}.\frac{a}{b}=\frac{c}{a}:\frac{b}{a}=\frac{\cos \alpha }{\sin \alpha }$ n&ecirc;n B đ&uacute;ng.</p>
+<p>$\tan \alpha .\cot \alpha =\tan \alpha .\frac{1}{\tan \alpha }=1$ n&ecirc;n C đ&uacute;ng.</p>
+<p>${{\tan }^{2}}\alpha -1={{\left( \frac{b}{c} \right)}^{2}}-1=\frac{{{b}^{2}}-{{c}^{2}}}{{{c}^{2}}}\ne {{\left( \frac{c}{a} \right)}^{2}}={{\cos }^{2}}\alpha $ n&ecirc;n D sai.</p>
+<p><strong><em>Từ đ&acirc;y, ta c&oacute; c&aacute;c c&ocirc;ng thức lượng gi&aacute;c mở rộng sau:</em></strong></p>
+<p><strong><em>$\tan \alpha =\frac{\sin \alpha }{\cos \alpha };\cot \alpha =\frac{\cos \alpha }{\sin \alpha };\tan \alpha .\cot \alpha =1$</em></strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\alpha $ là góc nhọn bất kỳ. Chọn khẳng định đúng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sin \alpha  + \cos \alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">${\sin ^3}\alpha  + {\cos ^3}\alpha  = 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sin \alpha  - cos\alpha  = 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0622/1719039162265-mceclip0.png"></p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Giả sử ta có tam giác vuông có các cạnh và góc $\alpha $ như hình vẽ.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Áp dụng tỉ số lượng giác của góc nhọn, ta có:</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">$\sin \alpha =\frac{b}{a},\cos \alpha =\frac{c}{a},\tan \alpha =\frac{b}{c},\cot \alpha =\frac{c}{b}$.</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Ta có: ${{\sin }^{2}}\alpha +{{\cos }^{2}}\alpha ={{\left( \frac{b}{a} \right)}^{2}}+{{\left( \frac{c}{a} \right)}^{2}}=\frac{{{b}^{2}}+{{c}^{2}}}{{{a}^{2}}}=\frac{{{a}^{2}}}{{{a}^{2}}}=1$</p>
+<p style="tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Vậy ${\sin ^2}\alpha  + {\cos ^2}\alpha  = 1$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

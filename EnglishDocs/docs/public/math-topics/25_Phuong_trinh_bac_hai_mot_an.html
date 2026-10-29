@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình bậc hai một ẩn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 25: Phương trình bậc hai một ẩn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phương trình bậc hai một ẩn là gì? Cách xác định phương trình bậc hai một ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định phương trình bậc hai một ẩn</h3>
+<div><p>Để kiểm tra xem phương trình có phải là phương trình bậc hai một ẩn không, ta dựa vào định nghĩa của phương trình bậc hai một ẩn:</p>
+<p>Nếu phương trình có dạng \(a{x^2} + bx + c = 0\) (\(a \ne 0\)) với x là <em>ẩn</em>; a, b, c là hệ số thì phương trình là phương trình bậc hai ẩn x.</p>
+<p><em>Ví dụ:</em> Phương trình \(2{x^2} - 3x + 1 = 0\) là phương trình bậc hai với \(a = 2;b =  - 3;c = 1\).</p>
+<p>Phương trình \({x^2} - 3 = 0\) là phương trình bậc hai với \(a = 1,b = 0,c =  - 3\).</p>
+<p>Phương trình \(0{x^2} - 2x - 3 = 0\) không là phương trình bậc hai vì \(a = 0\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh n&#xE0;o d&#x1B0;&#x1EDB;i &#x111;&#xE2;y l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai m&#x1ED9;t &#x1EA9;n</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">${x^2} - \sqrt x&nbsp; + 1 = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2{x^2} - 2018 = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$x + \dfrac{1}{x} - 4 = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2x - 1 = 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai m&#x1ED9;t &#x1EA9;n ( hay g&#x1ECD;i t&#x1EAF;t l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai) l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; d&#x1EA1;ng:</p>
+<p style="text-align: left;">$a{x^2} + bx + c = 0\,\,(a \ne 0)$ trong &#x111;&#xF3;&#xA0; $a,b,c$ l&#xE0; c&#xE1;c s&#x1ED1; th&#x1EF1;c cho tr&#x1B0;&#x1EDB;c, $x$ l&#xE0; &#x1EA9;n s&#x1ED1;.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Trong c&aacute;c phương tr&igrave;nh sau, phương tr&igrave;nh n&agrave;o l&agrave; phương tr&igrave;nh bậc hai một ẩn?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2x - 4 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({x^2} + 2x + 1 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({x^2} - \sqrt x&nbsp; + 4 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(0{x^2} + 2x - 4 = 0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Trong c&aacute;c phương tr&igrave;nh tr&ecirc;n, chỉ c&oacute; phương tr&igrave;nh \({x^2} + 2x + 1 = 0\) l&agrave; phương tr&igrave;nh bậc hai một ẩn.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh bậc hai một ẩn \(3{x^2} - 8x - 2 = 0\) c&oacute; hệ số \(a,b,c\) lần lượt l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a =&nbsp; - 2,b =&nbsp; - 8,c = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(a =&nbsp; - 8,b = 3,c =&nbsp; - 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(a = 3,b =&nbsp; - 8,c = &nbsp;- 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(a = 3,b =&nbsp; - 2,c =&nbsp; - 8\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ số a, b, c của phương tr&igrave;nh \(3{x^2} - 8x - 2 = 0\) lần lượt l&agrave;: \(a = 3,b =&nbsp; - 8,c =&nbsp; - 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body">Trong các phương trình sau, phương trình bậc hai một ẩn là:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({x^2}\sqrt 2 {\rm{ \;}} + 3x - 2 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(2{x^2} + 3\sqrt x {\rm{ \;}} - 2 = 0\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \({x^2}\sqrt 2 {\rm{ \;}} + \frac{3}{x} - 2 = 0\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \({x^2}\sqrt 2 {\rm{ \;}} + 3x - \frac{2}{{{x^2}}} = 0\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương trình bậc hai một ẩn là \({x^2}\sqrt 2 {\rm{ \;}} + 3x - 2 = 0\)</p>
+<p><strong>Chọn A.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + 1 = 9{m^2}{x^2} + 2\left( {3m + 1} \right)x\,\left( {m \in \,R} \right).\) T&#xED;ch \(P\) t&#x1EA5;t c&#x1EA3; c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a \(m\) &#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho <strong>kh&#xF4;ng</strong> l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai b&#x1EB1;ng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(P = \dfrac{1}{9}\) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(P =&nbsp; - \dfrac{1}{3}\) &nbsp; &nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(P = \dfrac{1}{3}\) &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(P =&nbsp; - \dfrac{1}{9}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;:</p>
+<p>\(\begin{array}{l}{x^2} + 1 = 9{m^2}{x^2} + 2\left( {3m + 1} \right)x\\ \left( {9{m^2} - 1} \right){x^2} + 2\left( {3m + 1} \right)x - 1 = 0\end{array}\)</p>
+<p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh tr&#xEA;n kh&#xF4;ng l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai khi \(9{m^2} - 1 = 0 \) suy ra \( m =&#xA0; \pm \dfrac{1}{3}\).</p>
+<p>V&#x1EAD;y t&#xED;ch c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a <em>m</em> l&#xE0; \(P =&#xA0; - \dfrac{1}{9}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">C&oacute; bao nhi&ecirc;u phương tr&igrave;nh trong c&aacute;c phương tr&igrave;nh dưới đ&acirc;y l&agrave; phương tr&igrave;nh bậc hai một ẩn</p>
+<p style="text-align: left;">\(\sqrt 2 {x^2} + 1 = 0\); \({x^2} + 2019x = 0\)<strong>; \(x + \sqrt x&nbsp; - 1 = 0\)</strong>; \(2x + 2{y^2} + 3 = 9\); \(\dfrac{1}{{{x^2}}} + x + 1 = 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">- Phương tr&igrave;nh \(x + \sqrt x&nbsp; - 1 = 0\) c&oacute; chứa căn thức n&ecirc;n kh&ocirc;ng l&agrave; phương tr&igrave;nh bậc hai một ẩn.</p>
+<p style="text-align: left;">- &nbsp;Phương tr&igrave;nh \(2x + 2{y^2} + 3 = 9\) c&oacute; chứa hai biến \(x;y\)&nbsp; n&ecirc;n kh&ocirc;ng l&agrave; phương tr&igrave;nh bậc hai một ẩn.</p>
+<p style="text-align: left;">- Phương tr&igrave;nh \(\dfrac{1}{{{x^2}}} + x + 1 = 0\) c&oacute; chứa ẩn ở mẫu thức n&ecirc;n kh&ocirc;ng l&agrave; phương tr&igrave;nh bậc hai một ẩn.</p>
+<p style="text-align: left;">- Phương tr&igrave;nh \(\sqrt 2 {x^2} + 1 = 0\) v&agrave; \({x^2} + 2019x = 0\)&nbsp; l&agrave; những phương tr&igrave;nh bậc hai một ẩn.</p>
+<p style="text-align: left;">Vậy c&oacute; hai phương tr&igrave;nh bậc hai một ẩn trong số c&aacute;c phương tr&igrave;nh đ&atilde; cho.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách giải phương trình bậc hai một ẩn dạng khuyết</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Giải phương trình bậc hai khuyết số hạng tự do (dạng ax² + bx = 0 (a ≠ 0, c = 0))</h3>
+<div><p>Để giải phương trình bậc hai dạng \(a{x^2} + bx = 0\), ta sử dụng phương pháp đặt nhân tử chung đưa về dạng tích.</p>
+<p>\(\begin{array}{l}a{x^2} + bx = 0\\x\left( {ax + b} \right) = 0\end{array}\)</p>
+<p>\(x = 0\)<em> hoặc </em>\(ax + b = 0\)</p>
+<p><em>Suy ra </em>\(x = 0\)<em> hoặc </em>\(x =  - \frac{b}{a}\)<em>.</em></p>
+<p><em>Ví dụ: </em>Giải phương trình \(2{x^2} - 4x = 0\)</p>
+<p>Ta có:</p>
+<p>\(\begin{array}{l}2{x^2} - 4x = 0\\2x\left( {x - 2} \right) = 0\end{array}\)</p>
+<p>\(x = 0\) hoặc \(x - 2 = 0\)</p>
+<p>\(x = 0\) hoặc \(x = 2\).</p>
+<p>Vậy phương trình có hai nghiệm \({x_1} = 0,{x_2} = 2\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai khuyết số hạng bậc nhất (dạng ax² + c = 0 (a ≠ 0, b = 0))</h3>
+<div><p>Để giải phương trình bậc hai dạng \(a{x^2} + c = 0\), ta sử dụng hằng đẳng thức để đưa vế trái về một bình phương:</p>
+<p>\(\begin{array}{l}a{x^2} + c = 0\\{x^2} =  - \frac{c}{a}\end{array}\)</p>
+<p>+) Với \( - \frac{c}{a} &lt; 0\) thì phương trình vô nghiệm.</p>
+<p>+) Với \( - \frac{c}{a} = 0\) thì \(x = 0\).</p>
+<p>+) Với \( - \frac{c}{a} &gt; 0\) thì \(x = \sqrt { - \frac{c}{a}} \) hoặc \(x =  - \sqrt { - \frac{c}{a}} \).</p>
+<p><em>Ví dụ: 1. </em>Giải phương trình \({x^2} - 9 = 0\)</p>
+<p>Ta có:</p>
+<p>\(\begin{array}{l}{x^2} - 9 = 0\\{x^2} = 9\end{array}\)</p>
+<p>\(x = 3\) hoặc \(x =  - 3\)</p>
+<p>Vậy phương trình có hai nghiệm \({x_1} = 3,{x_2} =  - 3\).</p>
+<p><em>2. </em>Giải phương trình \({\left( {x + 1} \right)^2} = 3\)</p>
+<p>Ta có: \({\left( {x + 1} \right)^2} = 3\)</p>
+<p>\(x + 1 = \sqrt 3 \) hoặc \(x + 1 =  - \sqrt 3 \)</p>
+<p>\(x =  - 1 + \sqrt 3 \) hoặc \(x =  - 1 - \sqrt 3 \)</p>
+<p>Vậy phương trình có hai nghiệm \({x_1} =  - 1 + \sqrt 3 ,{x_2} =  - 1 - \sqrt 3 \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai dạng x² + bx = c</h3>
+<div><p>Để giải phương trình bậc hai dạng \({x^2} + bx = c\), ta có thể cộng thêm vào hai vế của phương trình với cùng một số thích hợp để vế trái có thể biến đổi thành một bình phương. Từ đó ta có thể giải phương trình đã cho.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 4x = 1\)</p>
+<p>Ta có:</p>
+<p>\(\begin{array}{l}{x^2} - 4x = 5\\{x^2} - 4x + 4 = 5 + 4\\{\left( {x - 2} \right)^2} = 9\end{array}\)</p>
+<p>\(x - 2 = 3\) hoặc \(x - 2 =  - 3\)</p>
+<p>suy ra \(x = 5\) hoặc \(x =  - 1\).</p>
+<p>Vậy phương trình có hai nghiệm \({x_1} = 5,{x_2} =  - 1\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Kh&#xF4;ng d&#xF9;ng c&#xF4;ng th&#x1EE9;c nghi&#x1EC7;m, gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + 5x + 4 = 0\), ta &#x111;&#x1B0;&#x1EE3;c t&#x1EAD;p nghi&#x1EC7;m l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(S = \left\{ {1; - 4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(S = \left\{ { - 1;4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(S = \left\{ { - 1; - 4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(S = \left\{ {1;4} \right\}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;:</p>
+<p>\({x^2} + 5x + 4 = 0\\{x^2} + x + 4x + 4 = 0\\\left( {{x^2} + x} \right) + \left( {4x + 4} \right) = 0\\ x\left( {x + 1} \right) + 4\left( {x + 1} \right) = 0\\ \left( {x + 1} \right)\left( {x + 4} \right) = 0\)</p>
+<p>Suy ra \(x + 1 = 0\) ho&#x1EB7;c \(x + 4 = 0\)</p>
+<p>&#xA0; &#xA0; &#xA0; &#xA0; &#xA0; \(x =&#xA0; - 1\) ho&#x1EB7;c \(x =&#xA0; - 4\)</p>
+<p>V&#x1EAD;y t&#x1EAD;p nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh l&#xE0; \(S = \left\{ { - 1; - 4} \right\}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Không dùng công thức nghiệm, tính tích các nghiệm của phương trình \(3{x^2} - 10x + 3 = 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\dfrac{{10}}{3}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\( - 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có \(3{x^2} - 10x + 3 = 0 \)</p>
+<p style="text-align: left;">\(3{x^2} - 9x - x + 3 = 0\\ 3x\left( {x - 3} \right) - \left( {x - 3} \right) = 0 \\ \left( {3x - 1} \right)\left( {x - 3} \right) = 0\)</p>
+<p style="text-align: left;">Suy ra \(3x - 1 = 0\) hoặc \(x - 3 = 0\)</p>
+<p style="text-align: left;">           \(x = \dfrac{1}{3}\) hoặc \(x = 3\)</p>
+<p style="text-align: left;">Nên tích các nghiệm của phương trình là \(\dfrac{1}{3}.3 = 1\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Kh&#xF4;ng d&#xF9;ng c&#xF4;ng th&#x1EE9;c nghi&#x1EC7;m, t&#xED;nh t&#x1ED5;ng c&#xE1;c nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh $6{x^2} - 7x = 0$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$ - \dfrac{7}{6}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{7}{6}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{6}{7}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - \dfrac{6}{7}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; $6{x^2} - 7x = 0$</p>
+<p style="text-align: left;">$ x\left( {6x - 7} \right) = 0 $</p>
+<p style="text-align: left;">$x = 0$ ho&#x1EB7;c $x = \dfrac{7}{6}$</p>
+<p style="text-align: left;">N&#xEA;n t&#x1ED5;ng c&#xE1;c nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh l&#xE0; $0 + \dfrac{7}{6} = \dfrac{7}{6}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Kh&#xF4;ng d&#xF9;ng c&#xF4;ng th&#x1EE9;c nghi&#x1EC7;m, t&#xEC;m s&#x1ED1; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \( - 9{x^2} + 30x - 25 = 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; \( - 9{x^2} + 30x - 25 = 0\)</p>
+<p style="text-align: left;">\(9{x^2} - 30x + 25 = 0\\{\left( {3x} \right)^2} - 2.3.5x + {5^2} = 0\)</p>
+<p style="text-align: left;">\(&#xA0; {\left( {3x - 5} \right)^2} = 0 \\ 3x - 5 = 0 \\ x = \dfrac{5}{3}\)</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; m&#x1ED9;t nghi&#x1EC7;m \(x = \dfrac{5}{3}.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Không dùng công thức nghiệm, tìm số nghiệm của phương trình $ - 4{x^2} + 9 = 0$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có $ - 4{x^2} + 9 = 0$</p>
+<p style="text-align: left;">$  4{x^2} = 9\\{x^2} = \dfrac{9}{4} $</p>
+<p style="text-align: left;">Suy ra \(x = \dfrac{3}{2}\) hoặc \(x =  - \dfrac{3}{2}\)</p>
+<p style="text-align: left;">Phương trình có hai nghiệm $x = \dfrac{3}{2};x =  - \dfrac{3}{2}$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Biệt thức là gì? Biệt thức ∆ là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biệt thức ∆</h3>
+<div><p>Biệt thức, thường được ký hiệu là ∆, là một đại lượng quan trọng trong việc giải phương trình bậc hai. Nó giúp chúng ta xác định số lượng và loại nghiệm của phương trình.</p>
+<p>Biệt thức ∆ được tính bởi công thức: \(\Delta  = {b^2} - 4ac\).</p>
+<p>Dựa vào giá trị của ∆, chúng ta có thể xác định loại nghiệm của phương trình:</p>
+<p>Nếu \(\Delta  &gt; 0\), phương trình có hai nghiệm phân biệt.</p>
+<p>Nếu \(\Delta  = 0\), phương trình có một nghiệm kép.</p>
+<p>Nếu \(\Delta  &lt; 0\), phương trình vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Phương trình bậc hai \(a{x^2} + bx + c = 0\) có biệt thức \(\Delta \) bằng:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({b^2} + ac\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \({b^2} - ac\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \({b^2} + 4ac\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \({b^2} - 4ac\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có \(\Delta {\rm{ \;}} = {b^2} - 4ac\)</p>
+<p><strong>Chọn D.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Công thức nghiệm của phương trình bậc hai một ẩn là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Công thức nghiệm của phương trình bậc hai</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p>Tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p>
+<p><strong><em>Chú ý: </em></strong>Nếu phương trình \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\) có a và c trái dấu, tức là \(ac &lt; 0\), thì \(\Delta  = {b^2} - 4ac &gt; 0\). Khi đó, phương trình có hai nghiệm phân biệt.</p>
+<p><em>Ví dụ: </em>Phương trình \({x^2} + 3572x - 3573 = 0\) có \(a = 1 &gt; 0,c =  - 3573 &lt; 0\), suy ra a và c trái dấu.</p>
+<p>Do đó phương trình có hai nghiệm phân biệt.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho phương trình $a{x^2} + bx + c = 0\,\,(a \ne 0)$ có biệt thức $\Delta  = {b^2} - 4ac$. Phương trình đã cho vô nghiệm khi:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta  < 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta  = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta  \ge 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta  \le 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Xét phương trình bậc hai một ẩn $a{{x}^{2}}+bx+c=0\left( a\ne 0 \right)$.</p>
+<p>Tính biệt thức $\Delta ={{b}^{2}}-4ac$.</p>
+<p>- Nếu $\Delta >0$ thì phương trình có hai nghiệm phân biệt:</p>
+<p>${{x}_{1}}=\frac{-b+\sqrt{\Delta }}{2a};{{x}_{2}}=\frac{-b-\sqrt{\Delta }}{2a}$.</p>
+<p>- Nếu $\Delta =0$ thì phương trình có nghiệm kép ${{x}_{1}}={{x}_{2}}=-\frac{b}{2a}$.</p>
+<p style="text-align: left;">- Nếu $\Delta <0$ thì phương trình vô nghiệm.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho ph&#x1B0;&#x1A1;ng tr&#xEC;nh $a{x^2} + bx + c = 0\,\,(a \ne 0)$ c&#xF3; bi&#x1EC7;t th&#x1EE9;c $\Delta&#xA0; = {b^2} - 4ac &gt; 0$ . Khi &#x111;&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">${x_1} = {x_2} =&nbsp; - \dfrac{b}{{2a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">${x_1} = \dfrac{{b + \sqrt \Delta&nbsp; }}{{2a}};{x_2} = \dfrac{{b - \sqrt \Delta&nbsp; }}{{2a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">${x_1} = \dfrac{{ - b + \sqrt \Delta&nbsp; }}{{2a}};{x_2} = \dfrac{{ - b - \sqrt \Delta&nbsp; }}{{2a}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">${x_1} = \dfrac{{ - b + \sqrt \Delta&nbsp; }}{a};{x_2} = \dfrac{{ - b - \sqrt \Delta&nbsp; }}{a}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&#xE9;t ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai m&#x1ED9;t &#x1EA9;n $a{{x}^{2}}+bx+c=0\left( a\ne 0 \right)$.</p>
+<p>T&#xED;nh bi&#x1EC7;t th&#x1EE9;c $\Delta ={{b}^{2}}-4ac$.</p>
+<p>- N&#x1EBF;u $\Delta &gt;0$ th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t:</p>
+<p>${{x}_{1}}=\frac{-b+\sqrt{\Delta }}{2a};{{x}_{2}}=\frac{-b-\sqrt{\Delta }}{2a}$.</p>
+<p>- N&#x1EBF;u $\Delta =0$ th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; nghi&#x1EC7;m k&#xE9;p ${{x}_{1}}={{x}_{2}}=-\frac{b}{2a}$.</p>
+<p style="text-align: left;">- N&#x1EBF;u $\Delta &lt;0$ th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh v&#xF4; nghi&#x1EC7;m.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh bi&#x1EC7;t th&#x1EE9;c $\Delta $ t&#x1EEB; &#x111;&#xF3; t&#xEC;m s&#x1ED1; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh $9{x^2} - 15x + 3 = 0$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta&nbsp; = 117$ v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta&nbsp; =&nbsp; - 117$ v&agrave; phương tr&igrave;nh v&ocirc; nghiệm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta&nbsp; = 117$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta&nbsp; =&nbsp; - 117$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; $9{x^2} - 15x + 3 = 0$$\left( {a = 9;b =&#xA0; - 15;c = 3} \right)$</p>
+<p style="text-align: left;">Suy ra $\Delta&#xA0; = {b^2} - 4ac = {\left( { - 15} \right)^2} - 4.9.3 = 117 &gt; 0$ n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh bi&#x1EC7;t th&#x1EE9;c \(\Delta \) t&#x1EEB; &#x111;&#xF3; t&#xEC;m s&#x1ED1; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \( - 13{x^2} + 22x - 13 = 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\Delta&nbsp; = 654\) v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\Delta&nbsp; =&nbsp; - 192\) v&agrave; phương tr&igrave;nh v&ocirc; nghiệm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\Delta&nbsp; = -654\) v&agrave; phương tr&igrave;nh v&ocirc; nghiệm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\Delta&nbsp; =&nbsp; - 654\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; \( - 13{x^2} + 22x - 13 = 0\) \(\left( {a =&#xA0; - 13;b = 22;c =&#xA0; - 13} \right)\)</p>
+<p style="text-align: left;">Suy ra \(\Delta&#xA0; = {b^2} - 4ac = {22^2} - 4.\left( { - 13} \right).\left( { - 13} \right) =&#xA0; - 192 &lt; 0\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh v&#xF4; nghi&#x1EC7;m.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho phương tr&igrave;nh bậc hai \( - 4{x^2} + 3x - 6 = 0\). Phương tr&igrave;nh c&oacute; nghiệm l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Phương tr&igrave;nh v&ocirc; nghiệm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Phương tr&igrave;nh c&oacute; nghiệm k&eacute;p \({x_1} = {x_2} = \frac{3}{8}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt l&agrave; \({x_1} = \frac{3}{8}\), \({x_2} =&nbsp; - \frac{3}{8}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt l&agrave; \({x_1} = \frac{3}{4}\), \({x_2} =&nbsp; - \frac{3}{4}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ số \(a =&nbsp; - 4,b = 3,c =&nbsp; - 6\). Ta c&oacute; \(\Delta&nbsp; = {b^2} - 4.a.c =&nbsp; - 87 &lt; 0\) n&ecirc;n phương tr&igrave;nh v&ocirc; nghiệm.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh n&agrave;o sau đ&acirc;y c&oacute; nghiệm k&eacute;p?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - {x^2} - 4x + 4 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({x^2} - 4x - 4 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({x^2} - 4x + 4 = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\({x^2} - 3x + 2 = 0\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương tr&igrave;nh \( - {x^2} - 4x + 4 = 0\) c&oacute; \(\Delta ' = {\left( { - 2} \right)^2} - \left( { - 1} \right).4 = 4 + 4 = 8 &gt; 0\) n&ecirc;n phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt.</p>
+<p>Phương tr&igrave;nh \({x^2} - 4x - 4 = 0\) c&oacute; \(\Delta ' = {\left( { - 2} \right)^2} - 1.\left( { - 4} \right) = 4 + 4 = 8 &gt; 0\) n&ecirc;n phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt.</p>
+<p>Phương tr&igrave;nh \({x^2} - 4x + 4 = 0\) c&oacute; \(\Delta ' = {\left( { - 2} \right)^2} - 1.4 = 4 - 4 = 0\) n&ecirc;n phương tr&igrave;nh c&oacute; nghiệm k&eacute;p.</p>
+<p>Phương tr&igrave;nh \({x^2} - 3x + 2 = 0\) c&oacute; \(\Delta&nbsp; = {\left( { - 3} \right)^2} - 4.1.2 = 9 - 8 = 1 &gt; 0\) n&ecirc;n phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Công thức nghiệm thu gọn của phương trình bậc hai một ẩn là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Công thức nghiệm thu gọn của phương trình bậc hai</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\), với \(b = 2b'\) và \(\Delta ' = b{'^2} - ac\).</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \(7{x^2} - 12x + 5 = 0\).</p>
+<p>Ta có: \(a = 7,b' =  - 6,c = 5\).</p>
+<p>\(\Delta ' = b{'^2} - ac = {\left( { - 6} \right)^2} - 7.5 = 1 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 6} \right) + 1}}{7} = 1;{x_2} = \frac{{ - \left( { - 6} \right) - 1}}{7} = \frac{5}{7}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho ph&#x1B0;&#x1A1;ng tr&#xEC;nh $a{x^2} + bx + c = 0\,\,(a \ne 0)$ c&#xF3; bi&#x1EC7;t th&#x1EE9;c $b = 2b&apos;;\Delta &apos; = b{&apos;^2} - ac$. Ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t khi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta ' &gt; 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta ' = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta ' \ge 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta ' \le 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t khi&#xA0;$\Delta &apos;&gt;0$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(a{x^2} + bx + c = 0\,\,(a \ne 0)\) c&#xF3; bi&#x1EC7;t th&#x1EE9;c \(b = 2b&apos;;\Delta &apos; = b{&apos;^2} - ac\). Ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho v&#xF4; nghi&#x1EC7;m khi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\Delta ' &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\Delta ' = 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\Delta ' \ge 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\Delta ' &lt; 0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh v&#xF4; nghi&#x1EC7;m khi $\Delta &apos;&lt;0$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho phương trình bậc hai một ẩn $a{{x}^{2}}+bx+c=0\left( a\ne 0 \right)$, với $b=2b'$ và biệt thức $\Delta '=b{{'}^{2}}-ac$. Nếu $\Delta ' = 0$ thì</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Phương tr&igrave;nh&nbsp; c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Phương tr&igrave;nh&nbsp; c&oacute; nghiệm k&eacute;p ${x_1} = {x_2} =&nbsp; - \dfrac{b}{a}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Phương tr&igrave;nh&nbsp; c&oacute; nghiệm k&eacute;p ${x_1} = {x_2} =&nbsp; - \dfrac{{b'}}{a}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Phương tr&igrave;nh&nbsp; c&oacute; nghiệm k&eacute;p ${x_1} = {x_2} =&nbsp; - \dfrac{{b'}}{{2a}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Xét phương trình bậc hai một ẩn $a{{x}^{2}}+bx+c=0\left( a\ne 0 \right)$, với $b=2b'$ và $\Delta '=b{{'}^{2}}-ac$.</p>
+<p style="text-align: left;">Nếu $\Delta '=0$ thì phương trình có nghiệm kép ${{x}_{1}}={{x}_{2}}=-\frac{b'}{a}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh \({x^2} - 2\sqrt {11} x + 3 = 0\) c&oacute; \(\Delta '\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>10.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương tr&igrave;nh \({x^2} - 2\sqrt {11} x + 3 = 0\) c&oacute; \(a = 1;b' = \frac{{ - 2\sqrt {11} }}{2} =&nbsp; - \sqrt {11} ;c = 3\) n&ecirc;n hệ thức \(\Delta ' = {\left( { - \sqrt {11} } \right)^2} - 1.3 = 11 - 3 = 8\).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Biệt thức \(\Delta '\) của phương trình \(3{x^2} - 2mx - 1 = 0\) là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \({m^2} + 3.\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(4{m^2} + 12\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \({m^2} - 3.\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(4{m^2} - 12.\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương tr&igrave;nh \(3{x^2} - 2mx - 1 = 0\) c&oacute; \(\Delta ' = b{'^2} - ac = {m^2} + 3.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh \(\Delta &apos;\) v&#xE0; t&#xEC;m nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(3{x^2} - 2x = {x^2} + 3\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\Delta ' = 7\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm \({x_1} = {x_2} = \dfrac{{\sqrt 7 }}{2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\Delta ' = 7\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm \({x_1} = \dfrac{{1 + \sqrt 7 }}{2};{x_2} = \dfrac{{1 - \sqrt 7 }}{2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\Delta ' = \sqrt 7 \) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm \({x_1} = \dfrac{{1 + \sqrt 7 }}{2};{x_2} = \dfrac{{1 - \sqrt 7 }}{2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\Delta ' = 7\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm \({x_1} = \dfrac{{ - 1 + \sqrt 7 }}{2};{x_2} = \dfrac{{ - 1 - \sqrt 7 }}{2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(3{x^2} - 2x = {x^2} + 3 \) hay \( 2{x^2} - 2x - 3 = 0\) c&#xF3; \(a = 2;b&apos; =&#xA0; - 1;c =&#xA0; - 3\) suy ra</p>
+<p style="text-align: left;">\(\Delta &apos; = {\left( {b&apos;} \right)^2} - ac = {\left( { - 1} \right)^2} - 2.\left( { - 3} \right) = 7 &gt; 0\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t</p>
+<p style="text-align: left;">\({x_1} = \dfrac{{ - b&apos; + \sqrt {\Delta &apos;} }}{a} = \dfrac{{1 + \sqrt 7 }}{2}\) ; \({x_2} = \dfrac{{ - b&apos; - \sqrt {\Delta &apos;} }}{a} = \dfrac{{1 - \sqrt 7 }}{2}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh \(\Delta &apos;\) v&#xE0; t&#xEC;m s&#x1ED1; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(16{x^2} - 24x + 9 = 0\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\Delta ' = 432\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\Delta ' =&nbsp; - 432\) v&agrave; phương tr&igrave;nh v&ocirc; nghiệm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\Delta ' = 0\) v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\Delta ' = 0\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(16{x^2} - 24x + 9 = 0\) c&#xF3; \(a = 16;b&apos; =&#xA0; - 12;c = 9\) suy ra</p>
+<p style="text-align: left;">\(\Delta &apos; = {\left( {b&apos;} \right)^2} - ac = {\left( { - 12} \right)^2} - 9.16 = 0\)</p>
+<p style="text-align: left;">N&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; nghi&#x1EC7;m k&#xE9;p.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&iacute;nh $\Delta '$ v&agrave; t&igrave;m nghiệm của phương tr&igrave;nh \(2{x^2} + 2\sqrt {11} x + 3 = 0\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta ' = 5$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ${x_1} = {x_2} = \dfrac{{\sqrt 1 1}}{2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta ' = 5$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ${x_1} = \dfrac{- 2\sqrt {11}&nbsp; + \sqrt 5}{2}$ ;${x_2} = \dfrac{-2 \sqrt {11}&nbsp; - \sqrt 5}{2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta ' = \sqrt 5 $ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ${x_1} = \sqrt {11}&nbsp; + \sqrt 5 ;{x_2} = \sqrt {11}&nbsp; - \sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta ' = 5$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ${x_1} =&nbsp; \dfrac{- \sqrt {11}&nbsp; + \sqrt 5}{2}$ ;${x_2} =&nbsp; \dfrac{- \sqrt {11}&nbsp; - \sqrt 5}{2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Phương tr&igrave;nh \(2{x^2} + 2\sqrt {11} x + 3 = 0\) c&oacute; $a = 2;b' = \sqrt {11} ;c = 3$ suy ra</p>
+<p style="text-align: left;">$\Delta ' = {\left( {b'} \right)^2} - ac = 11 - 2.3 = 5 &gt; 0$ n&ecirc;n phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p>
+<p style="text-align: left;">${x_1} = \dfrac{{ - b' + \sqrt {\Delta '} }}{a} =&nbsp; \dfrac{- \sqrt {11}&nbsp; + \sqrt 5}{2}$</p>
+<p style="text-align: left;">${x_2} = \dfrac{{ - b' - \sqrt {\Delta '} }}{a} = \dfrac{- \sqrt {11}&nbsp; - \sqrt 5}{2} $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh $\Delta &apos;$ v&#xE0; t&#xEC;m s&#x1ED1; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(7{x^2} - 12x + 4 = 0\) .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta ' = 6$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta ' = 8$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta ' = 8$ v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta ' = 0$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(7{x^2} - 12x + 4 = 0\) c&#xF3; $a = 7;b&apos; =&#xA0; - 6;c = 4$ suy ra</p>
+<p style="text-align: left;">$\Delta &apos; = {\left( {b&apos;} \right)^2} - ac = {\left( { - 6} \right)^2} - 4.7 = 8 &gt; 0$</p>
+<p style="text-align: left;">N&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách giải phương trình bậc hai một ẩn dùng công thức nghiệm</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Công thức nghiệm của phương trình bậc hai</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p>Tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p>
+<p><strong><em>Chú ý: </em></strong>Nếu phương trình \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\) có a và c trái dấu, tức là \(ac &lt; 0\), thì \(\Delta  = {b^2} - 4ac &gt; 0\). Khi đó, phương trình có hai nghiệm phân biệt.</p>
+<p><em>Ví dụ: </em>Phương trình \({x^2} + 3572x - 3573 = 0\) có \(a = 1 &gt; 0,c =  - 3573 &lt; 0\), suy ra a và c trái dấu.</p>
+<p>Do đó phương trình có hai nghiệm phân biệt.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Công thức nghiệm thu gọn của phương trình bậc hai</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\), với \(b = 2b'\) và \(\Delta ' = b{'^2} - ac\).</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \(7{x^2} - 12x + 5 = 0\).</p>
+<p>Ta có: \(a = 7,b' =  - 6,c = 5\).</p>
+<p>\(\Delta ' = b{'^2} - ac = {\left( { - 6} \right)^2} - 7.5 = 1 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 6} \right) + 1}}{7} = 1;{x_2} = \frac{{ - \left( { - 6} \right) - 1}}{7} = \frac{5}{7}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh: \({x^2} + 5x - 7 = 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(x = \dfrac{{ - 5 + \sqrt {53} }}{2};x = \dfrac{{ - 5 - \sqrt {53} }}{2}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(x = \dfrac{{ - 3 + \sqrt {53} }}{2};x = \dfrac{{ - 3 - \sqrt {53} }}{2}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(x = \dfrac{{ - 3 + \sqrt {55} }}{2};x = \dfrac{{ - 3 - \sqrt {55} }}{2}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(x = \dfrac{{ - 5 + \sqrt {55} }}{2};x = \dfrac{{ - 5 - \sqrt {55} }}{2}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3;: \(\Delta&#xA0; = {5^2} - 4.1.\left( { - 7} \right) = 53 &gt; 0\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t: \(x_1 = \dfrac{{ - 5 + \sqrt {53} }}{2}\) v&#xE0; \(x_2 = \dfrac{{ - 5 - \sqrt {53} }}{2}\)</p>
+<p style="text-align: left;">V&#x1EAD;y ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t \(x_1 = \dfrac{{ - 5 + \sqrt {53} }}{2};x_2 = \dfrac{{ - 5 - \sqrt {53} }}{2}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(2{x^2} - 5x + 3 = 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(S = \left \{ - \dfrac{3}{2};1 \right \}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(S = \left \{ \dfrac{3}{2}; - 1 \right \}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(S = \left \{ - \dfrac{3}{2}; - 1 \right \}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(S = \left \{ \dfrac{3}{2};1 \right \}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;: \(\Delta&#xA0; = {\left( { - 5} \right)^2} - 4.2.3 = 1 &gt; 0\), do &#x111;&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(2{x^2} - 5x + 3 = 0\) c&#xF3; 2 nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t \({x_1} = \dfrac{{5 + 1}}{{2.2}} = \dfrac{3}{2}\) v&#xE0; \({x_2} = \dfrac{{5 - 1}}{{2.2}} = 1\).</p>
+<p>V&#x1EAD;y t&#x1EAD;p nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh l&#xE0; \(S = \left\{ {\dfrac{3}{2};1} \right\}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh bi&#x1EC7;t th&#x1EE9;c \(\Delta \) t&#x1EEB; &#x111;&#xF3; t&#xEC;m c&#xE1;c nghi&#x1EC7;m (n&#x1EBF;u c&#xF3; ) c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\sqrt 3 {x^2} + \left( {\sqrt 3&#xA0; - 1} \right)x - 1&#xA0; = 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\Delta&nbsp; &gt; 0\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt \({x_1} = 1;{x_2} = \dfrac{{ - \sqrt 3 }}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\Delta&nbsp; &lt; 0\) v&agrave; phương tr&igrave;nh v&ocirc; nghiệm&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\Delta&nbsp; = 0\) v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p \({x_1} = {x_2} =&nbsp; - \sqrt 3 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\Delta&nbsp; &gt; 0\) v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt \({x_1} = \dfrac{{\sqrt 3 }}{3};{x_2} =&nbsp; - 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3;: \(\sqrt 3 {x^2} + \left( {\sqrt 3&#xA0; - 1} \right)x - 1 = 0\)\(\left( {a = \sqrt 3 ;b = \sqrt 3&#xA0; - 1;c =&#xA0; - 1} \right)\)</p>
+<p style="text-align: left;">Suy ra \(\Delta&#xA0; = {b^2} - 4ac = {\left( {\sqrt 3&#xA0; - 1} \right)^2} - 4.\sqrt 3 .\left( { - 1} \right)\) \( = 4 - 2\sqrt 3&#xA0; + 4\sqrt 3&#xA0; = 4 + 2\sqrt 3&#xA0; = {\left( {\sqrt 3&#xA0; + 1} \right)^2} &gt; 0\) suy ra \(\sqrt \Delta&#xA0;&#xA0; = \sqrt 3&#xA0; + 1\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t l&#xE0;:</p>
+<p style="text-align: left;">+) \({x_1} = \dfrac{{ - b + \sqrt \Delta&#xA0; }}{{2a}} = \dfrac{{1 - \sqrt 3&#xA0; + \sqrt 3&#xA0; + 1}}{{2\sqrt 3 }} = \dfrac{{\sqrt 3 }}{3}\);</p>
+<p style="text-align: left;">+) \({x_2} = \dfrac{{ - b - \sqrt \Delta&#xA0; }}{{2a}} = \dfrac{{1 - \sqrt 3&#xA0; - \sqrt 3&#xA0; - 1}}{{2\sqrt 3 }} =&#xA0; - 1\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;nh bi&#x1EC7;t th&#x1EE9;c $\Delta $ t&#x1EEB; &#x111;&#xF3; t&#xEC;m c&#xE1;c nghi&#x1EC7;m (n&#x1EBF;u c&#xF3; ) c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh ${x^2} - 2\sqrt 2 x + 2 = 0$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\Delta&nbsp; = 0$ v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p ${x_1} = {x_2} = \sqrt 2 $.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\Delta&nbsp; &lt; 0$ v&agrave; phương tr&igrave;nh v&ocirc; nghiệm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\Delta&nbsp; = 0$ v&agrave; phương tr&igrave;nh c&oacute; nghiệm k&eacute;p ${x_1} = {x_2} =&nbsp; - \sqrt 2 $.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\Delta&nbsp; &gt; 0$ v&agrave; phương tr&igrave;nh c&oacute; hai nghiệm ph&acirc;n biệt ${x_1} =&nbsp; - \sqrt 2 ;{x_2} = \sqrt 2 $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; ${x^2} - 2\sqrt 2 x + 2 = 0$$\left( {a = 1;b =&#xA0; - 2\sqrt 2 ;c = 2} \right)$</p>
+<p style="text-align: left;">Suy ra $ \Delta&#xA0; = {b^2} - 4ac = {\left( {2\sqrt 2 } \right)^2} - 4.1.2 = 0$ n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; nghi&#x1EC7;m k&#xE9;p ${x_1} = {x_2} =&#xA0; - \dfrac{b}{{2a}} = \dfrac{{2\sqrt 2 }}{2} = \sqrt 2 $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + 28x - 128 = 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(S = \left\{ { - 32;\,4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(S = \left\{ {32;\,4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(S = \left\{ { - 32;\, - 4} \right\}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(S = \left\{ {32;\, - 4} \right\}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3;: \(\Delta &apos; = {14^2} - 1.( - 128) = 196 + 128 = 324 = {18^2} &gt; 0\)&#xA0;n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t:</p>
+<p style="text-align: left;">\({x_1} = \dfrac{{ - 14 - 18}}{1} =&#xA0; - 32\)&#xA0; v&#xE0; \({x_2} = \dfrac{{ - 14 + 18}}{1} = 4\)</p>
+<p style="text-align: left;">V&#x1EAD;y t&#x1EAD;p nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho l&#xE0; \(S = {\rm{\{ }} - {\rm{32; 4\} }}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>&#xA0;Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(5{{x}^{4}}+2{{x}^{2}}-16=10-{{x}^{2}}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(x=\sqrt{2}\)              </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(x=\pm \sqrt{2}\)                            </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span>  \(x=-\sqrt{2}\)           </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span>   \(x=2\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(5{{x}^{4}}+2{{x}^{2}}-16=10-{{x}^{2}} \\ 5{{x}^{4}}+3{{x}^{2}}-26=0\)</p>
+<p>&#x110;&#x1EB7;t \({{x}^{2}}=t\,\,\,\left( t\ge 0 \right)\)</p>
+<p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh tr&#x1EDF; th&#xE0;nh \(5{{t}^{2}}+3t-26=0\,\,\left( * \right)\)</p>
+<p>Bi&#x1EC7;t th&#x1EE9;c \(\Delta ={{3}^{2}} - 4.5.(-26) = 529 &gt; 0\).</p>
+<p>PT&#xA0; (*) c&#xF3; 2 nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t:</p>
+<p>\({{t}_{1}}=\frac{-3+\sqrt{529}}{2.5}=2\ \ \left( tm \right) \); \({{t}_{2}}=\frac{-3-\sqrt{529}}{2.5}=\frac{-13}{5}\ \ \left( ktm \right) \)&#xA0;</p>
+<p>V&#x1EDB;i \(t=2\) th&#xEC; \({{x}^{2}}=2\). Khi &#x111;&#xF3; \(x=\pm \sqrt{2}.\)&#xA0;&#xA0;</p>
+<p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; 2 nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t:&#xA0; \(x=\pm \sqrt{2}\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Phương trình \({x^2} - 7x + 12 = 0\) có tổng hai nghiệm là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>-4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>-3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>-7.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phương trình \({x^2} - 7x + 12 = 0\) có hai nghiệm là \({x_1} = 4;{x_2} = 3\) nên tổng hai nghiệm là \(4 + 3 = 7\).</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách xác định số nghiệm của phương trình bậc hai chứa tham số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biệt thức ∆</h3>
+<div><p>Biệt thức, thường được ký hiệu là ∆, là một đại lượng quan trọng trong việc giải phương trình bậc hai. Nó giúp chúng ta xác định số lượng và loại nghiệm của phương trình.</p>
+<p>Biệt thức ∆ được tính bởi công thức: \(\Delta  = {b^2} - 4ac\).</p>
+<p>Dựa vào giá trị của ∆, chúng ta có thể xác định loại nghiệm của phương trình:</p>
+<p>Nếu \(\Delta  &gt; 0\), phương trình có hai nghiệm phân biệt.</p>
+<p>Nếu \(\Delta  = 0\), phương trình có một nghiệm kép.</p>
+<p>Nếu \(\Delta  &lt; 0\), phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định số nghiệm của phương trình bậc hai chứa tham số</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p>+ Phương trình có nghiệm kép nếu \(a \ne 0\) và \(\Delta  = 0\)</p>
+<p>+ Phương trình có hai nghiệm phân biệt nếu \(a \ne 0\) và \(\Delta  &gt; 0\).</p>
+<p>+ Phương trình vô nghiệm nếu \(a \ne 0\) và \(\Delta  &lt; 0\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Phương trình nào sau đây có hai nghiệm trái dấu?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\({x^2} - 3x + 1 = 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\({x^2} - x - 5 = 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\({x^2} + 5x + 2 = 0\)    </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\({x^2} + 3x + 5 = 0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Giả sử các phương trình đều có nghiệm. Phương trình có hai nghiệm trái dấu thì tích của hai nghiệm nhỏ hơn 0, nghĩa là \({x_1}.{x_2} < 0 \) hay \(ac < 0\)</p>
+<p>+ Xét phương trình bậc hai: \({x^2} - 3x + 1 = 0\) có \( ac = 1.1 = 1 > 0\)</p>
+<p> Loại đáp án A.</p>
+<p>+ Xét phương trình bậc hai: \({x^2} - x - 5 = 0\) có \(ac = 1. (-5) = - 5 < 0\)</p>
+<p>Chọn đáp án B.</p>
+<p>+ Xét phương trình bậc hai: \({x^2} + 5x + 2 = 0\) có \(ac = 1.2 = 2 > 0\)</p>
+<p>Loại đáp án C.</p>
+<p>+ Xét phương trình bậc hai: \({x^2} + 3x + 5 = 0\) có \(ac = 1.5 = 5 > 0\)</p>
+<p>Loại đáp án D.</p>
+<p>Vậy phương trình \({x^2} - x - 5 = 0\) có hai nghiệm trái dấu.</p>
+<p><strong>Đáp án: B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a tham s&#x1ED1; &#xA0;$m$ &#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \( - {x^2} + 2mx - {m^2} - m = 0\) c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m \ge 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$m = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m &gt; 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m &lt; 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \( - {x^2} + 2mx - {m^2} - m = 0\) c&#xF3; $a =&#xA0; - 1$ n&#xEA;n l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai m&#x1ED9;t &#x1EA9;n x.</p>
+<p style="text-align: left;">Bi&#x1EC7;t th&#x1EE9;c $\Delta&#xA0; = {\left( {2m} \right)^2} - 4.\left( { - 1} \right).\left( { - {m^2} - m} \right)$$ = 4{m^2} - 4{m^2} - 4m $$=&#xA0; - 4m$</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t khi $\Delta&#xA0; &gt; 0$ hay $- 4m &gt; 0$ suy ra $ m &lt; 0$</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EDB;i $m &lt; 0$ th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a tham s&#x1ED1; &#xA0;$m$ &#x111;&#x1EC3;&#xA0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + mx - m = 0\) c&#xF3; nghi&#x1EC7;m k&#xE9;p.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m = 0;m =&nbsp; - 4$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$m = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m =&nbsp; - 4$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m = 0;m = 4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + mx - m = 0\) c&#xF3; $a = 1$ n&#xEA;n l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai &#x1EA9;n x.</p>
+<p style="text-align: left;">Bi&#x1EC7;t th&#x1EE9;c $\Delta&#xA0; = {m^2} - 4.1.\left( { - m} \right) = {m^2} + 4m$</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho c&#xF3; nghi&#x1EC7;m k&#xE9;p khi $\Delta&#xA0; = 0$ hay ${m^2} + 4m = 0$ suy ra $ m = 0$ ho&#x1EB7;c $m =&#xA0; - 4$</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EDB;i $m = 0;m =&#xA0; - 4$ th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; nghi&#x1EC7;m k&#xE9;p.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a tham s&#x1ED1; $m$ &#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + (1 - m)x - 3 = 0\) v&#xF4; nghi&#x1EC7;m</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$m = 0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Kh&ocirc;ng tồn tại $m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$m =&nbsp; - 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$m = 1$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + (1 - m)x - 3 = 0\) c&#xF3;&#xA0;$a = 1$ n&#xEA;n l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai &#x1EA9;n x.</p>
+<p style="text-align: left;">Bi&#x1EC7;t th&#x1EE9;c $\Delta&#xA0; = {\left( {1 - m} \right)^2} - 4.1.\left( { - 3} \right) = {\left( {1 - m} \right)^2} + 12 \ge 12 &gt; 0;\,\forall m$</p>
+<p style="text-align: left;">N&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho lu&#xF4;n c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t</p>
+<p style="text-align: left;">V&#x1EAD;y kh&#xF4;ng c&#xF3; gi&#xE1; tr&#x1ECB; n&#xE0;o c&#x1EE7;a $m$ &#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh v&#xF4; nghi&#x1EC7;m.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho phương trình ${x^2} - \left( {m - 1} \right)x - m = 0$. Kết luận nào sau đây là đúng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Phương tr&igrave;nh v&ocirc; nghiệm với mọi $m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Phương tr&igrave;nh c&oacute; nghiệm k&eacute;p với mọi $m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Phương tr&igrave;nh hai nghiệm ph&acirc;n biệt&nbsp; với mọi $m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Phương tr&igrave;nh c&oacute; nghiệm&nbsp; với mọi $m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Phương trình ${x^2} - \left( {m - 1} \right)x - m = 0$ có $a = 1;b =  - \left( {m - 1} \right);c =  - m$</p>
+<p style="text-align: left;">Suy ra $\Delta  = {\left[ { - \left( {m - 1} \right)} \right]^2} - 4.1.\left( { - m} \right) = {m^2} + 2m + 1 = {\left( {m + 1} \right)^2} \ge 0,\forall m$</p>
+<p style="text-align: left;">Nên phương trình đã cho có nghiệm với mọi $m$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a tham s&#x1ED1; <em>m </em>&#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2}\; - {\rm{ }}2(m - 2)x\; + {\rm{ }}{m^2} - 3m\; + {\rm{ }}5\; = 0\) c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(m &lt;&nbsp; - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(m =&nbsp; - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(m &gt;&nbsp; - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(m \le&nbsp; - 1\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2}\; - {\rm{ }}2(m - 2)x\; + {\rm{ }}{m^2} - 3m\; + {\rm{ }}5\; = 0\) c&#xF3; h&#x1EC7; s&#x1ED1; \(a = 1 \ne 0\).</p>
+<p style="text-align: left;">Bi&#x1EC7;t th&#x1EE9;c&#xA0;\(\Delta&#xA0; = {\left[ { - 2\left( {m - 2} \right)} \right]^2} - 4.1.\left( {{m^2} - 3m + 5} \right)\) \(= 4{m^2} - 16m + 16 - 4{m^2} + 12m - 20 \) \(= &#xA0;- 4m - 4\)</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t khi $\Delta&#xA0; &gt; 0$</p>
+<p style="text-align: left;">hay \(- 4m - 4 &gt; 0\) suy ra \( m &lt;&#xA0; - 1\)</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EDB;i \(m &lt;&#xA0; - 1\) th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a tham s&#x1ED1; <em>m </em>&#x111;&#x1EC3;&#xA0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + (3 - m)x - m + 6 = 0\) c&#xF3; nghi&#x1EC7;m k&#xE9;p.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(m = 3;m =&nbsp; - 5\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(m =&nbsp; - 3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(m = 5;m =&nbsp; - 3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(m = 5\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + (3 - m)x - m + 6 = 0\) c&#xF3; $a = 1$ n&#xEA;n l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai &#x1EA9;n x.</p>
+<p>Bi&#x1EC7;t th&#x1EE9;c $\Delta&#xA0; = {\left( {3 - m} \right)^2} - 4.1.\left( { - m + 6} \right) = {m^2} - 6m + 9 + 4m - 24 = {m^2} - 2m - 15$</p>
+<p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho c&#xF3; nghi&#x1EC7;m k&#xE9;p khi $\Delta&#xA0; = 0$ hay ${m^2} - 2m - 15 = 0$ (1)</p>
+<p>Ph&#x1B0;&#x1A1;ng tr&#xEC;nh (1) c&#xF3; h&#x1EC7; th&#x1EE9;c $ \Delta_m&#xA0; = {\left( { - 2} \right)^2} - 4.1.\left( { - 15} \right) = 64 &gt; 0$ n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh (1) c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t&#xA0;\({m_1} = \dfrac{{2 + \sqrt {64}}}{2} = 5;\,{m_2} = \dfrac{{2 - \sqrt {64}}}{2} =&#xA0; - 3\)</p>
+<p>V&#x1EAD;y v&#x1EDB;i \(m = 5;m =&#xA0; - 3\) th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh&#xA0;${m^2} - 2m - 15 = 0$. Khi &#x111;&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \({x^2} + (3 - m)x - m + 6 = 0\) c&#xF3; nghi&#x1EC7;m k&#xE9;p.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xEC;m &#x111;i&#x1EC1;u ki&#x1EC7;n c&#x1EE7;a tham s&#x1ED1; <em>m </em>&#x111;&#x1EC3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(2{x^2} + 5x + m - 1 = 0\) v&#xF4; nghi&#x1EC7;m</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(m &gt; \dfrac{8}{{33}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Kh&ocirc;ng tồn tại \(m\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(m &lt; \dfrac{{33}}{8}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(m &gt; \dfrac{{33}}{8}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(2{x^2} + 5x + m - 1 = 0\)&#xA0;c&#xF3; $a = 2$ n&#xEA;n l&#xE0; ph&#x1B0;&#x1A1;ng tr&#xEC;nh b&#x1EAD;c hai &#x1EA9;n x.</p>
+<p style="text-align: left;">Bi&#x1EC7;t th&#x1EE9;c $ \Delta&#xA0; = {5^2} - 4.2\left( {m - 1} \right) = 25 - 8m + 8 = 33 - 8m\,$</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh &#x111;&#xE3; cho v&#xF4; nghi&#x1EC7;m khi $\Delta&#xA0;&lt; 0$ hay $33 - 8m &lt; 0$ suy ra $m &gt; \dfrac{{33}}{8}$</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EDB;i \(m &gt; \dfrac{{33}}{8}\) th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh v&#xF4; nghi&#x1EC7;m.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 9</span>
+                <h2 class="lesson-title">9. Cách xác định sự tương giao của đồ thị hàm số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định sự tương giao của đồ thị hàm số</h3>
+<div><p>Để tìm toạ độ giao điểm của đường thẳng \(y = a'x + b\left( {a' \ne 0} \right)\) và parabol \(y = a{x^2}\left( {a \ne 0} \right)\), ta làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xét phương trình hoành độ giao điểm của parabol và đường thẳng: \(a{x^2} = a'x + b\) hay \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 2:</em></strong> Giải phương trình \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 3:</em></strong> Từ các giá trị \(x\) tìm được, thay vào \(y = a{x^2}\) hoặc \(y = a'x + b\) để tìm \(y\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 10</span>
+                <h2 class="lesson-title">10. Cách xác định sự tương giao của đồ thị hàm số chứa tham số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách xác định sự tương giao của đồ thị hàm số</h3>
+<div><p>Để tìm toạ độ giao điểm của đường thẳng \(y = a'x + b\left( {a' \ne 0} \right)\) và parabol \(y = a{x^2}\left( {a \ne 0} \right)\), ta làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xét phương trình hoành độ giao điểm của parabol và đường thẳng: \(a{x^2} = a'x + b\) hay \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 2:</em></strong> Giải phương trình \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 3:</em></strong> Từ các giá trị \(x\) tìm được, thay vào \(y = a{x^2}\) hoặc \(y = a'x + b\) để tìm \(y\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tìm tham số m để đường thẳng y = a'x + b ( a' ≠ 0) cắt parabol y = ax² (a ≠ 0) tại điểm cho trước (cho trước hoành độ, tung độ hoặc toạ độ của giao điểm)</h3>
+<div><p><strong><em>Bước 1: </em></strong>Xác định toạ độ của giao điểm (nếu đề chỉ cho hoành độ hoặc tung độ)</p>
+<p><strong><em>Bước 2: </em></strong>Thay hoành độ, tung độ của giao điểm vào hàm số chứa tham số.</p>
+<p><strong><em>Bước 3: </em></strong>Giải phương trình để tìm m.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm tham số m để đường thẳng y = a'x + b ( a' ≠ 0) cắt parabol y = ax² (a ≠ 0) tại hai điểm phân biệt</h3>
+<div><p>Để tìm tham số \(m\) sao cho đường thẳng \(y = a'x + b\left( {a' \ne 0} \right)\) cắt parabol \(y = a{x^2}\left( {a \ne 0} \right)\) tại hai điểm phân biệt, ta làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xét phương trình hoành độ giao điểm của đường thẳng và parabol: \(a{x^2} = a'x + b\) hay \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 2: </em></strong>Tính biệt thức \(\Delta \) hoặc \(\Delta '\).</p>
+<p>Để đường thẳng cắt parabol tại hai điểm phân biệt thì \(\Delta  &gt; 0\) hoặc \(\Delta ' &gt; 0\).</p>
+<p><strong><em>Bước 3: </em></strong>Giải bất phương trình để tìm m.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm tham số m để đường thẳng y = a'x + b ( a' ≠ 0) tiếp xúc với parabol y = ax² (a ≠ 0)</h3>
+<div><p>Để tìm tham số \(m\) sao cho đường thẳng \(y = a'x + b\left( {a' \ne 0} \right)\) tiếp xúc với parabol \(y = a{x^2}\left( {a \ne 0} \right)\), ta làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xét phương trình hoành độ giao điểm của đường thẳng và parabol: \(a{x^2} = a'x + b\) hay \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 2: </em></strong>Tính biệt thức \(\Delta \) hoặc \(\Delta '\).</p>
+<p>Để đường thẳng tiếp xúc với parabol tại hai điểm phân biệt thì \(\Delta  = 0\) hoặc \(\Delta ' = 0\).</p>
+<p><strong><em>Bước 3: </em></strong>Giải phương trình để tìm m.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm tham số m để đường thẳng y = a'x + b ( a' ≠ 0) và parabol y = ax² (a ≠ 0) không cắt nhau</h3>
+<div><p>Để tìm tham số \(m\) sao cho đường thẳng \(y = a'x + b\left( {a' \ne 0} \right)\) và parabol \(y = a{x^2}\left( {a \ne 0} \right)\) không cắt nhau, ta làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xét phương trình hoành độ giao điểm của đường thẳng và parabol: \(a{x^2} = a'x + b\) hay \(a{x^2} - a'x - b = 0\).</p>
+<p><strong><em>Bước 2: </em></strong>Tính biệt thức \(\Delta \) hoặc \(\Delta '\).</p>
+<p>Để đường thẳng cắt parabol tại hai điểm phân biệt thì \(\Delta  &lt; 0\) hoặc \(\Delta ' &lt; 0\).</p>
+<p><strong><em>Bước 3: </em></strong>Giải bất phương trình để tìm m.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Biệt thức ∆</h3>
+<div><p>Biệt thức, thường được ký hiệu là ∆, là một đại lượng quan trọng trong việc giải phương trình bậc hai. Nó giúp chúng ta xác định số lượng và loại nghiệm của phương trình.</p>
+<p>Biệt thức ∆ được tính bởi công thức: \(\Delta  = {b^2} - 4ac\).</p>
+<p>Dựa vào giá trị của ∆, chúng ta có thể xác định loại nghiệm của phương trình:</p>
+<p>Nếu \(\Delta  &gt; 0\), phương trình có hai nghiệm phân biệt.</p>
+<p>Nếu \(\Delta  = 0\), phương trình có một nghiệm kép.</p>
+<p>Nếu \(\Delta  &lt; 0\), phương trình vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho parabol &#xA0;\(\left( P \right): y = a{x^2}\left( {a \ne 0} \right)\)&#xA0;&#x111;i qua&#xA0;&#x111;i&#x1EC3;m &#xA0;\(A\left( { - 2;4} \right)\)&#xA0;v&#xE0; ti&#x1EBF;p x&#xFA;c v&#x1EDB;i &#x111;&#x1ED3; th&#x1ECB; &#xA0;c&#x1EE7;a h&#xE0;m s&#x1ED1;&#xA0;\(y = 2(m - 1)x - (m - 1)\).To&#x1EA1; &#x111;&#x1ED9; ti&#x1EBF;p &#x111;i&#x1EC3;m l&#xE0;&#xA0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(\left( {0;0} \right)\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\left( {1;1} \right)\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> A và B đúng                    </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Đáp án khác </div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">(P) &#x111;i qua &#x111;i&#x1EC3;m &#xA0;\(A\left( { - 2;4} \right)\)&#xA0;n&#xEA;n&#xA0;\(4 = a.{\left( { - 2} \right)^2} = 4a\) suy ra \( a = 1\)</p>
+<p style="text-align: left;">V&#x1EAD;y ph&#x1B0;&#x1A1;ng tr&#xEC;nh parabol (P) l&#xE0;&#xA0;\(y = {x^2}\)</p>
+<p style="text-align: left;">(P) ti&#x1EBF;p x&#xFA;c v&#x1EDB;i &#xA0;(d) th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m&#xA0;\({x^2} - 2(m - 1)x + (m - 1) = 0\)&#xA0;c&#xF3; nghi&#x1EC7;m k&#xE9;p khi \(\Delta &apos; = {( - (m - 1))^2} - m + 1 = 0\)</p>
+<p style="text-align: left;">\({m^2} - 2m + 1 - m + 1 = 0\)</p>
+<p style="text-align: left;">\({m^2} - 3m + 2 = 0\)</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; nghi&#x1EC7;m \(m = 1\) v&#xE0; \(m = 2\).</p>
+<p style="text-align: left;">N&#x1EBF;u m = 1 th&#xEC; ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m l&#xE0; x = 0.</p>
+<p style="text-align: left;">V&#x1EAD;y ti&#x1EBF;p &#x111;i&#x1EC3;m l&#xE0; \(\left( {0;0} \right)\).</p>
+<p style="text-align: left;">N&#x1EBF;u m = 2 th&#xEC; ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m l&#xE0; x = 1.</p>
+<p style="text-align: left;">V&#x1EAD;y ti&#x1EBF;p &#x111;i&#x1EC3;m l&#xE0; \(\left( {1;1} \right)\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho Parabol (P): \(y={{x}^{2}}\) v&#xE0; &#x111;&#x1B0;&#x1EDD;ng th&#x1EB3;ng (d): \(y=2(m+1)x-{{m}^{2}}-9\). T&#xEC;m m &#x111;&#x1EC3; (d) ti&#x1EBF;p x&#xFA;c v&#x1EDB;i (P).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(m=-4\)    </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <strong>\(m&gt;-4\)</strong></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <strong>\(m&lt;-4\)                                 </strong></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <strong>\(m=4\)</strong></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&#xE9;t ph&#x1B0;&#x1A1;ng tr&#xEC;nh ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m c&#x1EE7;a (P) v&#xE0; (d):</p>
+<p style="text-align: left;" align="center">\({{x}^{2}}=2(m+1)x-{{m}^{2}}-9\)</p>
+<p style="text-align: left;" align="center">\({{x}^{2}}-2(m+1)x+{{m}^{2}}+9=0\,\,\,\,\,\,\,(1)\)&#xA0;</p>
+<p style="text-align: left;">&#x110;&#x1EC3; (d) ti&#x1EBF;p x&#xFA;c (P) th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh (1) c&#xF3; nghi&#x1EC7;m k&#xE9;p khi&#xA0;\(\Delta &apos;=0 \)</p>
+<p style="text-align: left;">Suy ra \({{(m+1)}^{2}}-({{m}^{2}}+9)=0\)</p>
+<p style="text-align: left;">\(2m-8=0\)</p>
+<p style="text-align: left;">\(m=4\)</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EDB;i \(m=4\) th&#xEC; &#x111;&#x1B0;&#x1EDD;ng th&#x1EB3;ng (d) ti&#x1EBF;p x&#xFA;c v&#x1EDB;i (P).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho Parabol \((P):y=\dfrac{1}{4}{{x}^{2}}\) v&#xE0; &#x111;&#x1B0;&#x1EDD;ng th&#x1EB3;ng \((d):y=mx-2m+1\). T&#xEC;m m &#x111;&#x1EC3; (P) v&#xE0; (d) ti&#x1EBF;p x&#xFA;c nhau.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span>  m = – 2                                   </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> m = 2                           </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> m = – 1                                   </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> m = 1</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><strong>&#xA0;</strong>X&#xE9;t ph&#x1B0;&#x1A1;ng tr&#xEC;nh ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m c&#x1EE7;a (P) v&#xE0; (d) l&#xE0;:</p>
+<p>\(\dfrac{1}{4}{{x}^{2}}=mx-2m+1\)</p>
+<p>\(\dfrac{1}{4}{{x}^{2}}-mx+2m-1=0\)</p>
+<p>\({{x}^{2}}-4mx+8m-4=0\,\,(*)\)</p>
+<p>(P) v&#xE0; (d) ti&#x1EBF;p x&#xFA;c nhau khi v&#xE0; ch&#x1EC9; khi ph&#x1B0;&#x1A1;ng tr&#xEC;nh (*) c&#xF3; nghi&#x1EC7;m k&#xE9;p, khi &#x111;&#xF3; \( \Delta &apos;=0\)</p>
+<p>hay \({{(-2m)}^{2}}-(8m-4)=0\)</p>
+<p>\(4{{m}^{2}}-8m+4=0\)</p>
+<p>\({{(2m-2)}^{2}}=0\)</p>
+<p>\(m=1\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>T&#xEC;m t&#x1EA5;t c&#x1EA3; c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a tham s&#x1ED1; \(m\) &#x111;&#x1EC3; &#x111;&#x1B0;&#x1EDD;ng th&#x1EB3;ng \(y = x + 3 - m\) c&#x1EAF;t parabol \(y = {x^2}\) t&#x1EA1;i hai &#x111;i&#x1EC3;m ph&#xE2;n bi&#x1EC7;t.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(m &lt; \dfrac{{13}}{4}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(m &lt; 3\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(m &gt; 3\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(m &gt; \dfrac{13}{4}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&#xE9;t ph&#x1B0;&#x1A1;ng tr&#xEC;nh ho&#xE0;nh &#x111;&#x1ED9; giao &#x111;i&#x1EC3;m c&#x1EE7;a &#x111;&#x1B0;&#x1EDD;ng th&#x1EB3;ng \(d:\,\,\,y = x + 3 - m\) v&#xE0; parabol \(\left( P \right):\,\,y = {x^2}\) ta c&#xF3;:</p>
+<p>\({x^2} = x + 3 - m\)</p>
+<p>\({x^2} - x + m - 3 = 0\,\,\,\,\left( * \right)\)</p>
+<p>&#x110;&#x1B0;&#x1EDD;ng th&#x1EB3;ng \(\left( d \right)\) c&#x1EAF;t \(\left( P \right)\) t&#x1EA1;i hai &#x111;i&#x1EC3;m ph&#xE2;n bi&#x1EC7;t th&#xEC; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \( \left( * \right)\) c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t hay \(\Delta &gt; 0\)</p>
+<p>Ta c&#xF3;: \( \Delta&#xA0;= 1 - 4\left( {m - 3} \right) &gt; 0\)</p>
+<p>hay \(1 - 4m + 12 &gt; 0\)</p>
+<p>\(4m &lt; 13 \\ m &lt; \dfrac{{13}}{4}\)</p>
+<p>V&#x1EAD;y \(m &lt; \dfrac{{13}}{4}\) th&#x1ECF;a m&#xE3;n b&#xE0;i to&#xE1;n.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

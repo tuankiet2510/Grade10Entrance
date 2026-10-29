@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Căn bậc hai - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 09: Căn bậc hai</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Căn bậc hai là gì? Cách xác định căn bậc hai của một số thực không âm</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Căn bậc hai</h3>
+<div><p>Căn bậc hai của số thực không âm a là số thực x sao cho \({x^2} = a\).</p>
+<p><strong><em>Nhận xét:</em></strong></p>
+<p>- Số âm không có căn bậc hai.</p>
+<p>- Số 0 có một căn bậc hai duy nhất là 0.</p>
+<p>- Số dương a có đúng hai căn bậc hai đối nhau là \(\sqrt a \) (<em>căn bậc hai số học </em>của a) và \( - \sqrt a \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định căn bậc hai của một số thực không âm</h3>
+<div><p>Dựa vào khái niệm của căn bậc hai: \(x = \sqrt a \) khi \(x &gt; 0\) và \({x^2} = a\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Căn bậc hai số học của 9 l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>-3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\( \pm \)3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>81.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Căn bậc hai số học của 9 l&agrave; \(\sqrt 9&nbsp; = 3\).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body">Tìm căn bậc hai của 49.</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>7 và -7</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> -7</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 7</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sqrt 7 \) và \( - \sqrt 7 \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Căn bậc hai của 49 là 7 và -7.</p>
+<p><strong>Chọn A.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body">Căn bậc hai của 16 là</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt 4 \) và \( - \sqrt 4 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(4\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \( - 4\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(4\) và \( - 4\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Căn bậc hai của 16 là \(4\) và \( - 4\)</p>
+<p><strong>Chọn D.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body">Căn bậc hai số học của 81 là</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(9\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \( - 9\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \( \pm 9\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 6561.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có: \(\sqrt 4 {\rm{ \;}} = \sqrt {{2^2}} {\rm{ \;}} = 9\)</p>
+<p><strong>Chọn A.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Số n&agrave;o sau đ&acirc;y c&oacute; căn bậc hai số học bằng 4?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>-2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>16.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số c&oacute; căn bậc hai số học bằng 4 l&agrave; \({4^2} = 16\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Căn bậc hai số học của 25 l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>-5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>5 v&agrave; -5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>625 v&agrave; - 625.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\sqrt {25}&nbsp; = 5\).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Căn bậc hai của \(9\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>9 v&agrave; -9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>81.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3 v&agrave; -3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sqrt 9&nbsp; = 3\) n&ecirc;n 9 c&oacute; hai căn bậc hai l&agrave; 3 v&agrave; -3.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Số nào sau đây là căn bậc hai số học của số $a = 0,36.$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$ - 0,6$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$0,6$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$0,9$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 0,18$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Căn bậc hai số học của $a = 0,36$ là $\sqrt {0,36}  = 0,6$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tính giá trị căn bậc hai của một số thực dương bằng máy tính cầm tay</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Căn bậc hai</h3>
+<div><p>Căn bậc hai của số thực không âm a là số thực x sao cho \({x^2} = a\).</p>
+<p><strong><em>Nhận xét:</em></strong></p>
+<p>- Số âm không có căn bậc hai.</p>
+<p>- Số 0 có một căn bậc hai duy nhất là 0.</p>
+<p>- Số dương a có đúng hai căn bậc hai đối nhau là \(\sqrt a \) (<em>căn bậc hai số học </em>của a) và \( - \sqrt a \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính giá trị căn bậc hai của một số thực dương bằng máy tính cầm tay</h3>
+<div><p>Để tính các căn bậc hai của một số \(a &gt; 0\), chỉ cần tính \(\sqrt a \). Có thể dễ dàng làm điều này bằng cách sử dụng MTCT.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0519/1747646858479-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Sử dụng nút này để bấm căn bậc hai.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p><em>(Sử dụng máy tính cầm tay) </em>Bổ sung nút bấm vào dãy nút sau để kết quả phép tính bằng 8.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1122/1732244570182-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><img src="https://img.loigiaihay.com/picture/2025/0603/1748920778356-mceclip0.png"></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><img src="https://img.loigiaihay.com/picture/2025/0603/1748920823533-mceclip0.png"></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><img src="https://img.loigiaihay.com/picture/2025/0603/1748920867312-mceclip0.png"></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><img src="https://img.loigiaihay.com/picture/2025/0603/1748920887665-mceclip0.png"></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Sử dụng máy tính cầm tay, ta bấm được như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0702/1719914286831-mceclip0.png"></p>
+<p>Vậy cách bấm máy cho kết quả bằng 8 là đáp án A.</p>
+<p><strong>Đáp án A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Căn bậc hai có tính chất gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Căn bậc hai</h3>
+<div><p>Căn bậc hai của số thực không âm a là số thực x sao cho \({x^2} = a\).</p>
+<p><strong><em>Nhận xét:</em></strong></p>
+<p>- Số âm không có căn bậc hai.</p>
+<p>- Số 0 có một căn bậc hai duy nhất là 0.</p>
+<p>- Số dương a có đúng hai căn bậc hai đối nhau là \(\sqrt a \) (<em>căn bậc hai số học </em>của a) và \( - \sqrt a \).</p></div>
+</div>
+<div class="wiki-note">
+<div style="margin: 0 0 16px 0;color: #090A4A;font-family: OpenSansBold;font-weight: normal;font-size: 24px;"></div>
+<div>Căn bậc hai có các tính chất sau:</div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất căn bậc hai của một bình phương</h3>
+<div><p>\(\sqrt {{a^2}}  = \left| a \right|\) với mọi số thực a.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất căn bậc hai của một tích</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {{a^2}b}  = \left| a \right|\sqrt b \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số ra ngoài dấu căn.</em></p>
+<p>Ngược lại, ta có biến đổi <em>đưa thừa số vào trong dấu căn.</em></p>
+<p>+ Nếu \(a \ge 0\) thì \(a\sqrt b  = \sqrt {{a^2}b} \).</p>
+<p>+ Nếu \(a &lt; 0\) thì \(a\sqrt b  =  - \sqrt {{a^2}b} \).</p>
+<p><strong><em>Nhận xét: </em></strong>Ta có thể biến đổi \(\sqrt {ab}  = \sqrt a .\sqrt b \) hoặc \(\sqrt a .\sqrt b  = \sqrt {ab} \) (\(a \ge 0\) và \(b \ge 0\)) để việc tính toán được dễ dàng hơn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Tính chất căn bậc hai của một thương</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {\frac{a}{b}}  = \frac{{\sqrt a }}{{\sqrt b }}\).</p>
+<p>Ngược lại, ta có: \(\frac{{\sqrt a }}{{\sqrt b }} = \sqrt {\frac{a}{b}} \)</p>
+<p><strong><em>Nhận xét: </em></strong>Ta có thể biến đổi \(\sqrt {\frac{a}{b}}  = \frac{{\sqrt a }}{{\sqrt b }}\) hoặc \(\frac{{\sqrt a }}{{\sqrt b }} = \sqrt {\frac{a}{b}} \) (\(a \ge 0\) và \(b &gt; 0\)) để việc tính toán được dễ dàng hơn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Giá trị biểu thức \(\left( {\sqrt 5  + \sqrt 2 } \right)\sqrt {7 - 2\sqrt {10} } \) là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$5$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(\left( {\sqrt 5  + \sqrt 2 } \right)\sqrt {7 - 2\sqrt {10} } \)</p>
+<p style="text-align: left;">\(=\left( {\sqrt 5  + \sqrt 2 } \right)\sqrt {5 - 2\sqrt 5 .\sqrt 2  + 2}  = \left( {\sqrt 5  + \sqrt 2 } \right)\sqrt {{{\left( {\sqrt 5  - \sqrt 2 } \right)}^2}}  = \left( {\sqrt 5  + \sqrt 2 } \right)\left| {\sqrt 5  - \sqrt 2 } \right|\)</p>
+<p style="text-align: left;">\( = \left( {\sqrt 5  + \sqrt 2 } \right)\left( {\sqrt 5  - \sqrt 2 } \right) = 5 - 2 = 3\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị của biểu thức \(\dfrac{2}{5}\sqrt {25}&nbsp; - \dfrac{9}{2}\sqrt {\dfrac{{16}}{{81}}}&nbsp; + \sqrt {169} \) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$13$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$15$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;&nbsp; $\sqrt {25}&nbsp; = \sqrt {{5^2}}&nbsp; = \left| 5 \right| = 5$, $\sqrt {\dfrac{{16}}{{81}}}&nbsp; = \sqrt {{{\left( {\dfrac{4}{9}} \right)}^2}}&nbsp; = \left| {\dfrac{4}{9}} \right| = \dfrac{4}{9}$, $\sqrt {169}&nbsp; = \sqrt {{{13}^2}}&nbsp; = \left| {13} \right| = 13$</p>
+<p style="text-align: left;">N&ecirc;n \(\dfrac{2}{5}\sqrt {25}&nbsp; - \dfrac{9}{2}\sqrt {\dfrac{{16}}{{81}}}&nbsp; + \sqrt {169} \)$ = \dfrac{2}{5}.5 - \dfrac{9}{2}.\dfrac{4}{9} + 13 = 2 - 2 + 13 = 13$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&iacute;nh gi&aacute; trị biểu thức $\sqrt {{{\left( {2 - \sqrt 3 } \right)}^2}}&nbsp; + \sqrt {{{\left( {1 - \sqrt 3 } \right)}^2}}$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2\sqrt 3 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {{{\left( {2 - \sqrt 3 } \right)}^2}}&nbsp; = \left| {2 - \sqrt 3 } \right|$ m&agrave; $2 = \sqrt 4&nbsp; &gt; \sqrt 3 $ (v&igrave; $4 &gt; 3$) n&ecirc;n $2 - \sqrt 3&nbsp; &gt; 0$. Từ đ&oacute; $\sqrt {{{\left( {2 - \sqrt 3 } \right)}^2}}&nbsp; = \left| {2 - \sqrt 3 } \right| = 2 - \sqrt 3 $.</p>
+<p style="text-align: left;">Ta c&oacute; $\sqrt {{{\left( {1 - \sqrt 3 } \right)}^2}}&nbsp; = \left| {1 - \sqrt 3 } \right|$ m&agrave; $1 = \sqrt 1&nbsp; &lt; \sqrt 3 $ (v&igrave; $1 &lt; 3$) n&ecirc;n $1 - \sqrt 3&nbsp; &lt; 0$. Từ đ&oacute;</p>
+<p style="text-align: left;">$\sqrt {{{\left( {1 - \sqrt 3 } \right)}^2}}&nbsp; = \left| {1 - \sqrt 3 } \right|$$ = \sqrt 3&nbsp; - 1$.</p>
+<p style="text-align: left;">N&ecirc;n $\sqrt {{{\left( {2 - \sqrt 3 } \right)}^2}}&nbsp; + \sqrt {{{\left( {1 - \sqrt 3 } \right)}^2}} $$ = 2 - \sqrt 3&nbsp; + \sqrt 3&nbsp; - 1 = 1$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Tính giá trị biểu thức $6\sqrt {{{\left( { - 2,5} \right)}^2}}  - 8\sqrt {{{\left( { - 0,5} \right)}^2}} $.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$15$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ - 11$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ 11$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 13$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có $\sqrt {{{\left( { - 2,5} \right)}^2}}  = \left| { - 2,5} \right| = 2,5$ và $\sqrt {{{\left( { - 0,5} \right)}^2}}  = \left| { - 0,5} \right| = 0,5$</p>
+<p style="text-align: left;">Nên $6\sqrt {{{\left( { - 2,5} \right)}^2}}  - 8\sqrt {{{\left( { - 0,5} \right)}^2}} $$ = 6.2,5 - 8.0,5 = 15 - 4 = 11.$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị của biểu thức \(\sqrt {32}&nbsp; + \sqrt {50}&nbsp; - 3\sqrt 8&nbsp; - \sqrt {18} \) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">\(\sqrt {32}&nbsp; + \sqrt {50}&nbsp; - 3\sqrt 8&nbsp; - \sqrt {18} \)\( = \sqrt {16.2}&nbsp; + \sqrt {25.2}&nbsp; - 3\sqrt {4.2}&nbsp; - \sqrt {9.2} \)</p>
+<p style="text-align: left;">\(= 4\sqrt 2&nbsp; + 5\sqrt 2&nbsp; - 6\sqrt 2&nbsp; - 3\sqrt 2&nbsp; = 0\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Kết quả của ph&eacute;p t&iacute;nh $\sqrt {2,5} .\sqrt {14,4} $ l&agrave;?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$36$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$6$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$18$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$9$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">$\sqrt {2,5} .\sqrt {14,4}&nbsp; = \sqrt {2,5.14,4}&nbsp; = \sqrt {36}&nbsp; = \sqrt {{6^2}}&nbsp; = 6$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Ph&eacute;p t&iacute;nh $\sqrt {{{\left( { - 5} \right)}^2}{{.7}^2}} $ c&oacute; kết quả l&agrave;?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$35$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$5$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ - 35$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng tồn tại.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">C&aacute;ch giải:</p>
+<p style="text-align: left;">$\sqrt {{{\left( { - 5} \right)}^2}{{.7}^2}}&nbsp; = \sqrt {{{\left( { - 5} \right)}^2}} .\sqrt {{7^2}}&nbsp; = \left| { - 5} \right|.\left| 7 \right| = 5.7 = 35$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Kết quả của ph&eacute;p t&iacute;nh $\sqrt {\dfrac{{81}}{{169}}} $ l&agrave;?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{9}{{13}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{9}{{169}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{3}{{13}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\dfrac{{13}}{9}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">$\sqrt {\dfrac{{81}}{{169}}}&nbsp; = \dfrac{{\sqrt {81} }}{{\sqrt {169} }} = \dfrac{{\sqrt {{9^2}} }}{{\sqrt {{{13}^2}} }} = \dfrac{9}{{13}}$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Kết quả của ph&eacute;p t&iacute;nh $\sqrt {\dfrac{{ - 999}}{{111}}} $ l&agrave;?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$9$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$-9$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$-3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Kh&ocirc;ng tồn tại.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&igrave; $ - 999 &lt; 0;111 &gt; 0 \Rightarrow \dfrac{{ - 999}}{{111}} &lt; 0$ n&ecirc;n kh&ocirc;ng tồn tại căn bậc hai của số &acirc;m</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 10:</strong></div>
+  <div class="quiz-question-body"><p>T&#xED;nh \(\sqrt {{5^2}}&#xA0; + \sqrt {{{\left( { - 5} \right)}^2}} \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>50.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>10.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>-10.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;: \(\sqrt {{5^2}}&#xA0; + \sqrt {{{\left( { - 5} \right)}^2}}&#xA0; = \left| 5 \right| + \left| { - 5} \right| = 5 + 5 = 10\)</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 11:</strong></div>
+  <div class="quiz-question-body"><p>Th&#x1EF1;c hi&#x1EC7;n ph&#xE9;p t&#xED;nh: \(7\sqrt {12}&#xA0; + 2\sqrt {27}&#xA0; - 4\sqrt {75} \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(39\sqrt 3 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\( - 11\sqrt 3 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sqrt 3 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&#xF3;:</p>
+<p>\(\begin{array}{l}7\sqrt {12}&#xA0; + 2\sqrt {27}&#xA0; - 4\sqrt {75} \\ = 7\sqrt {4.3}&#xA0; + 2\sqrt {9.3}&#xA0; - 4\sqrt {25.3} \\ = 7.2\sqrt 3&#xA0; + 2.3\sqrt 3&#xA0; - 4.5\sqrt 3 \\ = 14\sqrt 3&#xA0; + 6\sqrt 3&#xA0; - 20\sqrt 3 \\ = 0\end{array}\)</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách so sánh hai căn bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Căn bậc hai</h3>
+<div><p>Căn bậc hai của số thực không âm a là số thực x sao cho \({x^2} = a\).</p>
+<p><strong><em>Nhận xét:</em></strong></p>
+<p>- Số âm không có căn bậc hai.</p>
+<p>- Số 0 có một căn bậc hai duy nhất là 0.</p>
+<p>- Số dương a có đúng hai căn bậc hai đối nhau là \(\sqrt a \) (<em>căn bậc hai số học </em>của a) và \( - \sqrt a \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính giá trị căn bậc hai của một số thực dương bằng máy tính cầm tay</h3>
+<div><p>Để tính các căn bậc hai của một số \(a &gt; 0\), chỉ cần tính \(\sqrt a \). Có thể dễ dàng làm điều này bằng cách sử dụng MTCT.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0519/1747646858479-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Sử dụng nút này để bấm căn bậc hai.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách so sánh hai căn bậc hai</h3>
+<div><p>Nếu \(a &gt; b &gt; 0\) thì \(\sqrt a  &gt; \sqrt b \). Suy ra \( - \sqrt a  &lt;  - \sqrt b  &lt; 0 &lt; \sqrt b  &lt; \sqrt a \).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh hai số \(5\) v&agrave; \(\sqrt {50}&nbsp; - 2\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(5 &gt; \sqrt {50}&nbsp; - 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(5 = \sqrt {50}&nbsp; - 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(5 &lt; \sqrt {50}&nbsp; - 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Chưa đủ điều kiện để so s&aacute;nh.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">T&aacute;ch \(5 = 7 - 2 = \sqrt {49}&nbsp; - 2\).</p>
+<p style="text-align: left;">V&igrave; \(49 &lt; 50 \) n&ecirc;n \( \sqrt {49}&nbsp; &lt; \sqrt {50} \)</p>
+<p style="text-align: left;">\( 7 &lt; \sqrt {50}&nbsp;\)</p>
+<p style="text-align: left;">\(7 - 2 &lt; \sqrt {50}&nbsp; - 2 \)</p>
+<p style="text-align: left;">\( 5 &lt; \sqrt {50}&nbsp; - 2\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">So s&aacute;nh hai số $2$ v&agrave; $1 + \sqrt 2 $.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$2 \ge 1 + \sqrt 2 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2 = 1 + \sqrt 2 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; mso-fareast-font-family: Calibri; mso-fareast-theme-font: minor-latin; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$2 &lt; 1 + \sqrt 2 $</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Kh&ocirc;ng thể so s&aacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p class="MsoNormal" style="margin-bottom: 2.0pt; line-height: 150%;"><span style="font-size: 12.0pt; line-height: 150%; font-family: 'Times New Roman','serif';">T</span>&aacute;ch $2 = 1 + 1 = 1 + \sqrt 1 $.</p>
+<p>V&igrave; $1 &lt; 2 $ n&ecirc;n $ \sqrt 1&nbsp; &lt; \sqrt 2 $</p>
+<p>$1 &lt; \sqrt 2&nbsp; $</p>
+<p>$1 + 1 &lt; 1 + \sqrt 2 $</p>
+<p>$2 &lt; 1 + \sqrt 2 $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Sắp xếp c&aacute;c số \(2\sqrt 5 ;3\sqrt 2 ;5;\sqrt {23} \) theo thứ tự tăng dần l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\sqrt 5 ;3\sqrt 2 ;5;\sqrt {23} \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(3\sqrt 2 ;2\sqrt 5 ;\sqrt {23} ;5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(2\sqrt 5 ;3\sqrt 2 ;\sqrt {23} ;5\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sqrt {23} ;5;3\sqrt 2 ;2\sqrt 5 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;:</p>
+<p>\(\begin{array}{l}2\sqrt 5&nbsp; = \sqrt {{2^2}.5}&nbsp; = \sqrt {20} ;\\3\sqrt 2&nbsp; = \sqrt {{3^2}.2}&nbsp; = \sqrt {18} ;\\5 = \sqrt {25} ;\\\sqrt {23} \end{array}\)</p>
+<p>V&igrave; \(18 &lt; 20 &lt; 23 &lt; 25\) n&ecirc;n \(\sqrt {18}&nbsp; &lt; \sqrt {20}&nbsp; &lt; \sqrt {23}&nbsp; &lt; \sqrt {25} \) hay \(3\sqrt 2&nbsp; &lt; 2\sqrt 5&nbsp; &lt; \sqrt {23}&nbsp; &lt; 5\).</p>
+<p>Vậy c&aacute;c số sắp xếp theo thứ tự tăng dần l&agrave; \(3\sqrt 2 ;2\sqrt 5 ;\sqrt {23} ;5\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>So s&aacute;nh hai số \(9\sqrt 7 \) v&agrave; \(8\sqrt 8 \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(8\sqrt 8&nbsp; &lt; 9\sqrt 7 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(8\sqrt 8&nbsp; = 9\sqrt 7 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(8\sqrt 8&nbsp; \ge 9\sqrt 7 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(9\sqrt 7&nbsp; &lt; 8\sqrt 8 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;:</p>
+<p>\(9\sqrt 7&nbsp; = \sqrt {{9^2}.7}&nbsp; = \sqrt {81.7}&nbsp; = \sqrt {567} \).</p>
+<p>\(8\sqrt 8&nbsp; = \sqrt {{8^2}.8}&nbsp; = \sqrt {64.8}&nbsp; = \sqrt {512} \).</p>
+<p>V&igrave; \(512 &lt; 567\) n&ecirc;n \(\sqrt {512}&nbsp; &lt; \sqrt {567} \) hay \(8\sqrt 8&nbsp; &lt; 9\sqrt 7 \).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách so sánh các căn bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách so sánh các căn bậc hai</h3>
+<div><p>Sử dụng công thức đưa thừa số ra ngoài dấu căn hoặc đưa thừa số vào trong dấu căn để so sánh hai căn bậc hai theo mối liên hệ \(0 \le A &lt; B\) khi và chỉ khi \(\sqrt A  &lt; \sqrt B \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất căn bậc hai của một tích</h3>
+<div><p>Với số thực a bất kì và b không âm, ta có</p>
+<p>\(\sqrt {{a^2}b}  = \left| a \right|\sqrt b \).</p>
+<p>Biến đổi này được gọi là <em>đưa thừa số ra ngoài dấu căn.</em></p>
+<p>Ngược lại, ta có biến đổi <em>đưa thừa số vào trong dấu căn.</em></p>
+<p>+ Nếu \(a \ge 0\) thì \(a\sqrt b  = \sqrt {{a^2}b} \).</p>
+<p>+ Nếu \(a &lt; 0\) thì \(a\sqrt b  =  - \sqrt {{a^2}b} \).</p>
+<p><strong><em>Nhận xét: </em></strong>Ta có thể biến đổi \(\sqrt {ab}  = \sqrt a .\sqrt b \) hoặc \(\sqrt a .\sqrt b  = \sqrt {ab} \) (\(a \ge 0\) và \(b \ge 0\)) để việc tính toán được dễ dàng hơn.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

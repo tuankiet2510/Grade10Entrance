@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác định tần số, tần số tương đối, vẽ các biểu đồ biểu diễn bảng tần số, tần số tương đối bằng Excel - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 45: Xác định tần số, tần số tương đối, vẽ các biểu đồ biểu diễn bảng tần số, tần số tương đối bằng Excel</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách xác định tần số, tần số tương đối và biểu diễn bằng biểu đồ bằng Excel</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định tần số</h3>
+<div>Để xác định tần số của một giá trị trong dãy dữ liệu, ta đếm số lần xuất hiện của giá trị đó trong mẫu dữ liệu.</div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tần số tương đối</h3>
+<div><p>Tần số tương đối của một giá trị là ước lượng cho xác suất xuất hiện giá trị đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách xác định tần số tương đối</h3>
+<div><p>Tần số tương đối thường được viết ở dạng % để không phải quy đồng mẫu mỗi khi so sánh chúng và để thuận tiện cho việc đưa ra dự đoán về một vấn đề, một hiện tượng nào đó liên quan đến mẫu dữ liệu. Khi đó công thức tính tần số tương đối được viết là:</p>
+<p>\({f_i} = \frac{{{n_i}}}{N}.100\% \)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Biểu đồ tần số thường gặp</h3>
+<div><p>Biểu đồ tần số thường gặp là biểu đồ tần số dạng cột và biểu đồ tần số dạng đoạn thẳng (còn được gọi là  đa giác tần số - frequency polygon).</p>
+<p><em>Ví dụ:</em> Hai biểu đồ này cùng biểu diễn dữ liệu “Kết quả kiểm tra môn Toán”:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622212184-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Biểu đồ tần số tương đối</h3>
+<div><p>Bảng tần số tương đối có thể được biểu thị bởi biểu đồ cột và biểu đồ hình quạt tròn.</p>
+<p>Các biểu đồ này được gọi là <em>biểu đồ tần số tương đối (dạng cột và dạng hình quạt tròn).</em></p></div>
+</div>
+<div style="padding: 7px">
+<h3>7. Cách xác định tần số, tần số tương đối và biểu diễn bằng biểu đồ bằng Excel</h3>
+<div><p>Để xác định tần số, tần số tương đối và biểu diễn bằng biểu đồ (biểu đồ cột, biểu đồ hình quạt tròn từ một dãy dữ liệu dạng liệt kê trong Excel, ta thực hiện các bước sau:</p>
+<p><strong><em>Bước 1. </em></strong>Nhập dữ liệu dạng liệt kê vào một cột trong bảng tính.</p>
+<p><strong><em>Bước 2. </em></strong>Tạo bảng dữ liệu bằng cách xác định vùng dữ liệu và đặt tên bảng dữ liệu.</p>
+<p><strong><em>Bước 3. </em></strong>Sử dụng chức năng Pivot Table để tạo bảng tần số, tần số tương đối.</p>
+<p><strong><em>Bước 4. </em></strong>Từ bảng tần số, tần số tương đối vẽ đồ thị biểu diễn.</p>
+<p><strong>Chú ý. </strong>Việc tạo bảng dữ liệu sẽ giúp ta vẫn có các bảng, các biểu đồ khi thay đổi dữ liệu mà không cần thực hiện lại các bước trên, chỉ cần cập nhật dữ liệu và dùng chức năng Refresh.</p>
+<p>Các thao tác cụ thể có thể khác nhau tuỳ thuộc vào phiên bản của Excel.</p>
+<p><em>Ví dụ:</em></p>
+<p>Trước vòng bán kết giải bóng đá trường, Ban tổ chức đã phát phiếu hỏi các cổ động viên về đội vô địch.</p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0804/1754303345826-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Kết quả thu được như sau:</p>
+<p>A, B, C, A, A, B, C, A, B, D, A, D, A, A, B, C, B, A, A, C, B, D, D, A, B, C, B, A, C.</p>
+<p>Để xác định bảng tần số, tần số tương đối cho dãy dữ liệu này trong Excel, ta làm như sau:</p>
+<p><strong><em>Bước 1.</em></strong> Nhập dãy dữ liệu trên vào vùng dữ liệu A2:A31, ô A1 là tên cột “Kết quả".</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303357548-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Bước 2.</em></strong> Chọn Insert → Table, chọn vùng dữ liệu $A$1:$A$31, tích vào ô My table has headers. Trong ô Table Name đặt tên cho bảng dữ liệu là <em>Dudoandoivodich</em>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303366761-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303372511-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303378125-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303382326-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Bước 3.</em></strong> Chọn Insert → Pivot Table.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303389401-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong ô Table Range điền tên bảng dữ liệu Dudoandoivodich, chọn Existing Worksheet, trong ô Location chọn một vùng dữ liệu bất kì nào đó để đặt bảng kết quả, chẳng hạn ta chọn vùng C2: E6 thì ô này sẽ hiện \(Sheet3!\$ C\$ 2:\$ E\$ 6\). Chọn OK.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303397571-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303404968-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong bảng Pivot Table Field List, kéo thả trường Kết quả vào 2 ô Rowlabels và Values, ta sẽ thu được bảng tần số.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303412166-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Để thu được tần số tương đối của các giá trị, trong ô E3 ta điền \( = D3/\$ D\$ 7\) và sao chép công thức đến hết ô E6, điền nội dung "Tần số tương đối" vào ô E2 và kiểm tra tổng tần số tương đối bằng cách điển =SUM(E3:E6) vào ô E7. Kết quả thu được như hình sau.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303418967-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bước 4. Để vẽ biểu đồ ta chọn vùng dữ liệu C3:D6, sau đó vào Insert chọn biểu đồ cột hoặc biểu đồ hình quạt tròn, điền các thông tin cần thiết để hoàn thiện biểu đồ. Kết quả thu được như hình sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303426190-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303433990-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách vẽ biểu đồ biểu diễn bảng tần số, tần số tương đối ghép nhóm bằng Excel</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Bảng tần số tương đối ghép nhóm</h3>
+<div><p><strong><em>Bảng tần số tương đối ghép nhóm </em></strong>là bảng tần số tương đối của các nhóm số liệu:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0705/1751705856877-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p style="text-align: center;"><em>Bảng tần số tương đối ghép nhóm</em></p>
+<p>trong đó \(n = {m_1} + ... + {m_k}\) và</p>
+<p>\({f_1} = \frac{{{m_1}}}{n}.100\left( \%  \right)\) là tần số tương đối của nhóm \({\rm{[}}{a_1};{a_2})\),…,</p>
+<p>\({f_k} = \frac{{{m_k}}}{n}.100\left( \%  \right)\) là tần số tương đối của nhóm \({\rm{[}}{a_k};{a_{k + 1}})\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biểu đồ tần số tương đối ghép nhóm</h3>
+<div><p>- Để mô tả các bảng tần số tương đối ghép nhóm, ta có thể dùng <em>biểu đồ tần số tương đối ghép nhóm dạng cột (histogram).</em></p>
+<p><strong><em>- Biểu đồ tần số tương đối ghép nhóm dạng cột</em></strong> là biểu đồ gồm các cột kề nhau, mỗi cột tương ứng với một nhóm. Cột biểu diễn nhóm [a; b) có đầu mút trái là a, đầu mút phải là b và có chiều cao tương ứng với tần số tương đối của nhóm.</p>
+<p><strong><em>- Biểu đồ tần số tương đối ghép nhóm dạng đoạn thẳng </em></strong>là đường gấp khúc đi từ trái qua phải, nối các điểm trên mặt phẳng, mỗi điểm có hoành độ là giá trị đại diện cho nhóm số liệu và có tung độ tương ứng với tần số tương đối của nhóm số liệu đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Biểu đồ tần số tương đối ghép nhóm dạng cột</h3>
+<div><strong><em>Biểu đồ tần số tương đối ghép nhóm dạng cột</em></strong> là biểu đồ gồm các cột kề nhau, mỗi cột tương ứng với một nhóm. Cột biểu diễn nhóm [a; b) có đầu mút trái là a, đầu mút phải là b và có chiều cao tương ứng với tần số tương đối của nhóm.</div>
+</div>
+<div style="padding: 7px">
+<h3>4. Biểu đồ tần số tương đối ghép nhóm dạng đoạn thẳng</h3>
+<div><p><strong><em>Biểu đồ tần số tương đối ghép nhóm dạng đoạn thẳng </em></strong>là đường gấp khúc đi từ trái qua phải, nối các điểm trên mặt phẳng, mỗi điểm có hoành độ là giá trị đại diện cho nhóm số liệu và có tung độ tương ứng với tần số tương đối của nhóm số liệu đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách vẽ biểu đồ biểu diễn bảng tần số, tần số tương đối ghép nhóm</h3>
+<div><p>Để vẽ các biểu đồ biểu diễn dữ liệu ghép nhóm sử dụng bảng tính Excel thích hợp và thực hiện các bước sau đây:</p>
+<p><strong><em>Bước 1.</em></strong> Nhập dữ liệu vào bảng tính Excel và lập bảng tần số tương đối ghép nhóm (nếu cần).</p>
+<p><strong><em>Bước 2. </em></strong>Lựa chọn loại biểu đồ cần biểu diễn.</p>
+<p><strong><em>Bước 3. </em></strong>Hoàn thiện biểu đồ bằng cách xác định tiêu đề của biểu đồ, chú giải cho các trục, nhãn dữ liệu biểu diễn.</p>
+<p><em>Ví dụ:</em></p>
+<p>Chiều cao của các cầu thủ đội bóng Manchester United được cho trong bảng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303464463-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p style="text-align: right;">(Theo <em>webthethao.vn</em>)</p>
+<p>Để vẽ biểu diễn tần số tương đối ghép nhóm dạng cột và dạng đoạn thẳng biểu diễn bằng số liệu ghép nhóm này, ta thực hiện theo các bước sau đây:</p>
+<p><strong><em>Bước 1. </em></strong>Nhập dữ liệu vào bảng tính Excel.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303474277-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Bước 2. </em></strong>Chọn vùng dữ liệu.</p>
+<p>- Để vẽ biểu đồ tần số tương đối ghép nhóm dạng cột ta chọn Insert → Columns → 2-D Columns sau đó chọn loại biểu đồ mong muốn.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303480013-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303485706-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Chọn Design, chọn Layout8 (histogram) trong ô Chart layouts.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303496084-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303507264-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Kết quả thu được như hình sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303518934-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Để vẽ biểu đồ tần số tương đối ghép nhóm dạng đoạn thẳng, ta chọn Insert → Line → 2-D lines, sau đó chọn loại biểu đồ mong muốn.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303527918-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Kết quả thu được như hình sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303534624-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Bước 3. </em></strong>Hoàn thiện biểu đồ:</p>
+<p>- Đối với biểu đồ tần số tương đối ghép nhóm dạng cột: Xác định tiêu đề của biểu đồ, chú giải cho các trục bằng cách chọn mục tương ứng và thay nội dung; gán nhãn dữ liệu biểu diễn bằng cách nháy nút phải chuột vào các cột của biểu đồ, chọn Add data labels. Kết quả ta thu được biểu đồ như hình sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303545287-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0804/1754303552321-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

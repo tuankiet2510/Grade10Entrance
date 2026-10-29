@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vị trí tương đối của đường thẳng và đường tròn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 22: Vị trí tương đối của đường thẳng và đường tròn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Vị trí tương đối của đường thẳng và đường tròn?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Vị trí tương đối của đường thẳng và đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749462972161-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749462978677-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Đường thẳng và đường tròn cắt nhau</h3>
+<div><p>- Khi đường thẳng và đường tròn có hai điểm chung, ta nói đường thẳng và đường tròn cắt nhau.</p>
+<p>- Nếu đường thẳng và đường tròn cắt nhau thì mỗi điểm chung được gọi là một giao điểm.</p>
+<p><strong><em>Nhận xét:</em></strong> Đường thẳng a cắt đường tròn (O;R) khi khoảng cách từ tâm O đến đường thẳng a nhỏ hơn R và ngược lại.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749462993099-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Đường thẳng và đường tròn tiếp xúc nhau</h3>
+<div><p>Khi đường thẳng và đường tròn có đúng một điểm chung, ta nói đường thẳng và đường tròn tiếp xúc<br/>nhau tại điểm chung đó.<br/>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.<br/><strong><em>Nhận xét:</em> </strong>Đường thẳng <em>a </em>tiếp xúc với đường tròn (<em>O;R</em>) khi khoảng cách từ tâm <em>O </em>đến đường thẳng <em>a </em>bằng <em>R </em>và ngược lại.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463006773-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Đường thẳng và đường tròn không giao nhau</h3>
+<div><p>Khi đường thẳng và đường tròn không có điểm chung, ta nói đường thẳng và đường tròn không giao<br/>nhau.<br/><strong>Nhận xét: </strong>Đường thẳng <em>a </em>và đường tròn (<em>O;R</em>) không giao nhau khi khoảng cách từ tâm <em>O </em>đến đường thẳng <em>a </em>lớn hơn <em>R </em>và ngược lại.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463021427-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Đường thẳng \(a\)  cách tâm \(O\)  của đường tròn \(\left( {O;R} \right)\)một khoảng bằng \(\sqrt 8 \,\,cm.\) Biết \(R = 3\,\,cm,\) số giao điểm của đường thẳng \(a\)  và đường tròn \(\left( {O;R} \right)\) là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(0\)                              </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(1\)                          </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(3\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://img.loigiaihay.com/picture/2025/0707/17518553632401594700555719-duong-tron-o.png" alt="" width="203" height="143">Ta có: \(d\left( {O;\,\,a} \right) = \sqrt 8 ;\,\,\,\,R = 3 \) suy ra \( d\left( {O;\,\,a} \right) < R\)<br>Nên đường thẳng \(a\) cắt đường tròn \(\left( {O;\,\,R} \right)\) tại hai điểm phân biệt.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tròn \(\left( {O;4cm} \right)\) và \(\left( {O';3cm} \right)\) biết \(OO' = 5cm\). Hai đường tròn trên cắt nhau tại \(A\) và \(B\). Độ dài \(AB\) là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(2,4cm\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(4,8cm\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac{5}{{12}}cm\)&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(5cm\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p class="default" style="text-align: left;"><img src="https://img.loigiaihay.com/picture/2025/0418/1744949078183-mceclip0.png"></p>
+<p class="default" style="text-align: left;">Gọi giao điểm của AB và OO' là H. Khi đó AB vuông góc với OO' tại H.</p>
+<p class="default" style="text-align: left;">Xét tam giác \(OAO'\)  có \(O{A^2} + O'{A^2} = OO{'^2}\) (vì \({4^2} + {3^2} = {5^2}\)) nên tam giác \(OAO'\)  vuông tại \(A\).</p>
+<p class="default" style="text-align: left;">Xét tam giác \(OAO'\)  có \(AH\) là đường cao nên \(AH.OO' = OA.O'A \Rightarrow AH = \dfrac{{OA.O'A}}{{OO'}} = \dfrac{{4.3}}{5} = \dfrac{{12}}{5}\)</p>
+<p class="default" style="text-align: left;">Mà \(AB = 2AH\) nên \(AB = \dfrac{{24}}{5} = 4,8cm\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Đường thẳng v&agrave; đường tr&ograve;n c&oacute; nhiều nhất bao nhi&ecirc;u điểm chung</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Đường thẳng v&agrave; đường tr&ograve;n c&oacute; nhiều nhất hai điểm chung.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(a,b\) l&agrave; hai đường thẳng song song v&agrave; c&aacute;ch nhau một khoảng \(3\,cm\). Lấy điểm \(I\) tr&ecirc;n \(a\) v&agrave; vẽ đường tr&ograve;n \(\left( {I;3,5cm} \right)\). Khi đ&oacute; đường tr&ograve;n với đường thẳng&nbsp; \(b\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>kh&ocirc;ng cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>tiếp x&uacute;c</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>đ&aacute;p &aacute;n kh&aacute;c</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; hai đường thẳng song song \(a,b\) c&aacute;ch nhau một khoảng l&agrave; \(3\,cm\) m&agrave; \(I \in a\) n&ecirc;n khoảng c&aacute;ch từ t&acirc;m \(I\) đến đường thẳng \(b\) l&agrave; \(d = 3\,cm\).</p>
+<p>Suy ra \(d &lt; R\left( {3\,cm &lt; 3,5\,cm} \right)\) n&ecirc;n đường tr&ograve;n \(\left( {I;3,5cm} \right)\) v&agrave; đường thẳng \(b\) cắt nhau.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Nếu đường thẳng v&agrave; đường tr&ograve;n c&oacute; hai điểm chung th&igrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>đường thẳng tiếp x&uacute;c với đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>đường thẳng cắt đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>đường thẳng kh&ocirc;ng cắt đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>đ&aacute;p &aacute;n kh&aacute;c.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đường thẳng v&agrave; đường tr&ograve;n c&oacute; hai điểm chung th&igrave; đường thẳng cắt đường tr&ograve;n.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Nếu đường thẳng v&agrave; đường tr&ograve;n c&oacute; duy nhất một điểm chung th&igrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">đường thẳng tiếp x&uacute;c với đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">đường thẳng cắt đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">đường thẳng kh&ocirc;ng cắt đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">đ&aacute;p &aacute;n kh&aacute;c</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><table style="border-collapse: collapse; border: none; border-color: black;" border="1">
+<tbody>
+<tr>
+<td style="width: 392px;" width="405">
+<p><strong><em>Vị tr&iacute; tương đối của đường thẳng v&agrave; đường tr&ograve;n</em></strong></p>
+</td>
+<td style="text-align: center; width: 73px;" width="85">
+<p><strong><em>Số điểm</em></strong></p>
+<p><strong><em>chung</em></strong></p>
+</td>
+<td style="text-align: center; width: 107px;" width="113">
+<p><strong><em>Hệ thức giữa</em></strong></p>
+<p><strong>$d$<em> v&agrave; </em>$R$</strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 392px;" width="405">
+<p>Đường thẳng v&agrave; đường tr&ograve;n cắt nhau</p>
+</td>
+<td style="text-align: center; width: 73px;" width="85">
+<p>$R$</p>
+</td>
+<td style="text-align: center; width: 107px;" width="113">
+<p>$d &lt; R$</p>
+</td>
+</tr>
+<tr>
+<td style="width: 392px;" width="405">
+<p>Đường thẳng v&agrave; đường tr&ograve;n tiếp x&uacute;c nhau</p>
+</td>
+<td style="text-align: center; width: 73px;" width="85">
+<p>$1$</p>
+</td>
+<td style="text-align: center; width: 107px;" width="113">
+<p>$d = R$</p>
+</td>
+</tr>
+<tr>
+<td style="width: 392px;" width="405">
+<p>Đường thẳng v&agrave; đường tr&ograve;n kh&ocirc;ng giao nhau</p>
+</td>
+<td style="text-align: center; width: 73px;" width="85">
+<p>$0$</p>
+</td>
+<td style="text-align: center; width: 107px;" width="113">
+<p>$d &gt; R$</p>
+</td>
+</tr>
+</tbody>
+</table><p style="text-align: left;">Đường thẳng v&agrave; đường tr&ograve;n chỉ c&oacute; một điểm chung th&igrave; đường thẳng tiếp x&uacute;c với đường tr&ograve;n.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \(\left( O \right)\) v&agrave; đường thẳng \(a\). Kẻ \(OH \bot a\) tại \(H\), biết \(OH &lt; R,\) khi đ&oacute; đường thẳng \(a\) v&agrave; đường tr&ograve;n \(\left( O \right)\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>kh&ocirc;ng cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>tiếp x&uacute;c</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>đ&aacute;p &aacute;n kh&aacute;c</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(OH &lt; R\) n&ecirc;n a cắt \(\left( O \right).\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n $\left( O \right)$ v&agrave; đường thẳng $a$. Kẻ $OH \bot a$ tại $H$, biết $OH &gt; R$ khi đ&oacute; đường thẳng $a$ v&agrave; đường tr&ograve;n $\left( O \right)$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">kh&ocirc;ng cắt nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">tiếp x&uacute;c</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">đ&aacute;p &aacute;n kh&aacute;c</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&igrave; $OH &gt; R$ n&ecirc;n a kh&ocirc;ng cắt $\left( O \right).$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p>Khoảng c&aacute;ch từ điểm O đến đường thẳng a bằng 7cm. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Đường thẳng a tiếp x&uacute;c với đường tr&ograve;n (O; 7cm).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Đường thẳng a cắt đường tr&ograve;n (O; 5cm).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Đường thẳng a kh&ocirc;ng giao với đường tr&ograve;n (O; 5cm).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Đường thẳng a cắt đường tr&ograve;n t&acirc;m (O; 8cm).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; khoảng c&aacute;ch từ O đến đường thẳng a bằng 7cm n&ecirc;n a tiếp x&uacute;c với (O; 7cm) <strong><em>(khẳng định A đ&uacute;ng).</em></strong></p>
+<p>V&igrave; 5cm &lt; 7cm n&ecirc;n a kh&ocirc;ng tiếp x&uacute;c với đường tr&ograve;n (O; 5cm) <strong><em>(B sai, C đ&uacute;ng)</em></strong>.</p>
+<p>V&igrave; 8cm &gt; 7cm n&ecirc;n a cắt đường tr&ograve;n (O; 8cm) <strong><em>(khẳng định D đ&uacute;ng).</em></strong></p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 10:</strong></div>
+  <div class="quiz-question-body"><p>Số điểm chung của một đường thẳng v&agrave; một đường tr&ograve;n nhiều nhất l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>3.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số điểm chung của đường thẳng v&agrave; đường tr&ograve;n nhiều nhất l&agrave; 2 điểm khi đường thẳng v&agrave; đường tr&ograve;n cắt nhau.</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 11:</strong></div>
+  <div class="quiz-question-body"><p>Điền v&agrave;o c&aacute;c vị tr&iacute; \(\left( 1 \right);\left( 2 \right)\)&nbsp; trong bảng sau (\(R\) l&agrave; b&aacute;n k&iacute;nh của đường tr&ograve;n, \(d\) l&agrave; khoảng c&aacute;ch từ t&acirc;m đến đường thẳng)&nbsp;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( 1 \right)\)&nbsp;: cắt nhau&nbsp;; \(\left( 2 \right)\)&nbsp;: \(9\,cm\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( 1 \right)\)&nbsp;tiếp x&uacute;c nhau&nbsp;; \(\left( 2 \right)\)&nbsp;: \(8\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( 1 \right)\)&nbsp;: kh&ocirc;ng cắt&nbsp; nhau&nbsp;; \(\left( 2 \right)\)&nbsp;: \(9\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( 1 \right)\)&nbsp;: kh&ocirc;ng cắt nhau&nbsp;; \(\left( 2 \right)\)&nbsp;: \(10\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>+) V&igrave; \(d &gt; R\left( {5\,cm &lt; 3\,cm} \right)\) n&ecirc;n đường thẳng kh&ocirc;ng cắt đường tr&ograve;n hay (1) điền l&agrave;: Kh&ocirc;ng cắt nhau.</p>
+<p>+) V&igrave; đường thẳng tiếp x&uacute;c với đường tr&ograve;n n&ecirc;n \(d = R = 9\,cm\) hay (2) điền l&agrave; \(9\,cm\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 12:</strong></div>
+  <div class="quiz-question-body"><p>Cho $\left( {O;R} \right)$ v&agrave; đường thẳng $a,$ gọi $d$ l&agrave; khoảng c&aacute;ch từ $O$ đến $a.$ Ph&aacute;t biểu n&agrave;o sau đ&acirc;y l&agrave; sai:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Nếu $d &lt; R$ , th&igrave; đường thẳng a cắt đường tr&ograve;n (O)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Nếu $d &gt; R$ , th&igrave; đường thẳng a kh&ocirc;ng cắt đường tr&ograve;n (O)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Nếu $d = R$ th&igrave; đường thẳng a đi qua t&acirc;m O của đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Nếu $d = R$ th&igrave; đường thẳng a tiếp x&uacute;c với đường tr&ograve;n (O)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu \(d = R\) th&igrave; đường thẳng tiếp x&uacute;c với đường tr&ograve;n n&ecirc;n C sai, D đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 13:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Điền v&agrave;o c&aacute;c vị tr&iacute; $\left( 1 \right);\left( 2 \right)$&nbsp; trong bảng sau ($R$ l&agrave; b&aacute;n k&iacute;nh của đường tr&ograve;n, $d$ l&agrave; khoảng c&aacute;ch từ t&acirc;m đến đường thẳng)&nbsp;:</span></p><table style="border-collapse: collapse; border: none; border-color: black;" border="1">
+<tbody>
+<tr>
+<td style="width: 79px; text-align: center;" width="75">
+<p>$R$</p>
+</td>
+<td style="width: 89px; text-align: center;" width="66">
+<p>$d$</p>
+</td>
+<td style="width: 394px; text-align: center;" width="463">
+<p><strong><em>Vị tr&iacute; tương đối của đường thẳng v&agrave; đường tr&ograve;n</em></strong></p>
+</td>
+</tr>
+<tr>
+<td style="width: 79px; text-align: center;" width="75">
+<p>$5cm$</p>
+</td>
+<td style="width: 89px; text-align: center;" width="66">
+<p>$\,4\,cm$</p>
+</td>
+<td style="width: 394px; text-align: center;" width="463">
+<p>...............$\left( 1 \right)$...................</p>
+</td>
+</tr>
+<tr>
+<td style="width: 79px; text-align: center;" width="75">
+<p>$8cm$</p>
+</td>
+<td style="width: 89px; text-align: center;" width="66">
+<p>...$\left( 2 \right)$...</p>
+</td>
+<td style="width: 394px; text-align: center;" width="463">
+<p>Tiếp x&uacute;c nhau</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\left( 1 \right)$<span lang="FR">&nbsp;: cắt nhau&nbsp;; $\left( 2 \right)$&nbsp;: $8\,cm$</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\left( 1 \right)$<span lang="FR">&nbsp;: $9\,cm$; $\left( 2 \right)$&nbsp;: cắt nhau&nbsp;</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\left( 1 \right)$<span lang="FR">&nbsp;: kh&ocirc;ng cắt&nbsp; nhau&nbsp;; $\left( 2 \right)$&nbsp;: $8\,cm$</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\left( 1 \right)$<span lang="FR">&nbsp;: cắt nhau&nbsp;; $\left( 2 \right)$&nbsp;: $6\,cm$</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+) V&igrave; $d &lt; R\left( {4cm &lt; 5cm} \right)$ n&ecirc;n đường thẳng cắt đường tr&ograve;n</p>
+<p style="text-align: left;">+) V&igrave; đường thẳng tiếp x&uacute;c với đường tr&ograve;n n&ecirc;n $d = R = 8\,cm$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Tiếp điểm là gì? Tiếp tuyến của đường tròn là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Đường thẳng và đường tròn tiếp xúc nhau</h3>
+<div><p>Khi đường thẳng và đường tròn có đúng một điểm chung, ta nói đường thẳng và đường tròn tiếp xúc<br/>nhau tại điểm chung đó.<br/>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.<br/><strong><em>Nhận xét:</em> </strong>Đường thẳng <em>a </em>tiếp xúc với đường tròn (<em>O;R</em>) khi khoảng cách từ tâm <em>O </em>đến đường thẳng <em>a </em>bằng <em>R </em>và ngược lại.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463006773-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Nếu đường thẳng&nbsp; $d$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( O \right)$ tại $A$ th&igrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$d{\rm{//}}OA$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$d \equiv OA$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$d \bot OA$ tại$A$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$d \bot OA$ tại $O$&nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Nếu một đường thẳng l&agrave; tiếp tuyến của đường tr&ograve;n th&igrave; n&oacute; vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua tiếp điểm.</p>
+<p style="text-align: left;">N&ecirc;n $d \bot OA$ tại tiếp điểm $A$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Hai đường tr&ograve;n \(\left( O \right)\) v&agrave; \(\left( {O'} \right)\) tiếp x&uacute;c ngo&agrave;i. Số tiếp tuyến chung của ch&uacute;ng l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>4.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="data:image/png;base64,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" width="300" /></p><p>Hai đường tr&ograve;n \(\left( O \right)\) v&agrave; \(\left( {O'} \right)\) tiếp x&uacute;c ngo&agrave;i th&igrave; c&oacute; 3 tiếp tuyến chung.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách nhận biết tiếp tuyến. Cách tìm điều kiện để đường thẳng là tiếp tuyến của đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách nhận biết tiếp tuyến</h3>
+<div><p>Nếu một đường thẳng đi qua một điểm nằm trên một đường tròn và vuông góc với bán kính đi qua điểm đó thì đường thẳng ấy là tiếp tuyến của đường tròn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm điều kiện để đường thẳng là tiếp tuyến của đường tròn</h3>
+<div><p>+ Nếu một đường thẳng đi qua một điểm của đường tròn và vuông góc với bán kính đi qua điểm đó thì đường thẳng ấy là một tiếp tuyến của đường tròn.</p>
+<p>+) Nếu một đường thằng và một đường tròn chỉ có một điểm chung thì đường thẳng đó là tiếp tuyến của đường tròn.</p>
+<p>+) Nếu khoảng cách từ tâm của một đường tròn đến đường thẳng bằng bán kính của đường tròn thì đường thẳng đó là tiếp tuyến của đường tròn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\left( {O;R} \right)$. Đường thẳng $d$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {O;R} \right)$ tại tiếp điểm $A$ khi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$d \bot OA$ tại $A$ v&agrave; $A \in \left( O \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$d \bot OA$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$A \in \left( O \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$d{\rm{//}}OA$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Nếu một đường thẳng đi qua một điểm của đường tr&ograve;n v&agrave; vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua điểm đ&oacute; th&igrave; đường thẳng ấy l&agrave; một tiếp tuyến của đường tr&ograve;n.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>&ldquo;Nếu một đường thẳng&nbsp; đi qua một điểm của đường tr&ograve;n v&agrave; &hellip; th&igrave; đường thẳng ấy l&agrave; một tiếp tuyến của đường tr&ograve;n&rdquo;.&nbsp; Cụm từ th&iacute;ch hợp điền v&agrave;o chỗ trống l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>song song với b&aacute;n k&iacute;nh đi qua điểm đ&oacute;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua điểm đ&oacute;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>song song với b&aacute;n k&iacute;nh đường tr&ograve;n</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh bất k&igrave;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu một đường thẳng&nbsp; đi qua một điểm của đường tr&ograve;n v&agrave; vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua điểm đ&oacute; th&igrave; đường thẳng ấy l&agrave; một tiếp tuyến của đường tr&ograve;n.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \(\left( O \right)\) v&agrave; điểm \(A\) nằm tr&ecirc;n đường tr&ograve;n \(\left( O \right).\) Nếu đường thẳng&nbsp; \(d \bot OA\) tại \(A\)&nbsp; th&igrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(d\) l&agrave; tiếp tuyến của \(\left( O \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(d\) cắt \(\left( O \right)\) tại hai điểm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(d\) l&agrave; tiếp x&uacute;c với \(\left( O \right)\) tại \(O\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Cả A, B, C đều sai</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu một đường thẳng đi qua một điểm thuộc đường tr&ograve;n v&agrave; vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua điểm đ&oacute; th&igrave; đường thẳng đ&oacute; l&agrave; tiếp tuyến của đường tr&ograve;n.</p>
+<p>Hay \(d\) l&agrave; tiếp tuyến của \(\left( O \right)\) tại \(A.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC c&oacute; AB = 3, AC = 4, BC = 5. Khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>AC l&agrave; tiếp tuyến của đường tr&ograve;n (B; 3).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>AC l&agrave; tiếp tuyến của đường tr&ograve;n (C; 4).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>BC l&agrave; tiếp tuyến của đường tr&ograve;n (A; 3).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>AB l&agrave; tiếp tuyến của đường tr&ograve;n (C; 3).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tam gi&aacute;c ABC c&oacute;: \(A{B^2} + A{C^2} = {3^2} + {4^2} = {5^2} = B{C^2}\) n&ecirc;n tam gi&aacute;c ABC vu&ocirc;ng tại A (theo định l&iacute; Pythagore đảo).</p>
+<p>Suy ra AB vu&ocirc;ng g&oacute;c với AC tại A. M&agrave; A thuộc đường tr&ograve;n (B; AB) hay (B; 3).</p>
+<p>Do đ&oacute; AC l&agrave; tiếp tuyến của đường tr&ograve;n (B; 3).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách chứng minh một đường thẳng là tiếp tuyến của đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách nhận biết tiếp tuyến</h3>
+<div><p>Nếu một đường thẳng đi qua một điểm nằm trên một đường tròn và vuông góc với bán kính đi qua điểm đó thì đường thẳng ấy là tiếp tuyến của đường tròn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách chứng minh một đường thẳng là tiếp tuyến của đường tròn</h3>
+<div><p>Để chứng minh đường thẳng d là tiếp tuyến của đường tròn (O;R) tại tiếp điểm A, ta có thể làm theo cách sau:</p>
+<p><strong>Cách 1. </strong>Chứng minh \(OA \bot d\) tại A và \(A \in \left( O \right)\).</p>
+<p><strong>Cách 2. </strong>Vẽ \(OH \bot d\). Chứng minh \(OH \equiv OA = R\).</p>
+<p><strong>Cách 3. </strong>Vẽ tiếp tuyến \(d'\) của \(\left( O \right)\). Ta chứng minh \(d \equiv d'\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c $ABC$ c&oacute; $AC = 3cm,AB = 4cm,BC = 5cm$. Vẽ đường tr&ograve;n $\left( {C;CA} \right)$. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Đường thẳng $BC$ cắt đường tr&ograve;n $\left( {C;CA} \right)$ tại một điểm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AB$ l&agrave; c&aacute;t tuyến của đường tr&ograve;n $\left( {C;CA} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$AB$ l&agrave; tiếp tuyến của $\left( {C;CA} \right)$&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$BC$ l&agrave; tiếp tuyến của $\left( {C;CA} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+) X&eacute;t tam gi&aacute;c $ABC$ c&oacute; \(B{C^2} = {5^2} = 25;A{B^2} + A{C^2} = {4^2} + {3^2} = 25; \Rightarrow B{C^2} = A{B^2} + A{C^2}\)</p>
+<p style="text-align: left;">\( \Rightarrow \Delta ABC\) vu&ocirc;ng tại A (định l&yacute; Pytago đảo)</p>
+<p style="text-align: left;">\( \Rightarrow AB \bot AC\) m&agrave; $A \in \left( {C;CA} \right)$ n&ecirc;n $AB$ l&agrave; tiếp tuyến của $\left( {C;CA} \right)$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam giác $ABC$ cân tại $A$; đường cao $AH$ và $BK$ cắt nhau tại $I$. Khi đó đường thẳng nào sau đây là tiếp tuyến của đường tròn đường kính $AI$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$HK$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;"><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$IB$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$IC$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$AC$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi $O$ là trung điểm $AI$. Xét tam giác vuông $AIK$ có $OK = OI = OA \Rightarrow K \in \left( {O;\dfrac{{AI}}{2}} \right)$ (*)</p>
+<p style="text-align: left;">Ta đi chứng minh $OK \bot KH$ tại $K$.</p>
+<p style="text-align: left;">Xét tam giác $OKA$ cân tại $O$ ta có $\widehat {OKA} = \widehat {OAK}$ $\left( 1 \right)$</p>
+<p style="text-align: left;">Vì tam giác $ABC$ cân tại $A$ có đường cao $AH$ nên $H$ là trung điểm của$BC$ . Xét tam giác vuông $BKC$ có $HK = HB = HC = \dfrac{{BC}}{2}$</p>
+<p style="text-align: left;">Suy ra tam giác $KHB$ cân tại $H$ nên $\widehat {HKB} = \widehat {HBK}$$\left( 2 \right)$</p>
+<p style="text-align: left;">Mà $\widehat {HBK} = \widehat {KAH}$ (cùng phụ với $\widehat {ACB}$) $\left( 3 \right)$</p>
+<p style="text-align: left;">Từ $\left( 1 \right);\left( 2 \right);\left( 3 \right)$ suy ra $\widehat {HKB} = \widehat {AKO}$ mà $\widehat {AKO} + \widehat {OKI} = 90^\circ  \Rightarrow \widehat {HKB} + \widehat {OKI} = 90^\circ  \Rightarrow \widehat {OKH} = 90^\circ $ hay $OK \bot KH$ tại $K$ (**)</p>
+<p style="text-align: left;">Từ (*) và (**) thì $HK$ là tiếp tuyến của đường tròn đường kính $AI$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c $ABC$ c&oacute; $AB = 5,AC = 12,BC = 13$. Khi đ&oacute;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$AB$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {C;5} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$AC$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {B;5} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$AB$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {B;12} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$AC$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {C;13} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t \(\Delta ABC\) c&oacute;:</p>
+<p>\(A{B^2} + A{C^2} = {5^2} + {12^2} = 169 = {13^2} = B{C^2}\)</p>
+<p>&Aacute;p dụng định l&yacute; Py-ta-go đảo ta c&oacute; \(\Delta ABC\) vu&ocirc;ng tại \(A\). Do đ&oacute; \(AB \bot AC\).</p>
+<p>$AB$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {C;12} \right)$</p>
+<p>$AC$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {B;5} \right)$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c \(MNP\) c&oacute; \(MN = 5cm,NP = 12cm,MP = 13cm\). Vẽ đường tr&ograve;n \(\left( {M;NM} \right)\). Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(NP\) l&agrave; tiếp tuyến của \(\left( {M;MN} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(MP\) l&agrave; tiếp tuyến của \(\left( {M;MN} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\Delta MNP\) vu&ocirc;ng tại \(M\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\Delta MNP\) vu&ocirc;ng tại \(P\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>+) X&eacute;t tam gi&aacute;c \(MNP\) c&oacute; \(M{P^2} = {13^2} = 169;N{M^2} + N{P^2} = {5^2} + {12^2} = 169\)\( \Rightarrow M{P^2} = N{M^2} + N{P^2}\)</p>
+<p>\( \Rightarrow \Delta MNP\) vu&ocirc;ng tại N (định l&yacute; Pytago đảo)</p>
+<p>\( \Rightarrow MN \bot NP\) m&agrave; \(N \in \left( {M;MN} \right)\) n&ecirc;n \(NP\) l&agrave; tiếp tuyến của&nbsp; \(\left( {M;MN} \right)\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh chữ nhật ABCD, H l&agrave; h&igrave;nh chiếu của A l&ecirc;n BD. M, N lần lượt l&agrave; trung điểm của BH, CD. Đường n&agrave;o sau đ&acirc;y l&agrave; tiếp tuyến của đường tr&ograve;n t&acirc;m A, b&aacute;n k&iacute;nh AM.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(BN\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(MN\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(AB\)&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(CD\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Lấy E l&agrave; trung điểm của AH. Do M l&agrave; trung điểm của BH (gt) n&ecirc;n EM l&agrave; đường trung b&igrave;nh của \(\Delta AHB\) \( \Rightarrow {\rm{ }}EM{\rm{ }}//{\rm{ }}AB\) v&agrave; \(EM = \dfrac{1}{2}\;AB.\)</p>
+<p>H&igrave;nh chữ nhật ABCD c&oacute; CD // AB v&agrave; CD = AB m&agrave; N l&agrave; trung điểm của DC, suy ra</p>
+<p>\(DN//AB\) v&agrave; \(DN = \;\dfrac{1}{2}AB.\)</p>
+<p>Từ (1) v&agrave; (2) ta c&oacute; EM // DN v&agrave; EM = DN</p>
+<p>Suy ra tứ gi&aacute;c EMND l&agrave; h&igrave;nh b&igrave;nh h&agrave;nh, do đ&oacute; DN // EM.</p>
+<p>M&agrave; \(DN{\rm{ }} \bot AD\)=&gt;\(EM{\rm{ }} \bot AD\)&nbsp; (t&iacute;nh chất h&igrave;nh chữ nhật)</p>
+<p>\(AH \bot DM\)&nbsp; (gt) n&ecirc;n E l&agrave; trực t&acirc;m của ∆ADM</p>
+<p>Suy ra \(DE \bot AM,\) m&agrave; DE // MN (cmt)</p>
+<p>&nbsp;\( \Rightarrow MN\; \bot AM\) tại M.</p>
+<p>V&igrave; vậy MN l&agrave; tiếp tuyến của đường tr&ograve;n (A ; AM).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho nửa đường tr&ograve;n (O ; R), AB l&agrave; đường k&iacute;nh. D&acirc;y BC c&oacute; độ d&agrave;i R. Tr&ecirc;n tia đối của tia CB lấy điểm D sao cho \(CD = 3R. \) Chọn c&acirc;u đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>AD l&agrave; tiếp tuyến của đường tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\widehat {ACB} = 90^\circ \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(AD\) cắt đường tr&ograve;n \(\left( {O;R} \right)\) tại hai điểm ph&acirc;n biệt</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Cả A, B đều đ&uacute;ng.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; AB l&agrave; đường k&iacute;nh của (O ; R) n&ecirc;n AB = 2R.</p>
+<p>V&igrave; D thuộc tia đối của tia CB n&ecirc;n</p>
+<p>\(BD = CD + BC = 3R + R = 4R\) .</p>
+<p>Suy ra \(\dfrac{{AB}}{{BD}} = \dfrac{{2R}}{{4R}} = \dfrac{1}{2};\,\dfrac{{BC}}{{AB}} = \dfrac{R}{{2R}} = \dfrac{1}{2}\)</p>
+<p>X&eacute;t ∆ABD v&agrave; ∆CBA c&oacute; \(\widehat B\) chung v&agrave; \(\dfrac{{BC}}{{AB}} = \dfrac{{AB}}{{BD}} = \dfrac{1}{2}\)&nbsp; (cmt)</p>
+<p>V&igrave; vậy \(\Delta ABD \backsim \Delta CBA\) (c.g.c)&nbsp; \( \Rightarrow \widehat {DAB}{\rm{ = }}\widehat {ACB}{\rm{ }}\)</p>
+<p>M&agrave; C thuộc (O ; R) v&agrave; AB l&agrave; đường k&iacute;nh n&ecirc;n \(OC = OA = OB = \dfrac{{AB}}{2}\)&nbsp; suy ra \(\Delta ACB\) vu&ocirc;ng tại \(C\) hay \(\widehat {ACB} = 90^\circ \) . Do đ&oacute; \(\widehat {DAB}{\rm{ = }}\widehat {ACB} = 90^\circ \) hay \(AD \bot AB\)</p>
+<p>Suy ra AD l&agrave; tiếp tuyến của \(\left( {O;R} \right).\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách tính độ dài đoạn thẳng, góc liên quan đến tiếp tuyến của đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách chứng minh một đường thẳng là tiếp tuyến của đường tròn</h3>
+<div><p>Để chứng minh đường thẳng d là tiếp tuyến của đường tròn (O;R) tại tiếp điểm A, ta có thể làm theo cách sau:</p>
+<p><strong>Cách 1. </strong>Chứng minh \(OA \bot d\) tại A và \(A \in \left( O \right)\).</p>
+<p><strong>Cách 2. </strong>Vẽ \(OH \bot d\). Chứng minh \(OH \equiv OA = R\).</p>
+<p><strong>Cách 3. </strong>Vẽ tiếp tuyến \(d'\) của \(\left( O \right)\). Ta chứng minh \(d \equiv d'\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính độ dài đoạn thẳng, góc liên quan đến tiếp tuyến của đường tròn</h3>
+<div><p>Vận dụng kiến thức về tiếp tuyến và hệ thức lượng trong tam giác vuông để tính toán.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $\left( {O;5cm} \right)$. Đường thẳng $d$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( {O;5\,cm} \right)$, khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Khoảng c&aacute;ch từ $O$ đến đường thẳng $d$ nhỏ hơn $5\,cm$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Khoảng c&aacute;ch từ $O$ đến đường thẳng $d$ lớn hơn $5\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Khoảng c&aacute;ch từ $O$ đến đường thẳng $d$ bằng $5\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Khoảng c&aacute;ch từ $O$ đến đường thẳng $d$ bằng $6\,cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Khoảng c&aacute;ch từ t&acirc;m của một đường tr&ograve;n đến tiếp tuyến bằng b&aacute;n&nbsp; k&iacute;nh của đường tr&ograve;n đ&oacute;.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n t&acirc;m $O$ b&aacute;n k&iacute;nh $3cm$ v&agrave; một điểm $A$ c&aacute;ch $O$ l&agrave; $5cm$. Kẻ tiếp tuyến $AB$ với đường tr&ograve;n ( $B$ l&agrave; tiếp điểm). T&iacute;nh độ d&agrave;i $AB$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$AB = \,3\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AB = \,4\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$AB = \,5\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$AB = \,2\,cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&igrave; $AB$ l&agrave; tiếp tuyến v&agrave; $B$ l&agrave; tiếp điểm n&ecirc;n $OB = R = 3\,cm$; $AB \bot OB$ tại $B$.</p>
+<p style="text-align: left;">&Aacute;p dụng định l&yacute; Pytago cho tam gi&aacute;c $ABO$ vu&ocirc;ng tại $B$ ta được $AB = \sqrt {O{A^2} - O{B^2}}&nbsp; = \sqrt {{5^2} - {3^2}}&nbsp; = 4\,cm$</p>
+<p style="text-align: left;">Vậy $AB = \,4\,cm$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n $\left( {O;R} \right)$ v&agrave; d&acirc;y $AB = 1,2R$. Vẽ một tiếp tuyến song song với $AB$, cắt c&aacute;c tia $OA,OB$ lần lượt tại $E$ v&agrave; $F$. T&iacute;nh diện t&iacute;ch tam gi&aacute;c $OEF$ theo $R$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">${S_{OEF}} = 0,75{R^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">${S_{OEF}} = 1,5{R^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">${S_{OEF}} = 0,8{R^2}$&nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;"><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">${S_{OEF}} = 1,75{R^2}$</span></span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Kẻ $OH \bot EF$ tại $H$ v&agrave; cắt $AB$ tại $I$ suy ra $OI \bot AB$ ( v&igrave; $AB{\rm{//}}EF$)</p>
+<p style="text-align: left;">X&eacute;t $\left( O \right)$ c&oacute; $OI \bot AB$ tại $I$ n&ecirc;n $I$ l&agrave; trung điểm của $AB$ (li&ecirc;n hệ giữa đường k&iacute;nh v&agrave; d&acirc;y)</p>
+<p style="text-align: left;">$ \Rightarrow IA = IB = \dfrac{{AB}}{2} = 0,6R$. Lại c&oacute; $OA = R$.</p>
+<p style="text-align: left;">&Aacute;p dụng định l&yacute; Pytago cho tam gi&aacute;c vu&ocirc;ng $OIA$ ta c&oacute; $OI = \sqrt {O{A^2} - I{A^2}}&nbsp; = 0,8R$.</p>
+<p style="text-align: left;">M&agrave; $AI\,{\rm{//}}\,EH$ n&ecirc;n $\dfrac{{AI}}{{EH}} = \dfrac{{OI}}{{OH}} = \dfrac{{0,8R}}{R} \Rightarrow EH = \dfrac{{0,6R}}{{0,8}} = 0,75R$</p>
+<p style="text-align: left;">$\Delta OEF$c&acirc;n tại $O$ (v&igrave; $\widehat E = \widehat F = \widehat {BAO} = \widehat {ABO}$) c&oacute; $OH \bot EF$ n&ecirc;n $H$ l&agrave; trung điểm của $EF$</p>
+<p style="text-align: left;">$ \Rightarrow EF = 2EH = 1,5R$$ \Rightarrow {S_{EOF}} = \dfrac{{OH.EF}}{2} = 0,75{R^2}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho \(\left( {O;4cm} \right)\). Đường thẳng \(d\) l&agrave; tiếp tuyến của đường tr&ograve;n \(\left( {O;4\,cm} \right)\), khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Khoảng c&aacute;ch từ \(O\) đến đường thẳng \(d\) nhỏ hơn \(4\,cm\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Khoảng c&aacute;ch từ \(O\) đến đường thẳng \(d\) bằng \(4\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Khoảng c&aacute;ch từ \(O\) đến đường thẳng \(d\) lớn hơn \(4\,cm\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Khoảng c&aacute;ch từ \(O\) đến đường thẳng \(d\) bằng \(5\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Khoảng c&aacute;ch từ t&acirc;m của một đường tr&ograve;n đến tiếp tuyến bằng b&aacute;n&nbsp; k&iacute;nh của đường tr&ograve;n đ&oacute;.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n t&acirc;m \(O\) b&aacute;n k&iacute;nh \(6cm\) v&agrave; một điểm \(A\) c&aacute;ch \(O\) l&agrave; \(10cm\). Kẻ tiếp tuyến \(AB\) với đường tr&ograve;n ( \(B\) l&agrave; tiếp điểm). T&iacute;nh độ d&agrave;i \(AB\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(AB = \,12\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(AB = \,4\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(AB = \,6\,cm\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(AB = \,8\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(AB\) l&agrave; tiếp tuyến v&agrave; \(B\) l&agrave; tiếp điểm n&ecirc;n \(OB = R = 6\,cm\); \(AB \bot OB\) tại \(B\).</p>
+<p>&Aacute;p dụng định l&yacute; Pytago cho tam gi&aacute;c \(ABO\) vu&ocirc;ng tại \(B\) ta được \(AB = \sqrt {O{A^2} - O{B^2}}&nbsp; = \sqrt {{{10}^2} - {6^2}}&nbsp; = 8\,cm\)</p>
+<p>Vậy \(AB = \,8\,cm\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ, biết số đo cung \(BmD\) l&agrave; \({120^0}.\) Khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\widehat {OAB} = {75^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\widehat {OAB} = {60^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\widehat {OAB} = {45^0}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\widehat {OAB} = {30^0}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t $(O)$ c&oacute; $\widehat {BOD} = sđ&nbsp;\overparen{BmD}=120^0$</p>
+<p>m&agrave; g&oacute;c $BOD$ v&agrave; $AOB$ l&agrave; hai g&oacute;c kề b&ugrave; n&ecirc;n \(\widehat {AOB} = 180^\circ - \widehat {BOD} = 60^\circ \)</p>
+<p>X&eacute;t tam gi&aacute;c $AOB$ vu&ocirc;ng tại $B$ (do $AB$ l&agrave; tiếp tuyến) n&ecirc;n</p>
+<p>\( \widehat {AOB} + \widehat {OAB} = 90^\circ \Rightarrow \widehat {OAB} = 90^\circ - 60^\circ = 30^\circ \)&nbsp;</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Hai tiếp tuyến cắt nhau có tính chất gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của hai tiếp tuyến cắt nhau</h3>
+<div><p>Nếu hai tiếp tuyến của một đường tròn cắt nhau tại một điểm thì:<br/>• Điểm đó cách đều hai tiếp điểm.<br/>• Tia kẻ từ điểm đó đi qua tâm là tia phân giác của góc tạo bởi hai tiếp tuyến.<br/>• Tia kẻ từ tâm đi qua điểm đó là tia phân giác của góc tạo bởi hai bán kính đi qua các tiếp điểm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463146853-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Ví dụ: </em>Cho đường tròn (O), B, C \( \in \) (O). Tiếp tuyến của (O) tại B và C cắt nhau tại A.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463141174-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Khi đó:</p>
+<p>- AB = AC</p>
+<p>- Tia AO là tia phân giác của \(\widehat {BAC}\).</p>
+<p>- Tia OA là tia phân giác của \(\widehat {BOC}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>&ldquo;Cho hai tiếp tuyến của một đường tr&ograve;n cắt nhau tại một điểm. Tia nối từ điểm đ&oacute; tới t&acirc;m l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi&hellip; Tia nối từ&nbsp; t&acirc;m tới điểm đ&oacute; l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi&hellip;&rdquo; Hai cụm từ th&iacute;ch hợp v&agrave;o chỗ trống lần lượt l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>hai tiếp tuyến, hai b&aacute;n k&iacute;nh đi qua tiếp điểm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>hai b&aacute;n k&iacute;nh đi qua tiếp điểm, hai tiếp tuyến</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>hai tiếp tuyến, hai d&acirc;y cung</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>hai d&acirc;y cung, hai b&aacute;n k&iacute;nh</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Nếu hai tiếp tuyến của đường tr&ograve;n cắt nhau tại một điểm th&igrave;:</p>
+<p>- Điểm đ&oacute; c&aacute;ch đều hai tiếp điểm.</p>
+<p>- Tia kẻ từ điểm đ&oacute; đi qua t&acirc;m l&agrave; tia ph&acirc;n gi&aacute;c của c&aacute;c g&oacute;c tạo bởi hai tiếp tuyến.</p>
+<p>- Tia kẻ từ t&acirc;m đi qua điểm đ&oacute; l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi hai b&aacute;n k&iacute;nh đi qua tiếp điểm.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai tiếp tuyến của một đường tr&ograve;n cắt nhau tại một điểm. Chọn&nbsp; khẳng định sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Khoảng c&aacute;ch từ điểm đ&oacute; đến hai tiếp điểm l&agrave; bằng nhau</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Tia nối từ điểm đ&oacute; tới t&acirc;m l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi hai b&aacute;n k&iacute;nh</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Tia nối từ&nbsp; t&acirc;m tới điểm đ&oacute; l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi hai b&aacute;n k&iacute;nh</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Tia nối từ điểm đ&oacute; tới t&acirc;m l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi tiếp tuyến</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Nếu hai tiếp tuyến của đường tr&ograve;n cắt nhau tại một điểm th&igrave;:</span></p>
+<p style="text-align: left;"><span lang="FR">- Điểm đ&oacute; c&aacute;ch đều hai tiếp điểm.</span></p>
+<p style="text-align: left;"><span lang="FR">- Tia kẻ từ điểm đ&oacute; đi qua t&acirc;m l&agrave; tia ph&acirc;n gi&aacute;c của c&aacute;c g&oacute;c tạo bởi hai tiếp tuyến.</span></p>
+<p style="text-align: left;"><span lang="FR">- Tia kẻ từ t&acirc;m đi qua điểm đ&oacute; l&agrave; tia ph&acirc;n gi&aacute;c của g&oacute;c tạo bởi hai b&aacute;n k&iacute;nh đi qua tiếp điểm.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách tính độ dài đoạn thẳng, góc liên quan đến tính chất hai tiếp tuyến cắt nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách tính độ dài đoạn thẳng, góc liên quan đến tính chất hai tiếp tuyến cắt nhau</h3>
+<div><p>Vận dụng kiến thức về:</p>
+<p>- Tiếp tuyến, tính chất hai tiếp tuyến cắt nhau</p>
+<p>- Hệ thức lượng trong tam giác vuông</p>
+<p>- Định lí Pythagore</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của hai tiếp tuyến cắt nhau</h3>
+<div><p>Nếu hai tiếp tuyến của một đường tròn cắt nhau tại một điểm thì:<br/>• Điểm đó cách đều hai tiếp điểm.<br/>• Tia kẻ từ điểm đó đi qua tâm là tia phân giác của góc tạo bởi hai tiếp tuyến.<br/>• Tia kẻ từ tâm đi qua điểm đó là tia phân giác của góc tạo bởi hai bán kính đi qua các tiếp điểm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463146853-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Ví dụ: </em>Cho đường tròn (O), B, C \( \in \) (O). Tiếp tuyến của (O) tại B và C cắt nhau tại A.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463141174-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Khi đó:</p>
+<p>- AB = AC</p>
+<p>- Tia AO là tia phân giác của \(\widehat {BAC}\).</p>
+<p>- Tia OA là tia phân giác của \(\widehat {BOC}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Từ điểm \(M\) nằm ngoài đường tròn tâm \(O\), kẻ hai tiếp tuyến \(MA,{\mkern 1mu} {\mkern 1mu} MB\) (\(A,{\mkern 1mu} {\mkern 1mu} B\) là các tiếp điểm). Nếu $AM = 4cm,\,\,\angle AMB = 60^\circ$ thì
+<p style="text-align: center;"><img src="https://img.loigiaihay.com/picture/2024/1024/screenshot-19_1.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$BM = 4cm,\,\,\angle AMO = 60^\circ$.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> $BM = 8cm,\,\,\angle AMO = 30^\circ$.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> $BM = 4cm,\,\,\angle AMO = 30^\circ$.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> $BM = 8cm,\,\,\angle AMO = 60^\circ$.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vì \(MA,{\mkern 1mu} {\mkern 1mu} MB\) là hai tiếp tuyến nên \(MA = MB\) (tính chất tiếp tuyến)</p>
+<p>Do đó, \(\Delta MAB\) cân tại \(M\)</p>
+<p>Mà $\angle AMB = 60^\circ$ nên $\Delta MAB$ đều</p>
+<p>Suy ra, \(AB = MB = MA = 4{\mkern 1mu} {\mkern 1mu} \left( {cm} \right)\)</p>
+<p>Lại có: MO là tia phân giác của \(\angle AMB\)</p>
+<p>Suy ra, $\angle AMO = \dfrac{1}{2}\angle AMB = \dfrac{1}{2}.60^\circ  = 30^\circ$</p>
+<p><strong>Chọn C.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai tiếp tuyến PA v&agrave; PB của đường tr&ograve;n (O) (A, B l&agrave; hai tiếp điểm). Biết \(\widehat {APB} = 60^\circ \), khi đ&oacute; \(\widehat {APO}\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(120^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(60^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(20^\circ \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(30^\circ \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1126/1732607010533-mceclip0.png" width="300" /></p><p>V&igrave; hai tiếp tuyến PA v&agrave; PB của đường tr&ograve;n (O) cắt nhau tại P n&ecirc;n PO l&agrave; tia ph&acirc;n gi&aacute;c của \(\widehat {APB}\), suy ra \(\widehat {APO} = \widehat {BPO} = \frac{1}{2}\widehat {APB} = \frac{1}{2}.60^\circ&nbsp; = 30^\circ \).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p class="Default">Hai tiếp tuyến tại hai điểm \(B,C\) của một đường tròn \(\left( O \right)\) cắt nhau tại \(A\) tạo thành \(\widehat {BAC} = {50^0}\). Số đo của góc \(\widehat {BOC}\)  chắn cung nhỏ \(BC\) bằng </p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \({30^0}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <strong>\({40^0}\)</strong></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \({130^0}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \({310^0}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p class="default"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0714/1594701262523_cho_duong_tron_(O)_co_tiep_tuyen_AB_AC.png" alt="" width="300" height="205" /></p>
+<p class="default">V&igrave; hai tiếp tuyến của đường tr&ograve;n \(\left( O \right)\) cắt nhau tại \(A\) n&ecirc;n \(\widehat {ACO} = \widehat {ABO} = {90^0} \Rightarrow \widehat {CAB} + \widehat {COB} = {360^0} - {180^0} = {180^0}\)</p>
+<p class="default">M&agrave; \(\widehat {CAB} = {50^0}\) n&ecirc;n \(\widehat {COB} = {180^0} - {50^0} = {130^0}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n \((O).\) Từ một điểm \(M\) ở ngo&agrave;i \((O)\), vẽ hai tiếp tuyến \(MA\) v&agrave; \(MB\) sao cho g&oacute;c \(AMB\) bằng \({60^0}\). Biết chu vi tam gi&aacute;c \(MAB\) l&agrave; \(24\,cm\), t&iacute;nh độ d&agrave;i b&aacute;n k&iacute;nh đường tr&ograve;n.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(8\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\,8\sqrt 3\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac {8}{\sqrt 3}\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t \(\left( O \right)\) c&oacute; \(MA = MB\) (t&iacute;nh chất hai tiếp tuyến cắt nhau) m&agrave; \(\widehat {AMB} = 60^\circ \) n&ecirc;n \(\Delta MAB\) đều suy ra chu vi \(\Delta MAB\) l&agrave; \(MA + MB + AB = 3AB = 24 \)\(\Rightarrow AB = 8cm = MA = MB\)</p>
+<p>Lại c&oacute; \(\widehat {AMO} = \dfrac{1}{2}\widehat {AMB} = 30^\circ \) (t&iacute;nh chất 2 tiếp tuyến cắt nhau)</p>
+<p>X&eacute;t tam gi&aacute;c vu&ocirc;ng \(MAO\) c&oacute; \(\tan \widehat {AMO} = \dfrac{{OA}}{{MA}} \Rightarrow OA = MA.\tan 30^\circ&nbsp; = \dfrac {8}{\sqrt 3}\,cm\)&nbsp;</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Hai tiếp tuyến tại hai điểm $B,C$ của một đường tr&ograve;n $\left( O \right)$ cắt nhau tại $A$ tạo th&agrave;nh \(\widehat {BAC} = {50^0}\). Số đo của g&oacute;c \(\widehat {BOC}\)&nbsp; bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>${30^0}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>${40^0}$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>${130^0}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>${310^0}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; hai tiếp tuyến của đường tr&ograve;n $\left( O \right)$ cắt nhau tại $A$ n&ecirc;n \(\widehat {ACO} = \widehat {ABO} = {90^0} \Rightarrow \widehat {CAB} + \widehat {COB} = {360^0} - {180^0} = {180^0}\)</p>
+<p>M&agrave; \(\widehat {CAB} = {50^0}\) n&ecirc;n \(\widehat {COB} = {180^0} - {50^0} = {130^0}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Hai tiếp tuyến tại $A$ v&agrave; $B$ của đường tr&ograve;n $\left( {O;R} \right)$ &nbsp;cắt nhau tại $M.$ Nếu $MA = \;R\sqrt 3 $ th&igrave; g&oacute;c $\widehat {AOB}$ bằng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>${120^0}\;$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>${90^0}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>${60^0}$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>${45^0}$ &nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&oacute; $AM$ l&agrave; tiếp tuyến của đường tr&ograve;n $\left( O \right)$ n&ecirc;n $AM$ vu&ocirc;ng g&oacute;c với $OA$</p>
+<p>X&eacute;t tam gi&aacute;c $AOM$ vu&ocirc;ng tại $A$ n&ecirc;n c&oacute; $\tan \widehat {AOM} = \dfrac{{AM}}{{OA}} = \dfrac{{R\sqrt 3 }}{R} = \sqrt 3 $$ \Rightarrow \widehat {AOM} = {60^0}$</p>
+<p>M&agrave; hai tiếp tuyến $AM$ v&agrave; $BM$ cắt nhau tại $M$ n&ecirc;n ta c&oacute; $OM$ l&agrave; ph&acirc;n gi&aacute;c của $\widehat {AOB}$</p>
+<p>Vậy $\widehat {AOB}$$ = 2\widehat {AOM} = {2.60^0} = {120^0}$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tr&ograve;n $\left( {O;3cm} \right)$, lấy điểm $A$ sao cho $OA = 6cm$. Từ \(A\) vẽ tiếp tuyến $AB,AC$ đến đường tr&ograve;n $\left( O \right)$&nbsp; ($B,C$ l&agrave; tiếp điểm). Chu vi tam gi&aacute;c $ABC$ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$9cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$9\sqrt 3 cm$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$9\sqrt 2 cm$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Kết quả kh&aacute;c</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi $D$ l&agrave; giao điểm của $BC$ v&agrave; $OA$</p>
+<p>C&oacute; $OC \bot AC$ (t&iacute;nh chất tiếp tuyến của đường tr&ograve;n)</p>
+<p>X&eacute;t $\Delta OAC$ vu&ocirc;ng tại \(C\), ta c&oacute;: $O{C^2} + C{A^2} = O{A^2}$ (Py-ta-go)</p>
+<p>\( \Rightarrow A{C^2} = {\rm{ }}O{A^2} - {\rm{ }}O{C^2} = {6^2} - {3^2} = 36 - 9 = 27 \Rightarrow AC = 3\sqrt 3 cm\)</p>
+<p>M&agrave; $AC=AB$ (t&iacute;nh chất hai tiếp tuyến cắt nhau) n&ecirc;n $AB = 3\sqrt 3 cm$.</p>
+<p>V&igrave; $AC=AB;OB=OC$ n&ecirc;n $OA$ l&agrave; đường trung trực của $BC$ hay $OA \bot BC$ tại $D$ v&agrave; $D$ l&agrave; trung điểm của $CB.$</p>
+<p>X&eacute;t tam gi&aacute;c vu&ocirc;ng $OCA$ c&oacute; $CD$ l&agrave; đường cao n&ecirc;n:</p>
+<p>\(CD = \dfrac{{OC.CA}}{{OA}} = \dfrac{{3.3\sqrt 3 }}{6} = \dfrac{{3\sqrt 3 }}{2} \Rightarrow BC = 2CD = 3\sqrt 3 cm\)</p>
+<p>Vậy chu vi tam gi&aacute;c $ABC$ l&agrave; $3\sqrt 3&nbsp; + 3\sqrt 3&nbsp; + 3\sqrt 3&nbsp; = 9\sqrt 3 cm$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho đường tr&ograve;n $(O).$ Từ một điểm $M$ ở ngo&agrave;i $(O)$, vẽ hai tiếp tuyến $MA$ v&agrave; $MB$ sao cho g&oacute;c $AMB$ bằng ${120^0}$. Biết chu vi tam gi&aacute;c $MAB$ l&agrave; $6\left( {3 + 2\sqrt 3 } \right)cm$, t&iacute;nh độ d&agrave;i d&acirc;y $AB.$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$18\,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$6\sqrt 3 cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$12\sqrt 3 \,cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$15\,cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t $\left( O \right)$ c&oacute; $MA = MB$; $\widehat {AMO} = \widehat {BMO}$ (t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p style="text-align: left;">N&ecirc;n $\widehat {AMO} = 60^\circ $. X&eacute;t tam gi&aacute;c vu&ocirc;ng $AOM$ c&oacute; $AM = AO.cot\widehat {AMO} = \dfrac{{R\sqrt 3 }}{3}$ n&ecirc;n $MA = MB = \dfrac{{R\sqrt 3 }}{3}$</p>
+<p style="text-align: left;">Lại c&oacute; $\widehat {AOB} + \widehat {AMB} = 180^\circ&nbsp; \Rightarrow \widehat {AOB} = 60^\circ $ suy ra $\Delta AOB$ l&agrave; tam gi&aacute;c đều $ \Rightarrow AB = OB = OA = R$</p>
+<p style="text-align: left;">Chu vi tam gi&aacute;c $MAB$ l&agrave; $MA + MB + AB = \dfrac{{R\sqrt 3 }}{3} + \dfrac{{R\sqrt 3 }}{3} + R = 6\left( {3 + 2\sqrt 3 } \right)$</p>
+<p style="text-align: left;">hay $ R\left( {\dfrac{{3 + 2\sqrt 3 }}{3}} \right) = 6\left( {3 + 2\sqrt 3 } \right) \Rightarrow R = 18\,cm$ n&ecirc;n $AB = 18\,cm$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách chứng minh hai đoạn thẳng bằng nhau, hai đoạn thẳng song song, vuông góc</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách chứng minh hai đoạn thẳng bằng nhau, hai đoạn thẳng song song, vuông góc</h3>
+<div><p>Vận dụng kiến thức về:</p>
+<p>- Tiếp tuyến, tính chất hai tiếp tuyến cắt nhau</p>
+<p>- Hệ thức lượng trong tam giác vuông</p>
+<p>- Định lí Pythagore</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của hai tiếp tuyến cắt nhau</h3>
+<div><p>Nếu hai tiếp tuyến của một đường tròn cắt nhau tại một điểm thì:<br/>• Điểm đó cách đều hai tiếp điểm.<br/>• Tia kẻ từ điểm đó đi qua tâm là tia phân giác của góc tạo bởi hai tiếp tuyến.<br/>• Tia kẻ từ tâm đi qua điểm đó là tia phân giác của góc tạo bởi hai bán kính đi qua các tiếp điểm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463146853-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Ví dụ: </em>Cho đường tròn (O), B, C \( \in \) (O). Tiếp tuyến của (O) tại B và C cắt nhau tại A.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463141174-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Khi đó:</p>
+<p>- AB = AC</p>
+<p>- Tia AO là tia phân giác của \(\widehat {BAC}\).</p>
+<p>- Tia OA là tia phân giác của \(\widehat {BOC}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với côsin góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh huyền ) × (sin góc đối) </em></p>
+<p><em>= (cạnh huyền ) × (cosin góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907908794-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = a.\sin B = a.\cos C;\\c = a.\sin C = a.\cos B.\end{array}\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông kia nhân với tang góc đối hoặc côtang góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh góc vuông còn lại ) × (tan góc đối) </em></p>
+<p><em>= (cạnh góc vuông còn lại ) × (cot góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907938917-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = c.\tan B = c.\cot C;\\c = b.\tan C = b.\cot B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Hai tiếp tuyến tại B v&agrave; C của đường tr&ograve;n (O) cắt nhau tại A. Chọn khẳng định sai.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(AB = AC\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(OA \bot BC\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(OA\) l&agrave; đường trung trực của BC.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(OA \bot BC\) tại trung điểm của OA.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1125/1732522715766-mceclip0.png" /></p><p>V&igrave; hai tiếp tuyến tại B v&agrave; C của đường tr&ograve;n (O) cắt nhau tại A n&ecirc;n AB = AC (t&iacute;nh chất). <strong><em>Vậy A đ&uacute;ng.</em></strong></p>
+<p>Gọi H l&agrave; giao điểm của BC v&agrave; AO.</p>
+<p>X&eacute;t tam gi&aacute;c BOH v&agrave; tam gi&aacute;c COH c&oacute;:</p>
+<p>OB = OC</p>
+<p>\(\widehat {BOH} = \widehat {COH}\) (t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>OH chung</p>
+<p>n&ecirc;n \(\Delta BOH = \Delta COH\) suy ra \(\widehat {BHO} = \widehat {CHO}\).</p>
+<p>M&agrave; hai g&oacute;c kề b&ugrave; n&ecirc;n \(\widehat {BHO} = \widehat {CHO} = \frac{1}{2}.180^\circ&nbsp; = 90^\circ \).</p>
+<p>Suy ra \(OA \bot BC\). <strong><em>Vậy B đ&uacute;ng.</em></strong></p>
+<p>V&igrave; BH = HC (hai cạnh tương ứng) v&agrave; \(OA \bot BC\) n&ecirc;n OA l&agrave; đường trung trực của BC. <strong><em>Vậy C đ&uacute;ng.</em></strong></p>
+<p><strong><em>Vậy D sai.</em></strong></p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai đường tr&ograve;n&nbsp; $\left( O \right);\left( {O'} \right)$ cắt nhau tại $A,B$, trong đ&oacute; $O' \in \left( O \right)$. Kẻ đường k&iacute;nh $O'OC$ của đường tr&ograve;n $\left( O \right)$. Chọn khẳng định <strong>sai</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$AC = CB$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\widehat {CBO'} = 90^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$CA,CB$ l&agrave; hai tiếp tuyến của $\left( {O'} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$CA,CB$ l&agrave; hai c&aacute;t tuyến của $\left( {O'} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t đường tr&ograve;n $\left( O \right)$ c&oacute; $O'C$ l&agrave; đường k&iacute;nh, suy ra $\widehat {CBO'} = \widehat {CAO'} = 90^\circ $ hay $CB \bot O'B$ tại $B$ v&agrave; $AC \bot AO'$ tại $A$.</p>
+<p style="text-align: left;">Do đ&oacute; $AB,BC$ l&agrave; hai tiếp tuyến của $\left( {O'} \right)$ n&ecirc;n $AC = CB$ (t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p style="text-align: left;">N&ecirc;n A, B, C đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hai tiếp tuyến tại $A$ v&agrave; $B$ của đường tr&ograve;n $(O)$ cắt nhau tại $I$ . Đường thẳng qua $I$ v&agrave; vu&ocirc;ng g&oacute;c với $IA$ cắt $OB$ tại $K$. Chọn khẳng định <strong>đ&uacute;ng</strong>.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$OI = OK = KI$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$KI = KO$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$OI = OK$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$IO = IK$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t $\left( O \right)$c&oacute; $IA,IB$ l&agrave; hai tiếp tuyến cắt nhau tại $I$ n&ecirc;n $\widehat {AOI} = \widehat {KOI}$</p>
+<p style="text-align: left;">M&agrave; $OA{\rm{//}}KI$ (v&igrave; c&ugrave;ng vu&ocirc;ng g&oacute;c với $AI$) n&ecirc;n $\widehat {KIO} = \widehat {IOA}$ (hai g&oacute;c ở vị tr&iacute; so le trong)</p>
+<p style="text-align: left;">Từ đ&oacute; $\widehat {KOI} = \widehat {KIO}$ suy ra $\Delta KOI$ c&acirc;n tại $K \Rightarrow KI = KO$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 9</span>
+                <h2 class="lesson-title">9. Cát tuyến của đường tròn là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Cát tuyến của đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463187278-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu đường thẳng a và đường tròn (O) có hai điểm chung A, B thì ta nói a cắt (O), a là <em>cát tuyến</em> của đường tròn và A, B là hai giao điểm.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

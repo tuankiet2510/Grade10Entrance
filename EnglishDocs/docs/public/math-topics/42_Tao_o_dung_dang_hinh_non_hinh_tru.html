@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo đồ dùng dạng hình nón, hình trụ - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 42: Tạo đồ dùng dạng hình nón, hình trụ</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách tạo đồ dùng dạng hình nón</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hình nón trong thực tiễn</h3>
+<div><p>Trong thực tiễn, có nhiều đồ vật được thiết kế, chế tạo ở dạng hình nón, chẳng hạn, chiếc nón lá. Chiếc nón lá không chỉ là một vật dụng thiết yếu trong đời sống sinh hoạt hằng ngày mà đã trở thành một nét đặc trưng cho văn hoá nước ta. Hình ảnh tiền thân của chiếc nón lá đã được chạm khắc trên trống đồng Ngọc Lũ, thạp đồng Đào Thịnh vào khoảng 2500 – 3000 năm trước Công nguyên.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266517056-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/><br/>Ngày nay nón lá cũng là quà tặng đặc biệt cho du khách nước ngoài khi đến tham quan Việt Nam. Hình ảnh chiếc nón lá cũng đã đi vào kiến trúc như nhà hát Cao Văn Lầu ở Bạc Liêu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266522946-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tạo đồ dùng dạng hình nón</h3>
+<div><p>Tạo mũ sinh nhật có dạng hình nón với đường kính đáy và độ dài đường sinh cho trước, chẳng hạn, đường kính đáy là 20cm và độ dài đường sinh là 30cm.</p>
+<p><strong><em>Cách làm:</em></strong></p>
+<p>- Cắt một miếng bìa có dạng hình tròn với đường kính bằng 20cm và tạo một đoạn dây mảnh không dãn có độ dài bằng chu vi của đường tròn bán kính 20cm.</p>
+<p>- Lấy một miếng bìa có dạng hình tròn với bán kính bằng 30cm; đánh dấu điểm trên mép ngoài của hình tròn đó; gắn một đầu của đoạn dây vào điểm đó rồi cuốn đoạn dây xung quanh hình tròn và đánh dấu đầu mút cuối của sợi dây trên mép ngoài của hình tròn; cắt ra từ miếng bìa tròn đó hình quạt tròn.</p>
+<p>- Dán các miếng bìa vừa cắt ở bước 2 để được mũ sinh nhật hình nón theo yêu cầu đề bài có đường kính đáy 20cm và đường sinh 30cm.</p>
+<p>Ta có:</p>
+<p>+ Bán kính OA là độ dài đường sinh của hình nón nên R = 30cm.</p>
+<p>+ Độ dài cung AmB là: \(C = 2\pi .10 = 20\pi (cm)\)</p>
+<p>+ Theo công thức tính độ dài cung AmB, ta có:</p>
+<p>\(\frac{{\pi .R.n}}{{180}} = 20\pi \) hay \(\frac{{\pi .30.n}}{{180}} = 20\pi \)</p>
+<p>Suy ra số đo cung AmB của hình quạt tròn AOB là: \(n^\circ  = \left( {20\pi :{\rm{\;}}\frac{{\pi .30}}{{180}}} \right)^\circ  = 120^\circ \).</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tạo đồ dùng hình trụ</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hình trụ trong thực tiễn</h3>
+<div><p>Nhiều đồ vật trong cuộc sống được thiết kế, chế tạo ở dạng hình trụ, chẳng hạn, giếng nước ở các làng quê Việt Nam.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266580417-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình ảnh cây đa – giếng nước – sân đình, những nét điển hình của làng quê, vẫn luôn được giữ gìn, khắc sâu trong tâm hồn mỗi con người Việt Nam như một biểu tượng về văn hoá, lịch sử truyền thống của dân tộc.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tạo đồ dùng hình trụ</h3>
+<div><p><strong>Ví dụ 1.</strong> Tạo hộp đựng bút để bán có dạng hình trụ với đường kính đáy và diện tích xung quanh cho trước, chẳng hạn, đường kính đáy là 10cm và diện tích xung quanh là 380cm<sup>2</sup>.</p>
+<p><strong><em>Cách làm:</em></strong></p>
+<p>Bán kính đáy là:</p>
+<p>\(10:2 = 5\left( {cm} \right).\)</p>
+<p>Chu vi hình tròn là:</p>
+<p>\(2\pi r = 2\pi .5 = 10\pi  \approx 31,4\left( {cm} \right).\)</p>
+<p>Diện tích xung quanh là 380cm<sup>2</sup> nên ta có:</p>
+<p>\(2\pi rh = 380\) nên \(h = \frac{{380}}{{2\pi r}} = \frac{{380}}{{2\pi .5}} = \frac{{38}}{\pi } \approx 12,1cm.\)</p>
+<p><strong>- </strong>Cắt một miếng bìa có dạng hình tròn với bán kính bằng 5cm.</p>
+<p>- Cắt một miếng bìa có dạng hình chữ nhật có chiều dài 31,4cm và chiều rộng 12,1cm.</p>
+<p>- Ghép và dán các miếng bìa vừa cắt ở 2 câu trên để được một hộp đựng bút theo yêu cầu đề bài.</p>
+<p><strong>Ví dụ 2.</strong> Làm hộp đựng tiền bằng giấy A4 có dạng hình trụ với đường kính đáy là 7cm, diện tích xung quanh là \(240c{m^2}\).</p>
+<p><strong><em>Cách làm:</em></strong></p>
+<p>Bán kính đáy là:</p>
+<p>\(7:2 = 3,5\left( {cm} \right).\)</p>
+<p>Chu vi hình tròn là:</p>
+<p>\(2\pi r = 2\pi .3,5 = 7\pi  \approx 22\left( {cm} \right).\)</p>
+<p>Diện tích xung quanh là 210cm<sup>2</sup> nên ta có:</p>
+<p>\(2\pi rh = 240\left( {c{m^2}} \right)\) nên \(h = \frac{{240}}{{2\pi r}} = \frac{{240}}{{2\pi .3,5}} = \frac{{240}}{{7\pi }} \approx 10,9cm.\)</p>
+<p><strong>- </strong>Cắt hai miếng bìa có dạng hình tròn với bán kính bằng 3,5cm. Trong đó, một miếng bìa ta tạo một lỗ để đút tiền.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266609203-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>- Cắt một miếng bìa có dạng hình chữ nhật có chiều dài 22cm và chiều rộng 10,9cm.</p>
+<p>- Ghép và dán các miếng bìa vừa cắt ở 2 bước trên để được một hộp đựng bút theo yêu cầu đề bài.</p>
+<p>Ta có thể trang trí thêm cho hộp đựng tiền mình làm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0723/1753266624549-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hàm số y = ax² (a ≠ 0) - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 24: Hàm số y = ax² (a ≠ 0)</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hàm số y = ax² (a ≠ 0) là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Trong c&aacute;c h&agrave;m số sau h&agrave;m số n&agrave;o c&oacute; dạng \(y = a{x^2}\) với \(a \ne 0\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(y = 7{x^3} - 4{x^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(y = 3x - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(y =&nbsp; - 4{x^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(y = \sqrt {6x + 3} \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>H&agrave;m số \(y =&nbsp; - 4{x^2}\) c&oacute; dạng \(y = a{x^2}\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body">Cho hàm số \(y = 3{x^2}\). Xác định hệ số \(a\) của \({x^2}\)?</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \( - 3\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(2\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(5\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ số của \({x^2}\) là 3</p>
+<p><strong>Chọn A.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tính giá trị của hàm số tại một điểm cho trước</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính giá trị của hàm số tại một điểm cho trước</h3>
+<div><p>Để tính giá trị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) tại một điểm \({x_0}\) cho trước, ta thay \(x = {x_0}\) vào hàm số để tính \({y_0} = a{x_0}^2\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Giá trị của hàm số \(y = 2{x^2}\) tại \(x = 3\) là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(9\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(12\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(18\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(6\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(x = 3\) vào hàm số \(y = 2{x^2}\) ta có: \(y = {2.3^2} = 18\).</p>
+<p>Vậy giá trị của hàm số \(y = 2{x^2}\) tại \(x = 3\) là \(18\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị của h&agrave;m số \(y = f\left( x \right) = \dfrac{4}{5}{x^2}\) tại \({x_0} =&nbsp; - 5\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(20\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(10\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\( - 20\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Thay \({x_0} =&nbsp; - 5\) v&agrave;o h&agrave;m số \(y = f\left( x \right) = \dfrac{4}{5}{x^2}\)&nbsp; ta được \(f\left( { - 5} \right) = \dfrac{4}{5}.{\left( { - 5} \right)^2} = 20\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị của h&agrave;m số $y = f\left( x \right) =&nbsp; - 7{x^2}$ tại ${x_0} =&nbsp; - 2$ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$28$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$21$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 28$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Thay ${x_0} =&nbsp; - 2$ v&agrave;o h&agrave;m số $y = f\left( x \right) =&nbsp; - 7{x^2}$&nbsp; ta được $f\left( { - 2} \right) =&nbsp; - 7.{\left( { - 2} \right)^2} =&nbsp; - 28$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Gi&aacute; trị của h&agrave;m số \(y = \frac{1}{2}{x^2}\), tại \(x = 2\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>&ndash; 2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>-1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>1.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(x = 2\) v&agrave;o h&agrave;m số \(y = \frac{1}{2}{x^2}\) ta được:</p>
+<p>\(y = \frac{1}{2}{.2^2} = 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Đồ thị của hàm số y = ax² (a ≠ 0) là gì? Cách vẽ đồ thị hàm số y = ax² (a ≠ 0). Các xác định toạ độ của một điểm thuộc đồ thị hàm số y = ax² (a ≠ 0)</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách vẽ đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>- Lập bảng ghi một số cặp giá trị tương ứng của x và y.</p>
+<p>Để lập bảng giá trị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\), ta tính các giá trị tương ứng của hàm số tại các điểm bất kỳ.</p>
+<p>- Trong mặt phẳng toạ độ Oxy, biểu diễn các cặp điểm (x; y) trong bảng giá trị trên và nối chúng lại để được một đường cong là đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\).</p>
+<p><em>Ví dụ: </em>Vẽ đồ thị của hàm số \(y = {x^2}\).</p>
+<p>Lập bảng một số giá trị tương ứng giữa x và y:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760364053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Biểu diễn các điểm \(\left( { - 2;4} \right)\), \(\left( { - 1;1} \right)\), \(\left( {0;0} \right)\), \(\left( {1;1} \right)\), \(\left( {2;4} \right)\) trên mặt phẳng toạ độ Oxy và nối chúng lại với nhau, ta được đồ thị hàm số \(y = {x^2}\) như hình vẽ sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760396296-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Các xác định toạ độ của một điểm thuộc đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>+) Để xác định toạ độ của một điểm thuộc đồ thị hàm số y = ax² (a ≠ 0), ta thay giá trị \({x_0}\) vào hàm số hàm số y = ax² để được giá trị \({y_0}\) tương ứng.</p>
+<p>+) Trên mặt phẳng toạ độ Oxy, ta có thể dựa vào toạ độ của điểm thuộc đồ thị hàm số để xác định hoành độ và tung độ của điểm đó.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760131050-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Trên một hệ trục toạ độ, vẽ parabol \(\left( P \right)\) có đỉnh \(O\) và đi qua \(A\left( \sqrt{3};-3 \right)\). Hoành độ điểm thuộc \(\left( P \right)\) có tung độ bằng \(-2\) là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = \sqrt 2;x = - \sqrt 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = \sqrt 3 ; x = - \sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 1;x = - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = 2;x = - 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Vì parabol có đỉnh \(O\) nên có dạng \(y=a{{x}^{2}}\left( a\ne 0 \right)\). </p>
+<p style="text-align: left;">Vì \(\left( P \right)\) đi qua \(A\left( \sqrt{3};-3 \right)\) nên toạ độ điểm \(A\) thoả mãn phương trình hàm số.</p>
+<p style="text-align: left;">Thay tọa độ điểm \(A\left( \sqrt{3};-3 \right)\) vào hàm số, ta được:</p>
+<p style="text-align: left;">\(-3=a{{(\sqrt{3})}^{2}}\)</p>
+<p style="text-align: left;">\(a=-1\).</p>
+<p style="text-align: left;">Ta được hàm số \(y=-{{x}^{2}}\).</p>
+<p style="text-align: left;">Thay \(y=-2\) vào hàm số ta được \(-2=-{{x}^{2}}\) suy ra \( {{x}^{2}}=2\).</p>
+<p style="text-align: left;">Do đó \(x=\sqrt{2} \) hoặc \(x=-\sqrt{2}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&#xE0;m s&#x1ED1; \(y=f\left( x \right)=a{{x}^{2}}\) c&#xF3; &#x111;&#x1ED3; th&#x1ECB; \(\left( P \right)\) &#x111;i qua \(A\left( -3;\dfrac{9}{4} \right)\). T&#xED;nh \(x\) n&#x1EBF;u \(f\left( x \right)=8\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = 2;x = - 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = 4\sqrt 2;x = - 4\sqrt 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 4;x = - 4\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = 2\sqrt 2;x = - 2\sqrt 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&#xEC; &#x111;&#x1ED3; th&#x1ECB; \(\left( P \right)\) &#x111;i qua \(A\left( -3;\dfrac{9}{4} \right)\) n&#xEA;n to&#x1EA1; &#x111;&#x1ED9; &#x111;i&#x1EC3;m \(A\) tho&#x1EA3; m&#xE3;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh h&#xE0;m s&#x1ED1;.</p>
+<p>Thay t&#x1ECD;a &#x111;&#x1ED9; &#x111;i&#x1EC3;m&#xA0;\(A\left( -3;\dfrac{9}{4} \right)\) v&#xE0;o h&#xE0;m s&#x1ED1;, ta &#x111;&#x1B0;&#x1EE3;c:</p>
+<p>\(\dfrac{9}{4} = a.{\left( { - 3} \right)^2}\) suy ra \(a = \frac{1}{4} \)</p>
+<p>H&#xE0;m s&#x1ED1; tr&#x1EDF; th&#xE0;nh \( y = f\left( x \right) = \dfrac{1}{4}{x^2} \)</p>
+<p>Khi \(f\left( x \right) = 8 \) th&#xEC;&#xA0;\( \dfrac{1}{4}{x^2} = 8 \) suy ra \( {x^2} = 32 \)</p>
+<p>Ta &#x111;&#x1B0;&#x1EE3;c \(x = 4\sqrt 2 \) ho&#x1EB7;c \(x = - 4\sqrt 2\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho biết quãng đường đi được của một chiếc xe khách được xác định bởi hàm số: \(S = 54t + 2{t^2}\) ( trong đó S là quãng đường đi được tính bằng đơn vị km, t là thời gian xe chuyển động tính bằng đơn vị giờ). Giả sử lúc 9h sáng xe đang ở bến xe Miền Đông. Hỏi lúc 1h15phút chiều khoảng cách từ xe khách đến bến xe Miền Đông là bao nhiêu? (cho rằng xe khách đi thẳng từ bến xe Miền Đông đi quốc lộ 13 và xe đi không nghỉ)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> 285,425km</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 265,425km</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 265,625km</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 285,625km</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>1h15 ph&uacute;t chiều tức l&agrave; l&uacute;c 13h15 ph&uacute;t<u></u> Thời gian xe kh&aacute;ch đ&atilde; đi (t&iacute;nh từ bến xe Miền Đ&ocirc;ng):</p>
+<p>t = 13h15 ph&uacute;t -&nbsp; 9h = 4h 15 ph&uacute;t = 4,25 h</p>
+<p>Qu&atilde;ng đường m&agrave; xe kh&aacute;ch đ&atilde; đi được:</p>
+<p>&nbsp;\(S = 54.4,25 + 2.4,{25^2} = 265,625km\)</p>
+<p>Vậy:&nbsp; V&agrave;o l&uacute;c 1h15ph&uacute;t chiều th&igrave; khoảng c&aacute;ch từ xe kh&aacute;ch đến bến xe Miền Đ&ocirc;ng l&agrave;: 265,625km.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>M&#x1ED9;t qu&#x1EA3; b&#xF3;ng b&#xE0;n &#x111;&#x1B0;&#x1EE3;c th&#x1EA3; r&#x1A1;i t&#x1EF1; do. Qu&#xE3;ng &#x111;&#x1B0;&#x1EDD;ng chy&#x1EC3;n &#x111;&#x1ED9;ng \(s\) c&#x1EE7;a n&#xF3; &#x111;&#x1B0;&#x1EE3;c bi&#x1EC3;u di&#x1EC5;n g&#x1EA7;n &#x111;&#xFA;ng b&#x1EDF;i c&#xF4;ng th&#x1EE9;c \(s = 3{t^2},\) v&#x1EDB;i \(t\) l&#xE0; th&#x1EDD;i gian t&#xED;nh b&#x1EB1;ng gi&#xE2;y, \(s\) t&#xED;nh b&#x1EB1;ng m&#xE9;t. Qu&#x1EA3; b&#xF3;ng b&#xE0;n &#x111;&#xF3; &#x111;&#x1B0;&#x1EE3;c th&#x1EA3; t&#x1EF1; do t&#x1EEB; &#x111;&#x1ED9; cao \(108m.\) Th&#x1EDD;i gian qu&#x1EA3; b&#xF3;ng b&#xE0;n &#x111;&#xF3; ti&#x1EBF;p &#x111;&#x1EA5;t l&#xE0;:&#xA0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(7s\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(4s\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(5s\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(6s\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Khi qu&#x1EA3; b&#xF3;ng b&#xE0;n ti&#x1EBF;p &#x111;&#x1EA5;t th&#xEC; ta c&#xF3; \(s = 108m.\)</p>
+<p>Thay v&#xE0;o&#xA0;c&#xF4;ng th&#x1EE9;c \(s = 3{t^2}\), ta &#x111;&#x1B0;&#x1EE3;c:</p>
+<p>\( 3{t^2} = 108 \\ {t^2} = 36 \\ t = 6\,\left( s \right)\,\,\,\,\,\,\left( {do\,\,\,t &gt; 0} \right).\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho h&#xE0;m s&#x1ED1; \(y = f\left( x \right) = \dfrac{1}{2}{x^2}\) . T&#x1ED5;ng c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a \(a\) th&#x1ECF;a m&#xE3;n \(f\left( a \right) = 3 + \sqrt 5 \) l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\sqrt 5 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\( - 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; \(f\left( a \right) = 3 + \sqrt 5 \)</p>
+<p style="text-align: left;">hay \(\dfrac{1}{2}{a^2} = 3 + \sqrt 5 \)</p>
+<p style="text-align: left;">\({a^2} = 6 + 2\sqrt 5 \)</p>
+<p style="text-align: left;">\({a^2} =5 +2\sqrt 5.1 + 1\)</p>
+<p style="text-align: left;">\({a^2} =(\sqrt 5)^2+2\sqrt 5.1+1^2\)</p>
+<p style="text-align: left;">\({a^2} = {\left( {\sqrt 5&#xA0; + 1} \right)^2}\)</p>
+<p style="text-align: left;">Suy ra \(a = \sqrt 5&#xA0; + 1\) ho&#x1EB7;c \(a =&#xA0; - \sqrt 5&#xA0; - 1\)</p>
+<p style="text-align: left;">V&#x1EAD;y t&#x1ED5;ng c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a \(a\) l&#xE0; \(\left( {\sqrt 5&#xA0; + 1} \right) + \left( { - \sqrt 5&#xA0; - 1} \right) = 0\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho h&#xE0;m s&#x1ED1; \(y = f\left( x \right) =&#xA0; - 2{x^2}\) . T&#x1ED5;ng c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a $a$ th&#x1ECF;a m&#xE3;n $f\left( a \right) =&#xA0; - 8 + 4\sqrt 3 $ l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$-10$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&#xF3; $f\left( a \right) =&#xA0; - 8 + 4\sqrt 3 $</p>
+<p style="text-align: left;">hay $- 2{a^2} =&#xA0; - 8 + 4\sqrt 3 $</p>
+<p style="text-align: left;">${a^2} = 4 - 2\sqrt 3 $</p>
+<p style="text-align: left;">${a^2} = 3 - 2\sqrt 3 + 1 $</p>
+<p style="text-align: left;">${a^2} = {\left( {\sqrt 3&#xA0; - 1} \right)^2}$</p>
+<p style="text-align: left;">Suy ra $a = \sqrt 3&#xA0; - 1$ ho&#x1EB7;c $a = 1 - \sqrt 3$</p>
+<p style="text-align: left;">V&#x1EAD;y t&#x1ED5;ng c&#xE1;c gi&#xE1; tr&#x1ECB; c&#x1EE7;a $a$ l&#xE0; $\left( {\sqrt 3&#xA0; - 1} \right) + \left( {1 - \sqrt 3 } \right) = 0$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&agrave;m số \(y = {x^2}\). Với \(y = 4\) th&igrave; gi&aacute; trị của \(x\) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>8 v&agrave; -8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>4 v&agrave; -4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>2 v&agrave; -2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>2.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(y = 4\) v&agrave;o h&agrave;m số \(y = {x^2}\) ta được \(4 = {x^2}\) suy ra \(x = 2\) hoặc \(x =&nbsp; - 2\)</p>
+<p>Vậy \(x = 2\) v&agrave; \(x =&nbsp; - 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Cho đồ thị h&agrave;m số \(y = 8{x^2}\), điểm thuộc đồ thị h&agrave;m số c&oacute; tung độ bằng \(4\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {\frac{{\sqrt 2 }}{2};4} \right)\) v&agrave; \(\left( { - \frac{{\sqrt 2 }}{2};4} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {1;4} \right)\) v&agrave; \(\left( { - 1;4} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {\frac{{\sqrt 2 }}{2};4} \right)\) v&agrave; \(\left( { - 1;4} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( {1;4} \right)\) v&agrave; \(\left( { - \frac{{\sqrt 2 }}{2};4} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(y = 4\) v&agrave;o h&agrave;m số \(y = 8{x^2}\) ta được \(4 = 8{x^2}\) suy ra \({x^2} = \frac{1}{2}\) suy ra \(x = \frac{{\sqrt 2 }}{2}\) hoặc \(x =&nbsp; - \frac{{\sqrt 2 }}{2}\)</p>
+<p>C&aacute;c điểm thuộc đồ thị h&agrave;m số c&oacute; tung độ bằng \(4\) l&agrave; \(\left( {\frac{{\sqrt 2 }}{2};4} \right)\) v&agrave; \(\left( { - \frac{{\sqrt 2 }}{2};4} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p>Điểm n&agrave;o sau đ&acirc;y thuộc đồ thị h&agrave;m số \(y = 3{x^2}\)?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {1;3} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {3;12} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {2; - 4} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( { - 1; - 3} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; h&agrave;m số \(y = 3{x^2}\) n&ecirc;n c&aacute;c điểm thuộc đồ thị h&agrave;m số c&oacute; tung độ dương, loại đ&aacute;p &aacute;n C, D.</p>
+<p>Thay \(x = 1\) v&agrave;o h&agrave;m số, ta được: \(y = {3.1^2} = 3\) n&ecirc;n điểm \(\left( {1;3} \right)\) thuộc đồ thị h&agrave;m số.</p>
+<p>Thay \(x = 3\) v&agrave;o h&agrave;m số, ta được: \(y = {3.3^2} = 27 \ne 12\) n&ecirc;n điểm \(\left( {3;12} \right)\) kh&ocirc;ng thuộc đồ thị h&agrave;m số.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 10:</strong></div>
+  <div class="quiz-question-body"><p>&nbsp;Cho h&agrave;m số \(y=\dfrac{25}{4}{{x}^{2}}\). X&aacute;c định toạ độ điểm \(A\) thuộc đồ thị h&agrave;m số v&agrave; c&oacute; tung độ l&agrave; \(1\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><strong>\(A\left( \dfrac{4}{25};1 \right)\)</strong>&nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><strong>\(A\left( \dfrac{2}{5};1 \right)\)</strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(A\left( -\dfrac{2}{5};1 \right)\)&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Cả B và C đều đúng</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Điểm \(A\) c&oacute; tung độ l&agrave; \(1\) &nbsp;n&ecirc;n thay \(y=1\) v&agrave;o phương tr&igrave;nh \(y=\dfrac{25}{4}{{x}^{2}}\) ta được \(x=\dfrac{2}{5}\) hoặc \(x=-\dfrac{2}{5}\).</p>
+<p style="text-align: left;">Vậy \(A\left( \dfrac{2}{5};1 \right)\) hoặc \(A\left( -\dfrac{2}{5};1 \right)\)&nbsp;&nbsp;</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 11:</strong></div>
+  <div class="quiz-question-body"><p>T&#xEC;m \(m\) &#x111;&#x1EC3; &#x111;&#x1ED3; th&#x1ECB; h&#xE0;m s&#x1ED1; \(y = \left( {m + 5} \right){x^2}\) &#x111;i qua &#x111;i&#x1EC3;m \(A\left( { - 1;\,\,2} \right).\)&#xA0; <em></em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(m =  - 3\)  </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(m = 6\)  </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(m = 3\)               </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(m =  - 7\) </div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&#x110;i&#x1EC3;m \(A\left( { - 1;\,\,2} \right)\) thu&#x1ED9;c &#x111;&#x1ED3; th&#x1ECB; h&#xE0;m s&#x1ED1; \(y = \left( {m + 5} \right){x^2} \) n&#xEA;n thay t&#x1ECD;a &#x111;&#x1ED9; &#x111;i&#x1EC3;m A v&#xE0;o h&#xE0;m s&#x1ED1;, ta &#x111;&#x1B0;&#x1EE3;c:</p>
+<p>\(2 = \left( {m + 5} \right).{\left( { - 1} \right)^2} \\ m + 5 = 2 \\ m =&#xA0; - 3.\)</p>
+<p>V&#x1EAD;y&#xA0;\( m =&#xA0; - 3.\)&#xA0;</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 12:</strong></div>
+  <div class="quiz-question-body"><p>&#x110;&#x1ED3; th&#x1ECB; h&#xE0;m s&#x1ED1; \(y = \dfrac{1}{4}{x^2}\)&#xA0; &#x111;i qua &#x111;i&#x1EC3;m</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(M\left( {2; - 1} \right)\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(N\left( {2;\dfrac{1}{2}} \right)\)<strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(P\left( {2; - \dfrac{1}{2}} \right)\)<strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(Q\left( {2;1} \right)\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(x = 2\) v&#xE0;o c&#xF4;ng th&#x1EE9;c h&#xE0;m s&#x1ED1; ta &#x111;&#x1B0;&#x1EE3;c: \(\dfrac{1}{4}{.2^2} = 1 = {y_Q} \).</p>
+<p>Suy ra \( Q\left( {2;1} \right)\) thu&#x1ED9;c &#x111;&#x1ED3; th&#x1ECB; h&#xE0;m s&#x1ED1;.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách xác định hệ số của hàm số y = ax² (a ≠ 0) khi biết đồ thị của hàm số đi qua một điểm</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách tính giá trị của hàm số tại một điểm cho trước</h3>
+<div><p>Để tính giá trị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) tại một điểm \({x_0}\) cho trước, ta thay \(x = {x_0}\) vào hàm số để tính \({y_0} = a{x_0}^2\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Các xác định toạ độ của một điểm thuộc đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>+) Để xác định toạ độ của một điểm thuộc đồ thị hàm số y = ax² (a ≠ 0), ta thay giá trị \({x_0}\) vào hàm số hàm số y = ax² để được giá trị \({y_0}\) tương ứng.</p>
+<p>+) Trên mặt phẳng toạ độ Oxy, ta có thể dựa vào toạ độ của điểm thuộc đồ thị hàm số để xác định hoành độ và tung độ của điểm đó.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760131050-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách xác định hệ số của hàm số y = ax² (a ≠ 0) khi biết đồ thị của hàm số đi qua một điểm</h3>
+<div><p>Để xác định hệ số của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\), ta lấy một điểm \(M\left( {{x_M};{y_M}} \right)\) thuộc đồ thị hàm số.</p>
+<p>Thay toạ độ điểm M vào \(y = a{x^2}\), ta tìm được a.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Xác định hệ số a của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\), biết đồ thị của hàm số đi qua điểm A(1;1).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>4.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vì đồ thị của hàm số đi qua điểm A(1;1) nên thay \(x = 1;y = 1\), ta được:</p>
+<p>\(1 = a{.1^2}\) suy ra a = 1.</p>
+<p><strong>Đáp án A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&agrave;m số \(y = \left( { - 2m + 1} \right){x^2}\). T&igrave;m gi&aacute; trị của \(m\) để đồ thị đi qua điểm \(A\left( { - 2;4} \right)\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>m = 0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>m = 1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>m = 2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>m = -2.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Để đồ thị đi qua điểm \(A\left( { - 2;4} \right)\) th&igrave; điểm A thuộc đồ thị h&agrave;m số \(y = \left( { - 2m + 1} \right){x^2}\).</p>
+<p>Thay \(x =&nbsp; - 2;y = 4\) v&agrave;o h&agrave;m số \(y = \left( { - 2m + 1} \right){x^2}\), ta được:</p>
+<p>\(\begin{array}{l}4 = \left( { - 2m + 1} \right).{\left( { - 2} \right)^2}\\4 = 4\left( { - 2m + 1} \right)\\ - 2m + 1 = 1\\ - 2m = 0\\m = 0\end{array}\)</p>
+<p>Vậy m = 0 th&igrave; đồ thị đi qua điểm \(A\left( { - 2;4} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho đồ thị h&agrave;m số \(y = a{x^2}\) l&agrave; parabol như h&igrave;nh vẽ. Khi đ&oacute; gi&aacute; trị của \(a\) bằng</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0403/1743662383784-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( - 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{{ - 1}}{2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t đồ thị h&agrave;m số ta thấy điểm (1;-2) thuộc đồ thị h&agrave;m số \(y = a{x^2}\).</p>
+<p>Thay \(x = 1;y =&nbsp; - 2\) v&agrave;o h&agrave;m số \(y = a{x^2}\), ta được:</p>
+<p>\( - 2 = a{.1^2}\) suy ra \(a =&nbsp; - 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Bi&#x1EBF;t &#x111;&#x1ED3; th&#x1ECB; h&#xE0;m s&#x1ED1; \(y = a{x^2}\) &#x111;i qua &#x111;i&#x1EC3;m \(A\left( { - 1; - 2} \right),\) gi&#xE1; tr&#x1ECB; c&#x1EE7;a \(a\) b&#x1EB1;ng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(a =&nbsp; - \dfrac{1}{2}\)<strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(a =  - 2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(a = 2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(a = \dfrac{1}{2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay t&#x1ECD;a &#x111;&#x1ED9; &#x111;i&#x1EC3;m \(A\left( { - 1; - 2} \right) \) v&#xE0;o h&#xE0;m s&#x1ED1; \(y = a{x^2}\) ta &#x111;&#x1B0;&#x1EE3;c:</p>
+<p>\(- 2 = a.{\left( { - 1} \right)^2} \\ a =&#xA0; - 2\)</p>
+<p>V&#x1EAD;y \( a =&#xA0; - 2\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>X&#xE1;c &#x111;&#x1ECB;nh h&#xE0;m s&#x1ED1; \(y = a{x^2}\) bi&#x1EBF;t r&#x1EB1;ng &#x111;&#x1ED3; th&#x1ECB; c&#x1EE7;a h&#xE0;m s&#x1ED1; &#x111;i qua &#x111;i&#x1EC3;m \(A\left( { - 2;5} \right)\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(y = \dfrac{5}{4}x^2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(y = \dfrac{4}{5}x^2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(y = x^2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(y = \dfrac{5}{2}x^2\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&#xEC;&#xA0; &#x111;&#x1ED3; th&#x1ECB; c&#x1EE7;a h&#xE0;m s&#x1ED1; \(y = a{x^2}\) &#x111;i qua &#x111;i&#x1EC3;m \(A\left( { - 2;5} \right)\) n&#xEA;n ta c&#xF3;:</p>
+<p style="text-align: left;">\(5 = a.{\left( { - 2} \right)^2} \\ a = \dfrac{5}{4}.\)</p>
+<p style="text-align: left;">V&#x1EAD;y \(y = \dfrac{5}{4}{x^2}\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Đồ thị hàm số y = ax² (a ≠ 0) có tính chất gì? Đỉnh của đồ thị hàm số y = ax² (a ≠ 0)</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong, gọi là <em>đường parabol</em>, có các tính chất sau:</p>
+<p>- Có đỉnh là gốc toạ độ O;</p>
+<p>- Có trục đối xứng là Oy;</p>
+<p>- Nằm phía trên trục hoành nếu a &gt; 0 và nằm phía dưới trục hoành nếu a &lt; 0.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760198476-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Nhận xét: </em></strong> Khi vẽ đồ thị hàm số \(y = a{x^2}\left( {a \ne 0} \right)\), ta cần xác định tối thiểu 5 điểm thuộc đồ thị là gốc toạ độ O và hai cặp điểm đối xứng với nhau qua trục tung Oy.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Đỉnh của đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đỉnh của đồ thị hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) chính là gốc toạ độ O.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>H&agrave;m số n&agrave;o dưới đ&acirc;y c&oacute; đồ thị nằm ho&agrave;n to&agrave;n ph&iacute;a dưới trục ho&agrave;nh?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(y = 2x + 4\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(y = 2{x^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(y =&nbsp; - 2{x^2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(y =&nbsp; - 2x + 4\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đồ thị h&agrave;m số \(y = 2x + 4\) v&agrave; \(y = &nbsp;- 2x + 4\) kh&ocirc;ng nằm ho&agrave;n to&agrave;n ph&iacute;a dưới trục ho&agrave;nh.</p>
+<p>H&agrave;m số \(y = 2{x^2}\) c&oacute; a = 2 &gt; 0 n&ecirc;n đồ thị nằm ho&agrave;n to&agrave;n ph&iacute;a tr&ecirc;n trục ho&agrave;nh.</p>
+<p>H&agrave;m số \(y =&nbsp; - 2{x^2}\) c&oacute; a = -2 &lt; 0 n&ecirc;n đồ thị nằm ho&agrave;n to&agrave;n ph&iacute;a dưới trục ho&agrave;nh.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Nhận x&eacute;t n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng về đồ thị h&agrave;m số \(y =&nbsp; - \frac{1}{2}{x^2}\)?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Đồ thị h&agrave;m số nhận \(Ox\) l&agrave;m trục đối xứng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Đồ thị h&agrave;m số nằm ho&agrave;n to&agrave;n ph&iacute;a tr&ecirc;n trục ho&agrave;nh.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Đồ thị h&agrave;m số l&agrave; một đường cong kh&ocirc;ng đi qua gốc tọa độ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Đồ thị h&agrave;m số c&oacute; đỉnh l&agrave; gốc tọa độ v&agrave; nằm ph&iacute;a dưới trục ho&agrave;nh.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đồ thị h&agrave;m số \(y =&nbsp; - \frac{1}{2}{x^2}\) nhận Oy l&agrave; trục đối xứng, n&ecirc;n A sai.</p>
+<p>H&agrave;m số \(y =&nbsp; - \frac{1}{2}{x^2}\) c&oacute; \(a =&nbsp; - \frac{1}{2} &lt; 0\) n&ecirc;n nằm ph&iacute;a dưới trục ho&agrave;nh, n&ecirc;n B sai.</p>
+<p>Đồ thị h&agrave;m số \(y =&nbsp; - \frac{1}{2}{x^2}\) c&oacute; đỉnh l&agrave; gốc tọa độ O n&ecirc;n đồ thị đi qua gốc tọa độ, n&ecirc;n C sai.</p>
+<p>Đồ thị h&agrave;m số \(y =&nbsp; - \frac{1}{2}{x^2}\) c&oacute; đỉnh l&agrave; gốc tọa độ O v&agrave; nằm ph&iacute;a dưới trục ho&agrave;nh, n&ecirc;n D đ&uacute;ng.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Trục đối xứng của đồ thị hàm số y = ax² (a ≠ 0) là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm hàm số y = ax²</h3>
+<div><p>Hàm số y = ax<sup>2</sup>, là một dạng của hàm số bậc hai, là hàm số có dạng như sau: \(y = a{x^2}\left( {a \ne 0} \right)\)</p>
+<p>Hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) xác định với mọi giá trị x thuộc \(\mathbb{R}\).</p>
+<p><em>Ví dụ:</em> Hàm số \(y = 2{x^2},y =  - \frac{3}{2}{x^2}\) là các hàm số có dạng \(y = a{x^2}\left( {a \ne 0} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm đồ thị của hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong được gọi là parabol. Parabol đó luôn đi qua gốc toạ độ và có dạng như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760069331-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) là một đường cong, gọi là <em>đường parabol</em>, có các tính chất sau:</p>
+<p>- Có đỉnh là gốc toạ độ O;</p>
+<p>- Có trục đối xứng là Oy;</p>
+<p>- Nằm phía trên trục hoành nếu a &gt; 0 và nằm phía dưới trục hoành nếu a &lt; 0.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750760198476-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Nhận xét: </em></strong> Khi vẽ đồ thị hàm số \(y = a{x^2}\left( {a \ne 0} \right)\), ta cần xác định tối thiểu 5 điểm thuộc đồ thị là gốc toạ độ O và hai cặp điểm đối xứng với nhau qua trục tung Oy.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Trục đối xứng của đồ thị hàm số y = ax² (a ≠ 0)</h3>
+<div><p>Trục đối xứng của đồ thị hàm số y = ax² (a ≠ 0) là trục tung Oy.</p>
+<p><strong><em>Nhận xét: </em></strong>Do đồ thị của hàm số \(y = a{x^2}\left( {a \ne 0} \right)\) nhận trục tung Oy là trục đối xứng nên ta có thể lập bảng giá trị của hàm số này với những giá trị x không âm và vẽ phần đồ thị tương ứng ở bên phải trục tung, sau đó lấy đối xứng phần đồ thị đã vẽ qua trục tung ta sẽ được đồ thị của hàm số đã cho.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Trong mặt phẳng toạ độ Oxy, cho điểm \(C\left( {2;4} \right)\) thuộc đồ thị \(\left( P \right)\) của hàm số \(y = a{x^2}\)với \(a \ne 0\). Điểm C' đối xứng với điểm \(C\) qua trục tung Oy. Khẳng định nào sau đây là đúng:</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Điểm \(C'\left( {2; - 4} \right)\) và \(C' \notin \left( P \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> Điểm \(C'\left( { - 2;4} \right)\) và \(C' \in \left( P \right)\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> Điểm \(C'\left( { - 2;4} \right)\) và \(C' \notin \left( P \right)\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Điểm \(C'\left( {4; - 2} \right)\) và \(C' \in \left( P \right)\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điểm \(C'\left( { - 2;4} \right)\) và \(C' \in \left( P \right)\)</p>
+<p><strong>Chọn B.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho điểm \(M\) c&oacute; ho&agrave;nh độ \(x = 4\) thuộc parabol \(\left( P \right)\) \(y = \frac{1}{2}{x^2}\). Tọa độ của \(N\) l&agrave; điểm đối xứng với \(M\) qua trục tung l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(N\left( { - 4\,;\,8} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(N\left( { - 4\,;\, - 8} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(N\left( {4\,;\, - 8} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(N\left( {8\,;\, - 4} \right)\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(x = 4\) ta c&oacute; \(y = \frac{1}{2}{.4^2} = 8\), tọa độ điểm M l&agrave; \(M\left( {4\,;\,8} \right)\).</p>
+<p>V&igrave; \(N\) l&agrave; điểm đối xứng với điểm \(M\) qua trục tung n&ecirc;n \(N\left( { - 4\,;\,8} \right).\)</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho điểm \(M\left( {1\,;\, - 5} \right)\) thuộc parabol \(\left( P \right)\) \(y =  - 5{x^2}\;\). Tọa độ của N là điểm đối xứng với \(M\)qua trục tung là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(N\left( {1\,;\,5} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(N\left( { - 1\,;\,5} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(N\left( {5\,;\, - 1} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(N\left( { - 1\,;\, - 5} \right)\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điểm đối xứng với \(M\left( {1\,;\, - 5} \right)\) qua trục tung là \(N\left( { - 1\,;\, - 5} \right)\).</p>
+<p><strong>Đáp án D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Làm quen với bảo hiểm - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 47: Làm quen với bảo hiểm</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Bảo hiểm là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Bảo hiểm</h3>
+<div><p>Bảo hiểm từ lâu đã gắn liền với cuộc sống con người. Hiểu một cách đơn giản, bảo hiểm là một hoạt động qua đó một cá nhân có quyền được hưởng trợ cấp bảo hiểm nhờ vào một khoản đóng góp cho mình hoặc cho người thứ ba trong trường hợp xảy ra rủi ro.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Loại hình bảo hiểm</h3>
+<div><p>Có hai loại hình bảo hiểm:</p>
+<p>- Bảo hiểm bắt buộc là loại bảo hiểm do pháp luật quy định về điều kiện bảo hiểm, mức phí bảo hiểm, số tiền bảo hiểm tối thiểu mà tổ chức, cá nhân tham gia bảo biểm và doanh nghiệp bảo biểm có nghĩa vụ thực hiện.</p>
+<p>- Bảo hiểm tự nguyện là loại hình bảo hiểm mà người tham gia được quyền lựa chọn công ty bảo hiểm, sản phẩm bảo hiểm, mức phí và quyền lợi bảo hiểm.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Bảo hiểm xã hội là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Bảo hiểm xã hội</h3>
+<div><p>Bảo hiểm xã hội là sự bảo đảm thay thế hoặc bù đắp một phần thu nhập của người lao động khi họ bị giảm hoặc mất thu nhập do ốm đau, thai sản, tai nạn lao động, bệnh nghề nghiệp, hết tuổi lao động hoặc chết, trên cơ sở đóng vào quỹ bảo hiểm xã hội.</p>
+<p>Người lao động có nhiều quyền lợi khi tham gia bảo hiểm xã hội, như: nhận lương hưu và trợ cấp bảo hiểm xã hội, được hưởng bảo hiểm y tế và các chế độ chăm sóc sức khoẻ.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Loại hình bảo hiểm xã hội</h3>
+<div><p>Có hai loại hình bảo hiểm xã hội:</p>
+<p>- Bảo hiểm xã hội bắt buộc là loại hình bảo hiểm xã hội do Nhà nước tổ chức mà người lao động và sử dụng lao động phải tham gia.</p>
+<p>- Bảo hiểm xã hội tự nguyện là loại hình bảo hiểm xã hội do Nhà nước tổ chức mà người tham gia được lựa chọn mức đóng, phương thức đóng phù hợp với thu nhập của mình và Nhà nước có chính sách hỗ trợ tiền đóng bảo hiểm xã hội để người tham gia hưởng chế độ hưu trí và tử tuất.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Thời gian đóng bảo hiểm xã hội</h3>
+<div><p>Thời gian đóng bảo hiểm xã hội là thời gian được tính từ khi người lao động bắt đầu đóng bảo hiểm xã hội cho đến khi dừng đóng. Trường hợp người lao động đóng bảo hiểm xã hội không liên tục thì thời gian đóng bảo hiểm xã hội là tổng thời gian tham gia đóng bảo hiểm xã hội.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Bảo hiểm y tế là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Bảo hiểm y tế</h3>
+<div><p>Bảo hiểm y tế là hình thức bảo hiểm được áp dụng trong lĩnh vực chăm sóc sức khoẻ, không vì mục đích lợi nhuận, do Nhà nước tổ chức thực hiện và các đối tượng có trách nhiệm tham gia theo quy định của pháp luật.</p>
+<p>Thẻ bảo hiểm y tế được cấp cho người tham gia bảo hiểm y tế và làm căn cứ để được hưởng các quyền lợi về bảo hiểm y tế theo quy định của pháp luật. Mỗi người chỉ được cấp một thẻ bảo hiểm y tế và có giá trị sử dụng kể từ ngày đóng bảo hiểm y tế.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Những nguyên tắc bảo hiểm y tế</h3>
+<div><p>- Bảo đảm chia sẻ rủi ro giữa những người tham gia bảo hiểm y tế.</p>
+<p>- Mức đóng bảo hiểm y tế được xác định theo tỉ lệ phần trăm của tiền lương, tiền công, tiền lương hưu, tiền trợ cấp hoặc mức lương tối thiểu của khu vực hành chính (sau đây gọi chung là mức lương tối thiểu.</p>
+<p>- Mức lương bảo hiểm y tế theo mức độ bệnh tật, nhóm đối tượng trong phạm vi quyền lợi của người tham gia bảo hiểm y tế.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Những đối tượng nào tham gia bảo hiểm y tế</h3>
+<div><p>Tham gia bảo hiểm y tế bao gồm nhiều loại đối tượng, như: người lao động; trẻ em dưới 6 tuổi; học sinh, sinh viên;...</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Nghĩa vụ của người đóng bảo hiểm y tế</h3>
+<div><p>Người tham gia bảo hiểm y tế có những nghĩa vụ sau:</p>
+<p>- Đóng bảo hiểm y tế đầy đủ, đúng thời hạn.</p>
+<p>- Sử dụng thẻ bảo hiểm y tế đúng mục đích, không cho người khác mượn thẻ bảo hiểm y tế.</p>
+<p>- Chấp hành các quy định và hướng dẫn của tổ chức bảo hiểm y tế, cơ sở khám bệnh, chữa bệnh khi đến khám bệnh, chữa bệnh.</p>
+<p>- Thanh toán chi phí khám bệnh, chữa bệnh cho cơ sở khám bệnh, chữa bệnh ngoài phần chi phí do quỹ bảo hiểm y tế chi trả.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính mức đóng bảo hiểm y tế</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Bảo hiểm y tế</h3>
+<div><p>Bảo hiểm y tế là hình thức bảo hiểm được áp dụng trong lĩnh vực chăm sóc sức khoẻ, không vì mục đích lợi nhuận, do Nhà nước tổ chức thực hiện và các đối tượng có trách nhiệm tham gia theo quy định của pháp luật.</p>
+<p>Thẻ bảo hiểm y tế được cấp cho người tham gia bảo hiểm y tế và làm căn cứ để được hưởng các quyền lợi về bảo hiểm y tế theo quy định của pháp luật. Mỗi người chỉ được cấp một thẻ bảo hiểm y tế và có giá trị sử dụng kể từ ngày đóng bảo hiểm y tế.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Những nguyên tắc bảo hiểm y tế</h3>
+<div><p>- Bảo đảm chia sẻ rủi ro giữa những người tham gia bảo hiểm y tế.</p>
+<p>- Mức đóng bảo hiểm y tế được xác định theo tỉ lệ phần trăm của tiền lương, tiền công, tiền lương hưu, tiền trợ cấp hoặc mức lương tối thiểu của khu vực hành chính (sau đây gọi chung là mức lương tối thiểu.</p>
+<p>- Mức lương bảo hiểm y tế theo mức độ bệnh tật, nhóm đối tượng trong phạm vi quyền lợi của người tham gia bảo hiểm y tế.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Những đối tượng nào tham gia bảo hiểm y tế</h3>
+<div><p>Tham gia bảo hiểm y tế bao gồm nhiều loại đối tượng, như: người lao động; trẻ em dưới 6 tuổi; học sinh, sinh viên;...</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Nghĩa vụ của người đóng bảo hiểm y tế</h3>
+<div><p>Người tham gia bảo hiểm y tế có những nghĩa vụ sau:</p>
+<p>- Đóng bảo hiểm y tế đầy đủ, đúng thời hạn.</p>
+<p>- Sử dụng thẻ bảo hiểm y tế đúng mục đích, không cho người khác mượn thẻ bảo hiểm y tế.</p>
+<p>- Chấp hành các quy định và hướng dẫn của tổ chức bảo hiểm y tế, cơ sở khám bệnh, chữa bệnh khi đến khám bệnh, chữa bệnh.</p>
+<p>- Thanh toán chi phí khám bệnh, chữa bệnh cho cơ sở khám bệnh, chữa bệnh ngoài phần chi phí do quỹ bảo hiểm y tế chi trả.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tính mức đóng bảo hiểm y tế</h3>
+<div><p>Mức đóng bảo hiểm y tế được quy định như sau:</p>
+<p>- Đối với người đi làm:</p>
+<p style="text-align: center;"><em>Mức đóng bảo hiểm y tế hàng tháng tối đa = 1,5%.20. Mức lương cơ sở</em></p>
+<p>Như vậy mức đóng bảo hiểm y tế hàng tháng tối đa cho người đi làm tính từ ngày 01/7/2023 là:</p>
+<p style="text-align: center;">1,5%.20. 1 800 000 = 540 000 (đồng/tháng)</p>
+<p>- Đối với học sinh, sinh viên:</p>
+<p style="text-align: center;"><em>Mức đóng bảo hiểm y tế hàng năm = 70%.4,5%.Mức lương cơ sở.12</em></p>
+<p>Như vậy mức đóng bảo hiểm y tế hàng năm cho học sinh, sinh viên tính từ ngày 01/7/2023 là:</p>
+<p style="text-align: center;">70%.4,5%.1 800 000.12 = 680 400 (đồng/năm)</p>
+<p style="text-align: right;"><em>(Nguồn: Luật bảo hiểm y tế - Luật số: 25/2008/QH12</em></p>
+<p style="text-align: right;"><em>và Luật sửa đổi, bổ sung một số điều của luật bảo hiểm y tế - Luật số:46/2014/QH13)</em></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

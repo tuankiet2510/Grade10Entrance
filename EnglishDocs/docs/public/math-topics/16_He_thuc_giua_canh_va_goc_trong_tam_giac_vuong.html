@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ thức giữa cạnh và góc trong tam giác vuông - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 16: Hệ thức giữa cạnh và góc trong tam giác vuông</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với côsin góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh huyền ) × (sin góc đối) </em></p>
+<p><em>= (cạnh huyền ) × (cosin góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907908794-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = a.\sin B = a.\cos C;\\c = a.\sin C = a.\cos B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; \(AC = 5cm,\widehat B = 30^\circ \). Độ d&agrave;i BC l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(5,5cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(5cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(10cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\sqrt 2 cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1126/1732606648603-mceclip0.png" width="300" /></p><p>X&eacute;t tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; \(\widehat B = 30^\circ \) n&ecirc;n ta c&oacute;:</p>
+<p>\(\sin B = \frac{{AC}}{{BC}}\) suy ra \(BC = \frac{{AC}}{{\sin B}} = \frac{5}{{\sin 30^\circ }} = 10\left( {cm} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ, độ d&agrave;i cạnh BC l&agrave;</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0923/1727085022161-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(4cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(8\sqrt 3 cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{8\sqrt 3 }}{3}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(16cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Độ d&agrave;i cạnh BC l&agrave;: \(BC = \frac{{AB}}{{\sin C}} = \frac{8}{{\sin 30^\circ }} = 16\left( {cm} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; BC = 10cm, \(\widehat C = 30^\circ \). Độ d&agrave;i cạnh AB l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>5,5cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>5cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(5\sqrt 3 \)cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\sqrt 2 \)cm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0926/1727324375340-mceclip0.png" /></p><p>X&eacute;t tam gi&aacute;c vu&ocirc;ng ABC, ta c&oacute;:</p>
+<p>\(AB = BC.\sin C = 10.\sin 30^\circ&nbsp; = 5\left( {cm} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại B c&oacute; \(\widehat A = 45^\circ \), \(AC = \sqrt 2 \). Độ d&agrave;i cạnh BC l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(BC = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(BC = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(BC = \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(BC = 1\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0919/1726740278400-mceclip0.png" /></p>
+<p>Ta c&oacute;: \(\sin A = \frac{{BC}}{{AC}}\) suy ra \(BC = AC.\sin A = \sqrt 2 .\sin 45^\circ&nbsp; = 1\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c \(ABC\) c&oacute; \(AB = 12,AC = 15\) v&agrave; \(\widehat B = {60^0}\). T&iacute;nh \(BC\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(BC = 3\sqrt 3&nbsp; + 6\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(BC = 3\sqrt {13}&nbsp; + 6\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(BC = 9\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(BC = 6\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&nbsp;Kẻ đường cao \(AH\).</p>
+<p>X&eacute;t tam gi&aacute;c vu&ocirc;ng \(ABH\), ta c&oacute;: \(BH = AB.\cos B = AB.\cos {60^0} = 12.\dfrac{1}{2} = 6\)\(AH = AB.\sin B = AB.\sin {60^0} = 12.\dfrac{{\sqrt 3 }}{2} = 6\sqrt 3 \).</p>
+<p>&nbsp;&Aacute;p dụng định l&yacute; Pythago v&agrave;o tam gi&aacute;c vu&ocirc;ng \(AHC\) ta c&oacute;:</p>
+<p>\(H{C^2} = A{C^2} - A{H^2} = {15^2} - {\left( {6\sqrt 3 } \right)^2} = 117\). Suy ra \(HC = 3\sqrt {13} \). Vậy \(BC = CH + HB = 3\sqrt {13}&nbsp; + 6\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông kia nhân với tang góc đối hoặc côtang góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh góc vuông còn lại ) × (tan góc đối) </em></p>
+<p><em>= (cạnh góc vuông còn lại ) × (cot góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907938917-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = c.\tan B = c.\cot C;\\c = b.\tan C = b.\cot B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Cho tam giác ABC vuông tại \(A\). Khẳng định nào sau đây đúng?</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(AC = BC \cdot {\rm{tan}}B\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(AB = BC \cdot {\rm{tan}}B\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(AC = AB \cdot {\rm{tan}}B\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(AB = AC \cdot {\rm{tan}}B\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Xét tam giác ABC vuông tại A có:</p>
+<p>\(AC = AB \cdot {\rm{tan}}B\)</p>
+<p>\(AB = AC \cdot \tan C\)</p>
+<p><strong>Chọn C.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body">Cho tam giác ABC vuông tại \(C\). Biết $BC = 110m,\,\,\angle BAC = 20^\circ$. Độ dài cạnh AC là</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>326.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 328.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 330.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 302.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Trong tam giác ABC vuông tại \(C\), ta có: $AC = \dfrac{{BC}}{{\tan \angle BAC}} = \dfrac{{110}}{{\tan 20^\circ }} \approx 302\,\,\left( m \right)$</p>
+<p><strong>Chọn D.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A, c&oacute; AB = 6cm v&agrave; \(\cot C = \frac{3}{5}\). Độ d&agrave;i AC bằng:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{9}{2}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{15}}{2}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{18}}{5}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(10cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0930/1727688343062-mceclip0.png" /></p>
+<p>X&eacute;t tam gi&aacute;c ABC vu&ocirc;ng tại A, ta c&oacute; \(\cot C = \frac{{AC}}{{AB}}\) n&ecirc;n \(AC = AB.\cot C = 6.\frac{3}{5} = \frac{{18}}{5}\left( {cm} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại B c&oacute; \(\widehat A = 30^\circ ,BC = 2cm\). Độ d&agrave;i cạnh AB l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\sqrt 3 cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sqrt 3 cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{2\sqrt 3 }}{3}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{{\sqrt 3 }}{3}cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0928/1727508976494-mceclip0.png" /></p><p>Ta c&oacute;: \(\cot A = \frac{{AB}}{{BC}}\) suy ra \(AB = BC.\cot A = 2.\cot 30^\circ&nbsp; = 2.\sqrt 3&nbsp; = 2\sqrt 3 \).</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Giải tam giác vuông là gì? Cách tính cạnh, góc và diện tích tam giác</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Giải tam giác vuông</h3>
+<div><p>Giải một tam giác vuông là tìm ra các yếu tố còn lại của tam giác khi đã biết trước hai yếu tố. Trong quá trình giải, phải có ít nhất một yếu tố về độ dài cạnh, và không cần biết đến góc vuông của tam giác. Các phương pháp giải tam giác vuông có thể sử dụng định lý Pythagore, các tỉ lệ cơ bản của tam giác vuông, hay các công thức khác để tìm ra các yếu tố còn lại, bao gồm cạnh, đường cao, chu vi và diện tích của tam giác.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính cạnh, góc và diện tích tam giác</h3>
+<div><p>Để tính được cạnh, góc, diện tích tam giác, ta cần vận dụng các kiến thức cơ bản sau:</p>
+<p>1. Tỉ số lượng giác của góc nhọn</p>
+<p>+ \(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>+ \(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p>+ Với \({0^0} &lt; \alpha  &lt; {90^0}\), ta có:</p>
+<p>\(\sin \left( {{{90}^0} - \alpha } \right) = \cos \alpha \); \(\cos \left( {{{90}^0} - \alpha } \right) = \sin \alpha \);</p>
+<p>\(\tan \left( {{{90}^0} - \alpha } \right) = \cot \alpha \); \(\cot \left( {{{90}^0} - \alpha } \right) = \tan \alpha \).</p>
+<p>2. Hệ thức giữa cạnh và góc trong tam giác</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747908005578-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(b = a.\sin B = a.\cos C;c = a.\sin C = a.\cos B.\)</p>
+<p>\(b = c.\tan B = c.\cot C;c = b.\tan C = b.\cot B.\)</p>
+<p>3. Công thức lượng giác liên quan</p>
+<p>+) Với góc nhọn \(\alpha \), ta có:</p>
+<p>\(0 &lt; \sin \alpha  &lt; 1\); \(0 &lt; \cos \alpha  &lt; 1\); \(\tan \alpha  &gt; 0\); \(\cot \alpha  &gt; 0\); \(\cot \alpha  = \frac{1}{{\tan \alpha }}\).</p>
+<p>+) \({\sin ^2}\alpha  + {\cos ^2}\alpha  = 1\)</p>
+<p>+) \(\tan \alpha  = \frac{{\sin \alpha }}{{\cos \alpha }}\)</p>
+<p>+) \(\cot \alpha  = \frac{{\cos \alpha }}{{\sin \alpha }}\)</p>
+<p>+) \(\tan \alpha .\cot \alpha  = 1\)</p>
+<p>+) \(\frac{1}{{{{\cos }^2}\alpha }} = {\tan ^2}\alpha  + 1\)</p>
+<p>+) \(\frac{1}{{{{\sin }^2}\alpha }} = {\cot ^2}\alpha  + 1\)</p>
+<p>4. Định lí Pythagore</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747907994262-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong tam giác ABC vuông tại A, ta có: \(B{C^2} = A{B^2} + A{C^2}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; \(\widehat B = 30^\circ \) v&agrave; \(AB = 10cm\). Độ d&agrave;i cạnh BC bằng bao nhi&ecirc;u?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(10\sqrt 3 cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(20\sqrt 3 cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{10\sqrt 3 }}{3}cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{{20\sqrt 3 }}{3}cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0930/1727688585381-mceclip0.png" /></p>
+<p>&Aacute;p dụng tỉ số lượng gi&aacute;c v&agrave;o tam gi&aacute;c ABC, ta c&oacute;:</p>
+<p>\(\cos B = \frac{{AB}}{{BC}}\) suy ra \(BC = \frac{{AB}}{{\cos B}} = \frac{{10}}{{\cos 30^\circ }} = \frac{{20\sqrt 3 }}{3}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại A c&oacute; BC = 10cm, \(\widehat C = 30^\circ \). Độ d&agrave;i cạnh AB l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>5,5cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>5cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(5\sqrt 3 \)cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\sqrt 2 \)cm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0926/1727324375340-mceclip0.png" /></p><p>X&eacute;t tam gi&aacute;c vu&ocirc;ng ABC, ta c&oacute;:</p>
+<p>\(AB = BC.\sin C = 10.\sin 30^\circ&nbsp; = 5\left( {cm} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c ABC vu&ocirc;ng tại B c&oacute; \(\widehat A = 45^\circ \), \(AC = \sqrt 2 \). Độ d&agrave;i cạnh BC l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(BC = 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(BC = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(BC = \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(BC = 1\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0919/1726740278400-mceclip0.png" /></p>
+<p>Ta c&oacute;: \(\sin A = \frac{{BC}}{{AC}}\) suy ra \(BC = AC.\sin A = \sqrt 2 .\sin 45^\circ&nbsp; = 1\).</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam giác \(ABC\) vuông tại \(A\), đường cao \(AH\), biết \(HB = 9;HC = 16\). Tính góc \(B\) và góc \(C.\) </p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(\angle B = {53^0}8'\,\,\,;\,\,\,\angle C = {36^0}52'\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\angle B = {36^0}52'\,\,\,;\,\,\,\angle C = {53^0}8'\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(\angle B = {48^0}35'\,\,\,;\,\,\,\angle C = {41^0}25'\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\angle B = {41^0}25'\,\,\,;\,\,\,\angle C = {48^0}35'\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0707/1594113215619_tam_giac_ABC_duong_cao_AH.png" alt="" width="348" height="200" /></p>
+<p style="text-align: left;">Ta c&oacute;: \(BC = BH + CH = 9 + 16 = 25\)</p>
+<p style="text-align: left;">\(\Delta ABC \backsim \Delta HBA\) suy ra&nbsp;\(A{B^2} = BH.BC= 9.25 \Rightarrow AB = 15\)</p>
+<p style="text-align: left;">\(\Delta ABC \backsim \Delta HAC\) suy ra \(A{C^2} = CH.BC = 16.25 \Rightarrow AC = 20\)</p>
+<p style="text-align: left;">X&eacute;t \(\Delta ABC\) vu&ocirc;ng tại \(A\) ta c&oacute;</p>
+<p style="text-align: left;">\(\sin B = \dfrac{{AC}}{{BC}} = \dfrac{{20}}{{25}} = \dfrac{4}{5} \Rightarrow \widehat B \approx {53^0}8'\)</p>
+<p style="text-align: left;">\(\sin C = \dfrac{{AB}}{{BC}} = \dfrac{{15}}{{25}} = \dfrac{3}{5} \Rightarrow \widehat C \approx {36^0}52'\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Một tam giác cân có đường cao ứng với đáy đúng bằng độ dài đáy. Tính các góc của tam giác đó.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(\angle A = {45^0}\,\,;\,\,\,\angle B = \angle C = {67^0}30'\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\angle A = {30^0}\,\,;\,\,\,\angle B = \angle C = {75^0}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(\angle A = {48^0}6'\,\,;\,\,\,\angle B = \angle C = {65^0}57'\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\angle A = {53^0}8'\,\,;\,\,\,\angle B = \angle C = {63^0}26'\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0707/1594113380610_tam_giac_ABC_can_co_AH_chieu_cao.png" alt="" width="230" height="221" /></p>
+<p style="text-align: left;">Giả sử \(BC = AH = a.\)&nbsp;</p>
+<p style="text-align: left;">V&igrave; \(\Delta ABC\) l&agrave; tam gi&aacute;c c&acirc;n n&ecirc;n \(AH\) l&agrave; đường cao đồng thời l&agrave; đường trung tuyến</p>
+<p style="text-align: left;">\( \Rightarrow H\) l&agrave; trung điểm \(BC\) \( \Rightarrow HB = HC = \dfrac{{BC}}{2} = \dfrac{a}{2}\)</p>
+<p style="text-align: left;">X&eacute;t \(\Delta ABH\) vu&ocirc;ng tại \(H\) ta c&oacute;:&nbsp; \(tan\angle B = \dfrac{{AH}}{{BH}} = \dfrac{a}{{\dfrac{a}{2}}} = 2\) \( \Rightarrow \angle B \approx {63^0}26'\)</p>
+<p style="text-align: left;">V&igrave; \(\Delta ABC\) l&agrave; tam gi&aacute;c c&acirc;n\( \Rightarrow \angle C = \angle B \approx {63^0}26'\)</p>
+<p style="text-align: left;">Ta c&oacute; \(\angle A + \angle B + \angle C = {180^0}\) (định l&yacute; tổng ba g&oacute;c trong một tam gi&aacute;c)</p>
+<p style="text-align: left;">\( \Rightarrow \angle A = {180^0} - 2\angle C \approx {180^0} - {2.63^0}26' \approx {53^0}8'\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c $ABC$ vu&ocirc;ng tại&nbsp; $A$ c&oacute; \(AB = 5\,cm,\,\,\cot C = \dfrac{7}{8}\) . T&iacute;nh độ d&agrave;i c&aacute;c đoạn thẳng $AC$ v&agrave; $BC$ . (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ $2$ )</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$AC \approx 4,39 (cm);BC \approx 6,66 (cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AC \approx 4,38(cm);BC \approx 6,64(cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$AC \approx 4,38(cm);BC \approx 6,67(cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$AC \approx 4,37(cm);BC \approx 6,67(cm)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">V&igrave; tam gi&aacute;c $ABC$ vu&ocirc;ng tại&nbsp; $A$ n&ecirc;n $\cot C = \dfrac{{AC}}{{AB}} \Rightarrow AC = AB.\cot C = 5.\dfrac{7}{8} = \dfrac{{35}}{8} \approx 4,38\,\,cm$</p>
+<p>Theo định l&yacute; Pytago ta c&oacute; \(B{C^2} = A{B^2} + A{C^2} = {5^2} + {\left( {\dfrac{{35}}{8}} \right)^2} \Rightarrow BC \approx 6,64\)</p>
+<p style="text-align: left;">Vậy $AC \approx 4,38(cm);BC \approx 6,64(cm)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam giác \(ABC\) cân tại \(A,\,\,\angle B = {65^0},\)  đường cao \(CH = 3,6\).  Hãy giải tam giác \(ABC\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(\angle A = {50^0}\,\,;\,\,\,\angle C = {65^0}\,\,;\,\,AB = AC = 5,6\,\,;\,\,BC = 8,52\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(\angle A = {50^0}\,\,;\,\,\,\angle C = {65^0}\,\,;\,\,AB = AC = 5,6\,\,;\,\,BC = 4,42\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(\angle A = {50^0}\,\,;\,\,\,\angle C = {65^0}\,\,;\,\,AB = AC = 4,7\,\,;\,\,BC = 4,24\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\angle A = {50^0}\,\,;\,\,\,\angle C = {65^0}\,\,;\,\,AB = AC = 4,7\,\,;\,\,BC = 3,97\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0707/1594112648302_tam_giac_ABC_co_AB=AC.png" alt="" width="241" height="184" /></p>
+<p style="text-align: left;">V&igrave; \(\Delta ABC\) l&agrave; tam gi&aacute;c c&acirc;n tại \(A\)\( \Rightarrow \angle C = \angle B = {65^0}\)</p>
+<p style="text-align: left;">Ta c&oacute; \(\angle A + \angle B + \angle C = {180^0}\)(định l&yacute; tổng ba g&oacute;c trong một tam gi&aacute;c)</p>
+<p style="text-align: left;">\( \Rightarrow \angle A = {180^0} - 2\angle C = {180^0} - {2.65^0} = {50^0}\)</p>
+<p style="text-align: left;">X&eacute;t \(\Delta ACH\) vu&ocirc;ng tại \(H\) ta c&oacute;:</p>
+<p style="text-align: left;">\(\sin A = \dfrac{{CH}}{{AC}}\) \( \Leftrightarrow \sin {50^0} = \dfrac{{3,6}}{{AC}}\)\( \Rightarrow AC = \dfrac{{3,6}}{{\sin {{50}^0}}} \approx 4,7\)</p>
+<p style="text-align: left;">V&igrave; \(\Delta ABC\) l&agrave; tam gi&aacute;c c&acirc;n tại \(A\)\( \Rightarrow AC = AB \approx 4,7\)</p>
+<p style="text-align: left;">X&eacute;t \(\Delta BCH\) vu&ocirc;ng tại \(H\) ta c&oacute;:</p>
+<p style="text-align: left;">\(\sin B = \dfrac{{CH}}{{BC}} \Leftrightarrow \sin {65^0} = \dfrac{{3,6}}{{BC}} \)\(\Rightarrow BC = \dfrac{{3,6}}{{\sin {{65}^0}}} \approx 3,97\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Cho tam gi&aacute;c \(ABC\) vu&ocirc;ng tại \(A\) c&oacute; \(BC = 26\,cm,AB = 10\,cm\) T&iacute;nh \(AC;\widehat B\) . (l&agrave;m tr&ograve;n đến độ)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(AC = 22;\widehat C \approx 67^\circ \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(AC = 24;\widehat C \approx 66^\circ \)&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(AC = 24;\widehat C \approx 67^\circ \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(AC = 24;\widehat C \approx 68^\circ \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t tam gi&aacute;c&nbsp; \(ABC\) vu&ocirc;ng tại \(A\) c&oacute;</p>
+<p>+) \(B{C^2} = A{B^2} + A{C^2} \Rightarrow AC = \sqrt {B{C^2} - A{B^2}}&nbsp; = \sqrt {{{26}^2} - {{10}^2}}&nbsp; = 24\)</p>
+<p>+) \(\sin B = \dfrac{{AC}}{{BC}} = \dfrac{{24}}{{26}} = \dfrac{{12}}{{13}} \Rightarrow \widehat B \approx 67^\circ \)</p>
+<p>Vậy \(AC = 24;\widehat C \approx 67^\circ \).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c \(ABC\) vu&ocirc;ng tại \(A\) c&oacute; \(BC = 15\,cm,AB = 12\,cm\) . T&iacute;nh $AC;\widehat B$ .</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$AC = 8 (cm);\widehat B \approx 36^\circ 52'$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AC = 9(cm);\widehat B \approx 36^\circ 52'$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$AC = 9(cm);\widehat B \approx 37^\circ 52'$&nbsp; &nbsp; &nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$AC = 9(cm);\widehat B \approx 36^\circ 55'$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t tam gi&aacute;c&nbsp; \(ABC\) vu&ocirc;ng tại \(A\) c&oacute;</p>
+<p style="text-align: left;">+) $B{C^2} = A{B^2} + A{C^2} \Rightarrow AC = \sqrt {B{C^2} - A{B^2}}&nbsp; = \sqrt {{{15}^2} - {{12}^2}}&nbsp; = 9 (cm)$</p>
+<p style="text-align: left;">+) $\sin B = \dfrac{{AC}}{{BC}} = \dfrac{9}{{15}} = \dfrac{3}{5}$</p>
+<p style="text-align: left;">$\Rightarrow \widehat B \approx 36^\circ 52'$</p>
+<p style="text-align: left;">Vậy $AC = 9 (cm);\widehat B \approx 36^\circ 52'$.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

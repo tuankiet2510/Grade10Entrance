@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khai căn bậc hai với phép nhân và phép chia (Tính chất của phép khai phương) - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 11: Khai căn bậc hai với phép nhân và phép chia (Tính chất của phép khai phương)</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phép khai căn bậc hai là gì? Căn bậc hai của một tích là gì? Căn thức bậc hai của một tích là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phép khai căn bậc hai (phép khai phương)</h3>
+<div><p>Phép khai căn bậc hai (phép khai phương) là tìm căn bậc hai của một biểu thức hoặc một số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Quy tắc khai phương một tích</h3>
+<div><p>Muốn khai phương một tích của các số không âm , ta có thể khai phương từng thừa số rồi nhân các kết quả với nhau.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Quy tắc nhân các căn bậc hai</h3>
+<div><p>Muốn nhân các căn bậc hai của các số không âm, ta có thể nhân các số dưới dấu căn với nhau rồi khai phương kết quả đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Căn bậc hai của một tích</h3>
+<div><p>Với hai số không âm a, b, ta có: \(\sqrt {a.b}  = \sqrt a .\sqrt b \).</p>
+<p><strong><em>Chú ý:</em></strong> Quy tắc trên có thể mở rộng cho tích có nhiều thừa số không âm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Căn thức bậc hai của một tích</h3>
+<div><p>Với hai biểu thức A và B nhận giá trị không âm, ta có</p>
+<p>\(\sqrt A .\sqrt B  = \sqrt {AB} \).</p>
+<p><strong><em>Nhận xét: </em></strong>Ta có thể biến đổi \(\sqrt {AB}  = \sqrt A .\sqrt B \) hoặc \(\sqrt A .\sqrt B  = \sqrt {AB} \) (\(A \ge 0\) và \(B \ge 0\)) để việc tính toán được dễ dàng hơn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tính \(B = \left( {\sqrt {18}  + \sqrt {32}  - \sqrt {50} } \right).\sqrt 2 \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(B = 1\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(B = 4\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(B = 5\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(B = 0\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(B = \left( {\sqrt {18}&nbsp; + \sqrt {32}&nbsp; - \sqrt {50} } \right).\sqrt 2 \)</p>
+<p>\(= \sqrt {18} .\sqrt 2&nbsp; + \sqrt {32} .\sqrt 2&nbsp; - \sqrt {50} .\sqrt 2 \)</p>
+<p>\(= \sqrt {18.2}&nbsp; + \sqrt {32.2}&nbsp; - \sqrt {50.2} \)</p>
+<p>\(= \sqrt {36}&nbsp; + \sqrt {64}&nbsp; - \sqrt {100} \)</p>
+<p>\(= 6 + 8 - 10\)\(= 4\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Giá trị của biểu thức \(A = \sqrt {810.40}  + \sqrt {24} .\sqrt {12} .\sqrt {0,5} \) là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(A = 192\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(A = 180\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(A = 12\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(A = 164\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\begin{array}{l}A = \sqrt {810.40}&nbsp; + \sqrt {24} .\sqrt {12} .\sqrt {0,5} \\\,\,\,\,\, = \sqrt {81.100.4}&nbsp; + \sqrt {24.12.0,5} \\\,\,\,\,\, = \sqrt {{9^2}} .\sqrt {{{10}^2}} .\sqrt {{2^2}}&nbsp; + \sqrt {144} \\\,\,\,\, = 9.10.2 + \sqrt {{{12}^2}} \\\,\,\,\, = 180 + 12\\\,\,\,\, = 192\end{array}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Gi&aacute; trị của biểu thức&nbsp; \(\sqrt {252}&nbsp; - \sqrt {700}&nbsp; + \sqrt {1008}&nbsp; - \sqrt {448} \) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt 7 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(4\sqrt 7 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\sqrt 7 \)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sqrt {252}&nbsp; - \sqrt {700}&nbsp; + \sqrt {1008}&nbsp; - \sqrt {448} \)\( = \sqrt {36.7}&nbsp; - \sqrt {100.7}&nbsp; + \sqrt {144.7}&nbsp; - \sqrt {64.7} \)\( = \sqrt {36} .\sqrt 7&nbsp; - \sqrt {100} .\sqrt 7&nbsp; + \sqrt {144} .\sqrt 7&nbsp; - \sqrt {64} .\sqrt 7&nbsp; = 6\sqrt 7&nbsp; - 10\sqrt 7&nbsp; + 12\sqrt 7&nbsp; - 8\sqrt 7&nbsp; = \sqrt 7 \left( {6 - 10 + 12 - 8} \right) = 0\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $a,b$ l&agrave; hai số kh&ocirc;ng &acirc;m. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt {ab}&nbsp; = a\sqrt b $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt a \sqrt b&nbsp; = b\sqrt a $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt a .\sqrt b&nbsp; = \sqrt {ab} $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {ab}&nbsp; = \dfrac{{\sqrt a }}{{\sqrt b }}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với hai số $a,b$ kh&ocirc;ng &acirc;m, ta c&oacute; $\sqrt {ab}&nbsp; = \sqrt a .\sqrt b $.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; $\sqrt {{a^4}.{{\left( {2a - 1} \right)}^2}} $ với $a \ge \dfrac{1}{2}$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$a\left( {2a - 1} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\left( {1 - 2a} \right){a^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\left( {2a - 1} \right){a^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\left( {1 - 2a} \right)a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">$\sqrt {{a^4}.{{\left( {2a - 1} \right)}^2}}&nbsp; = \sqrt {{a^4}} .\sqrt {{{\left( {2a - 1} \right)}^2}}&nbsp; = \sqrt {{{\left( {{a^2}} \right)}^2}} .\sqrt {{{\left( {2a - 1} \right)}^2}}&nbsp; $</p>
+<p style="text-align: left;">$= \left| {{a^2}} \right|.\left| {2a - 1} \right| = {a^2}.\left( {2a - 1} \right)$</p>
+<p style="text-align: left;">&nbsp;(v&igrave; $a \ge \dfrac{1}{2} \Rightarrow 2a - 1 \ge 0 $</p>
+<p style="text-align: left;">$\Rightarrow \left| {2a - 1} \right| = 2a - 1$)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; $\sqrt {{a^2}.{{\left( {2a - 3} \right)}^2}} $ với $ 0 \le a &lt; \dfrac{3}{2}$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$a\left( {2a - 3} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\left( {3- 2a} \right){a^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\left( {2a - 3} \right){a^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\left( {3 - 2a} \right)a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">$\sqrt {{a^2}.{{\left( {2a - 3} \right)}^2}}&nbsp; = \sqrt {{a^2}} .\sqrt {{{\left( {2a - 3} \right)}^2}}&nbsp; =&nbsp; \left| {{a}} \right|.\left| {2a - 3} \right| $$= {a}.\left( {3-2a } \right)$</p>
+<p style="text-align: left;">&nbsp;(v&igrave; $0 \le a &lt;\dfrac{3}{2} \Rightarrow 2a - 3&lt; 0$$ \Rightarrow \left| {2a - 3} \right| = 3-2a ) $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; $\sqrt {0,9.0,1.{{\left( {3 - x} \right)}^2}} $ với $x &gt; 3$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$0,3\left( {x - 3} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$0,3\left( {3 - x} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$0,9\left( {x - 3} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$0,1\left( {x - 3} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {0,9.0,1.{{\left( {3 - x} \right)}^2}}&nbsp; = \sqrt {0,09.{{\left( {3 - x} \right)}^2}} $</p>
+<p style="text-align: left;">$= \sqrt {0,09} .\sqrt {{{\left( {3 - x} \right)}^2}}&nbsp; = 0,3.\left| {3 - x} \right|$</p>
+<p style="text-align: left;">M&agrave; $x &gt; 3 \Rightarrow 3 - x &lt; 0 $</p>
+<p style="text-align: left;">hay $ \left| {3 - x} \right| = x - 3$</p>
+<p style="text-align: left;">N&ecirc;n $\sqrt {0,9.0,1.{{\left( {3 - x} \right)}^2}}&nbsp; = 0,3.\left( {x - 3} \right)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Gi&aacute; trị biểu thức&nbsp; $\sqrt {x - 2} .\sqrt {x + 2} $ khi $x = \sqrt {29} $ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$29$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$5$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$25$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt { {x - 2} }.\sqrt{ {x + 2} }&nbsp; = \sqrt {{x^2} - 4} $ với&nbsp;\(x \ge 2\).</p>
+<p style="text-align: left;">Thay $x = \sqrt {29} $ ( TMĐK \( x \ge 2\) ) v&agrave;o biểu thức ta được $\sqrt {{x^2} - 4}&nbsp; = \sqrt {{{\left( {\sqrt {29} } \right)}^2} - 4}&nbsp; $</p>
+<p style="text-align: left;">$= \sqrt {25}&nbsp; = 5$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 9:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; $\dfrac{{\sqrt {{x^3} + 2{x^2}} }}{{\sqrt {x + 2} }}$ với $x &gt; 0$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$x$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$-x$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt x $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {x + 2} $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\dfrac{{\sqrt {{x^3} + 2{x^2}} }}{{\sqrt {x + 2} }}$$ = \dfrac{{\sqrt {{x^2}\left( {x + 2} \right)} }}{{\sqrt {x + 2} }} = \dfrac{{\sqrt {{x^2}} .\sqrt {x + 2} }}{{\sqrt {x + } 2}} = \sqrt {{x^2}}&nbsp; = \left| x \right|$ m&agrave; $x &gt; 0$ n&ecirc;n $\left| x \right| = x$</p>
+<p style="text-align: left;">Từ đ&oacute; $\dfrac{{\sqrt {{x^3} + 2{x^2}} }}{{\sqrt {x + 2} }} = x$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 10:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Với $x &gt; 5$, cho biểu thức&nbsp; $A = \dfrac{{\sqrt {{x^2} - 5x} }}{{\sqrt {x - 5} }}$ v&agrave; $B = x$.</p>
+<p style="text-align: left;">C&oacute; bao nhi&ecirc;u gi&aacute; trị của $x$ để $A = B$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$0$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">V&ocirc; số.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $A = \dfrac{{\sqrt {{x^2} - 5x} }}{{\sqrt {x - 5} }}$$ = \dfrac{{\sqrt {x\left( {x - 5} \right)} }}{{\sqrt {x - 5} }} = \dfrac{{\sqrt x \sqrt {x - 5} }}{{\sqrt {x - 5} }} = \sqrt x $</p>
+<p style="text-align: left;">Để $A = B$$ \Leftrightarrow \sqrt x&nbsp; = x \Leftrightarrow x - \sqrt x&nbsp; = 0 \Leftrightarrow \sqrt x \left( {\sqrt x&nbsp; - 1} \right) = 0 \Leftrightarrow \left[ \begin{array}{l}\sqrt x&nbsp; = 0\\\sqrt x&nbsp; - 1 = 0\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}x = 0\\\sqrt x&nbsp; = 1\end{array} \right. \Leftrightarrow \left[ \begin{array}{l}x = 0\\x = 1\end{array} \right.$(loại v&igrave; $x &gt; 5$ ).</p>
+<p style="text-align: left;">Vậy kh&ocirc;ng c&oacute; gi&aacute; trị n&agrave;o của $x$ thỏa m&atilde;n điều kiện đề b&agrave;i.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 11:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh gi&aacute; trị của biểu thức \(A = \dfrac{{2\sqrt x }}{{\sqrt 5&nbsp; + \sqrt 3 }}\) với \(x = 4 + \sqrt {15} \)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\dfrac{1}{{2\sqrt 3 }}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\dfrac{1}{{2\left( {\sqrt 3&nbsp; + \sqrt 5 } \right)}}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac{1}{{\sqrt 2 }}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(\sqrt 2 \)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Điều kiện: \(x \ge 0.\)</p>
+<p style="text-align: left;">Ta c&oacute;: \(x = 4 + \sqrt {15} \) thỏa m&atilde;n điều kiện x&aacute;c định.&nbsp;</p>
+<p style="text-align: left;">\(\begin{array}{l} \Rightarrow 2x = 8 + 2\sqrt {15}&nbsp; = 5 + 2\sqrt 5 .\sqrt 3&nbsp; + 3 = {\left( {\sqrt 5&nbsp; + \sqrt 3 } \right)^2}\\ \Rightarrow x = \dfrac{{{{\left( {\sqrt 5&nbsp; + \sqrt 3 } \right)}^2}}}{2}\\ \Rightarrow \sqrt x&nbsp; = \sqrt {\dfrac{{{{\left( {\sqrt 5&nbsp; + \sqrt 3 } \right)}^2}}}{2}}&nbsp; = \dfrac{{\left| {\sqrt 5&nbsp; + \sqrt 3 } \right|}}{{\sqrt 2 }} = \dfrac{{\sqrt 5&nbsp; + \sqrt 3 }}{{\sqrt 2 }}\end{array}\)</p>
+<p style="text-align: left;">Thay \(\sqrt x&nbsp; = \dfrac{{\sqrt 5&nbsp; + \sqrt 3 }}{{\sqrt 2 }}\) v&agrave;o \(A\) ta được: \(A = \dfrac{{2\left( {\sqrt 5&nbsp; + \sqrt 3 } \right)}}{{\sqrt 2 \left( {\sqrt 5&nbsp; + \sqrt 3 } \right)}} = \sqrt 2 \)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Căn bậc hai của một thương là gì? Căn thức bậc hai của một thương là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phép khai căn bậc hai (phép khai phương)</h3>
+<div><p>Phép khai căn bậc hai (phép khai phương) là tìm căn bậc hai của một biểu thức hoặc một số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Quy tắc khai phương một thương</h3>
+<div><p>Muốn khai phương một thương \(\frac{a}{b}\), trong đó số a không âm và số b dương, ta có thể lần lượt khai phương số a và số b, rồi lấy kết quả thứ nhất chia cho kết quả thứ hai.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Quy tắc chia hai căn bậc hai</h3>
+<div><p>Muốn chia căn bậc hai của một số a không âm cho căn bậc hai của một số b dương, ta có thể chia số a cho số b rồi khai phương kết quả đó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Căn bậc hai của một thương</h3>
+<div><p>Với \(a \ge 0;b &gt; 0\), ta có: \(\sqrt {\frac{a}{b}}  = \frac{{\sqrt a }}{{\sqrt b }}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Căn thức bậc hai của một thương</h3>
+<div><p>Với biểu thức A nhận giá trị không âm và biểu thức B nhận giá trị dương, ta có: \(\sqrt {\frac{A}{B}}  = \frac{{\sqrt A }}{{\sqrt B }}\).</p>
+<p><strong><em>Nhận xét: </em></strong>Ta có thể biến đổi \(\sqrt {\frac{A}{B}}  = \frac{{\sqrt A }}{{\sqrt B }}\) hoặc \(\frac{{\sqrt A }}{{\sqrt B }} = \sqrt {\frac{A}{B}} \) (\(A \ge 0\) và \(B \ge 0\)) để việc tính toán được dễ dàng hơn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $a$ l&agrave; số kh&ocirc;ng &acirc;m, $b$ l&agrave; số dương. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt {\dfrac{a}{b}}&nbsp; = \dfrac{{\sqrt a }}{b}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt {\dfrac{a}{b}}&nbsp; = \dfrac{{\sqrt a }}{{\sqrt b }}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt {\dfrac{a}{b}}=\dfrac{{ - \sqrt a }}{{\sqrt b }}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt {\dfrac{a}{b}}=\dfrac{a}{{\sqrt b }}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với số $a$ kh&ocirc;ng &acirc;m v&agrave; số $b$ dương , ta c&oacute; $\sqrt {\dfrac{a}{b}}&nbsp; = \dfrac{{\sqrt a }}{{\sqrt b }}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức&nbsp; $\sqrt {\dfrac{{{a^4}}}{{{b^2}}}} $ với $b \ne 0$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{{{a^2}}}{b}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{a}{b}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ - \dfrac{{{a^2}}}{b}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\dfrac{{{a^2}}}{{\left| b \right|}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {\dfrac{{{a^4}}}{{{b^2}}}} $$ = \dfrac{{\sqrt {{a^4}} }}{{\sqrt {{b^2}} }} = \dfrac{{\sqrt {{{\left( {{a^2}} \right)}^2}} }}{{\sqrt {{b^2}} }} = \dfrac{{\left| {{a^2}} \right|}}{{\left| b \right|}} = \dfrac{{{a^2}}}{{\left| b \right|}}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(a\) l&agrave; số kh&ocirc;ng &acirc;m, \(b,c\) l&agrave; số dương. Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\sqrt {\dfrac{a}{b}}&nbsp; = \dfrac{{\sqrt a }}{{\sqrt b }}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\dfrac{{\sqrt {ab} }}{{\sqrt c }} = \sqrt {\dfrac{{ab}}{c}} \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\dfrac{{\sqrt a }}{{\sqrt {bc} }} = \dfrac{{\sqrt {ab} }}{{\sqrt c }}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Cả A, B đều đ&uacute;ng.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với số \(a\) kh&ocirc;ng &acirc;m v&agrave; số \(b\) dương , ta c&oacute; \(\sqrt {\dfrac{a}{b}}&nbsp; = \dfrac{{\sqrt a }}{{\sqrt b }}\)</p>
+<p style="text-align: left;">Từ đ&oacute; suy ra&nbsp; \(\dfrac{{\sqrt {ab} }}{{\sqrt c }} = \sqrt {\dfrac{{ab}}{c}} \) với \(c &gt; 0.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức&nbsp; \(\dfrac{{3m}}{{8n}}\sqrt {\dfrac{{64{n^2}}}{{9{m^2}}}} \,\) với \(m &gt; 0;n &lt; 0\) ta được:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\dfrac{m}{n}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\( - \dfrac{m}{n}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\dfrac{{3m}}{{8n}}\sqrt {\dfrac{{64{n^2}}}{{9{m^2}}}} \, = \dfrac{{3m}}{{8n}}\sqrt {\dfrac{{{{\left( {8n} \right)}^2}}}{{{{\left( {3m} \right)}^2}}}}&nbsp; = \dfrac{{3m}}{{8n}}.\dfrac{{\left| {8n} \right|}}{{\left| {3m} \right|}} = \dfrac{{3m.\left( { - 8n} \right)}}{{8n.3m}}\, =&nbsp; - 1\) (v&igrave; \(m &gt; 0;n &lt; 0\))</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(\frac{{\sqrt {27{a^3}} }}{{\sqrt {48a} }}\left( {a &gt; 0} \right)\), ta được:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{{9{a^2}}}{{16}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( - \frac{{9{a^2}}}{{16}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{{3a}}{4}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\( - \frac{{3a}}{4}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(a &gt; 0\), ta c&oacute;:</p>
+<p>\(\frac{{\sqrt {27{a^3}} }}{{\sqrt {48a} }} = \sqrt {\frac{{27{a^3}}}{{48a}}}&nbsp; = \sqrt {\frac{{9{a^2}}}{{16}}}&nbsp; = \frac{{3a}}{4}\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Gi&aacute; trị của biểu thức \(\frac{{x + \sqrt {xy} }}{{y + \sqrt {xy} }}\left( {x \ge 0;y &gt; 0} \right)\) tại \(x = 3;y = 27\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{1}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{9}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\sqrt {\frac{1}{3}} \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Với \(x \ge 0;y &gt; 0\), ta c&oacute;:</p>
+<p>\(\frac{{x + \sqrt {xy} }}{{y + \sqrt {xy} }} = \frac{{\sqrt x \left( {\sqrt x&nbsp; + \sqrt y } \right)}}{{\sqrt y \left( {\sqrt x&nbsp; + \sqrt y } \right)}} = \frac{{\sqrt x }}{{\sqrt y }}\).</p>
+<p>Thay \(x = 3;y = 27\) v&agrave;o \(\frac{{\sqrt x }}{{\sqrt y }}\), ta được:</p>
+<p>\(\frac{{\sqrt 3 }}{{\sqrt {27} }} = \sqrt {\frac{3}{{27}}}&nbsp; = \sqrt {\frac{1}{9}}&nbsp; = \frac{1}{3}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho biểu thức \(A = \frac{{\sqrt {{x^2} - 5x} }}{{\sqrt {x - 5} }}\) v&agrave; \(B = x\).</p>
+<p>Với \(x &gt; 5\), c&oacute; bao nhi&ecirc;u gi&aacute; trị của x để \(A = B\)?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>V&ocirc; số.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(A = \frac{{\sqrt {{x^2} - 5x} }}{{\sqrt {x - 5} }} = \sqrt {\frac{{{x^2} - 5x}}{{x - 5}}}&nbsp; = \sqrt {\frac{{x\left( {x - 5} \right)}}{{x - 5}}}&nbsp; = \sqrt x \).</p>
+<p>\(A = B\) hay \(\sqrt x&nbsp; = x\)</p>
+<p>\(\begin{array}{l}x - \sqrt x&nbsp; = 0\\\sqrt x \left( {\sqrt x&nbsp; - 1} \right) = 0\\\begin{array}{*{20}{c}}\begin{array}{l}\sqrt x&nbsp; = 0\\x = 0(KTM)\end{array}&amp;{}&amp;\begin{array}{l}\sqrt x&nbsp; - 1 = 0\\x = 1(KTM)\end{array}\end{array}\end{array}\)</p>
+<p>Vậy kh&ocirc;ng c&oacute; gi&aacute; trị n&agrave;o để A = B.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

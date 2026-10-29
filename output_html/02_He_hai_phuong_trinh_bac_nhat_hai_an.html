@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ hai phương trình bậc nhất hai ẩn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 02: Hệ hai phương trình bậc nhất hai ẩn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hệ hai phương trình bậc nhất hai ẩn là gì? Cách xác định hệ hai phương trình bậc nhất hai ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Một cặp gồm hai phương trình bậc nhất hai ẩn \(ax + by = c\) và \(a'x + b'y = c'\) được gọi là một <em>hệ hai phương trình bậc nhất hai ẩn.</em></p>
+<p>Ta thường viết hệ phương trình đó dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định hệ hai phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định một hệ hai phương trình có phải là phương trình bậc nhất hai ẩn hay không, ta kiểm tra xem hai phương trình của hệ có dạng \(ax + by = c\) thoả mãn \(a \ne 0\) hoặc \(b \ne 0\) hay không.</p>
+<p>+ Nếu cả hai phương trình không có dạng \(ax + by = c\) thoả mãn \(a \ne 0\) hoặc \(b \ne 0\) thì không phải hệ hai phương trình bậc nhất hai ẩn.</p>
+<p>+ Nếu một trong hai phương trình không có dạng \(ax + by = c\) thoả mãn \(a \ne 0\) hoặc \(b \ne 0\) thì không phải hệ hai phương trình bậc nhất hai ẩn.</p>
+<p>+ Nếu hai phương trình có dạng \(ax + by = c\) thoả mãn \(a \ne 0\) hoặc \(b \ne 0\) thì không phải hệ hai phương trình bậc nhất hai ẩn.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh \(2x + y = 1\) kết hợp với phương tr&igrave;nh n&agrave;o dưới đ&acirc;y để được một hệ phương tr&igrave;nh bậc nhất hai ẩn?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2x + 3{y^2} = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(xy - x = 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(3x + 2{y^3} = 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(3x - y = 5\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; phương tr&igrave;nh \(3x - y = 5\) l&agrave; phương tr&igrave;nh bậc nhất hai ẩn n&ecirc;n kết hợp với phương tr&igrave;nh \(2x + y = 1\) ta được hệ phương tr&igrave;nh bậc nhất hai ẩn \(\left\{ \begin{array}{l}2x + y = 1\\3x - y = 5\end{array} \right.\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Hệ phương tr&igrave;nh n&agrave;o sau đ&acirc;y <strong>kh&ocirc;ng phải</strong> hệ hai phương tr&igrave;nh bậc nhất hai ẩn:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}2x - 3y = 5\\x + 3y =&nbsp; - 11\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}2x - 3y = 5\\3x =&nbsp; - 6\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}9y =&nbsp; - 27\\x + 3y =&nbsp; - 11\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}{x^2} + {y^2} = 121\\x + 2y =&nbsp; - 11\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ phương tr&igrave;nh \(\left\{ \begin{array}{l}{x^2} + {y^2} = 121\\x + 2y =&nbsp; - 11\end{array} \right.\) kh&ocirc;ng phải l&agrave; hệ phương tr&igrave;nh bậc nhất hai ẩn v&igrave; phương tr&igrave;nh \({x^2} + {y^2} = 121\) kh&ocirc;ng phải l&agrave; phương tr&igrave;nh bậc nhất hai ẩn.</p>
+<p><strong>Đ&aacute;p &aacute;n D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Người ta cần chở một số lượng hàng. Nếu xếp vào mỗi xe 12 tấn thì thừa 3 tấn, nếu xếp vào mỗi xe 15 tấn thì có thể chở thêm 12 tấn nữa. Gọi x là số hàng cần vận chuyển và y là số xe tham gia chở hàng. Hệ phương trình thỏa mãn là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}x + 12y = 3\\x - 15y = 12\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}x - 12y = 3\\ - x + 15y = 12\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}x - 12y = 3\\x + 15y = 12\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}x + 12y = 3\\ - x + 15y = 12\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vì nếu xếp mỗi xe 12 tấn thì thừa 3 tấn nên ta có phương trình \(x - 12y = 3\).</p>
+<p>Vì nếu xếp vào mỗi xe 15 tấn thì có thể chở thêm 12 tấn nữa nên ta có phương trình \(15y - x = 12\) hay \( - x + 15y = 12\).</p>
+<p>Vậy hệ phương trình thỏa mãn là \(\left\{ \begin{array}{l}x - 12y = 3\\ - x + 15y = 12\end{array} \right.\).</p>
+<p><strong>Đáp án B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho b&agrave;i to&aacute;n d&acirc;n gian:</p>
+<p>&ldquo;Vừa g&agrave; vừa ch&oacute;</p>
+<p>B&oacute; lại cho tr&ograve;n</p>
+<p>Ba mươi s&aacute;u con</p>
+<p>Một trăm ch&acirc;n chẵn&rdquo;</p>
+<p>Nếu coi x (con) l&agrave; số g&agrave; v&agrave; y (con) l&agrave; số ch&oacute; (\(x,y \in \mathbb{N}*\)) th&igrave; hệ phương tr&igrave;nh thỏa m&atilde;n b&agrave;i to&aacute;n tr&ecirc;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}x + y = 36\\2x + 4y = 100\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}x + y = 36\\4x + 2y = 100\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}2x + 4y = 36\\x + y = 100\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}4x + 2y = 36\\x + y = 100\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Do cả g&agrave; v&agrave; ch&oacute; c&oacute; 36 con n&ecirc;n ta c&oacute; \(x + y = 36\).</p>
+<p>Do cả g&agrave; v&agrave; ch&oacute; c&oacute; một trăm ch&acirc;n chẵn n&ecirc;n ta c&oacute;: \(2x + 4y = 100\).</p>
+<p>Do đ&oacute; ta c&oacute; hệ phương tr&igrave;nh: \(\left\{ {\begin{array}{*{20}{l}}{x + y = 36}\\{2x + 4y = 100}\end{array}} \right.\).</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Trong c&aacute;c hệ dưới đ&acirc;y, hệ n&agrave;o <strong>kh&ocirc;ng</strong> l&agrave; hệ hai phương tr&igrave;nh bậc nhất hai ẩn?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}2x + y = 3\\x - 2y = 5\end{array} \right.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}x + 2y = 4\\{x^2} + y = 1\end{array} \right.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}2x + 0y = 3\\x + y = 2\end{array} \right.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}x + 2y = 3\\0x - y = 1\end{array} \right.\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ phương tr&igrave;nh \(\left\{ \begin{array}{l}x + 2y = 4\\{x^2} + y = 1\end{array} \right.\) kh&ocirc;ng phải l&agrave; hệ hai phương tr&igrave;nh bậc nhất hai ẩn v&igrave; x c&oacute; bậc l&agrave; 2.</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Hệ hai phương tr&igrave;nh bậc nhất hai ẩn c&oacute; dạng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}a{x^2} + b{y^2} = c\\a'x + b'y = c'\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}ax + by = c\\a'{x^2} + b'{y^2} = c'\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}a{x^2} + by = c\\a'x + b'{y^2} = c'\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hệ phương tr&igrave;nh bậc nhất hai ẩn \(ax + by = c\) v&agrave; \(a'x + b'y = c'\) được viết dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Nghiệm của hệ hai phương trình bậc nhất hai ẩn là gì? Cách xác định nghiệm của hệ hai phương trình bậc nhất hai ẩn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Một cặp gồm hai phương trình bậc nhất hai ẩn \(ax + by = c\) và \(a'x + b'y = c'\) được gọi là một <em>hệ hai phương trình bậc nhất hai ẩn.</em></p>
+<p>Ta thường viết hệ phương trình đó dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Nghiệm của hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Mỗi cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) nếu nó đồng thời là nghiệm của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p><strong><em>Lưu ý: </em></strong>Mỗi nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) chính là một <em>nghiệm chung­</em> của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định nghiệm của hệ hai phương trình bậc nhất hai ẩn</h3>
+<div><p>Để xác định cặp số \(\left( {{x_0};{y_0}} \right)\) có là nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) hay không, ta kiểm tra xem \(\left( {{x_0};{y_0}} \right)\) có là nghiệm của phương trình \(ax + by = c\) và \(a'x + b'y = c'\)  hay không.</p>
+<p>+ Nếu \(a{x_0} + b{y_0} \ne c\) và \(a'{x_0} + b'{y_0} \ne c'\)  thì \(\left( {{x_0};{y_0}} \right)\) <strong>không</strong> là nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p>+ Nếu \(a{x_0} + b{y_0} = c\) và \(a'{x_0} + b'{y_0} \ne c'\)  thì \(\left( {{x_0};{y_0}} \right)\) <strong>không</strong> là nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p>+ Nếu \(a{x_0} + b{y_0} \ne c\) và \(a'{x_0} + b'{y_0} = c'\)  thì \(\left( {{x_0};{y_0}} \right)\) <strong>không</strong> là nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
++ Nếu \(a{x_0} + b{y_0} = c\) và \(a'{x_0} + b'{y_0} = c'\)  thì \(\left( {{x_0};{y_0}} \right)\) là nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cặp số \(\left( {4;2} \right)\) l&agrave; nghiệm của hệ phương tr&igrave;nh</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}x + y = 6\\x - y = 2\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}x - y = 2\\3x + 2y = 5\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}x + y = 6\\2x - 5y = 8\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}x - y = 2\\x - 5y = 4\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \(\left\{ \begin{array}{l}4 + 2 = 6\\4 - 2 = 2\end{array} \right.\) n&ecirc;n cặp số \(\left( {4;2} \right)\) l&agrave; nghiệm của hệ phương tr&igrave;nh \(\left\{ \begin{array}{l}x + y = 6\\x - y = 2\end{array} \right.\).</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>H&#xEC;nh &#x1EA3;nh d&#x1B0;&#x1EDB;i &#x111;&#xE2;y minh h&#x1ECD;a t&#x1EAD;p nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh n&#xE0;o?</p><p><img src="https://img.loigiaihay.com/picture/2024/0928/1727508010513-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}2x - y = 8\\x - y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}2x + y = 8\\x + y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}2x + y = 8\\x - y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}2x - y = 8\\x + y = 1\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&#xE1;t h&#x1EC7; tr&#x1EE5;c t&#x1ECD;a &#x111;&#x1ED9;, ta th&#x1EA5;y t&#x1ECD;a &#x111;&#x1ED9; &#x111;i&#x1EC3;m A l&#xE0; \(A\left( {3;2} \right)\).</p>
+<p>C&#x1EB7;p s&#x1ED1; \(\left( {3;2} \right)\) l&#xE0; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\left\{ \begin{array}{l}2x + y = 8\\x - y = 1\end{array} \right.\) v&#xEC; \(\left\{ \begin{array}{l}2.3 + 2 = 8\\3 - 2 = 1\end{array} \right.\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>H&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\left\{ \begin{array}{l}2x + y = 2\\x + y = 1\end{array} \right.\) c&#xF3; nghi&#x1EC7;m l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {x;y} \right) = \left( {0;0} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {x;y} \right) = \left( {1;0} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {x;y} \right) = \left( {1;1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( {x;y} \right) = \left( { - 1; - 1} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>H&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\left\{ \begin{array}{l}2x + y = 2\\x + y = 1\end{array} \right.\) c&#xF3; nghi&#x1EC7;m l&#xE0; \(\left( {x;y} \right) = \left( {1;0} \right)\) v&#xEC; \(\left\{ \begin{array}{l}2.1 + 0 = 2\\1 + 0 = 1\end{array} \right.\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n B.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Trong c&#xE1;c c&#x1EB7;p s&#x1ED1; \(\left( {1;-1} \right),\left( {1;-2} \right),\left( {-3;-7} \right),\left( { 3;-7} \right)\), c&#x1EB7;p s&#x1ED1; n&#xE0;o l&#xE0; nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\left\{ \begin{array}{l}3x + y = 2\\5x + 2y = 1\end{array} \right.\)?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {1; - 1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {1; - 2} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {-3;-7} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( { 3;-7} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>+) Thay \(x = 1;y =&#xA0; - 1\) v&#xE0;o \(\left\{ \begin{array}{l}3x + y = 2\\5x + 2y = 1\end{array} \right.\), ta c&#xF3; \(\left\{ \begin{array}{l}3.1 + \left( { - 1} \right) = 2\\5.1 + 2.\left( { - 1} \right) = 3 \ne 1\end{array} \right.\) n&#xEA;n \(\left( {1; - 1} \right)\) kh&#xF4;ng ph&#x1EA3;i l&#xE0; nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh.</p>
+<p>+) Thay \(x = 1;y =&#xA0; - 2\) v&#xE0;o \(\left\{ \begin{array}{l}3x + y = 2\\5x + 2y = 1\end{array} \right.\), ta c&#xF3; \(\left\{ \begin{array}{l}3.1 + \left( { - 2} \right) = 1 \ne 2\\5.1 + 2.\left( { - 2} \right) = 1\end{array} \right.\) n&#xEA;n \(\left( {1; - 2} \right)\) kh&#xF4;ng ph&#x1EA3;i l&#xE0; nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh.</p>
+<p>+) Thay \(x = -3;y = -7\) v&#xE0;o \(\left\{ \begin{array}{l}3x + y = 2\\5x + 2y = 1\end{array} \right.\), ta c&#xF3; \(\left\{ \begin{array}{l}3.(-3) + (-7) =&#xA0;-16 \ne 2\\5.(-3) + 2.(-7) = -29 \ne 1\end{array} \right.\) n&#xEA;n \(\left( {-3;-7} \right)\) kh&#xF4;ng ph&#x1EA3;i l&#xE0; nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh.</p>
+<p>+) Thay \(x =&#xA0; 3;y = -7\) v&#xE0;o \(\left\{ \begin{array}{l}3x + y = 2\\5x + 2y = 1\end{array} \right.\), ta c&#xF3; \(\left\{ \begin{array}{l}3.3 + (-7) = 2\\5.3 + 2.(-7) = 1\end{array} \right.\) n&#xEA;n \(\left( { 3;-7} \right)\) l&#xE0; nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh.</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n </strong><strong>D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cặp số \(\left( { - 2; - 3} \right)\) l&agrave; nghiệm của hệ&nbsp; phương tr&igrave;nh n&agrave;o sau đ&acirc;y?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\left\{ \begin{array}{l}x - y = 3\\2x + y = 4\end{array} \right.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\left\{ \begin{array}{l}2x - y =&nbsp; - 1\\x - 3y = 8\end{array} \right.$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\left\{ \begin{array}{l}2x - y =&nbsp; - 1\\x - 3y = 7\end{array} \right.$&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\left\{ \begin{array}{l}4x - 2y = 0\\x - 3y = 5\end{array} \right.$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+) Thay $x =&nbsp; - 2;y =&nbsp; - 3$ v&agrave;o hệ \(\left\{ \begin{array}{l}x - y = 3\\2x + y = 4\end{array} \right.\) ta được $\left\{ \begin{array}{l} - 2 - \left( { - 3} \right) = 1 \ne 3\\2.\left( { - 2} \right) - 3 =&nbsp; - 7 \ne 4\end{array} \right.$ n&ecirc;n loại A.</p>
+<p style="text-align: left;">+) Thay $x =&nbsp; - 2;y =&nbsp; - 3$ v&agrave;o hệ $\left\{ \begin{array}{l}2x - y =&nbsp; - 1\\x - 3y = 8\end{array} \right.$ ta được $\left\{ \begin{array}{l}2.\left( { - 2} \right) - \left( { - 3} \right) =&nbsp; - 1\\ - 2 - 3.\left( { - 3} \right) = 7 \ne 8\end{array} \right.$ n&ecirc;n loại B.</p>
+<p style="text-align: left;">+) Thay $x =&nbsp; - 2;y =&nbsp; - 3$ v&agrave;o hệ $\left\{ \begin{array}{l}4x - 2y = 0\\x - 3y = 5\end{array} \right.$ ta được $\left\{ \begin{array}{l}4.\left( { - 2} \right) - 2.\left( { - 3} \right) =&nbsp; - 2 \ne 0\\ - 2 - 3.\left( { - 3} \right) = 7 \ne 5\end{array} \right.$ n&ecirc;n loại D.</p>
+<p style="text-align: left;">+) Thay $x =&nbsp; - 2;y =&nbsp; - 3$ v&agrave;o hệ $\left\{ \begin{array}{l}2x - y =&nbsp; - 1\\x - 3y = 7\end{array} \right.$ ta được $\left\{ \begin{array}{l}2.\left( { - 2} \right) - \left( { - 3} \right) =&nbsp; - 1\\ - 2 - 3.\left( { - 3} \right) = 7\end{array} \right. \Leftrightarrow \left\{ \begin{array}{l} - 1 =&nbsp; - 1\\7 = 7\end{array} \right.$ n&ecirc;n chọn C.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách xác định nghiệm của hệ hai phương trình bậc nhất hai ẩn thông qua biểu diễn hình học nghiệm của hai phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Một cặp gồm hai phương trình bậc nhất hai ẩn \(ax + by = c\) và \(a'x + b'y = c'\) được gọi là một <em>hệ hai phương trình bậc nhất hai ẩn.</em></p>
+<p>Ta thường viết hệ phương trình đó dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Nghiệm của hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Mỗi cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) nếu nó đồng thời là nghiệm của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p><strong><em>Lưu ý: </em></strong>Mỗi nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) chính là một <em>nghiệm chung­</em> của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định nghiệm của hệ hai phương trình bậc nhất hai ẩn thông qua biểu diễn hình học nghiệm của hai phương trình</h3>
+<div><p>Ta đã biết, mỗi nghiệm của hệ phương trình bậc nhất hai ẩn \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) (*) là một nghiệm chung của hai phương trình trong (*). Nghiệm chung ấy tương ứng với điểm chung của hai đường thẳng \(\Delta :ax + by = c\) và \(\Delta ':a'x + b'y = c'\), tức là giao điểm của \(\Delta \) và \(\Delta '\). Do đó ta có thể giải hệ (*) bằng cách vẽ hai đường thẳng \(\Delta \) và \(\Delta '\) rồi tìm toạ độ điểm chung của chúng. Từ đó, ta thấy chỉ có thể xảy ra 3 trường hợp:</p>
+<p>1) \(\Delta \) và \(\Delta '\) cắt nhau (có một điểm chung). Hệ (*) có một nghiệm duy nhất.</p>
+<p>2) \(\Delta \) và \(\Delta '\) song song với nhau (không có điểm chung). Hệ (*) vô nghiệm.</p>
+3) \(\Delta \) và \(\Delta '\) trùng nhau (mỗi điểm của \(\Delta \) đều là điểm chung). Hệ (*) có vô số nghiệm.</div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>H&#xEC;nh &#x1EA3;nh d&#x1B0;&#x1EDB;i &#x111;&#xE2;y minh h&#x1ECD;a t&#x1EAD;p nghi&#x1EC7;m c&#x1EE7;a h&#x1EC7; ph&#x1B0;&#x1A1;ng tr&#xEC;nh n&#xE0;o?</p><p><img src="https://img.loigiaihay.com/picture/2024/0928/1727508010513-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left\{ \begin{array}{l}2x - y = 8\\x - y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left\{ \begin{array}{l}2x + y = 8\\x + y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left\{ \begin{array}{l}2x + y = 8\\x - y = 1\end{array} \right.\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left\{ \begin{array}{l}2x - y = 8\\x + y = 1\end{array} \right.\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&#xE1;t h&#x1EC7; tr&#x1EE5;c t&#x1ECD;a &#x111;&#x1ED9;, ta th&#x1EA5;y t&#x1ECD;a &#x111;&#x1ED9; &#x111;i&#x1EC3;m A l&#xE0; \(A\left( {3;2} \right)\).</p>
+<p>C&#x1EB7;p s&#x1ED1; \(\left( {3;2} \right)\) l&#xE0; nghi&#x1EC7;m c&#x1EE7;a ph&#x1B0;&#x1A1;ng tr&#xEC;nh \(\left\{ \begin{array}{l}2x + y = 8\\x - y = 1\end{array} \right.\) v&#xEC; \(\left\{ \begin{array}{l}2.3 + 2 = 8\\3 - 2 = 1\end{array} \right.\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Tr&ecirc;n mặt phẳng tọa độ Oxy, vẽ hai đường thẳng \(x + y = 4\) v&agrave; \(2x - y = 5\). T&igrave;m nghiệm của hệ hai phương tr&igrave;nh bậc nhất hai ẩn \(\left\{ \begin{array}{l}x + y = 4\\2x - y = 5\end{array} \right.\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\left( {4;4} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\left( {\frac{5}{2}; - 5} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left( {3;1} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\left( {1;3} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;:</p>
+<p>\(\begin{array}{l}\left( {{d_1}} \right):x + y = 4\\y =&nbsp; - x + 4\end{array}\)</p>
+<p>Cho x = 0 suy ra &nbsp;y = 4</p>
+<p>Cho y = 0 suy ra &nbsp;x = 4</p>
+<p>Đường thẳng \(x + y = 4\) l&agrave; đường thẳng đi qua hai điểm \(\left( {0;4} \right),\left( {4;0} \right)\).</p>
+<p>\(\begin{array}{l}\left( {{d_2}} \right):2x - y = 5\\y = 2x - 5\end{array}\)</p>
+<p>Cho x = 0 suy ra&nbsp; y = -5.</p>
+<p>Cho y = 0 suy ra&nbsp; x = \(\frac{5}{2}\).</p>
+<p>Đường thẳng \(2x - y = 5\) l&agrave; đường thẳng đi qua hai điểm \(\left( {0; - 5} \right),\left( {\frac{5}{2};0} \right)\).</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0628/1719560348774-mceclip0.png" /></p>
+<p>Nh&igrave;n v&agrave;o đồ thị ta thấy \(\left( {{d_1}} \right)\) v&agrave; \(\left( {{d_2}} \right)\) cắt nhau tại điểm c&oacute; tọa độ \(\left( {3;1} \right)\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách dự đoán số nghiệm của hệ phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Một cặp gồm hai phương trình bậc nhất hai ẩn \(ax + by = c\) và \(a'x + b'y = c'\) được gọi là một <em>hệ hai phương trình bậc nhất hai ẩn.</em></p>
+<p>Ta thường viết hệ phương trình đó dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Nghiệm của hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Mỗi cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) nếu nó đồng thời là nghiệm của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p><strong><em>Lưu ý: </em></strong>Mỗi nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) chính là một <em>nghiệm chung­</em> của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách dự đoán số nghiệm của hệ phương trình</h3>
+<div><p>Xét hệ phương trình bậc nhất hai ẩn \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\):</p>
+<p>- Hê phương trình có nghiệm duy nhất khi \(\frac{a}{{a'}} \ne \frac{b}{{b'}}\).</p>
+<p>- Hệ phương trình vô nghiệm khi \(\frac{a}{{a'}} = \frac{b}{{b'}} \ne \frac{c}{{c'}}\).</p>
+- Hệ phương trình có vô số nghiệm khi \(\frac{a}{{a'}} = \frac{b}{{b'}} = \frac{c}{{c'}}\)</div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

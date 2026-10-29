@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác suất của biến cố liên quan tới phép thử - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 33: Xác suất của biến cố liên quan tới phép thử</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Kết quả thuận lợi của một biến cố là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Không gian mẫu</h3>
+<div><p>Không gian mẫu của phép thử được kí hiệu là \(\Omega \).</p>
+<p><em>Ví dụ:</em> Bạn Lan gieo một con xúc xắc và bạn Hoà gieo một đồng xu được gọi là phép thử.</p>
+<p>Kết quả của phép thử là số chấm xuất hiện trên con xúc xác và mặt xuất hiện của đồng xu.</p>
+<p>Các kết quả có thể của phép thử là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0709/1752052958678-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Mỗi ô là một kết quả có thể. Không gian mẫu là tập hợp 12 ô của bảng trên.</p>
+<p>Do đó không gian mẫu của phép thử là:</p>
+<p>\(\Omega  = {\rm{\{ (1,S);(2,S);(3,S);(4,S);(5,S);(6,S);(1,N);(2,N);(3,N);(4,N);(5,N);(6,N)\} }}{\rm{.}}\)</p>
+<p>Vậy không gian mẫu có 12 phần tử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Kết quả thuận lợi</h3>
+<div><p><em>Kết quả thuận lợi</em> cho biến cố A là một kết quả có thể của phép thử làm cho biến cố A xảy ra.</p>
+<p><em>Ví dụ:</em> Bạn Lan gieo một con xúc xắc và bạn Hoà gieo một đồng xu được gọi là phép thử.</p>
+<p>Kết quả của phép thử là số chấm xuất hiện trên con xúc xắc và mặt xuất hiện của đồng xu.</p>
+<p>Các kết quả có thể của phép thử là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0709/1752053057638-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Các kết quả thuận lợi cho biến cố “Số chấm xuất hiện trên con xúc xắc là số chẵn và mặt xuất hiện của đồng xu là mặt sấp” là (2, S); (4, S); (6, S).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Bạn H&agrave; gieo một con x&uacute;c xắc li&ecirc;n tiếp hai lần. Biến cố &ldquo;Tổng số chấm xuất hiện tr&ecirc;n hai con x&uacute;c xắc l&agrave; \(7\)&rdquo; c&oacute; số kết quả thuận lợi l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(6\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(5\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&aacute;c kết quả thuận lợi của biến cố &ldquo;Tổng số chấm xuất hiện tr&ecirc;n hai con x&uacute;c xắc l&agrave; \(7\)&rdquo; l&agrave;: (1;6), (2;5), (3;4), (4;3), (5;2), (6;1).</p>
+<p>Vậy c&oacute; 6 kết quả thuận lợi cho biến cố.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>C&oacute; hai hộp đựng thẻ. Hộp \(1\) đựng \(6\) thẻ được đ&aacute;nh số thứ tự từ \(1\) đến \(6\), hộp \(2\) đựng \(5\) thẻ được đ&aacute;nh số thứ tự từ 1 đến 5. Từ mỗi hộp lấy ngẫu nhi&ecirc;n một thẻ. Gọi \(A\) l&agrave; biến cố: &ldquo;Lần đầu lấy được thẻ ghi số \(6\)&rdquo;. Số phần tử của biến cố \(A\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>10.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>15.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>5.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(A = \left\{ {(6,1);(6,2);(6,3);(6,4);(6,5)} \right\}\). Do đ&oacute; số phần tử của biến cố \(A\) l&agrave; 5.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>C&ocirc; gi&aacute;o y&ecirc;u cầu c&aacute;c bạn trong lớp viết kh&ocirc;ng gian mẫu của ph&eacute;p thử &ldquo;Tung một đồng xu c&acirc;n đối, đồng chất 2 lần&rdquo; v&agrave; viết kết quả thuận lợi của biến cố A: &ldquo;Một lần xuất hiện mặt sấp&rdquo;.&nbsp;Bốn bạn Nam, H&agrave;, Li&ecirc;n, Dương l&agrave;m như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733217478702-mceclip0.png" /></p>
+<p>H&atilde;y cho biết bạn n&agrave;o l&agrave;m đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Bạn Nam đ&uacute;ng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Bạn Nam, H&agrave; đ&uacute;ng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Bạn Nam, Li&ecirc;n đ&uacute;ng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Bạn Nam, Dương đ&uacute;ng.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu của ph&eacute;p thử &ldquo;Tung một đồng xu c&acirc;n đối, đồng chất 2 lần&rdquo; l&agrave; \(\Omega&nbsp; = \left\{ {NN,NS,SN,SS} \right\}\) hoặc ta cũng c&oacute; thể viết &ldquo;Kh&ocirc;ng gian mẫu của ph&eacute;p thử c&oacute; 4 kết quả lần lượt l&agrave; SS; SN; NS; NN&rdquo;. Do đ&oacute; bạn Nam, H&agrave;, Li&ecirc;n viết đ&uacute;ng kh&ocirc;ng gian mẫu.</p>
+<p>Kết quả thuận lợi của biến cố A: &ldquo;Một lần xuất hiện mặt sấp&rdquo; l&agrave;: {SN; NS} hay SN, NS n&ecirc;n Nam v&agrave; Li&ecirc;n viết đ&uacute;ng.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>C&oacute; ba con đường M, N, P để đi từ th&agrave;nh phố A đến th&agrave;nh phố B. Trong 3 ng&agrave;y li&ecirc;n tiếp phải đi từ A đến B, Lan đ&atilde; chọn lần lượt ngẫu nhi&ecirc;n từng con đường để di chuyển. H&atilde;y cho biết c&oacute; bao nhi&ecirc;u kết quả thuận lợi cho biến cố C: &ldquo;Con đường M được chọn v&agrave;o ng&agrave;y cuối c&ugrave;ng.&rdquo;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>C&oacute; 3 kết quả thuận lợi cho biến cố A: (M; N; P); (N; M; P); (N; P; M).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>C&oacute; 3 kết quả thuận lợi cho biến cố A: (N; P; M); (P; N; M); (N; M; P).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>C&oacute; 2 kết quả thuận lợi cho biến cố A: (N; P; M); (P; N; M).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>C&oacute; 2 kết quả thuận lợi cho biến cố A: (N; M; P); (N; P; M).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&oacute; 2 kết quả thuận lợi cho biến cố A: (N; P; M); (P; N; M).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Kết quả đồng khả năng là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Phép thử ngẫu nhiên</h3>
+<div><p>Một hoặc một số hành động, thực nghiệm được tiến hành liên tiếp hay đồng thời mà kết quả của chúng không thể biết được trước khi thực hiện nhưng có thể liệt kê được tất cả các kết quả có thể xảy ra, được gọi là một <strong><em>phép thử ngẫu nhiên</em></strong>, gọi tắt là <em>phép thử</em>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Kết quả của phép thử</h3>
+<div><p>Tập hợp tất cả các kết quả có thể xảy ra của phép thử (gọi tắt là tập tất cả các kết quả có thể của phép thử) được gọi là không gian mẫu của phép thử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Kết quả đồng khả năng</h3>
+<div><p>Các kết quả có thể xảy ra của một phép thử có khả năng xuất hiện như nhau được gọi là <em>đồng khả năng</em>.</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0709/1752053078806-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>a) Do hai đồng xu cân đối và đồng chất nên các mặt đều có cùng khả năng xuất hiện. Các kết quả của phép thử là đồng khả năng.</p>
+<p>b) Do con xúc xắc không cân đối nên khả năng xuất hiện của các mặt không như nhau. Các kết quả của phép thử không đồng khả năng.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>K&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ph&#xE9;p th&#x1EED; &#x201C;L&#x1EA5;y ng&#x1EAB;u nhi&#xEA;n 1 t&#x1EA5;m th&#x1EBB; t&#x1EEB; m&#x1ED9;t h&#x1ED9;p ch&#x1EE9;a 2 t&#x1EA5;m th&#x1EBB; ghi s&#x1ED1; 5 v&#xE0; 5 t&#x1EA5;m th&#x1EBB; ghi s&#x1ED1; 2, sau &#x111;&#xF3; xem s&#x1ED1; c&#x1EE7;a n&#xF3;&#x201D; c&#xF3; &#x111;&#x1ED3;ng kh&#x1EA3; n&#x103;ng x&#x1EA3;y ra kh&#xF4;ng? V&#xEC; sao?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>C&aacute;c kết quả của ph&eacute;p thử kh&ocirc;ng c&ugrave;ng khả năng xảy ra v&igrave; kh&ocirc;ng thể khẳng định c&aacute;c thẻ lấy ra c&oacute; c&ugrave;ng khối lượng, k&iacute;ch thước.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>C&aacute;c kết quả của ph&eacute;p thử c&oacute; c&ugrave;ng khả năng xảy ra v&igrave; khả năng lấy được 1 thẻ l&agrave; như nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>C&aacute;c kết quả của ph&eacute;p thử c&oacute; c&ugrave;ng khả năng xảy ra v&igrave; những chiếc thẻ chỉ kh&aacute;c hộp th&ocirc;i n&ecirc;n khả năng chọn l&agrave; như nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>C&aacute;c kết quả của ph&eacute;p thử kh&ocirc;ng c&ugrave;ng khả năng xảy ra v&igrave; hai hộp đựng thẻ l&agrave; hai hộp ri&ecirc;ng biệt.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&#xE1;c k&#x1EBF;t qu&#x1EA3; c&#x1EE7;a ph&#xE9;p th&#x1EED; kh&#xF4;ng c&#xF9;ng kh&#x1EA3; n&#x103;ng x&#x1EA3;y ra v&#xEC; kh&#xF4;ng th&#x1EC3; kh&#x1EB3;ng &#x111;&#x1ECB;nh c&#xE1;c th&#x1EBB; l&#x1EA5;y ra c&#xF3; c&#xF9;ng kh&#x1ED1;i l&#x1B0;&#x1EE3;ng, k&#xED;ch th&#x1B0;&#x1EDB;c.</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Xác suất của biến cố là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Không gian mẫu</h3>
+<div><p>Không gian mẫu của phép thử được kí hiệu là \(\Omega \).</p>
+<p><em>Ví dụ:</em> Bạn Lan gieo một con xúc xắc và bạn Hoà gieo một đồng xu được gọi là phép thử.</p>
+<p>Kết quả của phép thử là số chấm xuất hiện trên con xúc xác và mặt xuất hiện của đồng xu.</p>
+<p>Các kết quả có thể của phép thử là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0709/1752052958678-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Mỗi ô là một kết quả có thể. Không gian mẫu là tập hợp 12 ô của bảng trên.</p>
+<p>Do đó không gian mẫu của phép thử là:</p>
+<p>\(\Omega  = {\rm{\{ (1,S);(2,S);(3,S);(4,S);(5,S);(6,S);(1,N);(2,N);(3,N);(4,N);(5,N);(6,N)\} }}{\rm{.}}\)</p>
+<p>Vậy không gian mẫu có 12 phần tử.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Kết quả thuận lợi</h3>
+<div><p><em>Kết quả thuận lợi</em> cho biến cố A là một kết quả có thể của phép thử làm cho biến cố A xảy ra.</p>
+<p><em>Ví dụ:</em> Bạn Lan gieo một con xúc xắc và bạn Hoà gieo một đồng xu được gọi là phép thử.</p>
+<p>Kết quả của phép thử là số chấm xuất hiện trên con xúc xắc và mặt xuất hiện của đồng xu.</p>
+<p>Các kết quả có thể của phép thử là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0709/1752053057638-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Các kết quả thuận lợi cho biến cố “Số chấm xuất hiện trên con xúc xắc là số chẵn và mặt xuất hiện của đồng xu là mặt sấp” là (2, S); (4, S); (6, S).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Xác suất của biến cố</h3>
+<div><p>Giả sử một phép thử có không gian mẫu \(\Omega \) gồm hữu hạn các kết quả đồng khả năng và A là một biến cố. Xác suất của biến cố A, kí hiệu là P(A), được xác định bởi công thức</p>
+<p style="text-align: center;">\(P\left( A \right) = \frac{{n\left( A \right)}}{{n\left( \Omega  \right)}}\),</p>
+<p>trong đó n(A) là số kết quả thuận lợi cho A và \(n\left( \Omega  \right)\) là tổng số các kết quả có thể xảy ra.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Giải thiết rằng c&aacute;c kết quả c&oacute; thể xảy ra của một ph&eacute;p thử l&agrave; đồng khả năng, x&aacute;c suất của biến cố được x&aacute;c định như thế n&agrave;o?&nbsp;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>X&aacute;c suất của biến cố A, k&iacute; hiệu P(A) bằng tỉ số giữa số kết quả kh&ocirc;ng thuận lợi cho biến cố A v&agrave; tổng số kết quả c&oacute; thể xảy ra:&nbsp;&nbsp;</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733218027010-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>X&aacute;c suất của biến cố A, k&iacute; hiệu P(A) bằng tỉ số giữa số kết quả thuận lợi cho biến cố A v&agrave; tổng số kết quả c&oacute; thể xảy ra:&nbsp;</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733218035545-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>X&aacute;c suất của biến cố A, k&iacute; hiệu P(A) bằng tỉ số giữa tổng số kết quả c&oacute; thể xảy ra v&agrave; số kết quả thuận lợi cho biến cố A:&nbsp;</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733218044684-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>X&aacute;c suất của biến cố A, k&iacute; hiệu P(A) bằng tỉ số giữa tổng số kết quả c&oacute; thể xảy ra v&agrave; số kết quả kh&ocirc;ng thuận lợi cho biến cố A:&nbsp;</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733218056247-mceclip0.png" /></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Giả sử rằng c&aacute;c kết quả c&oacute; thể của ph&eacute;p thử T l&agrave; đồng khả năng. Khi đ&oacute; x&aacute;c suất P(A) của biến cố A bằng tỉ số giữa số kết quả thuận lợi cho biến cố A v&agrave; số kết quả c&oacute; thể xảy ra:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1203/1733218072703-mceclip0.png" /></p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Quay 150 lần một tấm b&igrave;a h&igrave;nh tr&ograve;n được chia th&agrave;nh 4 h&igrave;nh quạt với c&aacute;c m&agrave;u xanh, đỏ, t&iacute;m, v&agrave;ng. Quan s&aacute;t mũi t&ecirc;n chỉ v&agrave;o h&igrave;nh quạt m&agrave;u g&igrave; v&agrave; ghi lại, thu được kết quả như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0412/1744425580067-mceclip0.png" /></p>
+<p>Ước lượng x&aacute;c suất mũi t&ecirc;n chỉ v&agrave;o h&igrave;nh quạt m&agrave;u v&agrave;ng l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>30%.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>15%.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>60%.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>20%.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số lần mũi t&ecirc;n chỉ v&agrave;o h&igrave;nh quạt m&agrave;u v&agrave;ng l&agrave; 30.</p>
+<p>Tổng số lần quay l&agrave; 150 lần.</p>
+<p>Ước lượng x&aacute;c xuất mũi t&ecirc;n chỉ v&agrave;o h&igrave;nh quạt m&agrave;u v&agrave;ng l&agrave;: \(\frac{{30}}{{150}}.100\%&nbsp; = 20\% \)</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính xác suất của biến cố</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Xác suất của biến cố</h3>
+<div><p>Giả sử một phép thử có không gian mẫu \(\Omega \) gồm hữu hạn các kết quả đồng khả năng và A là một biến cố. Xác suất của biến cố A, kí hiệu là P(A), được xác định bởi công thức</p>
+<p style="text-align: center;">\(P\left( A \right) = \frac{{n\left( A \right)}}{{n\left( \Omega  \right)}}\),</p>
+<p>trong đó n(A) là số kết quả thuận lợi cho A và \(n\left( \Omega  \right)\) là tổng số các kết quả có thể xảy ra.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính xác suất của biến cố</h3>
+<div><p>Để tính xác suất của biến cố A, ta có thể thực hiện các bước sau:</p>
+<p><em>Bước 1:</em> Kiểm tra tính đồng khả năng đối với các kết quả có thể xảy ra của phép thử.</p>
+<p><em>Bước 2:</em> Đếm số kết quả có thể xảy ra, tức là đếm số phần tử của không gian mẫu \(\Omega \).</p>
+<p><em>Bước 3:</em> Đếm số kết quả thuận lợi cho biến cố A.</p>
+<p><em>Bước 4:</em> Lập tỉ số giữa số kết quả thuận lợi cho biến cố A và tổng số kết quả có thể xảy ra.</p>
+<p><em>Ví dụ:</em> Ba bạn Bảo, Châu, Dương được xếp ngẫu nhiên ngồi trên một hàng ghế có ba chỗ ngồi. Tính xác suất của các biến cố sau:</p>
+<p>a) E: "Bảo không ngồi ngoài cùng bên phải";</p>
+<p>b) F: “Châu và Dương không ngồi cạnh nhau”.</p>
+<p><strong><em>Lời giải:</em></strong></p>
+<p>Kí hiệu ba bạn Bảo, Châu, Dương lần lượt là B, C, D.</p>
+<p>Vì việc xếp chỗ ngồi là ngẫu nhiên nên các kết quả có thể là đồng khả năng.</p>
+<p>Ta liệt kê các kết quả có thể xảy ra:</p>
+<p>• Bảo ngồi ngoài cùng bên trái: có 2 cách xếp là BCD và BDC.</p>
+<p>• Bảo ngồi giữa: có 2 cách xếp là CBD và DBC.</p>
+<p>• Bảo ngồi ngoài cùng bên phải: có 2 cách xếp là CDB và DCB.</p>
+<p>Vậy không gian mẫu của phép thử là \(\Omega  = \left\{ {BCD;{\rm{ }}BDC;{\rm{ }}CBD;{\rm{ }}DBC;{\rm{ }}CDB;{\rm{ }}DCB} \right\}.\)</p>
+<p>Tập \(\Omega \) có 6 phần tử.</p>
+<p>a) Có 4 kết quả thuận lợi cho biến cố E là BCD, BDC, CBD và DBC.</p>
+<p>Vậy \(P\left( E \right) = \frac{4}{6} = \frac{2}{3}\).</p>
+<p>b) Có 2 kết quả thuận lợi cho biến cố F là CBD và DBC.</p>
+<p>Vậy \(P\left( F \right) = \frac{2}{6} = \frac{1}{3}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho tập hợp \(A = \left\{ {1;\,0;\,5;\,6} \right\}\). Bạn Mai d&ugrave;ng \(2\) chữ số kh&aacute;c nhau từ \(A\) để tạo th&agrave;nh số c&oacute; \(2\) chữ số. X&aacute;c suất của biến cố &ldquo;Số tạo th&agrave;nh chia hết cho \(5\)&rdquo; l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{1}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{5}{9}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{4}{9}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{1}{3}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Kh&ocirc;ng gian mẫu của ph&eacute;p thử l&agrave;:</p>
+<p>\(\Omega&nbsp; = \){10; 15; 16; 51; 50; 56; 61; 60; 65}</p>
+<p>Kh&ocirc;ng gian mẫu c&oacute; 9 phần tử.</p>
+<p>Kết quả thuận lợi cho biến cố &ldquo;Số tạo th&agrave;nh chia hết cho \(5\)&rdquo; l&agrave;: 10; 15; 50; 60; 65.</p>
+<p>C&oacute; 5 kết quả thuận lợi cho biến cố.</p>
+<p>Vậy x&aacute;c suất của biến cố &ldquo;Số tạo th&agrave;nh chia hết cho \(5\)&rdquo; l&agrave;: \(\frac{5}{9}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một hộp chứa 4 quả cầu cùng loại trong đó có 1 quả cầu đỏ, 1 quả cầu xanh và 2 quả cầu vàng. Chọn ngẫu nhiên đồng thời ra hai quả cầu. Xác suất của biến cố “Chọn được 1 quả cầu đỏ và 1 quả cầu vàng” là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{1}{6}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{1}{4}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{2}{3}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi các quả cầu đỏ, xanh, 2 quả cầu vàng lần lượt là Đ, X, V<sub>1</sub>, V<sub>2</sub>.</p>
+<p>Không gian mẫu của phép thử là:</p>
+<p>\(\Omega  = \){ĐX, ĐV<sub>1</sub>, ĐV<sub>2</sub>, XV<sub>1</sub>, XV<sub>2</sub>, V<sub>1</sub>V<sub>2</sub>}</p>
+<p>Không gian mẫu có 6 phần tử.</p>
+<p>Kết quả thuận lợi cho biến cố “Chọn được 1 quả cầu đỏ và 1 quả cầu vàng” là: ĐV<sub>1</sub>, ĐV<sub>2</sub>.</p>
+<p>Có 2 kết quả thuận lợi cho biến cố.</p>
+<p>Vậy xác suất của biến cố “Chọn được 1 quả cầu đỏ và 1 quả cầu vàng” là: \(\frac{2}{6} = \frac{1}{3}\).</p>
+<p><strong>Đáp án C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Gieo một con x&uacute;c xắc c&acirc;n đối v&agrave; đồng chất 2 lần. T&iacute;nh x&aacute;c suất để tổng số chấm trong hai lần gieo nhỏ hơn 6.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{2}{9}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{11}}{{36}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{6}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{5}{{18}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số phần tử của kh&ocirc;ng gian mẫu l&agrave;: \(n\left( \Omega&nbsp; \right) = {6^2} = 36\).</p>
+<p>Gọi A l&agrave; biến cố &ldquo;Tổng số chấm trong hai lần gieo nhỏ hơn 6&rdquo;.</p>
+<p>Tập hợp c&aacute;c quả của biến cố A l&agrave;:</p>
+<p>\(A = \left\{ {\left( {1;1} \right);\left( {1;2} \right);\left( {1;3} \right);\left( {1;4} \right);\left( {2;1} \right);\left( {2;2} \right);\left( {2;3} \right);\left( {3;1} \right);\left( {3;2} \right);\left( {4;1} \right)} \right\}\).</p>
+<p>Số phần tử của biến cố A l&agrave;: \(n\left( A \right) = 10\).</p>
+<p>X&aacute;c suất của biến cố A l&agrave;: \(P\left( A \right) = \frac{{10}}{{36}} = \frac{5}{{18}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Gieo một con x&uacute;c xắc c&acirc;n đối v&agrave; đồng chất 2 lần. T&iacute;nh x&aacute;c suất để tổng số chấm trong hai lần gieo nhỏ hơn 6.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{2}{9}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{11}}{{36}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{1}{6}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(\frac{5}{{18}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Số phần tử của kh&ocirc;ng gian mẫu l&agrave;: \(n\left( \Omega&nbsp; \right) = {6^2} = 36\).</p>
+<p>Gọi A l&agrave; biến cố &ldquo;Tổng số chấm trong hai lần gieo nhỏ hơn 6&rdquo;.</p>
+<p>Tập hợp c&aacute;c quả của biến cố A l&agrave;:</p>
+<p>\(A = \left\{ {\left( {1;1} \right);\left( {1;2} \right);\left( {1;3} \right);\left( {1;4} \right);\left( {2;1} \right);\left( {2;2} \right);\left( {2;3} \right);\left( {3;1} \right);\left( {3;2} \right);\left( {4;1} \right)} \right\}\).</p>
+<p>Số phần tử của biến cố A l&agrave;: \(n\left( A \right) = 10\).</p>
+<p>X&aacute;c suất của biến cố A l&agrave;: \(P\left( A \right) = \frac{{10}}{{36}} = \frac{5}{{18}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Nh&oacute;m To&aacute;n của một trường THCS gồm 6 gi&aacute;o vi&ecirc;n: 4 gi&aacute;o vi&ecirc;n nam, 2 gi&aacute;o vi&ecirc;n nữ. Nh&agrave; trường muốn chọn ra 2 gi&aacute;o vi&ecirc;n đi coi thi THPT. X&aacute;c suất của biến cố &ldquo;2 gi&aacute;o vi&ecirc;n đi coi thi đều l&agrave; nam&rdquo; l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\frac{4}{{15}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{{13}}{{15}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\frac{2}{5}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(2\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi 4 gi&aacute;o vi&ecirc;n nam lần lượt l&agrave;: 1, 2, 3, 4</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2 gi&aacute;o vi&ecirc;n nữ lần lượt l&agrave;: a, b.</p>
+<p>C&aacute;c c&aacute;ch chọn ra 2 gi&aacute;o vi&ecirc;n bất k&igrave; l&agrave;: (1;2), (1;3), (1;4), (1;a), (1;b), (2;3), (2;4), (2;a), (2;b), (3;4), (3;a), (3;b), (4;a), (4;b), (a;b).</p>
+<p>C&oacute; 15 kết quả c&oacute; thể xảy ra.</p>
+<p>C&oacute; 6 kết quả thuận lợi cho biến cố &ldquo;2 gi&aacute;o vi&ecirc;n đi coi thi đều l&agrave; nam&rdquo; l&agrave;: (1;2), (1;3), (1;4), (2;3), (2;4), (3;4).</p>
+<p>Vậy x&aacute;c suất của biến cố đ&oacute; l&agrave;: \(\frac{6}{{15}} = \frac{2}{5}\).</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

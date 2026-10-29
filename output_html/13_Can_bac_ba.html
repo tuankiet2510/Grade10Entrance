@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Căn bậc ba - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 13: Căn bậc ba</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Căn bậc ba là gì? Phép khai căn bậc ba là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn bậc ba</h3>
+<div><p><em>Căn bậc ba</em> của số thực a là số thực x thoả mãn \({x^3} = a\).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Mỗi số a đều có duy nhất một căn bậc ba.</p>
+<p>- Căn bậc ba của số a được kí hiệu là \(\sqrt[3]{a}\), trong đó số 3 được gọi là <em>chỉ số</em> của căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm phép khai căn bậc ba</h3>
+<div><p>Phép khai căn bậc ba là tìm căn bậc ba của một biểu thức hoặc một số.</p>
+<p>Từ định nghĩa căn bậc ba, ta có \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\) với mọi số thực a.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} =&nbsp; - 25\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} =&nbsp; - 5\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} = 25\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} = 5\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(\sqrt[3]{{ - 125}} = \sqrt[3]{{{{\left( { - 5} \right)}^3}}} =&nbsp; - 5\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\sqrt[3]{a} = 2x \) nếu \( {a^3} = 2x\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\sqrt[3]{a} = 2x \) nếu \( 2a = {x^3}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\sqrt[3]{a} = 2x \) nếu \( a = 2{x^3}\)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\sqrt[3]{a} = 2x \) nếu \( a = 8{x^3}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Với \(a\) ta c&oacute; \(\sqrt[3]{a} = 2x \) hay \(a = {\left( {2x} \right)^3} \). Do đ&oacute; \( a = 8{x^3}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định đ&uacute;ng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} = 9$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} = 3$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} =&nbsp; - 3$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} =&nbsp; - 9$</span></span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;<span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif'; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"> <span class="MTConvertedEquation">$\sqrt[3]{{27}} = \sqrt[3]{{{3^3}}} = 3$</span>.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Khẳng định n&agrave;o sau đ&acirc;y l&agrave; đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\sqrt[3]{a} = x$ nếu x = ${a^3}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt[3]{a} =&nbsp; - x $ nếu $ - x= {a^3}&nbsp;&nbsp;$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\sqrt[3]{a} = x $ nếu ${x^3} = a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\sqrt[3]{a} =&nbsp; - x$ nếu ${x^3} = a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Căn bậc ba của một số thực a l&agrave; số thực x thỏa m&atilde;n \(x^3 = a\) hay \(\sqrt[3]{a} = x\) thỏa m&atilde;n \(x^3 = a\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tính căn bậc ba của một số bằng máy tính cầm tay</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn bậc ba</h3>
+<div><p><em>Căn bậc ba</em> của số thực a là số thực x thoả mãn \({x^3} = a\).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Mỗi số a đều có duy nhất một căn bậc ba.</p>
+<p>- Căn bậc ba của số a được kí hiệu là \(\sqrt[3]{a}\), trong đó số 3 được gọi là <em>chỉ số</em> của căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm phép khai căn bậc ba</h3>
+<div><p>Phép khai căn bậc ba là tìm căn bậc ba của một biểu thức hoặc một số.</p>
+<p>Từ định nghĩa căn bậc ba, ta có \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\) với mọi số thực a.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính căn bậc ba của một số bằng máy tính cầm tay</h3>
+<div><p>Ta có thể sử dụng loại MTCT thích hợp để tính căn bậc ba của một số.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0519/1747650501447-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p><em>(Sử dụng m&aacute;y t&iacute;nh cầm tay) </em>Kết quả của ph&eacute;p t&iacute;nh \(\sqrt[3]{{27}} - \sqrt[3]{{125}}\) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( - 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sqrt {98} \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\( - \sqrt {98} \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta được:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/0702/1719915963618-mceclip0.png" /></p>
+<p>Vậy \(\sqrt[3]{{27}} - \sqrt[3]{{125}} =&nbsp; - 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách tìm căn bậc ba</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn bậc ba</h3>
+<div><p><em>Căn bậc ba</em> của số thực a là số thực x thoả mãn \({x^3} = a\).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Mỗi số a đều có duy nhất một căn bậc ba.</p>
+<p>- Căn bậc ba của số a được kí hiệu là \(\sqrt[3]{a}\), trong đó số 3 được gọi là <em>chỉ số</em> của căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm phép khai căn bậc ba</h3>
+<div><p>Phép khai căn bậc ba là tìm căn bậc ba của một biểu thức hoặc một số.</p>
+<p>Từ định nghĩa căn bậc ba, ta có \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\) với mọi số thực a.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính căn bậc ba của một số bằng máy tính cầm tay</h3>
+<div><p>Ta có thể sử dụng loại MTCT thích hợp để tính căn bậc ba của một số.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0519/1747650501447-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm căn bậc ba</h3>
+<div><p>Sử dụng phép khai căn bậc ba: \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: justify; tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;">Một bể cá hình lập phương có sức chứa 1 000 dm<sup>3</sup>. Muốn tăng sức chứa của bể lên 10 lần (giữ nguyên hình dạng lập phương) thì phải tăng chiều dài của mỗi cạnh lên bao nhiêu dm? (làm tròn đến hàng phần mười)</p>
+<p style="text-align: justify; tab-stops: 4.0cm 8.0cm 12.0cm; margin: 4.8pt 0cm 4.8pt 0cm;"><img src="https://img.loigiaihay.com/picture/2024/0705/1720167515197-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>10,5dm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>10,6dm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>11,5dm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>11,6dm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Vì thể tích của hình lập phương bằng lập phương của cạnh nên cạnh bằng căn bậc ba của thể tích.</p>
+<p>Cạnh của bể cá ban đầu là: \(\sqrt[3]{{1000}} = 10\left( {dm} \right)\)</p>
+<p>Thể tích của bể cá mới là: \(1000.10 = 10000\left( {d{m^3}} \right)\)</p>
+<p>Cạnh của bể cá mới là: \(\sqrt[3]{{10000}} \approx 21,5\left( {dm} \right)\)</p>
+<p>Vậy chiều dài của mỗi cạnh tăng lên khoảng: \(21,5 - 10 = 11,5\left( {dm} \right)\)</p>
+<p><strong>Đáp án C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định đ&uacute;ng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} = 9$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} = 3$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} =&nbsp; - 3$</span></span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><span class="MTConvertedEquation"><span style="font-size: 12.0pt; line-height: 115%; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;">$\sqrt[3]{{27}} =&nbsp; - 9$</span></span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;<span style="font-size: 12.0pt; line-height: 115%; font-family: 'Times New Roman','serif'; mso-fareast-font-family: Calibri; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA;"> <span class="MTConvertedEquation">$\sqrt[3]{{27}} = \sqrt[3]{{{3^3}}} = 3$</span>.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} =&nbsp; - 25\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} =&nbsp; - 5\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} = 25\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(\sqrt[3]{{ - 125}} = 5\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(\sqrt[3]{{ - 125}} = \sqrt[3]{{{{\left( { - 5} \right)}^3}}} =&nbsp; - 5\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách so sánh căn bậc ba</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn bậc ba</h3>
+<div><p><em>Căn bậc ba</em> của số thực a là số thực x thoả mãn \({x^3} = a\).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Mỗi số a đều có duy nhất một căn bậc ba.</p>
+<p>- Căn bậc ba của số a được kí hiệu là \(\sqrt[3]{a}\), trong đó số 3 được gọi là <em>chỉ số</em> của căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm phép khai căn bậc ba</h3>
+<div><p>Phép khai căn bậc ba là tìm căn bậc ba của một biểu thức hoặc một số.</p>
+<p>Từ định nghĩa căn bậc ba, ta có \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\) với mọi số thực a.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách so sánh căn bậc ba</h3>
+<div><p>Để so sánh các căn bậc ba, ta sử dụng kiến thức:</p>
+<p>\(a &lt; b\) khi và chỉ khi \(\sqrt[3]{a} &lt; \sqrt[3]{b}\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho $A = 2\sqrt[3]{3}$ v&agrave; $B = \sqrt[3]{{25}}$. Chọn khẳng định đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$A &lt; B$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$A &gt; B$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$A \ge B$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$A + B = 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $A = 2\sqrt[3]{3} = \sqrt[3]{8}.\sqrt[3]{3} = \sqrt[3]{{24}}$ .</p>
+<p style="text-align: left;">V&igrave; $24 &lt; 25 $ n&ecirc;n $ \sqrt[3]{{24}} &lt; \sqrt[3]{{25}} \Rightarrow 2\sqrt[3]{3} &lt; \sqrt[3]{{25}}$ hay $A &lt; B$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho $M = 5\sqrt[3]{6}$ v&agrave; $N = 6\sqrt[3]{5}$. Chọn khẳng định đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$M &gt; N$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$M &lt; N$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$M \ge N$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$M + N = 0$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $M = 5\sqrt[3]{6} = \sqrt[3]{{125}}.\sqrt[3]{6} = \sqrt[3]{{125.6}} = \sqrt[3]{{750}}$</p>
+<p style="text-align: left;">$N = 6\sqrt[3]{5} = \sqrt[3]{{216}}.\sqrt[3]{5} = \sqrt[3]{{216.5}} = \sqrt[3]{{1080}}$</p>
+<p style="text-align: left;">V&igrave; $750 &lt; 1080 $ n&ecirc;n $\sqrt[3]{{750}} &lt; \sqrt[3]{{1080}} $</p>
+<p style="text-align: left;">$\Rightarrow 5\sqrt[3]{6} &lt; 6\sqrt[3]{5}$ hay $M &lt; N$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho \(A = 3\sqrt[3]{2}\) v&agrave; \(B = \sqrt[3]{{42}}\). Chọn khẳng định đ&uacute;ng.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(A &lt; B\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(A &gt; B\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(A \ge B\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(A + B = 0\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(A = 3\sqrt[3]{2} = \sqrt[3]{{27}}.\sqrt[3]{2} = \sqrt[3]{{54}}\).</p>
+<p style="text-align: left;">V&igrave; \(54 &gt; 42 \) n&ecirc;n \( \sqrt[3]{{54}} &gt; \sqrt[3]{{42}} \Rightarrow 3\sqrt[3]{2} &gt; \sqrt[3]{{42}}\) hay \(A &gt; B\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>So s&aacute;nh hai số \(\sqrt[3]{{ - 2014}}\) v&agrave; \(\sqrt[3]{{ - 2025}}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt[3]{{ - 2014}} &lt; \sqrt[3]{{ - 2025}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\sqrt[3]{{ - 2014}} &gt; \sqrt[3]{{ - 2025}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sqrt[3]{{ - 2014}} = \sqrt[3]{{ - 2025}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Kh&ocirc;ng so s&aacute;nh được.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; \( - 2024 &gt;&nbsp; - 2025\) n&ecirc;n \(\sqrt[3]{{ - 2014}} &gt; \sqrt[3]{{ - 2025}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>So s&aacute;nh hai số \(8\) v&agrave; \(\sqrt[3]{{511}}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(8 &lt; \sqrt[3]{{511}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(8 &gt; \sqrt[3]{{511}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(8 = \sqrt[3]{{511}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Kh&ocirc;ng so s&aacute;nh được.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \({8^3} = 512\) n&ecirc;n \(8 = \sqrt[3]{{512}}\).</p>
+<p>V&igrave; \(512 &gt; 511\) n&ecirc;n \(\sqrt[3]{{512}} &gt; \sqrt[3]{{511}}\) hay \(8 &gt; \sqrt[3]{{511}}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách rút gọn biểu thức căn bậc ba</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn bậc ba</h3>
+<div><p><em>Căn bậc ba</em> của số thực a là số thực x thoả mãn \({x^3} = a\).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Mỗi số a đều có duy nhất một căn bậc ba.</p>
+<p>- Căn bậc ba của số a được kí hiệu là \(\sqrt[3]{a}\), trong đó số 3 được gọi là <em>chỉ số</em> của căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm phép khai căn bậc ba</h3>
+<div><p>Phép khai căn bậc ba là tìm căn bậc ba của một biểu thức hoặc một số.</p>
+<p>Từ định nghĩa căn bậc ba, ta có \({\left( {\sqrt[3]{a}} \right)^3} = \sqrt[3]{{{a^3}}} = a\) với mọi số thực a.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách rút gọn biểu thức căn bậc ba</h3>
+<div><p>Để rút gọn biểu thức căn bậc ba ta sử dụng các hằng đẳng thức liên quan đến căn bậc ba:</p>
+<p>\(\begin{array}{l}\frac{1}{{\sqrt[3]{A} + \sqrt[3]{B}}} = \frac{{\sqrt[3]{{{A^2}}} - \sqrt[3]{{AB}} + \sqrt[3]{{{B^2}}}}}{{A + B}}\left( {A \ne  - B} \right)\\\frac{1}{{\sqrt[3]{A} - \sqrt[3]{B}}} = \frac{{\sqrt[3]{{{A^2}}} + \sqrt[3]{{AB}} + \sqrt[3]{{{B^2}}}}}{{A - B}}\left( {A \ne B} \right)\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức $B = \sqrt[3]{{17\sqrt 5&nbsp; + 38}} - \sqrt[3]{{17\sqrt 5&nbsp; - 38}}$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2\sqrt 5 $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $B = \sqrt[3]{{17\sqrt 5&nbsp; + 38}} - \sqrt[3]{{17\sqrt 5&nbsp; - 38}}$</p>
+<p style="text-align: left;">$ = \sqrt[3]{{{2^3} + {{3.2}^2}.\sqrt 5&nbsp; + 3.2.{{\left( {\sqrt 5 } \right)}^2} + {{\left( {\sqrt 5 } \right)}^3}}} - \sqrt[3]{{{{\left( {\sqrt 5 } \right)}^3} - 3.{{\left( {\sqrt 5 } \right)}^2}.2 + 3.\sqrt 5 {{.2}^2} - {2^3}}}$.</p>
+<p style="text-align: left;">$ = \sqrt[3]{{{{\left( {2 + \sqrt 5 } \right)}^3}}} - \sqrt[3]{{{{\left( {\sqrt 5&nbsp; - 2} \right)}^3}}} = \sqrt 5&nbsp; + 2 - \sqrt 5&nbsp; + 2 = 4 $</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(A = \sqrt[3]{{9 + 4\sqrt 5 }} + \sqrt[3]{{9 - 4\sqrt 5 }}\) ta được:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(A = 3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(A = \sqrt 3 \)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(A = 6\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(A = 27\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;: \(A = \sqrt[3]{{9 + 4\sqrt 5 }} + \sqrt[3]{{9 - 4\sqrt 5 }}\)</p>
+<p style="text-align: left;">Suy ra: \({A^3} = {\left( {\sqrt[3]{{9 + 4\sqrt 5 }} + \sqrt[3]{{9 - 4\sqrt 5 }}} \right)^3} \)\(= {\left( {\sqrt[3]{{9 + 4\sqrt 5 }}} \right)^3} + {\left( {\sqrt[3]{{9 - 4\sqrt 5 }}} \right)^3} + 3\sqrt[3]{{9 + 4\sqrt 5 }}.\sqrt[3]{{9 - 4\sqrt 5 }}\left( {\sqrt[3]{{9 + 4\sqrt 5 }} + \sqrt[3]{{9 - 4\sqrt 5 }}} \right)\)</p>
+<p style="text-align: left;">\( = 9 + 4\sqrt 5&nbsp; + 9 - 4\sqrt 5&nbsp; + 3.\sqrt[3]{{\left( {9 + 4\sqrt 5 } \right)\left( {9 - 4\sqrt 5 } \right)}}.A\)&nbsp; (v&igrave; \(A = \sqrt[3]{{9 + 4\sqrt 5 }} + \sqrt[3]{{9 - 4\sqrt 5 }}\))</p>
+<p style="text-align: left;">\( = 18 + 3\sqrt[3]{{{9^2} - {{\left( {4\sqrt 5 } \right)}^2}}}.A\)\( = 18 + 3A\)</p>
+<p style="text-align: left;">Hay \({A^3} = 3A + 18 \Leftrightarrow {A^3} - 3A - 18 = 0 \)\(\Leftrightarrow {A^3} - 27 - 3A + 9 = 0\)</p>
+<p style="text-align: left;">\( \Leftrightarrow \left( {A - 3} \right)\left( {{A^2} + 3A + 9} \right) - 3\left( {A - 3} \right) = 0\)\( \Leftrightarrow \left( {A - 3} \right)\left( {{A^2} + 3A + 6} \right) = 0\)</p>
+<p style="text-align: left;">\( \Leftrightarrow \left[ \begin{array}{l}A - 3 = 0\\{A^2} + 3A + 6 = 0\end{array} \right. \\\Leftrightarrow \left[ \begin{array}{l}A = 3\\{\left( {A + \dfrac{3}{2}} \right)^2} + \dfrac{{15}}{4} = 0\left( {VN} \right)\end{array} \right.\)</p>
+<p style="text-align: left;">Vậy \(A = 3.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh \(A = \,\sqrt[3]{{2 + 10\sqrt {\dfrac{1}{{27}}} }}\, + \,\sqrt[3]{{2 - 10\sqrt {\dfrac{1}{{27}}} }}\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span>  \(A = 2\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span>  \(A = 1\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span>  \(A = 5\).</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span>  \(A = 8\).</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;:</p>
+<p>\(\begin{array}{l}A = \,\sqrt[3]{{2 + 10\sqrt {\dfrac{1}{{27}}} }}\, + \,\sqrt[3]{{2 - 10\sqrt {\dfrac{1}{{27}}} }}\\{A^3} = {\left( {\sqrt[3]{{2 + 10\sqrt {\dfrac{1}{{27}}} }}\, + \,\sqrt[3]{{2 - 10\sqrt {\dfrac{1}{{27}}} }}} \right)^3}\\\,\,\,\,\,\,\, = \,2 + 10\sqrt {\dfrac{1}{{27}}}&nbsp; + 2 - 10\sqrt {\dfrac{1}{{27}}}&nbsp; + 3.\sqrt[3]{{2 + 10\sqrt {\dfrac{1}{{27}}} }}.\sqrt[3]{{2 - 10\sqrt {\dfrac{1}{{27}}} }}.\left( {\sqrt[3]{{2 + 10\sqrt {\dfrac{1}{{27}}} }}\, + \,\sqrt[3]{{2 - 10\sqrt {\dfrac{1}{{27}}} }}} \right)\\\,\,\,\,\,\,\, = \,4 + 3.\sqrt[3]{{{2^2} - {{\left( {10\sqrt {\dfrac{1}{{27}}} } \right)}^2}}}.A\\\,\,\,\,\,\,\, = \,4 + 3.\sqrt[3]{{\dfrac{8}{{27}}}}.A\\\,\,\,\,\,\,\, = \,4 + 3.\dfrac{2}{3}.A\\\,\,\,\,\,\,\, = 4 + 2A\end{array}\)</p>
+<p>Vậy gi&aacute; trị của A thảo m&atilde;n phương tr&igrave;nh \({A^3} = 4 + 2A\)</p>
+<p>\(\begin{array}{l} \\ {A^3} - 2A - 4 = 0\\ {A^3} - 8 - 2A + 4 = 0\\ \left( {A - 2} \right)\left( {{A^2} + 2A + 4} \right) - 2\left( {A - 2} \right) = 0\\ \left( {A - 2} \right)\left( {{A^2} + 2A + 4 - 2} \right) = 0\\ \left( {A - 2} \right)\left( {{A^2} + 2A + 2} \right) = 0\\ \left[ \begin{array}{l}A - 2 = 0\\{A^2} + 2A + 2 = 0\,\,\left( {v&ocirc;\,\,nghiệm} \right)\end{array} \right. \\ A = 2.\end{array}\)</p>
+<p>(Do \({A^2} + 2A + 2 = {\left( {A + 1} \right)^2} + 1 &gt; 0\) với mọi A).</p>
+<p>Vậy gi&aacute; trị của \(A = 2\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

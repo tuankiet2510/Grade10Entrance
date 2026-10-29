@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Độ dài của cung tròn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 20: Độ dài của cung tròn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách tính độ dài đường tròn (chu vi đường tròn)</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa đường tròn</h3>
+<div><p><em>Đường tròn tâm O bán kính R </em>(R &gt; 0), kí hiệu là (O; R), là hình gồm tất cả các điểm cách điểm O một khoảng bằng R.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính độ dài đường tròn (chu vi đường tròn)</h3>
+<div><p>Công thức tính độ dài C của đường tròn (O; R), đường kính d = 2R là:</p>
+<p>\(C=\pi d=2\pi R\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Bi&ecirc;t chu vi đường tr&ograve;n l&agrave; \(C = 48\pi \). T&iacute;nh đường k&iacute;nh của đường tr&ograve;n.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$48$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$24$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$36$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$18$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Chu vi \(C = \pi d = 48\pi&nbsp; \Rightarrow d = 48\). Vậy đường k&iacute;nh cần t&igrave;m l&agrave; \(48\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Chu vi đường tr&ograve;n b&aacute;n k&iacute;nh \(R = 6\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$18\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$9\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$12\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$27\pi $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Chu vi \(C = 2\pi R = 2\pi .6 = 12\pi \).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Biêt chu vi đường tròn là \(C = 36\pi (cm)\). Tính đường kính của đường tròn.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$18(cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14(cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$36(cm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$20 (cm)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Chu vi \(C = \pi d = 36\pi \) suy ra \( d = 36\). Vậy đường kính cần tìm là \(36(cm)\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chu vi đường tr&ograve;n b&aacute;n k&iacute;nh \(R = 9\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$18\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$9\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$12\pi $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$27\pi $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Chu vi \(C = 2\pi R = 2\pi .9 = 18\pi \).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách tính độ dài cung tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách tính độ dài đường tròn (chu vi đường tròn)</h3>
+<div><p>Công thức tính độ dài C của đường tròn (O; R), đường kính d = 2R là:</p>
+<p>\(C=\pi d=2\pi R\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Công thức tính độ dài cung tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749460575088-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Công thức tính độ dài l của cung tròn \(n^\circ \) trên đường tròn (O;R) là: \(l = \frac{n}{{180}}\pi R\)</p>
+<p>Tỉ số giữa độ dài cung \(n^\circ \) và độ dài đường tròn (cùng bán kính) đúng bằng \(\frac{n}{{360}}\).</p>
+<p>Cụ thể: \(\frac{l}{C} = \frac{{\frac{n}{{180}}\pi R}}{{2\pi R}} = \frac{n}{{360}}\)</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0609/1749460584721-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Đường tròn (O; 2cm), \(\widehat {AOB} = 60^\circ \).</p>
+<p>- Cung nhỏ AB bị chắn bởi góc ở tâm AOB.</p>
+<p>Do đó sđ$\overset\frown{AB}=\widehat{AOB}=60{}^\circ $</p>
+<p>Độ dài \({l_1}\) của cung AB là:</p>
+<p>\({l_1} = \frac{n}{{180}}\pi R = \frac{{60}}{{180}}\pi .2 = \frac{{2\pi }}{3} \approx 2,1\left( {cm} \right)\)</p>
+<p>Cung lớn AnB có số đo là:</p>
+<p>sđ$\overset\frown{AmN}=360{}^\circ -60{}^\circ =300{}^\circ $.</p>
+<p>Độ dài \({l_2}\) của cung AnB là:</p>
+<p>\({l_2} = \frac{{300}}{{180}}\pi .2 = \frac{{10}}{3}\pi  \approx 10,5\left( {cm} \right)\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&iacute;nh độ d&agrave;i cung \(30^\circ \) của một đường tr&ograve;n c&oacute; b&aacute;n k&iacute;nh \(4\,dm\)&nbsp;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$\dfrac{{4\pi }}{3}(dm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\dfrac{\pi }{3}(dm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$\dfrac{\pi }{6}(dm)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$\dfrac{{2\pi }}{3}(dm)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Độ d&agrave;i cung tr&ograve;n \(l = \dfrac{{\pi Rn}}{{180}}\, = \dfrac{{\pi .4.30}}{{180}} = \dfrac{{2\pi }}{3} (dm)\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Số đo \(n^\circ \) của cung tr&ograve;n c&oacute; độ d&agrave;i \(30,8\,cm\) tr&ecirc;n đường tr&ograve;n c&oacute; b&aacute;n k&iacute;nh \(22\,cm\) l&agrave; ( lấy \(\pi&nbsp; \approx 3,14\) v&agrave; l&agrave;m tr&ograve;n đến độ)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$70^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$80^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$65^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$85^\circ $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Độ d&agrave;i cung tr&ograve;n \(l\) l&agrave;:</p>
+<p style="text-align: left;">\(l = \dfrac{{\pi Rn}}{{180}}\, \\ hay \;\dfrac{{\pi .22.n}}{{180}} = 30,8 \\ suy \; ra \; n \approx 80^\circ \).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho ba điểm $A,B,C$ thẳng h&agrave;ng sao cho $B$ nằm giữa $A$ v&agrave; $C$ . Chọn khẳng định n&agrave;o sau đ&acirc;y <strong>đ&uacute;ng</strong>?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh $AC$ bằng hiệu c&aacute;c độ d&agrave;i của hai nửa đường tr&ograve;n đường k&iacute;nh $AB$ v&agrave; $BC$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh $AC$ bằng tổng c&aacute;c độ d&agrave;i của hai nửa đường tr&ograve;n đường k&iacute;nh $AB$ v&agrave; $BC$ .</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh $BC$ bằng tổng c&aacute;c độ d&agrave;i của hai nửa đường tr&ograve;n đường k&iacute;nh $AB$ v&agrave; $AC$ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh $AB$ bằng tổng c&aacute;c độ d&agrave;i của hai nửa đường tr&ograve;n đường k&iacute;nh $AC$ v&agrave; $BC$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh \(AC\) l&agrave; \({l_1} = \pi .\dfrac{{AC}}{2}\) .</p>
+<p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh \(AB\) l&agrave; \({l_1} = \pi .\dfrac{{AB}}{2}\) .</p>
+<p style="text-align: left;">Độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh \(BC\) l&agrave; \({l_1} = \pi .\dfrac{{BC}}{2}\) .</p>
+<p style="text-align: left;">M&agrave; ba điểm $A,B,C$ thẳng h&agrave;ng sao cho $B$ nằm giữa $A$ v&agrave;&nbsp;$C$ n&ecirc;n \(AB + BC = AC\)</p>
+<p style="text-align: left;">Do đ&oacute; \({l_1} = \pi .\dfrac{{AC}}{2} = \pi \left( {\dfrac{{AB}}{2} + \dfrac{{BC}}{2}} \right) = \pi .\dfrac{{AB}}{2} + \pi .\dfrac{{BC}}{2} = {l_2} + {l_3}\)</p>
+<p style="text-align: left;">Vậy&nbsp; độ d&agrave;i nửa đường tr&ograve;n đường k&iacute;nh $AC$ bằng tổng c&aacute;c độ d&agrave;i của hai nửa đường tr&ograve;n đường k&iacute;nh $AB$ v&agrave;&nbsp;$BC$ .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&aacute;c $ABC$ vu&ocirc;ng tại $A$ , cạnh $AB = 5\,\,cm$ , \(\widehat B = {60^ \circ }\). Đường tr&ograve;n t&acirc;m $I$ , đường k&iacute;nh $AB$ cắt $BC$ ở $D$ . Chọn khẳng định sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Độ d&agrave;i cung nhỏ $BD$ của \(\left( I \right)\) l&agrave; $\dfrac{\pi }{6}\,\,\left( {cm} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$AD \bot BC$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$D$ thuộc đường tr&ograve;n đường k&iacute;nh \(AC\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Độ d&agrave;i cung nhỏ $BD$ của \(\left( I \right)\) l&agrave; \(\dfrac{{5\pi }}{6}\,\,\left( {cm} \right)\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">+ X&eacute;t đường tr&ograve;n \(\left( I \right)\) đường k&iacute;nh \(AB\) c&oacute; \(\widehat {ADB} = 90^\circ \) (g&oacute;c nội tiếp chắn nửa đường tr&ograve;n)</p>
+<p style="text-align: left;">N&ecirc;n $AD \bot BC \Rightarrow $ phương &aacute;n B đ&uacute;ng.</p>
+<p style="text-align: left;">+) Gọi \(K\) l&agrave; trung điểm của \(AC \Rightarrow KA = KC = KD \Rightarrow K\) đường tr&ograve;n đường k&iacute;nh \(AC \Rightarrow \) phương &aacute;n C đ&uacute;ng.</p>
+<p style="text-align: left;">+) Ta c&oacute; \(\Delta IBD\) c&acirc;n tại \(I\) c&oacute; \(\widehat B = 60^\circ&nbsp; \Rightarrow \Delta IBD\) đều n&ecirc;n \(\widehat {BID} = 60^\circ \)</p>
+<p style="text-align: left;">Độ d&agrave;i cung nhỏ \(BD\) của \(\left( I \right)\) l&agrave; $l = \dfrac{{\pi .\dfrac{5}{2}.60}}{{180^\circ }} = \dfrac{{5\pi }}{6}\,\left( {cm} \right) \Rightarrow $ phương &aacute;n D đ&uacute;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh độ d&agrave;i cung \(45^\circ \) của một đường tr&ograve;n c&oacute; b&aacute;n k&iacute;nh \(5\,dm\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$\dfrac{{5\pi }}{8}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$\dfrac{{5\pi }}{4}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$\dfrac{\pi }{4}$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$\dfrac{\pi }{8}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Độ d&agrave;i cung tr&ograve;n \(l = \dfrac{{\pi Rn}}{{180}}\, = \dfrac{{\pi .5.45}}{{180}} = \dfrac{{5\pi }}{4}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Số đo \(n^\circ \) của cung tr&ograve;n c&oacute; độ d&agrave;i \(40,2\,cm\) tr&ecirc;n đường tr&ograve;n c&oacute; b&aacute;n k&iacute;nh \(16\,cm\) l&agrave; (lấy \(\pi&nbsp; \approx 3,14\) v&agrave; l&agrave;m tr&ograve;n đến độ)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$144^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$145^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$124^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$72^\circ $</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Độ d&agrave;i cung tr&ograve;n \(l\) l&agrave;:</p>
+<p>\(l = \dfrac{{\pi Rn}}{{180}}\, \\hay \; \dfrac{{\pi .16.n}}{{180}} = 40,2 \\suy \; ra \; n = \dfrac{{40,2.180}}{{16.\pi }} \approx 144^\circ \).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

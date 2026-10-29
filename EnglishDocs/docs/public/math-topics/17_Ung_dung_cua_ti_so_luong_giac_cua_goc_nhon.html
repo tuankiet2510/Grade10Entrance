@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng dụng của tỉ số lượng giác của góc nhọn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 17: Ứng dụng của tỉ số lượng giác của góc nhọn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách ứng dụng lượng giác để ước lượng chiều cao</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách ứng dụng lượng giác để ước lượng chiều cao</h3>
+<div><p>Lượng giác được sử dụng để đo chiều cao của các toà nhà, núi, cây, v.v. Chiều cao của một toà nhà hoặc một ngọn núi có thể dễ dàng được xác định bằng cách đo khoảng cách theo chiều ngang từ chân núi và góc nâng lên đỉnh núi.</p>
+<p>Chúng ta hãy lấy một ví dụ để hiểu khái niệm này:</p>
+<p>Một cậu bé đang đứng gần một toà nhà và tự hỏi: "Chiều cao của toà nhà là bao nhiêu?"</p>
+<p>Sử dụng các công thức lượng giác, chiều cao có thể được tính toán nếu khoảng cách giữa toà nhà và cậu bé và góc tạo thành khi nhìn toà nhà từ mặt đất được cung cấp.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0522/1747908616670-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Giả sử góc tạo thành là \(\alpha \).</p>
+<p>\(\tan \alpha \) = chiều cao / khoảng cách giữa cậu bé và toà nhà.</p>
+<p>Khoảng cách = chiều cao / \(\tan \alpha \)</p>
+<p>Giả sử khoảng cách là 30m và góc tạo thành là \(45^\circ \) thì:</p>
+<p>Chiều cao = \(\frac{{30}}{{\tan 45^\circ }}\)</p>
+<p>Vì \(\tan 45^\circ  = 1\) nên chiều cao bằng 30m.</p>
+<p><strong><em>Phương pháp giải:</em></strong></p>
+<p>- Sử dụng tỉ số lượng giác của góc nhọn, hệ thức lượng giữa cạnh và góc trong tam giác để tính toán, ước lượng chiều cao.</p>
+<p>- Xác định các yếu tố đã cho của đề bài để lựa chọn tỉ số lượng giác, hệ thức phù hợp với bài toán.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với côsin góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh huyền ) × (sin góc đối) </em></p>
+<p><em>= (cạnh huyền ) × (cosin góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907908794-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = a.\sin B = a.\cos C;\\c = a.\sin C = a.\cos B.\end{array}\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông kia nhân với tang góc đối hoặc côtang góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh góc vuông còn lại ) × (tan góc đối) </em></p>
+<p><em>= (cạnh góc vuông còn lại ) × (cot góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907938917-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = c.\tan B = c.\cot C;\\c = b.\tan C = b.\cot B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="VI">Một cột đ&egrave;n c&oacute; b&oacute;ng tr&ecirc;n mặt đất d&agrave;i $7,5m.$ C&aacute;c tia nắng mặt trời tạo với mặt đất một g&oacute;c xấp xỉ bằng ${42^0}.$ T&iacute;nh chiều cao của cột đ&egrave;n.</span> (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ ba)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$6,753\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$6,75\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$6,751\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$6,755\,m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; chiều cao&nbsp; cột đ&egrave;n l&agrave; $AC$; $AB = 7,5\,m$ v&agrave; $\widehat {ACB} = 42^\circ $</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $ACB$ vu&ocirc;ng tại $A$ c&oacute;</p>
+<p style="text-align: left;">$AC = AB.\tan B = 7,5.\tan 42^\circ&nbsp; \approx 6,753\,\,m$</p>
+<p style="text-align: left;">Vậy cột đ&egrave;n cao $6,753\,m$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="VI">Một</span> <span lang="VI">cầu trượt trong c&ocirc;ng vi&ecirc;n c&oacute; độ dốc l&agrave; ${28^0}$ v&agrave; c&oacute; độ cao l&agrave; $2,1m.$T&iacute;nh độ d&agrave;i của mặt cầu trượt (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ hai).</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$3,95\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$3,8\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$4,5\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$4,47\,m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; độ d&agrave;i của mặt cầu trượt&nbsp; l&agrave; $AB$; $AC = 2,1\,m$ v&agrave; $\widehat {ABC} = 28^\circ $</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $ACB$ vu&ocirc;ng tại $A$ c&oacute;</p>
+<p style="text-align: left;">$BC = AB:\sin B = 2,1:\sin 28^\circ&nbsp; \simeq 4,47\,m$</p>
+<p style="text-align: left;">Vậy độ d&agrave;i của mặt cầu trượt&nbsp; l&agrave; $4,47\,m.$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một c&aacute;i c&acirc;y bị s&eacute;t đ&aacute;nh tr&uacute;ng th&acirc;n c&acirc;y l&agrave;m th&acirc;n c&acirc;y ngả xuống đất, tạo với mặt đất một g&oacute;c l&agrave; ${40^0}$. Biết rằng kh&uacute;c c&acirc;y c&ograve;n đứng cao $1\,m$ . T&iacute;nh chiều cao l&uacute;c đầu của c&acirc;y.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2,61\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2,81\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2,58\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2,56\,m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Từ giả thiết ta c&oacute; chiều d&agrave;i ban đầu của c&acirc;y l&agrave; $AD$; sau khi bị s&eacute;t đ&aacute;nh th&igrave; c&acirc;y c&ograve;n lại $AC = 1\,\,m;\widehat {CBA} = 40^\circ $v&agrave; $CD = CB$.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $\Delta ABC$ vu&ocirc;ng tại $A$ c&oacute; $BC = \dfrac{{AC}}{{\sin 40^\circ }} = 1,56\,m$ n&ecirc;n $CD=1,56\,m$</p>
+<p style="text-align: left;">Suy ra $AD = AC + CD $</p>
+<p style="text-align: left;">$= 1 + 1,56 = 2,56\,m$.</p>
+<p style="text-align: left;">Vậy c&acirc;y cao $2,56\,m$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hai bạn học sinh Trung v&agrave; Dũng đang đứng ở mặt đất bằng phẳng, c&aacute;ch nhau $100m$&nbsp; th&igrave; nh&igrave;n thấy một chiếc diều ( ở vị tr&iacute;&nbsp; $C$ giữa hai bạn). Biết g&oacute;c ''n&acirc;ng'' để nh&igrave;n thấy diều ở vị tr&iacute; của Trung l&agrave; ${50^0}$ v&agrave; g&oacute;c ''n&acirc;ng'' để nh&igrave;n thấy diều ở vị tr&iacute; của Dũng l&agrave; ${40^0}$ . H&atilde;y t&iacute;nh độ cao của diều&nbsp; l&uacute;c đ&oacute; so với mặt đất? (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ hai)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$49,26\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$49,24\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$50\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$51\,m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Độ cao của diều l&agrave; $CD$, độ d&agrave;i $AB = 100\,m$. Trung đứng ở $A$ , Dũng đứng ở $B$ .</p>
+<p style="text-align: left;">Gọi $AD = x\left( {0 &lt; x &lt; 100} \right)$</p>
+<p style="text-align: left;">$ \Rightarrow BD = 100 - x$</p>
+<p style="text-align: left;">X&eacute;t $\Delta ACD$ vu&ocirc;ng tại $D$ ta c&oacute; $CD = AD.\tan A = x.\tan 50^\circ $</p>
+<p style="text-align: left;">X&eacute;t $\Delta ABD$ vu&ocirc;ng tại $D$ ta c&oacute; $CD = BD.{\mathop{\rm tanB}\nolimits}$</p>
+<p style="text-align: left;">$&nbsp; = \left( {100 - x} \right).\tan 40^\circ $</p>
+<p style="text-align: left;">N&ecirc;n $x.\tan 50^\circ&nbsp; = \left( {100 - x} \right)\tan 40^\circ $</p>
+<p style="text-align: left;">$ \Rightarrow x \approx 41,32$ (thoả m&atilde;n)</p>
+<p style="text-align: left;">$ \Rightarrow CD = 41,32.\tan50^\circ&nbsp; \approx&nbsp;49,24\,m$</p>
+<p style="text-align: left;">Vậy độ cao của diều&nbsp; l&uacute;c đ&oacute; so với mặt đất l&agrave; $49,24\,m$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>B&#x1EA1;n Thanh &#x111;&#x1EE9;ng t&#x1EA1;i v&#x1ECB; tr&#xED; \(A\) c&#xE1;ch c&#xE2;y th&#xF4;ng \(6m\) v&#xE0; nh&#xEC;n th&#x1EA5;y ng&#x1ECD;n c&#x1EE7;a c&#xE2;y n&#xE0;y d&#x1B0;&#x1EDB;i m&#x1ED9;t g&#xF3;c b&#x1EB1;ng \({55^0}\) so v&#x1EDB;i ph&#x1B0;&#x1A1;ng n&#x1EB1;m ngang (nh&#x1B0; h&#xEC;nh v&#x1EBD;). Bi&#x1EBF;t kho&#x1EA3;ng c&#xE1;ch t&#x1EEB; m&#x1EAF;t c&#x1EE7;a b&#x1EA1;n Thanh &#x111;&#x1EBF;n m&#x1EB7;t &#x111;&#x1EA5;t b&#x1EB1;ng \(1,6m.\) Chi&#x1EC1;u cao \(BC\) c&#x1EE7;a c&#xE2;y th&#xF4;ng b&#x1EB1;ng (l&#xE0;m tr&#xF2;n &#x111;&#x1EBF;n s&#x1ED1; th&#x1EAD;p ph&#xE2;n th&#x1EE9; hai):</p>
+<p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://img.loigiaihay.com/picture/2024/0730/17223294826461594199566453-cay-1.png" alt="" width="344" height="259"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(5,80m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(8,57m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(6,51m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(10,17m\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://img.loigiaihay.com/picture/2024/0730/17223294827811594199503444-hinh-2.png" alt="" width="308" height="238">&#x110;&#x1EB7;t c&#xE1;c &#x111;i&#x1EC3;m \(D,\,\,E\) nh&#x1B0; h&#xEC;nh v&#x1EBD;.</p>
+<p style="text-align: left;">X&#xE9;t \(\Delta CDE\) vu&#xF4;ng t&#x1EA1;i \(E\) ta c&#xF3;:</p>
+<p style="text-align: left;">\(CE = DE.\tan {55^0} = 6.\tan {55^0} \approx 8,57\,m.\)</p>
+<p style="text-align: left;">\( \Rightarrow \) Chi&#x1EC1;u cao c&#x1EE7;a c&#xE2;y l&#xE0;: \(BC = CE + BE = 8,57 + 1,6 = 10,17\,\,m.\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách ứng dụng lượng giác để ước lượng khoảng cách</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách ứng dụng lượng giác để ước lượng khoảng cách</h3>
+<div><p>Từ xưa, người ta đã biết cách ứng dụng lượng giác để ước lượng khoảng cách. Bằng cách sử dụng tỉ số lượng giác của góc nhọn, ta có thể ước lượng khoảng cách giữa hai vị trí khi khó đo trực tiếp khoảng cách hai vị trí đó.</p>
+<p><strong><em>Phương pháp giải:</em></strong></p>
+<p>- Sử dụng tỉ số lượng giác của góc nhọn, hệ thức lượng giữa cạnh và góc trong tam giác để tính toán, ước lượng khoảng cách.</p>
+<p>- Xác định các yếu tố đã cho của đề bài để lựa chọn tỉ số lượng giác, hệ thức phù hợp với bài toán.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định sin, cosin, tang, cotang của góc α:</h3>
+<div><p>+) Tỉ số giữa cạnh đối và cạnh huyền được gọi là <em>sin</em> của góc α, kí hiệu là sin α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh huyền được gọi là <em>cos (cosin)</em> của góc α, kí hiệu là cos α.</p>
+<p>+) Tỉ số giữa cạnh đối và cạnh kề được gọi là <em>tan (tang)</em> của góc α, kí hiệu là tan α.</p>
+<p>+) Tỉ số giữa cạnh kề và cạnh đối được gọi là <em>cot (côtang)</em> của góc α, kí hiệu là cot α.</p>
+<p>\(\sin \alpha = \frac{\text{cạnh đối}}{\text{cạnh huyền}}\);\(\cos \alpha = \frac{\text{cạnh kề}}{\text{cạnh huyền}}\);</p>
+<p>\(\tan \alpha = \frac{\text{cạnh đối}}{\text{cạnh kề}}\);\(\cot \alpha = \frac{\text{cạnh kề}}{\text{cạnh đối}}\).</p>
+<p><strong><em>Quy ước:</em></strong></p>
+<p>\(\begin{array}{l}{\sin ^2}\alpha  = {\left( {\sin \alpha } \right)^2};\\{\cos ^2}\alpha  = {\left( {\cos \alpha } \right)^2};\\{\tan ^2}\alpha  = {\left( {\tan \alpha } \right)^2};\\{\cot ^2}\alpha  = {\left( {\cot \alpha } \right)^2}.\end{array}\)</p>
+<p><strong><em>Tip học thuộc nhanh:</em></strong></p>
+<p>Sin đi học</p>
+<p>Cos không hư</p>
+<p>Tang đoàn kết</p>
+<p>Cotang kết đoàn</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với côsin góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh huyền ) × (sin góc đối) </em></p>
+<p><em>= (cạnh huyền ) × (cosin góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907908794-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = a.\sin B = a.\cos C;\\c = a.\sin C = a.\cos B.\end{array}\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông kia nhân với tang góc đối hoặc côtang góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh góc vuông còn lại ) × (tan góc đối) </em></p>
+<p><em>= (cạnh góc vuông còn lại ) × (cot góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907938917-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = c.\tan B = c.\cot C;\\c = b.\tan C = b.\cot B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một m&aacute;y bay đang bay ở độ cao $10km$ so với mặt đất, muốn hạ c&aacute;nh xuống s&acirc;n bay. Để đường bay v&agrave; mặt đất hợp th&agrave;nh một g&oacute;c an to&agrave;n l&agrave; ${15^0}$ th&igrave; phi c&ocirc;ng phải bắt đầu hạ c&aacute;nh từ vị tr&iacute; c&aacute;ch s&acirc;n bay bao xa? (&nbsp; l&agrave;m tr&ograve;n kết quả đến hai chữ số phần thập ph&acirc;n)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$37,32\,km$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$373,2\,km$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$38,32\,km$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$37,52\,km$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Từ giả thiết suy ra $AC = 10\,\,km;\,\,\widehat B = 15^\circ $.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $\Delta ABC$ vu&ocirc;ng tại $A$ c&oacute; $AB = AC.\cot B = 10.\cot 15^\circ&nbsp; \approx 37,32\,km$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một m&aacute;y bay đang bay ở độ cao \(12km\) so với mặt đất, muốn hạ c&aacute;nh xuống s&acirc;n bay. Để đường bay v&agrave; mặt đất hợp th&agrave;nh một g&oacute;c an to&agrave;n l&agrave; \({12^0}\) th&igrave; phi c&ocirc;ng phải bắt đầu hạ c&aacute;nh từ vị tr&iacute; c&aacute;ch s&acirc;n bay bao xa? (&nbsp; l&agrave;m tr&ograve;n kết quả đến một chữ số phần thập ph&acirc;n)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(56,6\,km\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(56,5\,km\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(55,6\,km\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(57\,km\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Từ giả thiết suy ra \(AC = 12\,\,km;\,\,\widehat B = 12^\circ \).</p>
+<p>X&eacute;t tam gi&aacute;c \(\Delta ABC\) vu&ocirc;ng tại \(A\) c&oacute; \(AB = AC.\cot B = 12.\cot 12^\circ&nbsp; \simeq 56,5\,km\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&iacute;nh khoảng c&aacute;ch giữa hai điểm \(B\) v&agrave; \(C,\) &nbsp;biết rằng từ vị trị \(A\) &nbsp;ta đo được \(AB = 234\,m,\,\,\,AC = 185\,m\) v&agrave; \(\angle BAC = {53^0}\) (kết quả t&iacute;nh bằng m&eacute;t v&agrave; l&agrave;m tr&ograve;n đến h&agrave;ng đơn vị).</p>
+<p style="text-align: left;"><img src="https://img.loigiaihay.com/picture/2024/0622/1719045163140-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(190m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(191m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(192m\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(193m\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0708/1594200310490_tam_giac_ABC_chieu_cao_CD.png" alt="" width="274" height="203" /></p>
+<p style="text-align: left;">Từ \(C,\) dựng đường vu&ocirc;ng g&oacute;c với \(AB,\) cắt \(AB\) tại \(D.\)</p>
+<p style="text-align: left;">Khi đ&oacute; ta c&oacute;: \(CD\) l&agrave; đường cao của \(\Delta ABC.\)</p>
+<p style="text-align: left;">&Aacute;p dụng tỉ số lượng gi&aacute;c của g&oacute;c nhọn trong</p>
+<p style="text-align: left;">\(\Delta ACD\) vu&ocirc;ng tại \(D\) ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}\sin \angle A = \dfrac{{CD}}{{CA}} \Rightarrow CD = CA.\sin \angle A\\ \Rightarrow CD = 185.\sin {53^0}.\\\cos \angle A = \dfrac{{AD}}{{AC}} \Rightarrow AD = CA.\cos \angle A\\ \Rightarrow AD = 185.\cos {53^0}.\\ \Rightarrow BD = AB - AD = 234 - 185.\cos {53^0}.\end{array}\)</p>
+<p style="text-align: left;">&Aacute;p dụng định l&yacute; Pitago cho \(\Delta BCD\) để t&iacute;nh \(BC.\)</p>
+<p style="text-align: left;">\(\begin{array}{l}B{C^2} = B{D^2} + C{D^2} = {\left( {234 - 185.\cos {{53}^0}} \right)^2} + {\left( {185.\sin {{53}^0}} \right)^2}\\ \Leftrightarrow B{C^2} = {234^2} - 2.234.185\cos {53^0} + {\left( {185.\cos {{53}^0}} \right)^2} + {\left( {185.\sin {{53}^0}} \right)^2}\\ \Leftrightarrow B{C^2} = {234^2} - 2.234.185\cos {53^0} + {185^2}\\ \Leftrightarrow B{C^2} \approx 36875,86\\ \Rightarrow BC \approx 192\,m.\end{array}\)</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải bài toán bằng cách lập phương trình - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 27: Giải bài toán bằng cách lập phương trình</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách giải bài toán bằng cách lập phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải bài toán bằng cách lập phương trình</h3>
+<div><p><strong><em>Bước 1: </em></strong>Lập phương trình:</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu diễn mối quan hệ giữa các đại lượng.</p>
+<p><strong><em>Bước 2. </em></strong>Giải phương trình.</p>
+<p><strong><em>Bước 3. </em></strong>Trả lời: Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không, rồi kết luận.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một công nhân dự định làm 70 sản phẩm trong thời gian quy định. Nhưng do áp dụng kĩ thuật nên đã tăng năng suất thêm 5 sản phẩm mỗi giờ. Do đó, không những hoàn thành kế hoạch trước thời hạn 40 phút mà còn làm thêm được 10 sản phẩm so với dự định. Hỏi năng suất dự định là bao nhiêu?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>15 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>20 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>25 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>30 sản phẩm/giờ.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi năng suất dự định là \(x\) (sản phẩm/giờ, \(x \in {N^*}\))</p>
+<p>Thời gian dự định làm 70 sản phẩm là \(\frac{{70}}{x}\) (giờ)</p>
+<p>Năng suất thực tế là \(x + 5\) (sản phẩm/giờ)</p>
+<p>Thời gian thực tế làm 80 sản phẩm là: \(\frac{{80}}{{x + 5}}\) (giờ)</p>
+<p>Vì người công nhân hoàn thành trước kế hoạch 40 phút = \(\frac{2}{3}\) giờ nên ta có phương trình:</p>
+<p>\(\begin{array}{l}\frac{{70}}{x} - \frac{{80}}{{x + 5}} = \frac{2}{3}\\\frac{{70.3.\left( {x + 5} \right)}}{{3x\left( {x + 5} \right)}} - \frac{{80.3x}}{{3x\left( {x + 5} \right)}} = \frac{{2x\left( {x + 5} \right)}}{{3x\left( {x + 5} \right)}}\\210x + 1050 - 240x = 2{x^2} + 10x\\2{x^2} + 40x - 1050 = 0\\{x^2} + 20x - 525 = 0\end{array}\)</p>
+<p>Giải phương trình ta được \({x_1} = 15\left( {TM} \right),{x_2} =  - 35\left( {KTM} \right)\)</p>
+<p>Vậy năng suất dự định là 15 sản phẩm/giờ.</p>
+<p><strong>Đáp án: A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một công nhân dự định làm 72 sản phẩm trong thời gian quy định. Nhưng thực tế xí nghiệp lại giao 80 sản phẩm. Vì vậy mặc dù người đó đã làm mỗi giờ thêm 1 sản phẩm, song thời gian hoàn thành công việc vẫn chậm hơn so với dự định 12 phút. Tính năng suất dự kiến của người đó biết mỗi giờ người công nhân đó làm không quá 20 sản phẩm.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>25 sản phẩm/h.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>15 sản phẩm/h.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>35 sản phẩm/h</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>45 sản phẩm/h</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi năng suất của người đó dự định là \(x\left( x\in {{N}^{*}},x \le 20 \right)\)</p>
+<p>*) Theo dự định: Thời gian hoàn thành là \(\frac{72}{x}\) (ngày)</p>
+<p>*) Thực tế: Mỗi giờ người đó đã làm \(x+1\) ( sản phẩm)</p>
+<p>Thời gian hoàn thành \(\frac{80}{x+1}\) ( ngày).</p>
+<p>Vì thời gian hoàn thành công việc vẫn chậm hơn so với dự định 12 phút = \(\frac{1}{5}h\) nên ta có phương trình: </p>
+<p>       \(\begin{align} & \,\,\,\,\,\,\,\,\frac{80}{x+1}-\frac{72}{x}=\frac{1}{5} \\  & \frac{400x-360(x+1)}{5x(x+1)}=\frac{x(x+1)}{5x(x+1)} \\  & 40x-360={{x}^{2}}+x \\  & {{x}^{2}}-39x+360=0 \\  & \Delta ={{39}^{2}}-4.360=81>0 \,\text{suy ra}\,\sqrt{\Delta }=9 \\ \end{align}\)</p>
+<p>Phương trình có hai nghiệm phân biệt : \({{x}_{1}}=\frac{-(-39)+9}{2}=24\) (loại) và \({{x}_{2}}=\frac{-(-39)-9}{2}=15\) (tmđk).</p>
+<p>Vậy năng suất của người đó là \(15\) sản phẩm/h.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Một phòng họp có 360 ghế ngồi được xếp thành từng dãy và số ghế của từng dãy đều như nhau. Nếu số dãy tăng thêm 1 và số ghế của mỗi dãy tăng thêm 1 thì trong phòng có 400 ghế. Hỏi trong phòng họp có bao nhiêu dãy ghế, mỗi dãy có bao nhiêu ghế? Biết số ghế trong 1 dãy không quá 20 ghế.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>24 d&atilde;y v&agrave; 15 ghế</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>15 d&atilde;y v&agrave; 24 ghế</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>12 d&atilde;y v&agrave; 30 ghế</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>30 ghế v&agrave; 12 ghế</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi số dãy ghế của phòng họp là \(x\) (dãy), \(\left( {x \in {\mathbb{N}^*}} \right)\).</p>
+<p>Số ghế của mỗi dãy là \(\dfrac{{360}}{x}\) (ghế).</p>
+<p>Số dãy sau khi tăng thêm 1 là \(x + 1\) (dãy).</p>
+<p>Số ghế sau khi tăng thêm 1 ghế trên mỗi dãy là: \(\dfrac{{360}}{x} + 1\).</p>
+<p>Tổng số ghế sau khi tăng 1 dãy và tăng 1 ghế trong mỗi dãy là \(\left( {x + 1} \right)\left( {\dfrac{{360}}{x} + 1} \right)\).</p>
+<p>Khi đó ta có phương trình \(\left( {x + 1} \right)\left( {\dfrac{{360}}{x} + 1} \right) = 400\).</p>
+<p>\(\begin{array}{l}\left( {x + 1} \right)\left( {x + 360} \right) = 400x\\ {x^2} + 361x + 360 = 400x\\ {x^2} - 39x + 360 = 0\end{array}\)</p>
+<p>Giải phương trình, ta được: x = 15 hoặc x = 24</p>
+<p>Nếu số dãy là 15 dãy thì số ghế trong 1 dãy là 24 ghế. Loại vì mỗi dãy không quá 20 ghế.</p>
+<p>Nếu số dãy là 24 thì số ghế trong 1 dãy là 15 ghế (thoả mãn).</p>
+<p>Vậy số dãy là 24, số ghế trong 1 dãy là 15.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t ph&#xF2;ng h&#x1ECD;p c&#xF3; 360 gh&#x1EBF; ng&#x1ED3;i &#x111;&#x1B0;&#x1EE3;c x&#x1EBF;p th&#xE0;nh t&#x1EEB;ng d&#xE3;y v&#xE0; s&#x1ED1; gh&#x1EBF; c&#x1EE7;a t&#x1EEB;ng d&#xE3;y &#x111;&#x1EC1;u nh&#x1B0; nhau. N&#x1EBF;u s&#x1ED1; d&#xE3;y t&#x103;ng th&#xEA;m 1 v&#xE0; s&#x1ED1; gh&#x1EBF; c&#x1EE7;a m&#x1ED7;i d&#xE3;y t&#x103;ng th&#xEA;m 1 th&#xEC; trong ph&#xF2;ng c&#xF3; 400 gh&#x1EBF;. H&#x1ECF;i trong ph&#xF2;ng h&#x1ECD;p c&#xF3; bao nhi&#xEA;u d&#xE3;y gh&#x1EBF; (bi&#x1EBF;t s&#x1ED1; d&#xE3;y gh&#x1EBF; &#xED;t h&#x1A1;n 20).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">14 d&atilde;y</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">15 d&atilde;y</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">16 d&atilde;y</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">17 d&atilde;y</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i s&#x1ED1; d&#xE3;y gh&#x1EBF; l&#xE0; x \((x \in N*)\) (d&#xE3;y)</p>
+<p style="text-align: left;">S&#x1ED1; gh&#x1EBF; &#x1EDF; m&#x1ED7;i d&#xE3;y l&#xE0;: \(\dfrac{{360}}{x}\) (gh&#x1EBF;)</p>
+<p style="text-align: left;">S&#x1ED1; d&#xE3;y gh&#x1EBF; l&#xFA;c sau l&#xE0;: \(x + 1\) (d&#xE3;y)</p>
+<p style="text-align: left;">S&#x1ED1; gh&#x1EBF; &#x1EDF; m&#x1ED7;i d&#xE3;y l&#xFA;c sau l&#xE0;: \(\dfrac{{360}}{x} + 1\)&#xA0; (gh&#x1EBF;)</p>
+<p style="text-align: left;">V&#xEC; sau khi t&#x103;ng s&#x1ED1; d&#xE3;y t&#x103;ng th&#xEA;m 1 v&#xE0; s&#x1ED1; gh&#x1EBF; c&#x1EE7;a m&#x1ED7;i d&#xE3;y t&#x103;ng th&#xEA;m 1 th&#xEC; trong ph&#xF2;ng c&#xF3; 400 gh&#x1EBF; n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">\(\begin{array}{l}(x + 1)\left( {\dfrac{{360}}{x} + 1} \right) = 400\\&#xA0; (x + 1)\left( {\dfrac{{360 + x}}{x}} \right) = 400\\(x + 1)(360 + x) = 400x\\ 360x + {x^2} + 360 + x = 400x\\&#xA0; {x^2} - 39x + 360 = 0\end{array}\)</p>
+<p style="text-align: left;">Ta c&#xF3;:&#xA0;\(\Delta&#xA0; = {( - 39)^2} - 4.1.360 = 81 &gt; 0\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; 2 nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t: \({x_1} = \dfrac{{39 + \sqrt {81} }}{2} = 24\,\,\,\,(ktm)\) v&#xE0; \({x_2} = \dfrac{{39 - \sqrt {81} }}{2} = 15\,\,\,\,(tm)\)</p>
+<p style="text-align: left;">V&#x1EAD;y s&#x1ED1; d&#xE3;y gh&#x1EBF; l&#xE0; 15 (d&#xE3;y).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t c&#xF4;ng ty v&#x1EAD;n t&#x1EA3;i d&#x1EF1; &#x111;&#x1ECB;nh &#x111;i&#x1EC1;u m&#x1ED9;t s&#x1ED1; xe t&#x1EA3;i &#x111;&#x1EC3; v&#x1EAD;n chuy&#x1EC3;n $24$ t&#x1EA5;n h&#xE0;ng. Th&#x1EF1;c t&#x1EBF; khi &#x111;&#x1EBF;n n&#x1A1;i th&#xEC; c&#xF4;ng ty b&#x1ED5; sung th&#xEA;n $2$ xe n&#x1EEF;a n&#xEA;n m&#x1ED7;i xe ch&#x1EDF; &#xED;t &#x111;i $2$ t&#x1EA5;n so v&#x1EDB;i d&#x1EF1; &#x111;&#x1ECB;nh. H&#x1ECF;i s&#x1ED1; xe d&#x1EF1; &#x111;&#x1ECB;nh &#x111;&#x1B0;&#x1EE3;c &#x111;i&#x1EC1;u &#x111;&#x1ED9;ng l&#xE0; bao nhi&#xEA;u? Bi&#x1EBF;t s&#x1ED1; l&#x1B0;&#x1EE3;ng h&#xE0;ng ch&#x1EDF; &#x1EDF; m&#x1ED7;i xe nh&#x1B0; nhau v&#xE0; m&#x1ED7;i xe ch&#x1EDF; m&#x1ED9;t l&#x1B0;&#x1EE3;t.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4$&nbsp; xe</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$7$ xe</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$5$ xe</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$6$ xe</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i s&#x1ED1; xe ban &#x111;&#x1EA7;u l&#xE0; $x,\,x \in {\mathbb{N}^*}$ (xe) n&#xEA;n s&#x1ED1; h&#xE0;ng theo k&#x1EBF; ho&#x1EA1;ch m&#x1ED7;i xe ch&#x1EDF; l&#xE0; $\dfrac{{24}}{x}$ (t&#x1EA5;n).</p>
+<p style="text-align: left;">S&#x1ED1; xe th&#x1EF1;c t&#x1EBF; l&#xE0; $x + 2$ (xe) n&#xEA;n s&#x1ED1; h&#xE0;ng th&#x1EF1;c t&#x1EBF; m&#x1ED7;i xe ch&#x1EDF; l&#xE0; $\dfrac{{24}}{{x + 2}}$ (t&#x1EA5;n).</p>
+<p style="text-align: left;">Theo b&#xE0;i ra ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">$\dfrac{{24}}{x} - \dfrac{{24}}{{x + 2}} = 2 $</p>
+<p style="text-align: left;">$\dfrac{{12}}{x} - \dfrac{{12}}{{x + 2}} = 1 $</p>
+<p style="text-align: left;">$12(x + 2) - 12x = x(x + 2)$</p>
+<p style="text-align: left;">$ {x^2} + 2x - 24 = 0 $</p>
+<p style="text-align: left;">$\left( {x - 4} \right)\left( {x + 6} \right) = 0$</p>
+<p style="text-align: left;">$x = 4\,\left( {TM} \right)$ ho&#x1EB7;c $x =&#xA0; - 6\,\left( L \right)$</p>
+<p style="text-align: left;">V&#x1EAD;y s&#x1ED1; xe ban &#x111;&#x1EA7;u l&#xE0; $4$&#xA0; xe.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">T&#xED;ch c&#x1EE7;a hai s&#x1ED1; t&#x1EF1; nhi&#xEA;n li&#xEA;n ti&#x1EBF;p l&#x1EDB;n h&#x1A1;n t&#x1ED5;ng c&#x1EE7;a ch&#xFA;ng l&#xE0; $109$. T&#xEC;m s&#x1ED1; b&#xE9; h&#x1A1;n.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$13$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$32$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$11$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i s&#x1ED1; b&#xE9; h&#x1A1;n l&#xE0; $a;a \in {\mathbb{N}^*}$ th&#xEC; s&#x1ED1; l&#x1EDB;n h&#x1A1;n l&#xE0; $a + 1$</p>
+<p style="text-align: left;">V&#xEC; t&#xED;ch c&#x1EE7;a hai s&#x1ED1; t&#x1EF1; nhi&#xEA;n li&#xEA;n ti&#x1EBF;p l&#x1EDB;n h&#x1A1;n t&#x1ED5;ng c&#x1EE7;a ch&#xFA;ng l&#xE0; $109$ n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh</p>
+<p style="text-align: left;">$a\left( {a + 1} \right) - \left( {a + a + 1} \right) = 109$</p>
+<p style="text-align: left;">${a^2} - a - 110 = 0$</p>
+<p style="text-align: left;">$\left( {a - 11} \right)\left( {a + 10} \right) = 0$</p>
+<p style="text-align: left;">$a = 11\,\left( N \right)$ ho&#x1EB7;c $a =&#xA0; - 10\,\left( L \right)$</p>
+<p style="text-align: left;">V&#x1EAD;y s&#x1ED1; b&#xE9; h&#x1A1;n l&#xE0; $11$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai s&#x1ED1; t&#x1EF1; nhi&#xEA;n bi&#x1EBF;t r&#x1EB1;ng hai l&#x1EA7;n s&#x1ED1; th&#x1EE9; nh&#x1EA5;t h&#x1A1;n ba l&#x1EA7;n s&#x1ED1; th&#x1EE9; hai l&#xE0; $9$ v&#xE0; hi&#x1EC7;u c&#xE1;c b&#xEC;nh ph&#x1B0;&#x1A1;ng c&#x1EE7;a ch&#xFA;ng b&#x1EB1;ng $119$ . T&#xEC;m s&#x1ED1; l&#x1EDB;n h&#x1A1;n.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$13$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$32$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$33$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i s&#x1ED1; th&#x1EE9; nh&#x1EA5;t l&#xE0; $a;a \in {\mathbb{N}}$ ; s&#x1ED1; th&#x1EE9; hai l&#xE0; $b;b \in {\mathbb{N}}.$</p>
+<p style="text-align: left;">V&#xEC; hai l&#x1EA7;n s&#x1ED1; th&#x1EE9; nh&#x1EA5;t h&#x1A1;n ba l&#x1EA7;n s&#x1ED1; th&#x1EE9; hai l&#xE0; $9$ n&#xEA;n&#xA0; ta c&#xF3;</p>
+<p style="text-align: left;">$2a - 3b = 9$ suy ra $b = \dfrac{{2a - 9}}{3}$</p>
+<p style="text-align: left;">V&#xEC; hi&#x1EC7;u c&#xE1;c b&#xEC;nh ph&#x1B0;&#x1A1;ng c&#x1EE7;a ch&#xFA;ng b&#x1EB1;ng $119$ n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">${a^2} - {\left( {\dfrac{{2a - 9}}{3}} \right)^2} = 119$</p>
+<p style="text-align: left;">$9{a^2} - {\left( {2a - 9} \right)^2} = 1071$</p>
+<p style="text-align: left;">$5{a^2} + 36a - 1152 = 0$</p>
+<p style="text-align: left;">Ta c&#xF3;: $\Delta &apos; = 18^2 - 5.(-1152) = 6084 $ n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t $a_1 = \dfrac{{ - 18 + \sqrt {6084} }}{5}= 12\,\left( N \right)$; $a_2 = \dfrac{{ - 18 - \sqrt {6084} }}{5} - \dfrac{{96}}{5}\,\left( L \right)$</p>
+<p style="text-align: left;">V&#x1EDB;i $a = 12$, ta c&#xF3; $b = \dfrac{{2.12 - 9}}{3} = 5$</p>
+<p style="text-align: left;"><span lang="FR">V&#x1EAD;y s&#x1ED1; l&#x1EDB;n h&#x1A1;n l&#xE0; $12$.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách giải các bài toán liên quan đến hình học bằng cách lập phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải các bài toán liên quan đến hình học bằng cách lập phương trình</h3>
+<div><p><strong><em>Bước 1: </em></strong>Lập phương trình:</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu diễn mối quan hệ giữa các đại lượng.</p>
+<p><strong><em>Bước 2. </em></strong>Giải phương trình.</p>
+<p><strong><em>Bước 3. </em></strong>Trả lời: Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không, rồi kết luận.</p>
+<p><strong>Kiến thức cần nhớ: </strong></p>
+<p>+ Diện tích tam giác: \(S = \frac{1}{2}ah\) (\(a\) là cạnh đáy, \(h\) là đường cao)</p>
+<p>+ Diện tích tam giác vuông:  \(S = \frac{1}{2}xy\) (\(x,y\) là hai cạnh góc vuông). Độ dài cạnh huyền: \({z^2} = {x^2} + {y^2}\) (z là cạnh huyền) theo Định lí Pythagore.</p>
+<p>+ Diện tích hình chữ nhật: \(S = xy\) (\(x\) là chiều rộng, \(y\) là chiều dài)</p>
+<p>+ Diện tích hình vuông: \(S = {x^2}\) (\(x\) là cạnh hình vuông)</p>
+<p>+ Diện tích hình thang: \(S = \frac{1}{2}h\left( {x + y} \right)\) (\(x\) là đáy bé, \(y\) là đáy lớn, \(h\) là chiều cao của hình thang)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một mảnh đất hình chữ nhật có độ dài đường chéo là 13m và chiều dài lớn hơn chiều rộng là 7m. Tính chiều dài của mảnh đất đó. </p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>5m     </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>8m </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>12m     </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>10m </p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi chiều rộng của mảnh đất hình chữ nhật là x (m) (0 < x < 13)</p>
+<p>Chiều dài mảnh đất hình chữ nhật lớn hơn chiều rộng 7m nên chiều dài của mảnh đất hình chữ nhật là x + 7 (m)</p>
+<p>Biết độ dài đường chéo là 13m nên áp dụng định lí Pythagore ta có phương trình:</p>
+<p>\(x^2 + (x + 7)^2 = 13^2\)</p>
+<p>\(x^2 + x^2 + 14x + 49 = 169\)</p>
+<p>\(2x^2 + 14x  - 120 = 0\)</p>
+<p>Giải phương trình, ta được: \(x_1 = 5\) (TM), \(x_2 = -12\) (KTM)</p>
+<p>Vậy chiều rộng mảnh đất hình chữ nhật là 5m và chiều dài mảnh đất đó là 5 + 7 = 12m.</p>
+<p><strong>Đáp án: C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một h&igrave;nh chữ nhật c&oacute; chiều d&agrave;i gấp 3 lần chiều rộng. Nếu cả chiều d&agrave;i v&agrave; chiều rộng c&ugrave;ng tăng th&ecirc;m 5cm th&igrave; được một h&igrave;nh chữ nhật mới c&oacute; diện t&iacute;ch bằng 153 cm<sup>2</sup>. T&igrave;m chu vi h&igrave;nh chữ nhật ban đầu.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>16.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>32.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>34.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>36.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi x l&agrave; chiều rộng h&igrave;nh chữ nhật l&uacute;c đầu (x &gt; 0) (cm)</p>
+<p>Chiều d&agrave;i h&igrave;nh chữ nhật l&uacute;c đầu: 3x (cm)</p>
+<p>Chiều rộng h&igrave;nh chữ nhật l&uacute;c sau: x + 5 (cm)</p>
+<p>Chiều d&agrave;i h&igrave;nh chữ nhật l&uacute;c sau: 3x + 5 (cm)</p>
+<p>V&igrave; sau khi tăng th&igrave; được một h&igrave;nh chữ nhật mới c&oacute; diện t&iacute;ch bằng 153 cm<sup>2</sup> n&ecirc;n ta c&oacute; phương tr&igrave;nh:</p>
+<p>(x + 5)(3x + 5) = 153</p>
+<p>3x<sup>2</sup> + 5x + 15x + 25 &ndash; 153 = 0</p>
+<p>3x<sup>2</sup> + 20x &ndash; 128 = 0</p>
+<p>Giải phương tr&igrave;nh ta được: x = 4 (thoả m&atilde;n) hoặc x = \(\frac{{ - 32}}{3}\) (loại)</p>
+<p>suy ra chiều d&agrave;i bằng 3.4 = 12 (cm)</p>
+<p>Vậy chu vi h&igrave;nh chữ nhật ban đầu l&agrave;: (12 + 4).2 = 32 (cm)</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t t&#x1EA5;m b&#xEC;a h&#xEC;nh ch&#x1EEF; nh&#x1EAD;t c&#xF3; chu vi 80 cm. Ng&#x1B0;&#x1EDD;i ta c&#x1EAF;t ra &#x1EDF; m&#x1ED7;i g&#xF3;c m&#x1ED9;t h&#xEC;nh vu&#xF4;ng c&#x1EA1;nh 3 cm r&#x1ED3;i g&#x1EA5;p l&#xEA;n th&#xE0;nh m&#x1ED9;t h&#xEC;nh h&#x1ED9;p ch&#x1EEF; nh&#x1EAD;t kh&#xF4;ng c&#xF3; n&#x1EAF;p c&#xF3; di&#x1EC7;n t&#xED;ch l&#xE0; \(339\,cm^2.\) T&#xED;nh k&#xED;ch th&#x1B0;&#x1EDB;c ban &#x111;&#x1EA7;u c&#x1EE7;a t&#x1EA5;m b&#xEC;a.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">8 cm; 32 cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">10 cm; 30 cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">12 cm; 28 cm</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">15 cm; 25 cm</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">N&#x1EED;a chu vi c&#x1EE7;a t&#x1EA5;m b&#xEC;a l&#xE0;: \(80:2 = 40\;\left( {cm} \right).\)</p>
+<p style="text-align: left;">G&#x1ECD;i chi&#x1EC1;u r&#x1ED9;ng c&#x1EE7;a t&#x1EA5;m b&#xEC;a l&#xE0;: \(x\;\left( {0 &lt; x &lt; 20,\;cm} \right)\)</p>
+<p style="text-align: left;">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; chi&#x1EC1;u d&#xE0;i c&#x1EE7;a t&#x1EA5;m b&#xEC;a l&#xE0;&#xA0; \(40 - x\;\left( {cm} \right).\)</p>
+<p style="text-align: left;">C&#x1EAF;t b&#x1ECF; 4 g&#xF3;c c&#x1EE7;a t&#x1EA5;m b&#xEC;a r&#x1ED3;i g&#x1EAD;p l&#x1EA1;i th&#xE0;nh d&#x1EA1;ng h&#xEC;nh h&#x1ED9;p khi &#x111;&#xF3;:</p>
+<p style="text-align: left;">Chi&#x1EC1;u d&#xE0;i c&#x1EE7;a h&#xEC;nh h&#x1ED9;p l&#xE0;:&#xA0; \(40 - x - 6 = 34 - x\;\;\left( {cm} \right).\)</p>
+<p style="text-align: left;">Chi&#x1EC1;u r&#x1ED9;ng c&#x1EE7;a h&#xEC;nh h&#x1ED9;p l&#xE0;:&#xA0; \(x - 6\;\;\left( {cm} \right).\)</p>
+<p style="text-align: left;">Chi&#x1EC1;u cao c&#x1EE7;a h&#xEC;nh h&#x1ED9;p l&#xE0;: \(3\;cm.\)</p>
+<p style="text-align: left;">L&#xFA;c n&#xE0;y di&#x1EC7;n t&#xED;ch h&#xEC;nh h&#x1ED9;p ch&#x1EEF; nh&#x1EAD;t b&#x1EB1;ng \(339\,m^2\) v&#xE0; b&#x1EB1;ng t&#x1ED5;ng di&#x1EC7;n t&#xED;ch xung quanh v&#x1EDB;i di&#x1EC7;n t&#xED;ch 1 &#x111;&#xE1;y c&#x1EE7;a n&#xF3;.</p>
+<p style="text-align: left;">Ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">\(\begin{array}{l}{\rm{[}}(34 - x + x - 6).2].3 + (34 - x)(x - 6) = 339\\&#xA0; 28.2.3 + 34x - 204 - {x^2} + 6x = 339\\ 168 + 40x - 204 - {x^2} = 339\\ {x^2} - 40x + 375 = 0\end{array}\)</p>
+<p style="text-align: left;">Ta c&#xF3;:&#xA0;\(\Delta &apos; = {( - 20)^2} - 1.375 = 25 &gt; 0\) suy ra ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; 2 nghi&#x1EC7;m:&#xA0;\({x_1} = 20 + \sqrt {25} \; = 25\;\;\left( {ktm} \right)\) v&#xE0; \({x_2} = \;20 - \sqrt {25}&#xA0; = 15\;\left( {tm} \right)\)</p>
+<p style="text-align: left;">V&#x1EAD;y t&#x1EA5;m b&#xEC;a ban &#x111;&#x1EA7;u c&#xF3; k&#xED;ch th&#x1B0;&#x1EDB;c chi&#x1EC1;u r&#x1ED9;ng l&#xE0; 15 cm v&#xE0; chi&#x1EC1;u d&#xE0;i l&#xE0; 40 &#x2013; 15 = 25 (cm).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t m&#x1EA3;nh &#x111;&#x1EA5;t h&#xEC;nh ch&#x1EEF; nh&#x1EAD;t c&#xF3; chi&#x1EC1;u d&#xE0;i 30 m, chi&#x1EC1;u r&#x1ED9;ng 20 m. Xung quanh v&#x1EC1; ph&#xED;a trong m&#x1EA3;nh &#x111;&#x1EA5;t ng&#x1B0;&#x1EDD;i ta &#x111;&#x1EC3; m&#x1ED9;t l&#x1ED1;i &#x111;i c&#xF3; chi&#x1EC1;u r&#x1ED9;ng kh&#xF4;ng &#x111;&#x1ED5;i, ph&#x1EA7;n c&#xF2;n l&#x1EA1;i l&#xE0; m&#x1ED9;t h&#xEC;nh ch&#x1EEF; nh&#x1EAD;t &#x111;&#x1B0;&#x1EE3;c tr&#x1ED3;ng hoa. Bi&#x1EBF;t r&#x1EB1;ng di&#x1EC7;n t&#xED;ch tr&#x1ED3;ng hoa b&#x1EB1;ng 84% di&#x1EC7;n t&#xED;ch m&#x1EA3;nh &#x111;&#x1EA5;t. T&#xED;nh chi&#x1EC1;u r&#x1ED9;ng c&#x1EE7;a l&#x1ED1;i &#x111;i.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">1 m</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">2 m</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">3 m&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">4 m</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Di&#x1EC7;n t&#xED;ch c&#x1EE7;a m&#x1EA3;nh v&#x1B0;&#x1EDD;n l&#xE0;: &#xA0;\(30.20 = 600\;\;\left( {{m^2}} \right).\)</p>
+<p style="text-align: left;">G&#x1ECD;i chi&#x1EC1;u r&#x1ED9;ng c&#x1EE7;a l&#x1ED1;i &#x111;i l&#xE0; &#xA0;\(x\;\left( {0 &lt; x &lt; 20;\;m} \right).\)</p>
+<p style="text-align: left;">Sau khi l&#xE0;m l&#x1ED1;i &#x111;i:</p>
+<p style="text-align: left;">Chi&#x1EC1;u r&#x1ED9;ng m&#x1EA3;nh v&#x1B0;&#x1EDD;n c&#xF2;n l&#x1EA1;i: \(20 - 2x\;\;\left( m \right).\)&#xA0;</p>
+<p style="text-align: left;">Chi&#x1EC1;u d&#xE0;i m&#x1EA3;nh v&#x1B0;&#x1EDD;n c&#xF2;n l&#x1EA1;i:&#xA0; \(30 - 2x\;\left( m \right).\)</p>
+<p style="text-align: left;">V&#xEC; di&#x1EC7;n t&#xED;ch tr&#x1ED3;ng hoa b&#x1EB1;ng 84% di&#x1EC7;n t&#xED;ch m&#x1EA3;nh &#x111;&#x1EA5;t n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">\(\begin{array}{l}\;\;\;\;\left( {20 - 2x} \right)\left( {{\rm{30 }}-{\rm{ 2}}x} \right){\rm{ }} = {\rm{ 84\% }}{\rm{.600}}\\&#xA0; 600-40x - 60x + 4{x^2} = 504\\ 4{x^2}-{\rm{ 100x }} + {\rm{ 96 }} = {\rm{ }}0\\&#xA0; {x^2}-{\rm{ 25x }} + 24{\rm{ }} = {\rm{ }}0\end{array}\)</p>
+<p style="text-align: left;">Ta c&#xF3;: a + b + c = 1 &#x2013; 25 + 24 = 0.</p>
+<p style="text-align: left;">Ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; 2 nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t: \({x_1} = 1\,\,\,(tm)\) v&#xE0; \({x_2} = 24\;\,\,\,\left( {ktm} \right)\)</p>
+<p style="text-align: left;">V&#x1EAD;y chi&#x1EC1;u r&#x1ED9;ng l&#x1ED1;i &#x111;i l&#xE0; 1 m.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t th&#x1EED;a ru&#x1ED9;ng h&#xEC;nh tam gi&#xE1;c c&#xF3; di&#x1EC7;n t&#xED;ch \(180\,{m^2}\). T&#xED;nh chi&#x1EC1;u d&#xE0;i c&#x1EA1;nh &#x111;&#xE1;y th&#x1EED;a ru&#x1ED9;ng, bi&#x1EBF;t r&#x1EB1;ng n&#x1EBF;u t&#x103;ng c&#x1EA1;nh &#x111;&#xE1;y l&#xEA;n $4m$&#xA0; v&#xE0; chi&#x1EC1;u cao t&#x1B0;&#x1A1;ng &#x1EE9;ng gi&#x1EA3;m &#x111;i $1\,\,m$&#xA0; th&#xEC; di&#x1EC7;n t&#xED;ch kh&#xF4;ng &#x111;&#x1ED5;i.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$35$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$36$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$18$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">G&#x1ECD;i chi&#x1EC1;u cao &#x1EE9;ng v&#x1EDB;i c&#x1EA1;nh &#x111;&#xE1;y c&#x1EE7;a th&#x1EED;a ru&#x1ED9;ng l&#xE0; \(h\left( m \right);h &gt; 0\)</span></p>
+<p style="text-align: left;"><span lang="FR">V&#xEC;&#xA0; </span>th&#x1EED;a ru&#x1ED9;ng h&#xEC;nh tam gi&#xE1;c c&#xF3; di&#x1EC7;n t&#xED;ch \(180\,{m^2}\) n&#xEA;n <span lang="FR">chi&#x1EC1;u d&#xE0;i c&#x1EA1;nh &#x111;&#xE1;y th&#x1EED;a ru&#x1ED9;ng l&#xE0; \(\dfrac{{180.2}}{h}\) hay $\dfrac{{360}}{h}$ $\left( m \right)$</span></p>
+<p style="text-align: left;"><span lang="FR">V&#xEC; t&#x103;ng c&#x1EA1;nh &#x111;&#xE1;y th&#xEA;m $4m$&#xA0; v&#xE0; chi&#x1EC1;u cao gi&#x1EA3;m &#x111;i $1m$&#xA0; th&#xEC; di&#x1EC7;n t&#xED;ch kh&#xF4;ng &#x111;&#x1ED5;i n&#xEA;n&#xA0; ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh</span></p>
+<p style="text-align: left;"><span lang="FR">\(\dfrac{1}{2}\left( {\dfrac{{360}}{h} + 4} \right)\left( {h - 1} \right) = 180 \)</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra \(4{h^2} - 4h - 360 = 0\)</span></p>
+<p style="text-align: left;"><span lang="FR">Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh, ta &#x111;&#x1B0;&#x1EE3;c \(h = 10\,\left( {TM} \right)\) v&#xE0; \(h =&#xA0; - 9\,\left( L \right)\) </span></p>
+<p style="text-align: left;"><span lang="FR">N&#xEA;n chi&#x1EC1;u cao $h = 10\,\,m$</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra c&#x1EA1;nh &#x111;&#xE1;y c&#x1EE7;a th&#x1EED;a ru&#x1ED9;ng ban &#x111;&#x1EA7;u l&#xE0; $\dfrac{{360}}{{10}} = 36\,\,\left( m \right)$</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho tam gi&#xE1;c vu&#xF4;ng c&#xF3; c&#x1EA1;nh huy&#x1EC1;n b&#x1EB1;ng $20cm$ . Hai c&#x1EA1;nh g&#xF3;c vu&#xF4;ng c&#xF3; &#x111;&#x1ED9; d&#xE0;i h&#x1A1;n k&#xE9;m nhau $4cm$ . M&#x1ED9;t trong hai c&#x1EA1;nh g&#xF3;c vu&#xF4;ng c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng &#x111;&#xF3; c&#xF3; &#x111;&#x1ED9; d&#xE0;i l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$16$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$15$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$13$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i &#x111;&#x1ED9; d&#xE0;i c&#x1EA1;nh g&#xF3;c vu&#xF4;ng nh&#x1ECF; h&#x1A1;n c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng &#x111;&#xF3; l&#xE0; $x\left( {cm} \right)\left( {x &gt; 0} \right)$</p>
+<p style="text-align: left;">C&#x1EA1;nh g&#xF3;c vu&#xF4;ng l&#x1EDB;n h&#x1A1;n c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng &#x111;&#xF3; d&#xE0;i l&#xE0; $x + 4\left( {cm} \right)$</p>
+<p style="text-align: left;">V&#xEC; c&#x1EA1;nh huy&#x1EC1;n b&#x1EB1;ng $20cm$ n&#xEA;n theo &#x111;&#x1ECB;nh l&#xED; Pythagore ta c&#xF3;</p>
+<p style="text-align: left;">${x^2} + {(x + 4)^2} = {20^2}$</p>
+<p style="text-align: left;">${x^2} + {(x + 4)^2} = 400 $</p>
+<p style="text-align: left;">$2{x^2} + 8x - 384 = 0$</p>
+<p style="text-align: left;">Ta c&#xF3;: \(\Delta &apos; = 4^2 - 2. (-384) = 784 &gt; 0\), \(\sqrt {\Delta &apos;} = \sqrt {784} = 28\) n&#xEA;n ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; hai nghi&#x1EC7;m ph&#xE2;n bi&#x1EC7;t:</p>
+<p style="text-align: left;">$x_1 = \frac{-4 + 28}{2} = 12\,\left( N \right)\\x_2 = \frac{-4 - 28}{2} =&#xA0; - 16\left( L \right)$</p>
+<p style="text-align: left;">V&#x1EAD;y &#x111;&#x1ED9; d&#xE0;i hai c&#x1EA1;nh g&#xF3;c vu&#xF4;ng c&#x1EE7;a tam gi&#xE1;c vu&#xF4;ng &#x111;&#xF3; l&#x1EA7;n l&#x1B0;&#x1EE3;t l&#xE0; $12cm$ v&#xE0; $12 + 4 = 16\,\,cm$ .</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách giải các bài toán liên quan đến chuyển động bằng cách lập phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải các bài toán liên quan đến chuyển động bằng cách lập phương trình</h3>
+<div><p><strong><em>Bước 1: </em></strong>Lập phương trình:</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu diễn mối quan hệ giữa các đại lượng.</p>
+<p><strong><em>Bước 2. </em></strong>Giải phương trình.</p>
+<p><strong><em>Bước 3. </em></strong>Trả lời: Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không, rồi kết luận.</p>
+<p><strong>Kiến thức cần nhớ: </strong></p>
+<p><strong>- </strong>Quãng đường = Vận tốc . Thời gian.</p>
+<p>- Vận tốc tỉ lệ nghịch với thời gian và tỉ lệ thuận với quãng đường đi được:</p>
+<p>- Nếu hai xe đi ngược chiều nhau khi gặp nhau lần đầu: Thời gian hai xe đi được là như nhau, Tổng quãng đường 2 xe đi được bằng đúng quãng đường cần đi của 2 xe.</p>
+<p>- Nếu hai phương tiện chuyển động cùng chiều từ hai địa điểm khác nhau là A và B, xe từ A chuyển động nhanh hơn xe từ B thì khi xe từ A đuổi kịp xe từ B ta luôn có hiệu quãng đường đi được của xe từ A với quãng đường đi được của xe từ B bằng quãng đường AB.</p>
+<p>- Đối với (Ca nô, tàu xuồng) chuyển động trên dòng nước: Ta cần chú ý:</p>
+<p>+ Khi đi xuôi dòng: Vận tốc ca nô = Vận tốc riêng + Vận tốc dòng nước.</p>
+<p>+ Khi đi ngược dòng: Vận tốc ca nô= Vận tốc riêng - Vận tốc dòng nước.</p>
+<p>+ Vận tốc của dòng nước là vận tốc của một vật trôi tự nhiên theo dòng nước (Vận tốc riêng của</p>
+<p>vật đó bằng 0)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">L&#xFA;c 7 gi&#x1EDD; m&#x1ED9;t &#xF4; t&#xF4; &#x111;i t&#x1EEB; A &#x111;&#x1EBF;n B. L&#xFA;c 7 gi&#x1EDD; 30 ph&#xFA;t m&#x1ED9;t xe m&#xE1;y &#x111;i t&#x1EEB; B &#x111;&#x1EBF;n A v&#x1EDB;i v&#x1EAD;n t&#x1ED1;c k&#xE9;m v&#x1EAD;n t&#x1ED1;c c&#x1EE7;a &#xF4; t&#xF4; l&#xE0; 24km/h. &#xD4; t&#xF4; &#x111;&#x1EBF;n B &#x111;&#x1B0;&#x1EE3;c 20 ph&#xFA;t th&#xEC; xe m&#xE1;y m&#x1EDB;i &#x111;&#x1EBF;n A. T&#xED;nh v&#x1EAD;n t&#x1ED1;c m&#x1ED7;i xe, bi&#x1EBF;t qu&#xE3;ng &#x111;&#x1B0;&#x1EDD;ng AB d&#xE0;i 120 km.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Vận tốc xe m&aacute;y 40 l&agrave; km/h, vận tốc &ocirc; t&ocirc; l&agrave; 64km/h</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Vận tốc xe m&aacute;y l&agrave; 45 km/h, vận tốc &ocirc; t&ocirc; l&agrave; 69km/h</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Vận tốc xe m&aacute;y l&agrave; 36 km/h, vận tốc &ocirc; t&ocirc; l&agrave; 58 km/h</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Vận tốc xe m&aacute;y l&agrave; 48 km/h, vận tốc &ocirc; t&ocirc; l&agrave; 72 km/h</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i v&#x1EAD;n t&#x1ED1;c c&#x1EE7;a xe m&#xE1;y l&#xE0; \(x\;\;(km/h;x &gt; 0)\)</p>
+<p style="text-align: left;">V&#x1EAD;n t&#x1ED1;c c&#x1EE7;a &#xF4; t&#xF4; l&#xE0; \(x + 24\;\;(km/h)\)</p>
+<p style="text-align: left;">Th&#x1EDD;i gian xe m&#xE1;y &#x111;i h&#x1EBF;t qu&#xE3;ng &#x111;&#x1B0;&#x1EDD;ng l&#xE0;: \(\dfrac{{120}}{x}\;\;\left( h \right)\)</p>
+<p style="text-align: left;">Th&#x1EDD;i gian &#xF4; t&#xF4; &#x111;i h&#x1EBF;t qu&#xE3;ng &#x111;&#x1B0;&#x1EDD;ng l&#xE0;: \(\dfrac{{120}}{{x + 24}}\;\;\left( h \right)\)</p>
+<p style="text-align: left;">&#x110;&#x1ED5;i \(30\) ph&#xFA;t \( = \dfrac{1}{2}\;\left( h \right),\;\;20\) ph&#xFA;t \( = \dfrac{1}{3}\;\left( h \right).\)</p>
+<p style="text-align: left;">Theo &#x111;&#x1EC1; b&#xE0;i ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">\(\begin{array}{l}\dfrac{{120}}{{x + 24}} + \dfrac{1}{3} = \dfrac{{120}}{x} - \dfrac{1}{2}\\ \dfrac{{120}}{x} - \dfrac{{120}}{{x + 24}} = \dfrac{1}{3} + \dfrac{1}{2} = \dfrac{5}{6}\\ 5{x^2} + 120x - 17280 = 0\\ {x^2} + 24x - 3456 = 0\end{array}\)</p>
+<p style="text-align: left;">Ta c&#xF3;:&#xA0;\(\Delta &apos; = {12^2} + 3456 = 3600\) suy ra \(\sqrt {\Delta &apos;}&#xA0; = 60\) suy ra ph&#x1B0;&#x1A1;ng tr&#xEC;nh c&#xF3; 2 nghi&#x1EC7;m \({x_1} =&#xA0; - 12 - 60 =&#xA0; - 72\) (lo&#x1EA1;i) v&#xE0; \({x_2} =&#xA0; - 12 + 60 = 48\)(tm&#x111;k).</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EAD;n t&#x1ED1;c xe m&#xE1;y l&#xE0; 48km/h, v&#x1EAD;n t&#x1ED1;c &#xF4; t&#xF4; l&#xE0; \(48 + 24 = 72\)km/h.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t ca n&#xF4; ch&#x1EA1;y xu&#xF4;i d&#xF2;ng s&#xF4;ng t&#x1EEB; $A$ &#x111;&#x1EBF;n $B$ r&#x1ED3;i ch&#x1EA1;y ng&#x1B0;&#x1EE3;c d&#xF2;ng t&#x1EEB; $B$ v&#x1EC1; $A$ h&#x1EBF;t t&#x1EA5;t c&#x1EA3; $7$gi&#x1EDD; $30$ ph&#xFA;t. T&#xED;nh v&#x1EAD;n t&#x1ED1;c th&#x1EF1;c c&#x1EE7;a ca n&#xF4; bi&#x1EBF;t qu&#xE3;ng &#x111;&#x1B0;&#x1EDD;ng s&#xF4;ng $AB$ d&#xE0;i $54{\rm{ km}}$&#xA0; v&#xE0; v&#x1EAD;n t&#x1ED1;c d&#xF2;ng n&#x1B0;&#x1EDB;c l&#xE0; $3{\rm{ km/h}}$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$11{\rm{ }}\left( {{\rm{km/h}}} \right)$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$12{\rm{ }}\left( {{\rm{km/h}}} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$14{\rm{ }}\left( {{\rm{km/h}}} \right)$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$15{\rm{ }}\left( {{\rm{km/h}}} \right)$&nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">&#x110;&#x1ED5;i $7$ gi&#x1EDD; $30$ ph&#xFA;t = $\dfrac{{15}}{2}$ (h)</p>
+<p style="text-align: left;">G&#x1ECD;i v&#x1EAD;n t&#x1ED1;c th&#x1EF1;c c&#x1EE7;a ca n&#xF4; l&#xE0; $x{\rm{ }}\left( {{\rm{km/h}}} \right),{\rm{ }}x{\rm{ }} &gt; {\rm{ }}3$</p>
+<p style="text-align: left;">V&#x1EAD;n t&#x1ED1;c c&#x1EE7;a ca n&#xF4; khi xu&#xF4;i d&#xF2;ng s&#xF4;ng t&#x1EEB; A &#x111;&#x1EBF;n B l&#xE0;: $x + 3\,\left( {km/h} \right)$ &#xA0;</p>
+<p style="text-align: left;">V&#x1EAD;n t&#x1ED1;c c&#x1EE7;a ca n&#xF4; khi n&#x1B0;&#x1EE3;c d&#xF2;ng s&#xF4;ng t&#x1EEB; B v&#x1EC1; A l&#xE0;: $x{\rm{ }} - {\rm{ }}3{\rm{ }}\left( {{\rm{km/h}}} \right)$</p>
+<p style="text-align: left;">Th&#x1EDD;i gian c&#x1EE7;a ca n&#xF4; khi xu&#xF4;i d&#xF2;ng s&#xF4;ng t&#x1EEB; A &#x111;&#x1EBF;n B l&#xE0;: $\dfrac{{54}}{{x + 3}}\left( {\rm{h}} \right)$</p>
+<p style="text-align: left;">Th&#x1EDD;i gian c&#x1EE7;a ca n&#xF4; khi ng&#x1B0;&#x1EE3;c d&#xF2;ng s&#xF4;ng t&#x1EEB; B v&#x1EC1; A l&#xE0;: $\dfrac{{54}}{{x - 3}}\left( {\rm{h}} \right)$</p>
+<p style="text-align: left;">Do ca n&#xF4; ch&#x1EA1;y xu&#xF4;i d&#xF2;ng s&#xF4;ng t&#x1EEB; A &#x111;&#x1EBF;n B r&#x1ED3;i ch&#x1EA1;y ng&#x1B0;&#x1EE3;c d&#xF2;ng t&#x1EEB; B v&#x1EC1; A h&#x1EBF;t t&#x1EA5;t c&#x1EA3; 7 gi&#x1EDD; 30 ph&#xFA;t n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">$\dfrac{{54}}{{x + 3}}$+$\dfrac{{54}}{{x - 3}}$=$\dfrac{{15}}{2}$</p>
+<p style="text-align: left;">Ta c&#xF3;:</p>
+<p style="text-align: left;">$\dfrac{{54}}{{x + 3}} + \dfrac{{54}}{{x - 3}} = \dfrac{{15}}{2} $</p>
+<p style="text-align: left;">$54(\dfrac{{x - 3 + x + 3}}{{{x^2} - 9}}) = \dfrac{{15}}{2} $</p>
+<p style="text-align: left;">$\dfrac{{2x}}{{{x^2} - 9}} = \dfrac{5}{{36}}$</p>
+<p style="text-align: left;">$72x = 5{x^2} - 45$</p>
+<p style="text-align: left;">$5{x^2} - 72x - 45 = 0$</p>
+<p style="text-align: left;">Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh ta &#x111;&#x1B0;&#x1EE3;c \(x_1 = 15\,\left( N \right)\) v&#xE0; \(x_2 = \dfrac{{ - 3}}{5}\,\left( L \right)\)</p>
+<p style="text-align: left;">V&#x1EAD;y v&#x1EAD;n t&#x1ED1;c th&#x1EF1;c c&#x1EE7;a ca n&#xF4; l&#xE0; $15{\rm{ }}\left( {{\rm{km/h}}} \right)$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách giải các bài toán liên quan đến công việc bằng cách lập phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải các bài toán liên quan đến công việc bằng cách lập phương trình</h3>
+<div><p><strong><em>Bước 1: </em></strong>Lập phương trình:</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu diễn mối quan hệ giữa các đại lượng.</p>
+<p><strong><em>Bước 2. </em></strong>Giải phương trình.</p>
+<p><strong><em>Bước 3. </em></strong>Trả lời: Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>Công việc = năng suất x thời gian</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>- Toán chung công việc có ba đại lượng tham gia là toàn bộ công việc, phần công việc trong một đơn vị thời gian và thời gian.</p>
+<p>- Nếu một đội làm xong công việc trong $x$ ngày thì một ngày đội đó làm được $\frac{1}{x}$ công việc.</p>
+<p>- Xem toàn bộ công việc là 1 = 100%.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một công nhân dự định làm 70 sản phẩm trong thời gian quy định. Nhưng do áp dụng kĩ thuật nên đã tăng năng suất thêm 5 sản phẩm mỗi giờ. Do đó, không những hoàn thành kế hoạch trước thời hạn 40 phút mà còn làm thêm được 10 sản phẩm so với dự định. Hỏi năng suất dự định là bao nhiêu?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>15 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>20 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>25 sản phẩm/giờ.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>30 sản phẩm/giờ.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi năng suất dự định là \(x\) (sản phẩm/giờ, \(x \in {N^*}\))</p>
+<p>Thời gian dự định làm 70 sản phẩm là \(\frac{{70}}{x}\) (giờ)</p>
+<p>Năng suất thực tế là \(x + 5\) (sản phẩm/giờ)</p>
+<p>Thời gian thực tế làm 80 sản phẩm là: \(\frac{{80}}{{x + 5}}\) (giờ)</p>
+<p>Vì người công nhân hoàn thành trước kế hoạch 40 phút = \(\frac{2}{3}\) giờ nên ta có phương trình:</p>
+<p>\(\begin{array}{l}\frac{{70}}{x} - \frac{{80}}{{x + 5}} = \frac{2}{3}\\\frac{{70.3.\left( {x + 5} \right)}}{{3x\left( {x + 5} \right)}} - \frac{{80.3x}}{{3x\left( {x + 5} \right)}} = \frac{{2x\left( {x + 5} \right)}}{{3x\left( {x + 5} \right)}}\\210x + 1050 - 240x = 2{x^2} + 10x\\2{x^2} + 40x - 1050 = 0\\{x^2} + 20x - 525 = 0\end{array}\)</p>
+<p>Giải phương trình ta được \({x_1} = 15\left( {TM} \right),{x_2} =  - 35\left( {KTM} \right)\)</p>
+<p>Vậy năng suất dự định là 15 sản phẩm/giờ.</p>
+<p><strong>Đáp án: A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một công nhân dự định làm 72 sản phẩm trong thời gian quy định. Nhưng thực tế xí nghiệp lại giao 80 sản phẩm. Vì vậy mặc dù người đó đã làm mỗi giờ thêm 1 sản phẩm, song thời gian hoàn thành công việc vẫn chậm hơn so với dự định 12 phút. Tính năng suất dự kiến của người đó biết mỗi giờ người công nhân đó làm không quá 20 sản phẩm.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>25 sản phẩm/h.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>15 sản phẩm/h.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>35 sản phẩm/h</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>45 sản phẩm/h</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi năng suất của người đó dự định là \(x\left( x\in {{N}^{*}},x \le 20 \right)\)</p>
+<p>*) Theo dự định: Thời gian hoàn thành là \(\frac{72}{x}\) (ngày)</p>
+<p>*) Thực tế: Mỗi giờ người đó đã làm \(x+1\) ( sản phẩm)</p>
+<p>Thời gian hoàn thành \(\frac{80}{x+1}\) ( ngày).</p>
+<p>Vì thời gian hoàn thành công việc vẫn chậm hơn so với dự định 12 phút = \(\frac{1}{5}h\) nên ta có phương trình: </p>
+<p>       \(\begin{align} & \,\,\,\,\,\,\,\,\frac{80}{x+1}-\frac{72}{x}=\frac{1}{5} \\  & \frac{400x-360(x+1)}{5x(x+1)}=\frac{x(x+1)}{5x(x+1)} \\  & 40x-360={{x}^{2}}+x \\  & {{x}^{2}}-39x+360=0 \\  & \Delta ={{39}^{2}}-4.360=81>0 \,\text{suy ra}\,\sqrt{\Delta }=9 \\ \end{align}\)</p>
+<p>Phương trình có hai nghiệm phân biệt : \({{x}_{1}}=\frac{-(-39)+9}{2}=24\) (loại) và \({{x}_{2}}=\frac{-(-39)-9}{2}=15\) (tmđk).</p>
+<p>Vậy năng suất của người đó là \(15\) sản phẩm/h.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một công nhân dự định làm $120$  sản phẩm trong một thời gian dự định. Sau khi làm được $2$  giờ với năng suất dự kiến, người đó đã cải tiến các thao tác hợp lý hơn nên đã tăng năng suất thêm $3$  sản phẩm mỗi giờ và vì vậy người đó hoàn thành kế hoạch sớm hơn dự định $1$  giờ $36$  phút. Hãy tính năng suất dự kiến.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$18$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi năng suất dự định là \(x\,\,(0 < x < 120,\) sản phẩm/giờ).</p>
+<p style="text-align: left;">Sản phẩm làm được sau $2$ giờ là: \(2x\) (sản phẩm).</p>
+<p style="text-align: left;">Số sản phẩm còn lại là: \(120 - 2x\) (sản phẩm)</p>
+<p style="text-align: left;">Năng suất sau khi cải tiến là \(x + 3\) (sản phẩm/giờ)</p>
+<p style="text-align: left;">Thời gian làm số sản phẩm còn lại là: \(\dfrac{{120 - 2x}}{{x + 3}}\) (giờ)</p>
+<p style="text-align: left;">Do sau khi cải tiến người đó hoàn thành sớm hơn dự định $1$  giờ $36$  phút.</p>
+<p style="text-align: left;">Đổi $1$ giờ $36$ phút bằng $1,6$ giờ.</p>
+<p style="text-align: left;">Theo bài ra có phương trình: $2 + \dfrac{{120 - 2x}}{{x + 3}} + 1,6 = \dfrac{{120}}{x}$</p>
+<p style="text-align: left;">Suy ra $ 1,6{x^2} + 10,8x - 360 = 0 $</p>
+<p style="text-align: left;">Giải phương trình, ta được: \(x_1 = 12\,\left( N \right)\) và \(x_2 =  - \dfrac{{75}}{4}\,\left( L \right)\)</p>
+<p style="text-align: left;"> Vậy năng suất dự định của công nhân đó là $12$  sản phẩm/giờ.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách giải các bài toán thực tế bằng cách lập phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Phương trình bậc hai một ẩn</h3>
+<div><p><em>Phương trình bậc hai một ẩn </em>(nói gọn là phương trình bậc hai) là phương trình có dạng</p>
+<p>\(a{x^2} + bx + c = 0\),</p>
+<p>trong đó x là <em>ẩn</em>; a, b, c là những số cho trước gọi là <em>hệ số</em> và \(a \ne 0\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải các bài toán thực tế bằng cách lập phương trình</h3>
+<div><p><strong><em>Bước 1: </em></strong>Lập phương trình:</p>
+<p>- Chọn ẩn số và đặt điều kiện thích hợp cho ẩn số.</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết.</p>
+<p>- Lập phương trình biểu diễn mối quan hệ giữa các đại lượng.</p>
+<p><strong><em>Bước 2. </em></strong>Giải phương trình.</p>
+<p><strong><em>Bước 3. </em></strong>Trả lời: Kiểm tra xem trong các nghiệm của phương trình, nghiệm nào thoả mãn điều kiện của ẩn, nghiệm nào không, rồi kết luận.</p>
+<p><strong>Kiến thức cần nhớ: </strong></p>
+<p>+ Tỉ lệ phần trăm: \(x\%  = \frac{x}{{100}}\).</p>
+<p>+ Tỉ lệ tăng dân số: Nếu A là số dân ban đầu, tỉ lệ gia tăng dân số là \(x\% \).</p>
+<ul>
+<li>Sau 1 năm, số dân là: \(A + Ax = A\left( {1 + x} \right)\).</li>
+<li>Sau n năm số dân là: \(A{\left( {1 + x} \right)^n}\).</li>
+</ul>
+<p>+ Lãi suất ngân hàng: Nếu ban đầu bạn vay (hoặc mượn) số tiền A với lãi suất \(x\% \).</p>
+<ul>
+<li>Sau 1 chu kỳ (thường là năm/tháng), số tiền cả gốc lẫn lãi là: \(A + Ax = A\left( {1 + x} \right)\).</li>
+<li>Sau n chu kỳ (thường là năm/tháng), số tiền cả gốc lẫn lãi là: \(A{\left( {1 + x} \right)^n}\).</li>
+</ul></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Giải phương trình bậc hai một ẩn dùng công thức nghiệm</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\).</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b, c và tính biệt thức \(\Delta  = {b^2} - 4ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta  &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b + \sqrt \Delta  }}{{2a}};{x_2} = \frac{{ - b - \sqrt \Delta  }}{{2a}}\).</p>
+<p>- Nếu \(\Delta  = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{b}{{2a}}\).</p>
+<p>- Nếu \(\Delta  &lt; 0\) thì phương trình vô nghiệm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Giải phương trình bậc hai một ẩn dùng công thức nghiệm thu gọn</h3>
+<div><p>Xét phương trình bậc hai một ẩn \(a{x^2} + bx + c = 0\left( {a \ne 0} \right)\)</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các hệ số a, b’, c với \(b = 2b'\) và tính biệt thức \(\Delta ' = b{'^2} - ac\).</p>
+<p><strong><em>Bước 2:</em></strong> Kết luận</p>
+<p>- Nếu \(\Delta ' &gt; 0\) thì phương trình có hai nghiệm phân biệt:</p>
+<p>\({x_1} = \frac{{ - b' + \sqrt {\Delta '} }}{a};{x_2} = \frac{{ - b' - \sqrt {\Delta '} }}{a}\).</p>
+<p>- Nếu \(\Delta ' = 0\) thì phương trình có nghiệm kép \({x_1} = {x_2} =  - \frac{{b'}}{a}\).</p>
+<p>- Nếu \(\Delta ' &lt; 0\) thì phương trình vô nghiệm.</p>
+<p><em>Ví dụ: </em>Giải phương trình \({x^2} - 7x - 8 = 0\).</p>
+<p>Ta có: \(a = 1,b =  - 7,c =  - 8\).</p>
+<p>\(\Delta  = {b^2} - 4ac = {\left( { - 7} \right)^2} - 4.1.\left( { - 8} \right) = 81 &gt; 0\).</p>
+<p>Vậy phương trình có hai nghiệm phân biệt là</p>
+<p>\({x_1} = \frac{{ - \left( { - 7} \right) + \sqrt {81} }}{{2.1}} = 8;{x_2} = \frac{{ - \left( { - 7} \right) - \sqrt {81} }}{{2.1}} =  - 1\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách tìm nghiệm của phương trình bậc hai một ẩn bằng máy tính cầm tay</h3>
+<div><p>Sử dụng máy tính cầm tay, ta có thể dễ dạng tìm nghiệm của các phương trình bậc hai.</p>
+<p><em>Bước 1. </em>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>).</p>
+<p>Đối với máy <strong>Fx-570VN PLUS</strong>, ta bấm phím <strong>MODE</strong> rồi bấm phím <strong>5 </strong>rồi bấm phím <strong>3</strong> để chuyển về chế độ giải phương trình bậc hai.</p>
+<p>Đối với máy <strong>Fx-580VNX</strong>, ta bấm <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761315888-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>2</strong> để chọn <strong>Polynomial Degree</strong></p>
+<p><strong><img src="https://img.loigiaihay.com/picture/2025/0624/1750761329666-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></strong></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải phương trình bậc hai</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761339042-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \(a,b,c\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761344983-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai có nghiệm kép, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761350365-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Đối với phương trình bậc hai vô nghiệm, ta nhận được kết quả hiển thị trên màn hình như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0624/1750761355863-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một phòng họp có 250 chỗ ngồi được chia thành từng dãy, mỗi dãy có số chỗ ngồi như nhau. Vì có đến 308 người dự họp nên ban tổ chức phải kê thêm 3 dãy ghế, mỗi dãy ghế phải kê thêm một chỗ ngồi thì vừa đủ. Lúc đầu ở phòng họp có số dãy ghế vả mỗi dãy ghế có số chỗ ngồi là:</p><p><img src="https://img.loigiaihay.com/picture/2025/0522/1747897719709-mceclip0.png"></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Ph&ograve;ng họp c&oacute; 25 d&atilde;y ghế.</p>
+<p>Mỗi d&atilde;y ghế c&oacute; 10 người.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Ph&ograve;ng họp c&oacute; 30 d&atilde;y ghế.</p>
+<p>Mỗi d&atilde;y ghế c&oacute; 10 người.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Ph&ograve;ng họp c&oacute; 25 d&atilde;y ghế.</p>
+<p>Mỗi d&atilde;y ghế c&oacute; 15 người.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Ph&ograve;ng họp c&oacute; 20 d&atilde;y ghế.</p>
+<p>Mỗi d&atilde;y ghế c&oacute; 10 người.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi x là số dãy ghế lúc đầu (\(x \in {N^*}{,^{}}^{}250 \vdots x\) )</p>
+<p>Số chỗ ngồi trên mỗi dãy ghế lúc đầu là: \(\frac{{250}}{x}\) (chỗ)</p>
+<p>Số dãy ghế lúc sau là: \(x + 3\) (dãy)</p>
+<p>Số chỗ ngồi lúc sau là: \(\frac{{308}}{{x + 3}}\) (chỗ)</p>
+<p>Vì số chỗ ngồi trên mỗi dãy ghế lúc sau hơn số chỗ ngồi trên mỗi dãy ghế lúc đầu là 1 chỗ (kê thêm vào mỗi dãy 1 chỗ ngồi), nên ta có phương trình:</p>
+<p>\(\begin{array}{l}\frac{{308}}{{x + 3}} - \frac{{250}}{x} = 1\\308x - 250\left( {x + 3} \right) = x\left( {x + 3} \right)\\308x - 250x - 750 = {x^2} + 3x\\{x^2} - 55x + 750 = 0\\{x^2} - 30x - 25x + 750 = 0\\x\left( {x - 30} \right) - 25\left( {x - 30} \right) = 0\\\left( {x - 30} \right).\left( {x - 25} \right) = 0\end{array}\)</p>
+<p>\(x - 30 = 0\) hoặc \(x - 25 = 0\)</p>
+<p>\(x = 30\) hoặc \(x = 25\)</p>
+<p>Vì \(250\not{ \vdots }30,250 \vdots 25\) nên \(x = 30\) không thoả mãn, \(x = 25\) thoả mãn.</p>
+<p>Vậy lúc đầu ở phòng họp có 25 dãy ghế;</p>
+<p>          mỗi dãy ghế có \(\frac{{250}}{{25}} = 10\) chỗ ngồi.</p>
+<p><strong>Đáp án: A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">M&#x1ED9;t l&#xE2;m tr&#x1B0;&#x1EDD;ng d&#x1EF1; &#x111;&#x1ECB;nh tr&#x1ED3;ng $75$ $ha$ r&#x1EEB;ng trong m&#x1ED9;t s&#x1ED1; tu&#x1EA7;n (m&#x1ED7;i tu&#x1EA7;n tr&#x1ED3;ng &#x111;&#x1B0;&#x1EE3;c di&#x1EC7;n t&#xED;ch b&#x1EB1;ng nhau). Th&#x1EF1;c t&#x1EBF;, m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng tr&#x1ED3;ng v&#x1B0;&#x1EE3;t m&#x1EE9;c $5$ $ha$ so v&#x1EDB;i d&#x1EF1; &#x111;&#x1ECB;nh n&#xEA;n cu&#x1ED1;i c&#xF9;ng &#x111;&#xE3; tr&#x1ED3;ng &#x111;&#x1B0;&#x1EE3;c $80$ $ha$ v&#xE0; ho&#xE0;n th&#xE0;nh s&#x1EDB;m h&#x1A1;n d&#x1EF1; &#x111;&#x1ECB;nh m&#x1ED9;t tu&#x1EA7;n. H&#x1ECF;i m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng d&#x1EF1; &#x111;&#x1ECB;nh tr&#x1ED3;ng bao nhi&#xEA;u $ha$ r&#x1EEB;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$13$ $ha$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14$ $ha$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$16$ $ha$&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$15$ $ha$&nbsp;</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">G&#x1ECD;i di&#x1EC7;n t&#xED;ch r&#x1EEB;ng m&#xE0; m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng d&#x1EF1; &#x111;&#x1ECB;nh tr&#x1ED3;ng l&#xE0; $x\left( {ha} \right)$ (&#x110;i&#x1EC1;u ki&#x1EC7;n: $x &gt; 0$)</p>
+<p style="text-align: left;">Theo d&#x1EF1; &#x111;&#x1ECB;nh, th&#x1EDD;i gian tr&#x1ED3;ng h&#x1EBF;t $75$ ha r&#x1EEB;ng l&#xE0;: $\dfrac{{75}}{x}$(tu&#x1EA7;n)</p>
+<p style="text-align: left;">V&#xEC; m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng tr&#x1ED3;ng v&#x1B0;&#x1EE3;t m&#x1EE9;c $5$ha so v&#x1EDB;i d&#x1EF1; &#x111;&#x1ECB;nh n&#xEA;n th&#x1EF1;c t&#x1EBF; m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng tr&#x1ED3;ng &#x111;&#x1B0;&#x1EE3;c: $x + 5$ (ha)</p>
+<p style="text-align: left;">Do &#x111;&#xF3; th&#x1EDD;i gian th&#x1EF1;c t&#x1EBF; l&#xE2;m tr&#x1B0;&#x1EDD;ng tr&#x1ED3;ng h&#x1EBF;t $80$ ha r&#x1EEB;ng l&#xE0;: $\dfrac{{80}}{{x + 5}}$ (tu&#x1EA7;n)</p>
+<p style="text-align: left;">V&#xEC; th&#x1EF1;c t&#x1EBF;, l&#xE2;m tr&#x1B0;&#x1EDD;ng tr&#x1ED3;ng xong s&#x1EDB;m so v&#x1EDB;i d&#x1EF1; &#x111;&#x1ECB;nh l&#xE0; $1$tu&#x1EA7;n n&#xEA;n ta c&#xF3; ph&#x1B0;&#x1A1;ng tr&#xEC;nh:</p>
+<p style="text-align: left;">$\dfrac{{75}}{x} - \dfrac{{80}}{{x + 5}} = 1$</p>
+<p style="text-align: left;">$75\left( {x + 5} \right) - 80x = x\left( {x + 5} \right)$</p>
+<p style="text-align: left;">${x^2} + 10x - 375 = 0$</p>
+<p style="text-align: left;">Gi&#x1EA3;i ph&#x1B0;&#x1A1;ng tr&#xEC;nh, ta &#x111;&#x1B0;&#x1EE3;c: $x_1 = 15\,\left( N \right)$ v&#xE0; $x_2 =&#xA0; - 25\,\left( L \right)$</p>
+<p style="text-align: left;">V&#x1EAD;y m&#x1ED7;i tu&#x1EA7;n l&#xE2;m tr&#x1B0;&#x1EDD;ng d&#x1EF1; &#x111;&#x1ECB;nh tr&#x1ED3;ng $15$ ha r&#x1EEB;ng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một công nhân dự định làm $120$  sản phẩm trong một thời gian dự định. Sau khi làm được $2$  giờ với năng suất dự kiến, người đó đã cải tiến các thao tác hợp lý hơn nên đã tăng năng suất thêm $3$  sản phẩm mỗi giờ và vì vậy người đó hoàn thành kế hoạch sớm hơn dự định $1$  giờ $36$  phút. Hãy tính năng suất dự kiến.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$10$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$18$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi năng suất dự định là \(x\,\,(0 < x < 120,\) sản phẩm/giờ).</p>
+<p style="text-align: left;">Sản phẩm làm được sau $2$ giờ là: \(2x\) (sản phẩm).</p>
+<p style="text-align: left;">Số sản phẩm còn lại là: \(120 - 2x\) (sản phẩm)</p>
+<p style="text-align: left;">Năng suất sau khi cải tiến là \(x + 3\) (sản phẩm/giờ)</p>
+<p style="text-align: left;">Thời gian làm số sản phẩm còn lại là: \(\dfrac{{120 - 2x}}{{x + 3}}\) (giờ)</p>
+<p style="text-align: left;">Do sau khi cải tiến người đó hoàn thành sớm hơn dự định $1$  giờ $36$  phút.</p>
+<p style="text-align: left;">Đổi $1$ giờ $36$ phút bằng $1,6$ giờ.</p>
+<p style="text-align: left;">Theo bài ra có phương trình: $2 + \dfrac{{120 - 2x}}{{x + 3}} + 1,6 = \dfrac{{120}}{x}$</p>
+<p style="text-align: left;">Suy ra $ 1,6{x^2} + 10,8x - 360 = 0 $</p>
+<p style="text-align: left;">Giải phương trình, ta được: \(x_1 = 12\,\left( N \right)\) và \(x_2 =  - \dfrac{{75}}{4}\,\left( L \right)\)</p>
+<p style="text-align: left;"> Vậy năng suất dự định của công nhân đó là $12$  sản phẩm/giờ.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

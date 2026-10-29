@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giải bài toán bằng cách lập hệ phương trình - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 04: Giải bài toán bằng cách lập hệ phương trình</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Cách giải bài toán bằng cách lập hệ phương trình</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Một cặp gồm hai phương trình bậc nhất hai ẩn \(ax + by = c\) và \(a'x + b'y = c'\) được gọi là một <em>hệ hai phương trình bậc nhất hai ẩn.</em></p>
+<p>Ta thường viết hệ phương trình đó dưới dạng:</p>
+<p>\(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Nghiệm của hệ hai phương trình bậc nhất hai ẩn là gì?</h3>
+<div><p>Mỗi cặp số \(\left( {{x_0};{y_0}} \right)\) được gọi là một <em>nghiệm</em> của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) nếu nó đồng thời là nghiệm của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p>
+<p><strong><em>Lưu ý: </em></strong>Mỗi nghiệm của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\) chính là một <em>nghiệm chung­</em> của hai phương trình của hệ \(\left\{ \begin{array}{l}ax + by = c\\a'x + b'y = c'\end{array} \right.\,\,\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải bài toán bằng cách lập hệ phương trình</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một &ocirc; t&ocirc; đi qu&atilde;ng đường $AB$ với vận tốc $50\,\,km/h$ , rồi đi tiếp qu&atilde;ng đường $BC$ với vận tốc $45km/h.$ Biết qu&atilde;ng đường tổng cộng d&agrave;i $165\,\,km$ v&agrave; thời gian &ocirc; t&ocirc; đi tr&ecirc;n qu&atilde;ng đường $AB$ &iacute;t hơn thời gian đi tr&ecirc;n qu&atilde;ng đường $BC$ l&agrave; $30$&nbsp; ph&uacute;t. T&iacute;nh thời gian &ocirc; t&ocirc; đi tr&ecirc;n đoạn đường $AB$.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2$&nbsp;<span lang="FR">giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$1,5$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$1$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3$<span lang="FR"> giờ</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi thời gian &ocirc; t&ocirc; đi tr&ecirc;n mỗi đoạn đường $AB$ v&agrave; $BC$ lần lượt l&agrave; $x,y$ </span></p>
+<p style="text-align: left;"><span lang="FR">($x&gt;0;y&gt;0,5$ ; đơn vị&nbsp;: giờ). Ta c&oacute; hệ phương tr&igrave;nh&nbsp;:</span></p>
+<p style="text-align: left;" align="center">\(\left\{ \begin{array}{l}50.x + 45.y = 165\\y - x = 0,5\end{array} \right. \\ \left\{ \begin{array}{l}x = 1,5\\y = 2\end{array} (TM) \right.\)&nbsp;</p>
+<p style="text-align: left;" align="center"><span lang="FR">Vậy thời gian &ocirc; t&ocirc; đi hết qu&atilde;ng đường $AB$ l&agrave; $1,5$ giờ. Thời gian &ocirc; t&ocirc; đi hết qu&atilde;ng đường $BC$ l&agrave; $2$&nbsp; giờ.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một canô chạy trên sông trong $7$  giờ, xuôi dòng \(108\,km\) và ngược dòng \(63\,km\) . Một lần khác cũng trong 7 giờ canô xuôi dòng \(81\,km\) và ngược dòng \(84\,km\) . Tính vận tốc nước chảy.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$3\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2,5\,{\rm{km/h}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi vận tốc thực của canô là $x\,\,\left( {{\rm{km/h}},x > 0} \right)$, vận tốc dòng nước là $y\,\,\left( {{\rm{km/h}},0 < y < x} \right)$</p>
+<p style="text-align: left;">Vận tốc cano khi xuôi dòng là $x + y\,\,\left( {{\rm{km/h}}} \right)$, vận tốc cano khi ngược dòng là $x - y\,\,\left( {{\rm{km/h}}} \right)$</p>
+<p style="text-align: left;"><span lang="FR">Canô chạy trên sông trong $7$  giờ, xuôi dòng \(108\,km\) và ngược dòng \(63\,km\) nên ta có phương trình </span></p>
+<p style="text-align: left;">$\dfrac{{108}}{{x + y}} + \dfrac{{63}}{{x - y}} = 7$</p>
+<p style="text-align: left;"><span lang="FR">Canô chạy trên sông trong $7$  giờ canô xuôi dòng \(81\,km\) và ngược dòng \(84\,km\) nên ta có phương trình </span></p>
+<p style="text-align: left;">$\dfrac{{81}}{{x + y}} + \dfrac{{84}}{{x - y}} = 7$</p>
+<p style="text-align: left;">Ta có hệ phương trình</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}\dfrac{{108}}{{x + y}} + \dfrac{{63}}{{x - y}} = 7\\\dfrac{{81}}{{x + y}} + \dfrac{{84}}{{x - y}} = 7\end{array} \right.$</p>
+<p style="text-align: left;">Đặt \(a = \frac{1}{x+y}, b = \frac{1}{x-y}\), hệ phương trình trở thành:</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}108a + 63b = 7\\81a + 84b = 7\end{array} \right.$</p>
+<p style="text-align: left;">Nhân phương trình thứ nhất với 4, nhân phương trình thứ hai với 3, ta được:</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}432a + 252b = 28\\243a + 252b = 21\end{array} \right.$</p>
+<p style="text-align: left;">Trừ hai vế của phương trình thứ nhất cho phương trình thứ hai, ta được:</p>
+<p style="text-align: left;">$432a + 252b - \left(243a + 252b \right) = 28 - 21$<br>$189a = 7$</p>
+<p style="text-align: left;">$a = \frac{1}{27}$, thay vào $81a + 84b = 7$ ta được $b = \frac{1}{21}$</p>
+<p style="text-align: left;">Suy ra $x + y = 27;x - y = 21$</p>
+<p style="text-align: left;">Ta tính được \(x = \frac{27 + 21}{2} = 24; y = \frac{27 - 21}{2} = 3\) (TM)</p>
+<p style="text-align: left;"><span lang="FR">Vậy vận tốc dòng nước là $3\,\,{\rm{km/h}}.$</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hai vòi nước cùng chảy vào một bể thì sau $4$  giờ $48$  phút bể đầy. Nếu vòi I chảy riêng trong $4$ giờ, vòi II chảy  riêng trong $3$  giờ thì cả hai vòi chảy được $\dfrac{3}{4}$ bể. Tính thời gian vòi I một mình đầy bể.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$6$ <span lang="FR">giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$8$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$10$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$12$<span lang="FR"> giờ</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi thời gian  vòi I, vòi II chảy một mình đầy bể lần lượt là $x,y\,\,\left( {x,y > \dfrac{{24}}{5}} \right)$ (đơn vị: giờ)</p>
+<p style="text-align: left;">Mỗi giờ vòi I chảy được $\dfrac{1}{x}$ (bể), vòi II chảy được $\dfrac{1}{y}$ bể nên cả hai vòi chảy được $\dfrac{1}{x} + \dfrac{1}{y}$ bể</p>
+<p style="text-align: left;">Vì hai vòi nước cùng chảy vào một bể thì sau $4$  giờ $48$  phút $\left( { = \dfrac{{24}}{5}h} \right)$ bể đầy nên ta có phương trình</p>
+<p style="text-align: left;">$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{{24}}$</p>
+<p style="text-align: left;">Nếu vòi I chảy riêng trong $4$ giờ, vòi II chảy  riêng trong $3$  giờ thì cả hai vòi chảy được $\dfrac{3}{4}$ bể nên ta có phương trình $\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}$</p>
+<p style="text-align: left;">Suy ra hệ phương trình $\left\{ \begin{array}{l}\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}\\\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{{24}}\end{array} \right.$</p>
+<p style="text-align: left;">Nhân cả hai vế của phương trình thứ hai với 3, ta được:$\left\{ \begin{array}{l}\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}\\\dfrac{3}{x} + \dfrac{3}{y} = \dfrac{5}{8}\end{array} \right.$</p>
+<p style="text-align: left;">Trừ hai vế của phương trình thứ nhất cho phương trình thứ hai, ta được: $\dfrac{1}{x} = \dfrac{1}{8}$ suy ra $\dfrac{1}{y} = \dfrac{1}{{12}}$</p>
+<p style="text-align: left;">Suy ra $x = 8,y = 12$ (Thỏa mãn)</p>
+<p style="text-align: left;">Vậy thời gian vòi I một mình đầy bể là $8\,\,h$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Trong tháng đầu hai tổ sản xuất được $800$ sản phẩm. Sang tháng thứ $2$ , tổ $1$ sản xuất vượt mức $12\% $ , tổ $2$  giảm $10\% $ so với tháng đầu nên cả hai tổ làm được $786$  sản phẩm. Tính số sản phẩm tổ $1$  làm được trong tháng đầu.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(500\)<span lang="FR"> sản phẩm.</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(300\)<span lang="FR"> sản phẩm </span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(200\)<span lang="FR"> sản phẩm.</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(400\)<span lang="FR"> sản phẩm.</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi số sản phẩm tổ $1$  và tổ $2$  làm được trong tháng đầu lần lượt là \(x,y\), (\(x,y \in {N^*}\) \(x,y < 800\), sản phẩm).</span></p>
+<p style="text-align: left;"><span lang="FR">Số sản phẩm tổ $1$  và tổ $2$  làm được trong tháng hai là $112\% .x$ và $90\% .y$ sản phẩm</span></p>
+<p style="text-align: left;"><span lang="FR">Ta có hệ phương trình \(\left\{ \begin{array}{l}x + y = 800\\112\% x + 90\% y = 786\end{array} \right. \)</span></p>
+<p style="text-align: left;"><span lang="FR">Phương trình thứ nhất suy ra $x = 800 - y$.</span></p>
+<p style="text-align: left;"><span lang="FR">Thế vào phương trình thứ hai, ta được $112\% \left( {800 - y} \right) + 90\% .y = 786$, giải phương trình ta được $y = 500 (TM)$</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra $x = 300 (TM)$</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy số sản phẩm tổ $1$  làm được trong tháng đầu là \(300\) sản phẩm.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một tam gi&aacute;c c&oacute; chiều cao bằng&nbsp;&nbsp; $\dfrac{3}{4}$&nbsp; cạnh đ&aacute;y. Nếu chiều cao tăng th&ecirc;m $3$&nbsp; $dm$ v&agrave; cạnh đ&aacute;y giảm đi $3$&nbsp; $dm$&nbsp; th&igrave; diện t&iacute;ch của n&oacute; tăng th&ecirc;m $12$&nbsp; $d{m^2}$ . T&iacute;nh diện t&iacute;ch của tam gi&aacute;c ban đầu.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$700\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$678\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$627\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$726\,\,d{m^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi chiều cao của tam gi&aacute;c l&agrave; \(h\), cạnh đ&aacute;y tam gi&aacute;c l&agrave; \(a\). \(\left( {h,a \in {N^*}, a&gt;3,dm} \right)\). </span></p>
+<p style="text-align: left;"><span lang="FR">Diện t&iacute;ch tam gi&aacute;c ban đầu l&agrave; $\dfrac{1}{2}ah$ ($d{m^2}$)</span></p>
+<p style="text-align: left;"><span lang="FR">V&igrave;</span> chiều cao bằng $\dfrac{3}{4}$&nbsp; cạnh đ&aacute;y n&ecirc;n ta c&oacute; phương tr&igrave;nh \(h = \dfrac{3}{4}a\)</p>
+<p style="text-align: left;">Nếu chiều cao tăng th&ecirc;m $3$&nbsp; $dm$ v&agrave; cạnh đ&aacute;y giảm đi $3$&nbsp; $dm$&nbsp; th&igrave; diện t&iacute;ch của n&oacute; tăng th&ecirc;m $12$&nbsp; $d{m^2}$</p>
+<p style="text-align: left;">N&ecirc;n ta c&oacute; phương tr&igrave;nh \(\dfrac{1}{2}\left( {h + 3} \right)\left( {a - 3} \right) - \dfrac{1}{2}ah = 12\)</p>
+<p style="text-align: left;"><span lang="FR">Ta c&oacute; hệ phương tr&igrave;nh&nbsp;: \(\left\{ \begin{array}{l}h = \dfrac{3}{4}a\\\dfrac{1}{2}\left( {h + 3} \right)\left( {a - 3} \right) - \dfrac{1}{2}ah = 12\end{array} \right.\) hay&nbsp;</span><span lang="FR">\(\left\{ \begin{array}{l}h = \dfrac{3}{4}a\\\dfrac{{ - 3h}}{2} + \dfrac{{3a}}{2} = \dfrac{{33}}{2}\end{array} \right. \)</span></p>
+<p style="text-align: left;"><span lang="FR">Thế \(h = \dfrac{3}{4}a\) v&agrave;o phương tr&igrave;nh thứ hai, ta t&iacute;nh được&nbsp;\(a = 44\)</span></p>
+<p style="text-align: left;">Suy ra $h = 33$ (thỏa m&atilde;n)</p>
+<p style="text-align: left;"><span lang="FR">Vậy chiều cao của tam gi&aacute;c bằng \(44dm\), cạnh đ&aacute;y tam gi&aacute;c bằng \(33dm\).</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra diện t&iacute;ch tam gi&aacute;c ban đầu l&agrave; $\dfrac{1}{2}.44.33 = 726\,\,\left( {d{m^2}} \right)$.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách giải bài toán bằng cách lập hệ phương trình dạng toán chuyển động</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình dạng toán chuyển động</h3>
+<div><p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>1. Quãng đường: S = V.T</p>
+<p>2. Vận tốc xuôi dòng: V<sub>xuôi</sub> = V<sub>vật</sub> + V<sub>nước</sub></p>
+<p>Vận tốc ngược dòng: V<sub>ngược</sub> = V<sub>vật</sub> – V<sub>nước</sub></p>
+<p><strong><em>Lưu ý: </em></strong></p>
+<p>+ Chú ý xem vật chuyển động cùng chiều, ngược chiều, hay chuyển động xuôi ngược, xuất phát trước hay xuất phát sau, có thay đổi vận tốc trên đường đi hay không...</p>
+<p>+ Cần chọn mốc thời gian, chọn chiều dương của chuyển động.</p>
+<p>+ Dựa vào nguyên lý cộng vận tốc:</p>
+<p>· chuyển động xuôi dòng, ngược dòng</p>
+<p>· đạp xe lên dốc, xuống dốc</p>
+<p>· đạp xe ngược gió, xuôi gió</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một &ocirc; t&ocirc; đi qu&atilde;ng đường $AB$ với vận tốc $50\,\,km/h$ , rồi đi tiếp qu&atilde;ng đường $BC$ với vận tốc $45km/h.$ Biết qu&atilde;ng đường tổng cộng d&agrave;i $165\,\,km$ v&agrave; thời gian &ocirc; t&ocirc; đi tr&ecirc;n qu&atilde;ng đường $AB$ &iacute;t hơn thời gian đi tr&ecirc;n qu&atilde;ng đường $BC$ l&agrave; $30$&nbsp; ph&uacute;t. T&iacute;nh thời gian &ocirc; t&ocirc; đi tr&ecirc;n đoạn đường $AB$.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2$&nbsp;<span lang="FR">giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$1,5$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$1$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$3$<span lang="FR"> giờ</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi thời gian &ocirc; t&ocirc; đi tr&ecirc;n mỗi đoạn đường $AB$ v&agrave; $BC$ lần lượt l&agrave; $x,y$ </span></p>
+<p style="text-align: left;"><span lang="FR">($x&gt;0;y&gt;0,5$ ; đơn vị&nbsp;: giờ). Ta c&oacute; hệ phương tr&igrave;nh&nbsp;:</span></p>
+<p style="text-align: left;" align="center">\(\left\{ \begin{array}{l}50.x + 45.y = 165\\y - x = 0,5\end{array} \right. \\ \left\{ \begin{array}{l}x = 1,5\\y = 2\end{array} (TM) \right.\)&nbsp;</p>
+<p style="text-align: left;" align="center"><span lang="FR">Vậy thời gian &ocirc; t&ocirc; đi hết qu&atilde;ng đường $AB$ l&agrave; $1,5$ giờ. Thời gian &ocirc; t&ocirc; đi hết qu&atilde;ng đường $BC$ l&agrave; $2$&nbsp; giờ.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một &ocirc;t&ocirc; dự định đi từ \(A\) đến \(B\) trong một thời gian nhất định. Nếu xe chạy mỗi giờ&nbsp; nhanh hơn \(10\,km\) th&igrave; đến nơi sớm hơn dự định $3$&nbsp; giờ, c&ograve;n nếu xe chạy chậm lại mỗi giờ \(10\,km\)&nbsp; th&igrave; đến nơi chậm mất&nbsp; $5$&nbsp; giờ. T&iacute;nh vận tốc của xe l&uacute;c ban đầu.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$40\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$35\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$50\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$60\,{\rm{km/h}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi vận tốc l&uacute;c đầu của xe l&agrave; $x\,\,\left( {{\rm{km/h}};x &gt; 10} \right)$, thời gian theo dự định l&agrave; $y$&nbsp; $(y&gt;3)$ (giờ)</p>
+<p style="text-align: left;"><span lang="FR">Nếu xe chạy mỗi giờ&nbsp; nhanh hơn \(10\,km\) th&igrave; đến nơi sớm hơn dự định $3$&nbsp; giờ n&ecirc;n ta c&oacute; hương tr&igrave;nh</span></p>
+<p style="text-align: left;"><span lang="FR">$\left( {x + 10} \right)\left( {y - 3} \right) = xy$</span></p>
+<p style="text-align: left;"><span lang="FR">Nếu xe chạy chậm lại mỗi giờ \(10\,km\)&nbsp; th&igrave; đến nơi chậm mất&nbsp; $5$&nbsp; giờ n&ecirc;n ta c&oacute; phương tr&igrave;nh</span></p>
+<p style="text-align: left;"><span lang="FR">$\left( {x - 10} \right)\left( {y + 5} \right) = xy$</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra hệ phương tr&igrave;nh $\left\{ \begin{array}{l}\left( {x - 10} \right)\left( {y + 5} \right) = xy\\\left( {x + 10} \right)\left( {y - 3} \right) = xy\end{array} \right. $ hay $\left\{ \begin{array}{l} - 3x + 10y = 30\\5x - 10y = 50\end{array} \right.$</span></p>
+<p style="text-align: left;"><span lang="FR">Giải hệ phương tr&igrave;nh ta được: $\left\{ \begin{array}{l}x = 40\\y = 15\end{array} \right.$ (Thỏa m&atilde;n)</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy vận tốc ban đầu l&agrave; $40\,{\rm{km/h}}$.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một canô chạy trên sông trong $7$  giờ, xuôi dòng \(108\,km\) và ngược dòng \(63\,km\) . Một lần khác cũng trong 7 giờ canô xuôi dòng \(81\,km\) và ngược dòng \(84\,km\) . Tính vận tốc nước chảy.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$4\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$3\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$2\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$2,5\,{\rm{km/h}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi vận tốc thực của canô là $x\,\,\left( {{\rm{km/h}},x > 0} \right)$, vận tốc dòng nước là $y\,\,\left( {{\rm{km/h}},0 < y < x} \right)$</p>
+<p style="text-align: left;">Vận tốc cano khi xuôi dòng là $x + y\,\,\left( {{\rm{km/h}}} \right)$, vận tốc cano khi ngược dòng là $x - y\,\,\left( {{\rm{km/h}}} \right)$</p>
+<p style="text-align: left;"><span lang="FR">Canô chạy trên sông trong $7$  giờ, xuôi dòng \(108\,km\) và ngược dòng \(63\,km\) nên ta có phương trình </span></p>
+<p style="text-align: left;">$\dfrac{{108}}{{x + y}} + \dfrac{{63}}{{x - y}} = 7$</p>
+<p style="text-align: left;"><span lang="FR">Canô chạy trên sông trong $7$  giờ canô xuôi dòng \(81\,km\) và ngược dòng \(84\,km\) nên ta có phương trình </span></p>
+<p style="text-align: left;">$\dfrac{{81}}{{x + y}} + \dfrac{{84}}{{x - y}} = 7$</p>
+<p style="text-align: left;">Ta có hệ phương trình</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}\dfrac{{108}}{{x + y}} + \dfrac{{63}}{{x - y}} = 7\\\dfrac{{81}}{{x + y}} + \dfrac{{84}}{{x - y}} = 7\end{array} \right.$</p>
+<p style="text-align: left;">Đặt \(a = \frac{1}{x+y}, b = \frac{1}{x-y}\), hệ phương trình trở thành:</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}108a + 63b = 7\\81a + 84b = 7\end{array} \right.$</p>
+<p style="text-align: left;">Nhân phương trình thứ nhất với 4, nhân phương trình thứ hai với 3, ta được:</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}432a + 252b = 28\\243a + 252b = 21\end{array} \right.$</p>
+<p style="text-align: left;">Trừ hai vế của phương trình thứ nhất cho phương trình thứ hai, ta được:</p>
+<p style="text-align: left;">$432a + 252b - \left(243a + 252b \right) = 28 - 21$<br>$189a = 7$</p>
+<p style="text-align: left;">$a = \frac{1}{27}$, thay vào $81a + 84b = 7$ ta được $b = \frac{1}{21}$</p>
+<p style="text-align: left;">Suy ra $x + y = 27;x - y = 21$</p>
+<p style="text-align: left;">Ta tính được \(x = \frac{27 + 21}{2} = 24; y = \frac{27 - 21}{2} = 3\) (TM)</p>
+<p style="text-align: left;"><span lang="FR">Vậy vận tốc dòng nước là $3\,\,{\rm{km/h}}.$</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Một kh&aacute;ch du lịch đi tr&ecirc;n &ocirc;t&ocirc; $4$&nbsp; giờ, sau đ&oacute; đi tiếp bằng t&agrave;u hỏa trong $7$&nbsp; giờ được qu&atilde;ng đường d&agrave;i \(640\,km\). Hỏi vận tốc của t&agrave;u hỏa , biết rằng mỗi giờ t&agrave;u hỏa đi nhanh hơn &ocirc;t&ocirc; \(5\,km\)&nbsp;?</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$40\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$50\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$60\,{\rm{km/h}}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$65\,{\rm{km/h}}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi vận tốc của t&agrave;u hỏa v&agrave; &ocirc; t&ocirc; lần lượt l&agrave; $x,y\,\,\left( {{\rm{km/h}},x &gt; y &gt; 0; x&gt;5} \right)$</p>
+<p style="text-align: left;"><span lang="FR">V&igrave;&nbsp; kh&aacute;ch du lịch đi tr&ecirc;n &ocirc;t&ocirc; $4$&nbsp; giờ, sau đ&oacute; đi tiếp bằng t&agrave;u hỏa trong $7$&nbsp; giờ được qu&atilde;ng đường d&agrave;i \(640\,km\) n&ecirc;n&nbsp; ta c&oacute; phương tr&igrave;nh $7x + 4y = 640$</span></p>
+<p style="text-align: left;"><span lang="FR">V&agrave; mỗi giờ t&agrave;u hỏa đi nhanh hơn &ocirc;t&ocirc; \(5\,km\)&nbsp;n&ecirc;n ta c&oacute; phương tr&igrave;nh $x - y = 5$</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra hệ phương tr&igrave;nh </span></p>
+<p style="text-align: left;"><span lang="FR">$\left\{ \begin{array}{l}x - y = 5\\7x + 4y = 640\end{array} \right. \\ \left\{ \begin{array}{l}x = y + 5\\7\left( {y + 5} \right) + 4y = 640\end{array} \right. $</span></p>
+<p style="text-align: left;"><span lang="FR">$\left\{ \begin{array}{l}y = 55\\x = 60\end{array} \right.$ (thỏa m&atilde;n)</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy vận tốc t&agrave;u hỏa l&agrave; $60\,\,{\rm{km/h}}$.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách giải bài toán bằng cách lập hệ phương trình dạng toán liên quan đến kiến thức hình học</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình dạng toán liên quan đến kiến thức hình học</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số (xác định các đại lượng: chiều dài, chiều rộng, diện tích, chu vi,…);</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng (sử dụng các mối quan hệ giữa các đại lượng trong hình học).</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>+ Diện tích tam giác: \(S = \frac{1}{2}ah\) (\(a\) là cạnh đáy, \(h\) là đường cao)</p>
+<p>+ Diện tích tam giác vuông:  \(S = \frac{1}{2}xy\) (\(x,y\) là hai cạnh góc vuông). Độ dài cạnh huyền: \({z^2} = {x^2} + {y^2}\) (z là cạnh huyền) theo Định lí Pythagore.</p>
+<p>+ Diện tích hình chữ nhật: \(S = xy\) (\(x\) là chiều rộng, \(y\) là chiều dài)</p>
+<p>+ Diện tích hình vuông: \(S = {x^2}\) (\(x\) là cạnh hình vuông)</p>
+<p>+ Diện tích hình thang: \(S = \frac{1}{2}h\left( {x + y} \right)\) (\(x\) là đáy bé, \(y\) là đáy lớn, \(h\) là chiều cao của hình thang)</p>
+<p>+ Đa giác có n đỉnh thì có số đường chéo là: \(\frac{{n\left( {n - 3} \right)}}{2}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một mảnh đất h&igrave;nh chữ nhật c&oacute; chu vi bằng $42$&nbsp; m. Đường ch&eacute;o h&igrave;nh chữ nhật d&agrave;i $15$&nbsp; m. T&iacute;nh độ d&agrave;i chiều rộng mảnh đất h&igrave;nh chữ nhật.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$10\,\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$12\,\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$9\,\,m$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$8\,\,m$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi chiều d&agrave;i&nbsp; v&agrave; chiều rộng của mảnh đất&nbsp; h&igrave;nh chữ nhật lần lượt l&agrave; $x,y\,\,\left( {21 &gt; x &gt; y &gt; 0;\,m} \right)$</span></p>
+<p style="text-align: left;">V&igrave; khu vườn h&igrave;nh chữ nhật c&oacute; chu vi bằng $42$&nbsp; $m$ n&ecirc;n ta c&oacute; $\left( {x + y} \right).2 = 42$</p>
+<p style="text-align: left;">Đường ch&eacute;o h&igrave;nh chữ nhật d&agrave;i $15$$m$ n&ecirc;n ta c&oacute; phương tr&igrave;nh ${x^2} + {y^2} = {15^2}$</p>
+<p style="text-align: left;">Suy ra hệ phương tr&igrave;nh $\left\{ \begin{array}{l}\left( {x + y} \right).2 = 42\\{x^2} + {y^2} = 225\end{array} \right.$</p>
+<p style="text-align: left;">$\left\{ \begin{array}{l}x + y = 21\\{x^2} + {y^2} = 225\end{array} \right.$</p>
+<p style="text-align: left;">$ \left\{ \begin{array}{l}y = 21 - x\\{x^2} + {\left( {21 - x} \right)^2} = 225\,\,\left( 1 \right)\end{array} \right.$</p>
+<p style="text-align: left;">Giải phương tr&igrave;nh $\left( 1 \right)$ ta được&nbsp;</p>
+<p style="text-align: left;">$2{x^2} - 42x + 216 = 0 \\ {x^2} - 21x + 108 = 0 \\ \left( {x - 12} \right)\left( {x - 9} \right) = 0 $</p>
+<p style="text-align: left;">$x = 12, y = 9\,\left( N \right)$ hoặc $x = 9, y = 12\,\,\left( L \right)$</p>
+<p style="text-align: left;">Vậy chiều rộng mảnh đất ban đầu l&agrave; $9\,\,m$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một khu vườn&nbsp; h&igrave;nh chữ nhật c&oacute; chu vi bằng $48$&nbsp; $m.$ Nếu tăng chiều rộng l&ecirc;n bốn lần v&agrave; tăng chiều d&agrave;i l&ecirc;n ba lần th&igrave; chu vi của khu vườn sẽ l&agrave; $162$&nbsp; $m$. T&igrave;m diện t&iacute;ch của khu vườn ban đầu.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$24\,\,{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$153\,\,{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$135\,\,{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$14\,\,{m^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi chiều d&agrave;i&nbsp; v&agrave; chiều rộng của khu vườn h&igrave;nh chữ nhật lần lượt l&agrave; $x,y\,\,\left( {24 &gt; x &gt; y &gt; 0;\,m} \right)$</span></p>
+<p style="text-align: left;">V&igrave; khu vườn h&igrave;nh chữ nhật c&oacute; chu vi bằng $48$&nbsp; $m$n&ecirc;n ta c&oacute; $\left( {x + y} \right).2 = 48$</p>
+<p style="text-align: left;">Nếu tăng chiều rộng l&ecirc;n bốn lần v&agrave; chiều d&agrave;i l&ecirc;n ba lần th&igrave; chu vi của khu vườn sẽ l&agrave; $162$&nbsp; $m$</p>
+<p style="text-align: left;">N&ecirc;n ta c&oacute; phương tr&igrave;nh $(4y + 3x).2 = 162$</p>
+<p style="text-align: left;">Suy ra hệ hương tr&igrave;nh $\left\{ \begin{array}{l}\left( {x + y} \right).2 = 48\\(4y + 3x).2 = 162\end{array} \right. $ hay $\left\{ \begin{array}{l}x + y = 24\\3x + 4y = 81\end{array} \right. $</p>
+<p style="text-align: left;">Giải hệ phương tr&igrave;nh, ta được $\left\{ \begin{array}{l}x = 15\\y = 9\end{array} \right.$ (thỏa m&atilde;n)</p>
+<p style="text-align: left;">Vậy diện t&iacute;ch khu vườn ban đầu l&agrave; $15.9 = 135\,{m^2}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Một tam gi&aacute;c c&oacute; chiều cao bằng&nbsp;&nbsp; $\dfrac{3}{4}$&nbsp; cạnh đ&aacute;y. Nếu chiều cao tăng th&ecirc;m $3$&nbsp; $dm$ v&agrave; cạnh đ&aacute;y giảm đi $3$&nbsp; $dm$&nbsp; th&igrave; diện t&iacute;ch của n&oacute; tăng th&ecirc;m $12$&nbsp; $d{m^2}$ . T&iacute;nh diện t&iacute;ch của tam gi&aacute;c ban đầu.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$700\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$678\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$627\,\,d{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$726\,\,d{m^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi chiều cao của tam gi&aacute;c l&agrave; \(h\), cạnh đ&aacute;y tam gi&aacute;c l&agrave; \(a\). \(\left( {h,a \in {N^*}, a&gt;3,dm} \right)\). </span></p>
+<p style="text-align: left;"><span lang="FR">Diện t&iacute;ch tam gi&aacute;c ban đầu l&agrave; $\dfrac{1}{2}ah$ ($d{m^2}$)</span></p>
+<p style="text-align: left;"><span lang="FR">V&igrave;</span> chiều cao bằng $\dfrac{3}{4}$&nbsp; cạnh đ&aacute;y n&ecirc;n ta c&oacute; phương tr&igrave;nh \(h = \dfrac{3}{4}a\)</p>
+<p style="text-align: left;">Nếu chiều cao tăng th&ecirc;m $3$&nbsp; $dm$ v&agrave; cạnh đ&aacute;y giảm đi $3$&nbsp; $dm$&nbsp; th&igrave; diện t&iacute;ch của n&oacute; tăng th&ecirc;m $12$&nbsp; $d{m^2}$</p>
+<p style="text-align: left;">N&ecirc;n ta c&oacute; phương tr&igrave;nh \(\dfrac{1}{2}\left( {h + 3} \right)\left( {a - 3} \right) - \dfrac{1}{2}ah = 12\)</p>
+<p style="text-align: left;"><span lang="FR">Ta c&oacute; hệ phương tr&igrave;nh&nbsp;: \(\left\{ \begin{array}{l}h = \dfrac{3}{4}a\\\dfrac{1}{2}\left( {h + 3} \right)\left( {a - 3} \right) - \dfrac{1}{2}ah = 12\end{array} \right.\) hay&nbsp;</span><span lang="FR">\(\left\{ \begin{array}{l}h = \dfrac{3}{4}a\\\dfrac{{ - 3h}}{2} + \dfrac{{3a}}{2} = \dfrac{{33}}{2}\end{array} \right. \)</span></p>
+<p style="text-align: left;"><span lang="FR">Thế \(h = \dfrac{3}{4}a\) v&agrave;o phương tr&igrave;nh thứ hai, ta t&iacute;nh được&nbsp;\(a = 44\)</span></p>
+<p style="text-align: left;">Suy ra $h = 33$ (thỏa m&atilde;n)</p>
+<p style="text-align: left;"><span lang="FR">Vậy chiều cao của tam gi&aacute;c bằng \(44dm\), cạnh đ&aacute;y tam gi&aacute;c bằng \(33dm\).</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra diện t&iacute;ch tam gi&aacute;c ban đầu l&agrave; $\dfrac{1}{2}.44.33 = 726\,\,\left( {d{m^2}} \right)$.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách giải bài toán bằng cách lập hệ phương trình dạng toán làm chung, làm riêng (hoặc chảy chung, chảy riêng)</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình dạng toán làm chung, làm riêng (hoặc chảy chung, chảy riêng)</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>Công việc = năng suất x thời gian</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>- Toán chung công việc có ba đại lượng tham gia là toàn bộ công việc, phần công việc trong một đơn vị thời gian và thời gian.</p>
+<p>- Nếu một đội làm xong công việc trong \(x\) ngày thì một ngày đội đó làm được \(\frac{1}{x}\) công việc.</p>
+<p>- Xem toàn bộ công việc là 1 = 100%.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hai vòi nước cùng chảy vào một bể thì sau $4$  giờ $48$  phút bể đầy. Nếu vòi I chảy riêng trong $4$ giờ, vòi II chảy  riêng trong $3$  giờ thì cả hai vòi chảy được $\dfrac{3}{4}$ bể. Tính thời gian vòi I một mình đầy bể.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$6$ <span lang="FR">giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$8$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$10$<span lang="FR"> giờ</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$12$<span lang="FR"> giờ</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi thời gian  vòi I, vòi II chảy một mình đầy bể lần lượt là $x,y\,\,\left( {x,y > \dfrac{{24}}{5}} \right)$ (đơn vị: giờ)</p>
+<p style="text-align: left;">Mỗi giờ vòi I chảy được $\dfrac{1}{x}$ (bể), vòi II chảy được $\dfrac{1}{y}$ bể nên cả hai vòi chảy được $\dfrac{1}{x} + \dfrac{1}{y}$ bể</p>
+<p style="text-align: left;">Vì hai vòi nước cùng chảy vào một bể thì sau $4$  giờ $48$  phút $\left( { = \dfrac{{24}}{5}h} \right)$ bể đầy nên ta có phương trình</p>
+<p style="text-align: left;">$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{{24}}$</p>
+<p style="text-align: left;">Nếu vòi I chảy riêng trong $4$ giờ, vòi II chảy  riêng trong $3$  giờ thì cả hai vòi chảy được $\dfrac{3}{4}$ bể nên ta có phương trình $\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}$</p>
+<p style="text-align: left;">Suy ra hệ phương trình $\left\{ \begin{array}{l}\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}\\\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{5}{{24}}\end{array} \right.$</p>
+<p style="text-align: left;">Nhân cả hai vế của phương trình thứ hai với 3, ta được:$\left\{ \begin{array}{l}\dfrac{4}{x} + \dfrac{3}{y} = \dfrac{3}{4}\\\dfrac{3}{x} + \dfrac{3}{y} = \dfrac{5}{8}\end{array} \right.$</p>
+<p style="text-align: left;">Trừ hai vế của phương trình thứ nhất cho phương trình thứ hai, ta được: $\dfrac{1}{x} = \dfrac{1}{8}$ suy ra $\dfrac{1}{y} = \dfrac{1}{{12}}$</p>
+<p style="text-align: left;">Suy ra $x = 8,y = 12$ (Thỏa mãn)</p>
+<p style="text-align: left;">Vậy thời gian vòi I một mình đầy bể là $8\,\,h$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Hai bạn $A$ v&agrave; $B$ c&ugrave;ng l&agrave;m chung một c&ocirc;ng việc th&igrave; ho&agrave;n th&agrave;nh sau $6$ ng&agrave;y. Hỏi nếu $A$ l&agrave;m một nửa c&ocirc;ng việc rồi nghỉ th&igrave; $B$ ho&agrave;n th&agrave;nh nốt c&ocirc;ng việc trong thời gian bao l&acirc;u? Biết rằng nếu l&agrave;m một m&igrave;nh xong c&ocirc;ng việc th&igrave; $B$ l&agrave;m l&acirc;u hơn $A$ l&agrave; $9$ ng&agrave;y.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$9$&nbsp;<span lang="FR">ng&agrave;y</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$18$<span lang="FR"> ng&agrave;y</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$10$<span lang="FR"> ng&agrave;y</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$12$<span lang="FR"> ng&agrave;y</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi thời gian $A,B$ l&agrave;m một m&igrave;nh xong c&ocirc;ng việc lần lượt l&agrave; $x,y$ ($y&gt;x&gt;6$ , đơn vị&nbsp;: ng&agrave;y).</span></p>
+<p style="text-align: left;"><span lang="FR">Mỗi ng&agrave;y c&aacute;c bạn $A,B$ lần lượt l&agrave;m được \(\dfrac{1}{x}\)v&agrave; \(\dfrac{1}{y}\)(c&ocirc;ng việc ).</span></p>
+<p style="text-align: left;"><span lang="FR">V&igrave; hai bạn A v&agrave; B c&ugrave;ng l&agrave;m chung một c&ocirc;ng việc th&igrave; ho&agrave;n th&agrave;nh sau $6$ ng&agrave;y n&ecirc;n ta c&oacute;&nbsp;:&nbsp; </span></p>
+<p style="text-align: left;" align="center">\(\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{6}\)<span lang="FR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (1)</span></p>
+<p style="text-align: left;"><span lang="FR">Do l&agrave;m một m&igrave;nh xong c&ocirc;ng việc th&igrave; $B$ l&agrave;m l&acirc;u hơn $A$ l&agrave; $9$&nbsp; ng&agrave;y n&ecirc;n ta c&oacute; phương tr&igrave;nh&nbsp;: </span></p>
+<p style="text-align: left;" align="center">\(y - x = 9\)<span lang="FR">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (2)</span></p>
+<p style="text-align: left;"><span lang="FR">Từ (1) v&agrave; (2) ta c&oacute; hệ phương tr&igrave;nh&nbsp;:</span></p>
+<p style="text-align: left;" align="center">\(\)\(\left\{ \begin{array}{l}\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{6}\\y - x = 9\end{array} \right. \Rightarrow \left\{ \begin{array}{l}x = 9\\y = 18\end{array} \right.\)<span lang="FR">(thỏa m&atilde;n)</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy $B$ ho&agrave;n th&agrave;nh cả c&ocirc;ng việc trong $18$ ng&agrave;y.</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra sau khi $A$ l&agrave;m một m&igrave;nh xong nửa c&ocirc;ng việc rồi nghỉ$,B$ ho&agrave;n th&agrave;nh c&ocirc;ng việc c&ograve;n lại trong $9$ ng&agrave;y.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách giải bài toán bằng cách lập hệ phương trình dạng toán tìm số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình dạng toán tìm số</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>+ Tổng hai số \(x,y\): \(x + y\)</p>
+<p>+ Tổng bình phương của hai số \(x,y\): \({x^2} + {y^2}\)</p>
+<p>+ Bình phương của tổng hai số \(x,y\): \({\left( {x + y} \right)^2}\)</p>
+<p>+ Tổng nghịch đảo hai số \(x,y\): \(\frac{1}{x} + \frac{1}{y}\)</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Ta phải chú ý tới cấu tạo của một số có hai chữ số, ba chữ số,… viết trong hệ thập phân, điều kiện của các chữ số.</p>
+<p>- Biểu diễn các số có hai chữ số \(\overline {ab}  = 10a + b\) với \(0 &lt; a \le 9\); \(0 \le b \le 9\); \(a,b \in \mathbb{N}\).</p>
+<p>- Biểu diễn số có ba chữ số  \(\overline {abc}  = 100a + 10b + c\) với \(0 &lt; a \le 9\); \(0 \le b \le 9\); \(0 \le c \le 9\); \(a,b,c \in \mathbb{N}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho một số có hai chữ số. Chữ số hàng chục lớn hơn chữ số hàng đơn vị là $5$. Nếu đổi chỗ hai chữ số cho nhau ta được một số bằng $\dfrac{3}{8}$ số ban đầu. Tìm tích các chữ số của số ban đầu.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$16$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$14$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$6$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi số cần tìm là \(\overline {ab} ,\,\,a \in {\mathbb{N}^*},\,\,b \in {\mathbb{N}^*}\), $a,b \le 9$.</p>
+<p style="text-align: left;">Đổi chỗ hai chữ số của nó thì được một số mới là \(\overline {ba} \)</p>
+<p style="text-align: left;">Chữ số hàng chục lớn hơn chữ số hàng đơn vị là $5$ nên ta có phương trình: $a - b = 5$.</p>
+<p style="text-align: left;">Nếu đổi chỗ hai chữ số cho nhau ta được một số bằng $\dfrac{3}{8}$ số ban đầu nên ta có phương trình: $\overline {ba}  = \dfrac{3}{8}\overline {ab}$.</p>
+<p style="text-align: left;">Ta có hệ phương trình: $\left\{ \begin{array}{l}a - b = 5\\\overline {ba}  = \dfrac{3}{8}\overline {ab}  \end{array} \right.$ hay $\left\{ \begin{array}{l}a - b = 5 \;(1)\\b.10 + a = \dfrac{3}{8}\left( {a.10 + b} \right) (2)\end{array}\right.$</p>
+<p style="text-align: left;">Nhân cả hai vế của phương trình (2) với 8, ta được phương trình: \(80b + 8a = 30a + 3b \;(3)\)</p>
+<p style="text-align: left;">Từ phương trình (1) suy ra $a = b + 5$</p>
+<p style="text-align: left;">Thế vào phương trình (3), ta được:</p>
+<p style="text-align: left;">$80b + 8\left( {b + 5} \right) = 30\left( {b + 5} \right) + 3b$</p>
+<p style="text-align: left;">$55b = 110$</p>
+<p style="text-align: left;">$b = 2$ (TM)</p>
+<p style="text-align: left;">Suy ra $a = 2 + 5 = 7$ (TM)</p>
+<p style="text-align: left;"><span lang="FR">Vậy số cần tìm là $72$ nên tích các chữ số là $2.7 = 14$.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho một số có hai chữ số . Nếu đổi chỗ hai chữ số của nó thì được một số lớn hơn số đã cho là $63$. Tổng của số đã cho và số mới tạo thành bằng $99$. Tổng các chữ số của số đó là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$9$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$8$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$7$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$6$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi số cần tìm là \(\overline {ab} ,\,\,a \in {\mathbb{N}^*},\,\,b \in {\mathbb{N}^*}\), $a,b \le 9$.</p>
+<p style="text-align: left;">Đổi chỗ hai chữ số của nó thì được một số mới là \(\overline {ba} \)</p>
+<p style="text-align: left;">Ta có hệ phương trình :</p>
+<p style="text-align: left;">\(\left\{ \begin{array}{l}\overline {ba}  - \overline {ab}  = 63\\\overline {ba}  + \overline {ab}  = 99\; (1)\end{array} \right. \)</p>
+<p style="text-align: left;">Cộng cả hai vế hai phương trình, ta được phương trình: \(2\overline {ab}  = 36\)</p>
+<p style="text-align: left;">Giải phương trình ta được \(\overline {ab}  = 18\) (thỏa mãn)</p>
+<p style="text-align: left;">Thay vào phương trình (1), ta được: </p>
+<p style="text-align: left;">\(\overline {ba}  + 18 = 99\), suy ra \(\overline {ba} = 81\) (thỏa mãn)</p>
+<p style="text-align: left;"><span lang="FR">Vậy số cần tìm là $18$  nên tổng các chữ số là $1 + 8 = 9$.</span></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Tìm một số có hai chữ số biết rằng: Hiệu của số ban đầu với số đảo ngược của nó bằng  18 (số đảo ngược của một số là số thu được bằng cách viết các chữ số của số đó theo thứ tự ngược lại) và tổng của số ban đầu với bình phương số đảo ngược của nó bằng 618. </p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> 42</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 44</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 46</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 48</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Gọi số c&oacute; hai chữ số cần t&igrave;m l&agrave;: \(\overline {ab} \left( {a \in {\mathbb{N}^*},b \in \mathbb{N},\;\;0 &lt; a \le 9,\;0 \le b \le 9} \right).\)</p>
+<p>Số đảo ngược của số&nbsp; ban đầu l&agrave;: \(\overline {ba} \;\;\left( {b \ne 0} \right)\)</p>
+<p>Theo đề b&agrave;i, hiệu của số ban đầu với số đảo ngược của n&oacute; bằng 18 n&ecirc;n ta c&oacute;:</p>
+<p>\(\begin{array}{l}\overline {ab}&nbsp; - \overline {ba}&nbsp; = 18\,\,\\ 10a + b - \left( {10b + a} \right) = 18\\ 10a + b - 10b - a = 18\\ a - b = 2\,\,\,\left( 1 \right)\end{array}\)</p>
+<p>Tổng của số ban đầu với b&igrave;nh phương số đảo ngược của n&oacute; bằng 618 n&ecirc;n ta c&oacute;:</p>
+<p>\(\overline {ab}&nbsp; + {\left( {\overline {ba} } \right)^2} = 618\\ 10a + b + {\left( {10b + a} \right)^2} = 618\\ 10a + b + 100{b^2} + 20ab + {a^2} = 618\,\,\,\left( 2 \right)\)</p>
+<p>Từ (1) v&agrave; (2) ta c&oacute; hệ phương tr&igrave;nh:</p>
+<p>\(\left\{ \begin{array}{l}a - b = 2\\10a + b + 100{b^2} + 20ab + {a^2} = 618\end{array} \right.\\ \left\{ \begin{array}{l}a = b + 2\\10\left( {b + 2} \right) + b + 100{b^2} + 20\left( {b + 2} \right)b + {\left( {b + 2} \right)^2} = 618\end{array} \right.\\ \left\{ \begin{array}{l}a = b + 2\\10b + 20 + b + 100{b^2} + 20{b^2} + 40b + {b^2} + 4b + 4 = 618\end{array} \right.\\ \left\{ \begin{array}{l}a = b + 2\\121{b^2} + 55b - 594 = 0 (1)\end{array} \right.\)</p>
+<p>Giải phương tr&igrave;nh (1):</p>
+<p>\(121{b^2} + 55b - 594 = 0 \\ 121b^2 - 242b + 297b - 594 = 0\\121b(b - 2) + 297(b - 2) = 0\\(121b + 297)(b-2) = 0\)</p>
+<p>\(121b + 297 = 0\) suy ra \(b = -\frac{27}{11}\) (KTM)</p>
+<p>\(b - 2 = 0\) suy ra \(b = 2\) (TM)</p>
+<p>Suy ra \(a = 4\) (TM)</p>
+<p>Vậy số cần t&igrave;m l&agrave;: 42.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách giải bài toán bằng cách lập hệ phương trình dạng toán tỉ lệ phần trăm</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình dạng toán tỉ lệ phần trăm</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong><em>Lưu ý: </em></strong>\(a\%  = \frac{a}{{100}}\).</p>
+<p>Tỉ số giữa hai số a và b là \(\frac{a}{b}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Trong một k&igrave; thi, hai trường $A,B$ c&oacute; tổng cộng $350$&nbsp; học sinh dự thi. Kết quả hai trường đ&oacute; c&oacute; $338$&nbsp; học sinh tr&uacute;ng tuyển. T&iacute;nh ra th&igrave; trường $A$ c&oacute; \(97\% \)&nbsp; v&agrave; trường $B$ c&oacute; \(96 \% \)&nbsp; số học sinh tr&uacute;ng tuyển. Hỏi trường $B$ c&oacute; bao nhi&ecirc;u học sinh dự thi.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$200$<span lang="FR"> học sinh</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$150$<span lang="FR"> học sinh</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$250$<span lang="FR"> học sinh</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$225$<span lang="FR"> học sinh</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi số học sinh dự thi của hai trường $A,B$ lần lượt l&agrave; $x,y$ $ (350&gt;x,y&gt;0)$&nbsp;(học sinh)</p>
+<p style="text-align: left;">V&igrave; hai trường $A,B$ c&oacute; tổng cộng $350$&nbsp; học sinh dự thi n&ecirc;n ta c&oacute; phương tr&igrave;nh $x + y = 350$ (học sinh)</p>
+<p style="text-align: left;">V&igrave; trường $A$ c&oacute; $97\% $&nbsp; v&agrave; trường B c&oacute; $96\% $&nbsp; số học sinh tr&uacute;ng tuyển v&agrave; cả hai trường c&oacute; $338$&nbsp; học sinh tr&uacute;ng tuyển n&ecirc;n ta c&oacute; phương tr&igrave;nh $97\% .x + 96\% .y = 338$</p>
+<p style="text-align: left;">Suy ra hệ phương tr&igrave;nh $\left\{ \begin{array}{l}x + y = 350\\97\% .x + 96\% .y = 338\end{array} \right. $</p>
+<p style="text-align: left;">Từ phương tr&igrave;nh thứ nhất suy ra $x = 350 - y$</p>
+<p style="text-align: left;">Thế v&agrave;o phương tr&igrave;nh thứ hai, ta được</p>
+<p style="text-align: left;">$97\left( {350 - y} \right) + 96y = 33800$ suy ra $y = 150$ (thỏa m&atilde;n)</p>
+<p style="text-align: left;">Vậy trường $B$ c&oacute; 150&nbsp;học sinh dự thi.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Bạn Nam mua hai món hàng và phải trả tổng cộng 480000 đồng, trong đó đã tính cả 40000 đồng là thuế giá trị gia tăng (viết tắt là thuế VAT). Biết rằng thuế VAT đối với mặt hàng thứ nhất là 10%, thuế VAT đối với mặt hàng thứ hai là 8%. Hỏi nếu không kể thuế VAT thì bạn Nam phải trả mỗi món hàng là bao nhiêu tiền?</p>
+<p><em>(Trong đó: Thuế VAT là thuế mà người mua hàng phải trả, người bán hàng thu và nộp cho Nhà nước. Giả sử thuế VAT đối với mặt hàng A được quy là 10%. Khi đó nếu giá bán của mặt hàng A là x đồng thì kể cả thuế VAT, người mua phải trả tổng cộng là </em>\(x + 10\% x\)<em> đồng).</em></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> Món hàng thứ nhất là 240 000 đồng, món hàng thứ hai là 200 000 đồng.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> Món hàng thứ nhất là 220 000 đồng, món hàng thứ hai là 220 000 đồng.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> Món hàng thứ nhất là 200 000 đồng, món hàng thứ hai là 240 000 đồng.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Món hàng thứ nhất là 260 000 đồng, món hàng thứ hai là 210 000 đồng.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi số phải trả cho m&oacute;n h&agrave;ng thứ nhất kh&ocirc;ng kể thuế VAT l&agrave; \(x\) đồng, \(\left( {0 &lt; x &lt; 480000} \right).\)</p>
+<p style="text-align: left;">Gọi số phải trả cho m&oacute;n h&agrave;ng thứ nhất kh&ocirc;ng kể thuế VAT l&agrave; \(y\) đồng, \(\left( {0 &lt; y &lt; 480000} \right).\)</p>
+<p style="text-align: left;">Số tiền phải trả cho hai m&oacute;n h&agrave;ng kh&ocirc;ng mất thuế l&agrave;: \(x + y = 480000 - 40000 = 440000.\;\;\;\;\left( 1 \right)\)</p>
+<p style="text-align: left;">Số tiền thuế phải trả cho m&oacute;n h&agrave;ng thứ nhất l&agrave;: \(x.10\%&nbsp; = \dfrac{x}{{10}}\)&nbsp; (đồng)</p>
+<p style="text-align: left;">Số tiền thuế phải trả cho m&oacute;n h&agrave;ng thứ hai l&agrave;: \(y.8\%&nbsp; = \dfrac{{2y}}{{25}}\) (đồng).</p>
+<p style="text-align: left;">Số tiền thuế phải trả cho hai m&oacute;n h&agrave;ng l&agrave;: \(\dfrac{x}{{10}} + \dfrac{{2y}}{{25}} = 40000 \) hay \( 5x + 4y = 2000000\;\;\;\;\;\left( 2 \right).\)</p>
+<p style="text-align: left;">Từ (1) v&agrave; (2) ta c&oacute; hệ phương tr&igrave;nh:</p>
+<p style="text-align: left;">\(\left\{ \begin{array}{l}x + y = 440000\\5x + 4y = 2000000\end{array} \right. \\ \left\{ \begin{array}{l}4x + 4y = 1760000\\5x + 4y = 2000000\end{array} \right. \\ \left\{ \begin{array}{l}x = 240000\;\;\;\left( {tm} \right)\\y = 200000\;\;\;\left( {tm} \right)\end{array} \right..\)</p>
+<p style="text-align: left;">Vậy số tiền phải trả cho m&oacute;n h&agrave;ng thứ nhất kh&ocirc;ng phải thuế l&agrave; 240 000 đồng, m&oacute;n h&agrave;ng thứ hai l&agrave; 200 000 đồng.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;"><span lang="FR">Trong tháng đầu hai tổ sản xuất được $800$ sản phẩm. Sang tháng thứ $2$ , tổ $1$ sản xuất vượt mức $12\% $ , tổ $2$  giảm $10\% $ so với tháng đầu nên cả hai tổ làm được $786$  sản phẩm. Tính số sản phẩm tổ $1$  làm được trong tháng đầu.</span></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(500\)<span lang="FR"> sản phẩm.</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(300\)<span lang="FR"> sản phẩm </span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(200\)<span lang="FR"> sản phẩm.</span></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(400\)<span lang="FR"> sản phẩm.</span></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><span lang="FR">Gọi số sản phẩm tổ $1$  và tổ $2$  làm được trong tháng đầu lần lượt là \(x,y\), (\(x,y \in {N^*}\) \(x,y < 800\), sản phẩm).</span></p>
+<p style="text-align: left;"><span lang="FR">Số sản phẩm tổ $1$  và tổ $2$  làm được trong tháng hai là $112\% .x$ và $90\% .y$ sản phẩm</span></p>
+<p style="text-align: left;"><span lang="FR">Ta có hệ phương trình \(\left\{ \begin{array}{l}x + y = 800\\112\% x + 90\% y = 786\end{array} \right. \)</span></p>
+<p style="text-align: left;"><span lang="FR">Phương trình thứ nhất suy ra $x = 800 - y$.</span></p>
+<p style="text-align: left;"><span lang="FR">Thế vào phương trình thứ hai, ta được $112\% \left( {800 - y} \right) + 90\% .y = 786$, giải phương trình ta được $y = 500 (TM)$</span></p>
+<p style="text-align: left;"><span lang="FR">Suy ra $x = 300 (TM)$</span></p>
+<p style="text-align: left;"><span lang="FR">Vậy số sản phẩm tổ $1$  làm được trong tháng đầu là \(300\) sản phẩm.</span></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 7</span>
+                <h2 class="lesson-title">7. Cách giải bài toán bằng cách lập hệ phương trình liên quan đến vật lý, hoá học</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình liên quan đến vật lý, hoá học</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>+ Công thức: \(V = \frac{m}{D}\) (V là thể tích dung dịch, m là khối lượng dung dịch, D là khối lượng riêng của dung dịch)</p>
+<p>\(\text{Khối lượng nồng độ dung dịch} = \frac{\text{Khối lượng chất tan}}{\text{Khối lượng dung môi (m tổng)}}\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Người ta cho th&ecirc;m 1 kg nước v&agrave;o dung dịch A th&igrave; được dung dịch B c&oacute; nồng độ axit l&agrave; 20%. Sau đ&oacute; lại cho th&ecirc;m 1 kg axit v&agrave;o dung dịch B th&igrave; được dung dịch C c&oacute; nồng độ axit l&agrave; \(\dfrac{{100}}{3}\% \). T&iacute;nh nồng độ axit trong dung dịch A.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> 30%</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 40%</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 25%</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 20%</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi khối lượng axit trong dung dịch A l&agrave; l&agrave; \(x;\) khối lượng nước trong dung dịch A l&agrave; \(y\,\,\left( {kg,\,\,x,\,\,y &gt; 0} \right).\)&nbsp;</p>
+<p style="text-align: left;">Người ta cho th&ecirc;m 1 kg nước v&agrave;o dung dịch A th&igrave; được dung dịch B c&oacute; nồng độ axit l&agrave; 20% n&ecirc;n ta c&oacute;:</p>
+<p style="text-align: left;">\(\dfrac{x}{{x + y + 1}} = 20\%&nbsp; \) hay \( 0.8x - 02y = 0,2\begin{array}{*{20}{c}}{}&amp;{(1)}\end{array}\)</p>
+<p style="text-align: left;">Lại cho th&ecirc;m 1 kg axit v&agrave;o dung dịch B th&igrave; được dung dịch C c&oacute; nồng độ axit l&agrave; \(\dfrac{{100}}{3}\% \) n&ecirc;n ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}\dfrac{{x + 1}}{{x + y + 2}} = \dfrac{{100}}{3}\%&nbsp; \\ \dfrac{{x + 1}}{{x + y + 2}} = \dfrac{1}{3}\\ 2x - y =&nbsp; - 1\begin{array}{*{20}{c}}{}&amp;{(2)}\end{array}\end{array}\)</p>
+<p style="text-align: left;">Từ (1) v&agrave; (2) ta c&oacute; hệ phương tr&igrave;nh: \(\left\{ \begin{array}{l}0,8x - 0,2y = 0,2\\2x - y =&nbsp; - 1\end{array} \right. \)</p>
+<p style="text-align: left;">\( \left\{ \begin{array}{l}4x - y = 1\\2x - y =&nbsp; - 1\end{array} \right.\\&nbsp;\left\{ \begin{array}{l}2x = 2\\2x - y =&nbsp; - 1\end{array} \right. \\ \left\{ \begin{array}{l}x = 1\,\,\,\left( {tm} \right)\\y = 3\,\,\,\left( {tm} \right)\end{array} \right.\)</p>
+<p style="text-align: left;">Vậy nồng độ axit trong dung dịch A l&agrave; : \(\dfrac{1}{{3 + 1}}.100\%&nbsp; = 25\% .\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Người ta trộn 2 loại quặng sắt với nhau, loại 1 chứa 72% sắt, loại 2 chứa 58% sắt được 1 loại quặng chứa 62% sắt. Nếu tăng khối lượng của mỗi loại quặng thêm 15 tấn thì được loại quặng chứa 63,25% sắt. Tìm khối lượng mỗi loại quặng đã trộn.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> khối lượng quặng loại 1 đem trộn là 12 tấn, khối lượng quặng loại 2 đem trộn là 30 tấn.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> khối lượng quặng loại 1 đem trộn là 30 tấn, khối lượng quặng loại 2 đem trộn là 12 tấn.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> khối lượng quặng loại 1 đem trộn là 14 tấn, khối lượng quặng loại 2 đem trộn là 30 tấn.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> khối lượng quặng loại 1 đem trộn là 12 tấn, khối lượng quặng loại 2 đem trộn là 20 tấn.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Gọi khối lượng quặng loại 1 đem trộn l&agrave; \(x\) tấn,&nbsp; khối lượng quặng loại 2 đem trộn l&agrave; \(y\) tấn \(\left( {x,\,\,y &gt; 0} \right).\)</p>
+<p style="text-align: left;">Khi trộn loại 1 chứa 72% sắt, loại 2 chứa 58% sắt được 1 loại quặng chứa 62% sắt n&ecirc;n ta c&oacute; phương tr&igrave;nh:</p>
+<p style="text-align: left;">\(\begin{array}{l}72\% x + 58\% y = 62\% (x + y)\\&nbsp; 72x + 58y = 62x + 62y\\10x - 4y = 0\\ 5x - 2y = 0\begin{array}{*{20}{c}}{}&amp;{(1)}\end{array}\end{array}\)</p>
+<p style="text-align: left;">Khi tăng khối lượng của mỗi loại quặng th&ecirc;m 15 tấn th&igrave; được loại quặng chứa 63,25% sắt n&ecirc;n ta c&oacute;:</p>
+<p style="text-align: left;">\(\begin{array}{l}72\% (x + 15) + 58\% (y + 15) = 63,25\% (x + y + 30)\\ 72x + 72.15 + 58y + 58.15 = 63,25x + 63,25y + 63,25.30\\&nbsp; 8,75x - 5,25y =&nbsp; - 52,5\\&nbsp; 5x - 3y =&nbsp; - 30\begin{array}{*{20}{c}}{}&amp;{(2)}\end{array}\end{array}\)</p>
+<p style="text-align: left;">Từ (1) v&agrave; (2) ta c&oacute; hệ phương tr&igrave;nh:&nbsp;</p>
+<p style="text-align: left;">\(\left\{ \begin{array}{l}5x - 2y = 0\\5x - 3y =&nbsp; - 30\end{array} \right. \\\left\{ \begin{array}{l}y = 30\\5x - 3y =&nbsp; - 30\end{array} \right. \\ \left\{ \begin{array}{l}x = 12\,\,\,\left( {tm} \right)\\y = 30\,\,\,\left( {tm} \right)\end{array} \right.\)</p>
+<p style="text-align: left;">Vậy khối lượng quặng loại 1 đem trộn l&agrave; 12 tấn, khối lượng quặng loại 2 đem trộn l&agrave; 30 tấn.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 8</span>
+                <h2 class="lesson-title">8. Cách giải bài toán bằng cách lập hệ phương trình về Dân số - Lãi suất ngân hàng, tăng trưởng</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Cách giải bài toán bằng cách lập hệ phương trình về Dân số - Lãi suất ngân hàng, tăng trưởng</h3>
+<div><p><strong>Các bước giải bài toán bằng cách lập hệ phương trình:</strong></p>
+<p><em>Bước 1. </em>Lập hệ phương trình:</p>
+<p>- Chọn ẩn số (thường chọn hai ẩn số) và đặt điều kiện thích hợp cho các ẩn số;</p>
+<p>- Biểu diễn các đại lượng chưa biết theo ẩn và các đại lượng đã biết;</p>
+<p>- Lập hệ phương trình biểu thị mối quan hệ giữa các đại lượng.</p>
+<p><em>Bước 2.</em> Giải hệ phương trình.</p>
+<p><em>Bước 3. </em>Trả lời: Kiểm tra xem trong các nghiệm tìm được của hệ phương trình, nghiệm nào thoả mãn, nghiệm nào không thoả mãn điều kiện của ẩn, rồi kết luận.</p>
+<p><strong>Công thức cần nhớ:</strong></p>
+<p>+ Tỉ lệ phần trăm: \(x\% = \frac{x}{{100}}\).</p>
+<p>+ Tỉ lệ tăng dân số: Nếu A là số dân ban đầu, tỉ lệ gia tăng dân số là \(x\% \).</p>
+<p>· Sau 1 năm, số dân là: \(A + Ax = A\left( {1 + x} \right)\).</p>
+<p>· Sau n năm số dân là: \(A{\left( {1 + x} \right)^n}\).</p>
+<p>+ Lãi suất ngân hàng: Nếu ban đầu bạn vay (hoặc mượn) số tiền A với lãi suất \(x\% \).</p>
+<p>· Sau 1 chu kỳ (thường là năm/tháng), số tiền cả gốc lẫn lãi là: \(A + Ax = A\left( {1 + x} \right)\).</p>
+<p>· Sau n chu kỳ (thường là năm/tháng), số tiền cả gốc lẫn lãi là: \(A{\left( {1 + x} \right)^n}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp thế</h3>
+<div><p><em>Bước 1.</em> Từ một phương trình của hệ, biểu diễn một ẩn theo ẩn kia rồi thế vào phương trình còn lại của hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 2.</em> Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ đã cho.</p>
+<p><strong><em>Lưu ý: </em></strong>Tuỳ theo hệ phương trình, ta có thể lựa chọn cách biểu diễn x theo y hoặc y theo x.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách giải hệ hai phương trình bậc nhất hai ẩn bằng phương pháp cộng đại số</h3>
+<div><p><em>Bước 1. </em>Đưa hệ phương trình đã cho về hệ phương trình có hệ số của cùng một ẩn nào đó trong hai phương trình bằng nhau hoặc đối nhau bằng cách nhân hai vế của một phương trình với một số thích hợp (khác 0).</p>
+<p><em>Bước 2. </em>Cộng hay trừ từng vế của hai phương trình trong hệ để được phương trình chỉ còn chứa một ẩn.</p>
+<p><em>Bước 3. </em>Giải phương trình một ẩn vừa nhận được, từ đó suy ra nghiệm của hệ phương trình đã cho.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tìm nghiệm của hệ hai phương trình bậc nhất hai ẩn bằng máy tính cầm tay</h3>
+<div><p>Ta sử dụng loại máy tính cầm tay (MTCT) có chức năng này (có phím <strong>MODE/MENU</strong>). Dưới đây là hướng dẫn cụ thể với máy Fx-580VNX.</p>
+<p>Ta viết phương trình cần giải dưới dạng \(\left\{ \begin{array}{l}{a_1}x + {b_1}y = {c_1}\\{a_2}x + {b_2}y + {c_2}\end{array} \right.\).</p>
+<p><em>Ví dụ:</em> Giải hệ \(\left\{ \begin{array}{l}2x + y - 4 = 0\\ - 2x + y = 0\end{array} \right.\), ta viết nó dưới dạng \(\left\{ \begin{array}{l}2x + y = 4\\ - 2x + y = 0\end{array} \right.\).</p>
+<p>Khi đó, ta có \({a_1} = 2\), \({b_1} = 1\), \({c_1} = 4\), \({a_2} =  - 2\), \({b_2} = 1\), \({c_2} = 0\). Lần lượt thực hiện các bước sau:</p>
+<p><em>Bước 1.</em> Vào chức năng hệ hai phương trình bậc nhất hai ẩn bằng cách nhấn <strong>MENU</strong> rồi bấm phím <strong>9</strong> để chọn tính năng <strong>Equation/Func (Ptrình/HệPtrình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657982349-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Bấm phím <strong>1 </strong>để chọn <strong>Simul Equation (hệ phương trình)</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657990053-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Cuối cùng, bấm phím <strong>2</strong> để giải hệ hai phương trình bậc nhất</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745657998154-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2. </em>Ta nhập các hệ số \({a_1},{b_1},{c_1},{a_2},{b_2},{c_2}\) bằng cách bấm</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0426/1745658004054-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Sau khi nhập xong, ta bấm phím =, màn hình hiện x = 1; tiếp tục bấm =, màn hình hiện y = 2. Ta hiểu nghiệm của hệ phương trình là (1;2).</p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>- Muốn xoá số vừa mới nhập thì bấm phím AC, muốn thay đổi số đã nhập ở vị trí nào đó thì di chuyển con trỏ đến vị trí đó rồi nhập số mới.</p>
+<p>- Bấm phím ▲ hay ▼ để chuyển hiển thị các giá trị của x và y trong kết quả.</p>
+<p>- Nếu máy báo Infinite Solution thì hệ phương trình đã cho có vô số nghiệm.</p>
+<p>   Nếu máy báo No Solution thì hệ phương trình đã cho vô nghiệm.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

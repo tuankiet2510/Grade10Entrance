@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phương trình tích - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 05: Phương trình tích</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Phương trình tích là gì? Cách giải phương trình tích</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phương trình tích</h3>
+<div><p>Phương trình tích là một dạng phương trình trong đó hai hoặc nhiều hạng tử (biểu thức chứa biến số) nhân với nhau bằng 0. Cụ thể, phương trình tích có dạng tổng quát sau:</p>
+<p>A(x) . B(x) = 0 với A(x) và B(x) là các biểu thức đại số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải phương trình tích dạng (ax + b)(cx + d) = 0</h3>
+<div><p>Để giải phương trình tích \(\left( {ax + b} \right)\left( {cx + d} \right) = 0\), ta giải hai phương trình \(ax + b = 0\) và \(cx + d = 0\). Sau đó lấy tất cả các nghiệm của chúng.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Nghiệm của phương tr&igrave;nh \(x\left( {x + 1} \right) = 0\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = 0\) v&agrave; \(x =&nbsp; - 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = 1\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = 1\) v&agrave; \(x =&nbsp; - 1\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(x\left( {x + 1} \right) = 0\)</p>
+<p>+) \(x = 0\)</p>
+<p>+) \(x + 1 = 0\) suy ra \(x =&nbsp; - 1\).</p>
+<p>Vậy phương tr&igrave;nh c&oacute; hai nghiệm \(x = 0\) v&agrave; \(x = &nbsp;- 1\).</p>
+<p><strong>Đ&aacute;p &aacute;n A.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Phương trình: \(\left( {4 + 2x} \right)\left( {x - 1} \right) = 0\) có nghiệm là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x = 1;x = 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x =  - 2;x = 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x =  - 1;x = 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x = 1;x = \dfrac{1}{2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có \(\left( {4 + 2x} \right)\left( {x - 1} \right) = 0\)</p>
+<p style="text-align: left;">+) \(4 + 2x = 0\) hay \(2x =  - 4\) suy ra \(x =  - 2\)</p>
+<p style="text-align: left;">+) \(x - 1 = 0\) suy ra \(x = 1\)</p>
+<p style="text-align: left;">Vậy phương trình có hai nghiệm \(x = 1;\,x =  - 2\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Các nghiệm của phương trình \(\left( {2 + 6x} \right)\left( { - {x^2} - 4} \right) = 0\) là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(x = 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(x =  - 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(x =  - \dfrac{1}{2};\,x = 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(x =  - \dfrac{1}{3}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có</p>
+<p style="text-align: left;">\(\left( {2 + 6x} \right)\left( { - {x^2} - 4} \right) = 0\)</p>
+<p style="text-align: left;">Ta giải hai phương trình \(2 + 6x = 0\) và \(- {x^2} - 4 = 0\)</p>
+<p style="text-align: left;">\(+)\,2 + 6x = 0\\6x =  - 2\\x =  - \dfrac{1}{3}\)</p>
+<p style="text-align: left;">\(+)\,- {x^2} - 4 = 0\\ - {x^2} = 4\\{x^2} =  - 4\,\left( {VN} \right)\)</p>
+<p style="text-align: left;">Phương trình có nghiệm duy nhất \(x =  - \dfrac{1}{3}\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Phương trình \(\left( {x - 1} \right)\left( {x - 2} \right)\left( {x - 3} \right) = 0\) có số nghiệm là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(1\)    </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;"> \(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;"> \(4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta có \(\left( {x - 1} \right)\left( {x - 2} \right)\left( {x - 3} \right) = 0\)</p>
+<p style="text-align: left;">\(x - 1 = 0\) hoặc \(x - 2 = 0\) hoặc \(x - 3 = 0\)</p>
+<p style="text-align: left;">hay \(x = 1\) hoặc \(x = 2\) hoặc \(x = 3\)</p>
+<p style="text-align: left;">Vậy phương trình có ba nghiệm \(x = 1\) ; \(x = 2\) ; \(x = 3\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Phương tr&igrave;nh \(\left( { - 3x - 4} \right)\left( {5x - 10} \right) = 0\) c&oacute; nghiệm l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x = 2\) v&agrave; \(x =&nbsp; - \frac{1}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x = 1\) v&agrave; \(x =&nbsp; - \frac{4}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x = 3\) v&agrave; \(x =&nbsp; - \frac{4}{3}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x = 2\) v&agrave; \(x =&nbsp; - \frac{4}{3}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\left( { - 3x - 4} \right)\left( {5x - 10} \right) = 0\)</p>
+<p>\( - 3x - 4 = 0\) suy ra \( - 3x = 4\) suy ra \(x =&nbsp; - \frac{4}{3}\).</p>
+<p>\(5x - 10 = 0\) suy ra \(5x = 10\) suy ra \(x = 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Cách đưa phương trình về dạng phương trình tích. Cách giải phương trình đưa về phương trình tích</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm phương trình tích</h3>
+<div><p>Phương trình tích là một dạng phương trình trong đó hai hoặc nhiều hạng tử (biểu thức chứa biến số) nhân với nhau bằng 0. Cụ thể, phương trình tích có dạng tổng quát sau:</p>
+<p>A(x) . B(x) = 0 với A(x) và B(x) là các biểu thức đại số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách giải phương trình tích dạng (ax + b)(cx + d) = 0</h3>
+<div><p>Để giải phương trình tích \(\left( {ax + b} \right)\left( {cx + d} \right) = 0\), ta giải hai phương trình \(ax + b = 0\) và \(cx + d = 0\). Sau đó lấy tất cả các nghiệm của chúng.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách đưa phương trình về dạng phương trình tích</h3>
+<div><p>Để đưa phương trình về phương trình tích, ta kết hợp chuyển vế, phân tích vế trái thành nhân tử, vế phải bằng 0.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách giải phương trình đưa về phương trình tích</h3>
+<div><p><em>Bước 1: </em>Đưa phương trình về phương trình tích \(\left( {ax + b} \right)\left( {cx + d} \right) = 0\).</p>
+<p><em>Bước 2: </em>Giải phương trình tích tìm được.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Chọn khẳng định <strong>đ&uacute;ng</strong>.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">Phương tr&igrave;nh \(8x\left( {3x - 5} \right) = 6\left( {3x - 5} \right)\)c&oacute; hai nghiệm tr&aacute;i dấu</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">Phương tr&igrave;nh \(8x\left( {3x - 5} \right) = 6\left( {3x - 5} \right)\)c&oacute; hai nghiệm c&ugrave;ng dương</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">Phương tr&igrave;nh \(8x\left( {3x - 5} \right) = 6\left( {3x - 5} \right)\)c&oacute; hai nghiệm c&ugrave;ng &acirc;m&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">Phương tr&igrave;nh \(8x\left( {3x - 5} \right) = 6\left( {3x - 5} \right)\)c&oacute; một nghiệm duy nhất</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; \(8x\left( {3x - 5} \right) = 6\left( {3x - 5} \right)\)</p>
+<p style="text-align: left;">\(8x\left( {3x - 5} \right) - 6\left( {3x - 5} \right) = 0\\&nbsp; \left( {8x - 6} \right)\left( {3x - 5} \right) = 0\)</p>
+<p style="text-align: left;">\(+)\,8x - 6 = 0\\8x = 6\\x = \dfrac{3}{4}\)</p>
+<p style="text-align: left;">\(+)\,3x - 5 = 0\\3x = 5\\x = \dfrac{5}{3}\)</p>
+<p style="text-align: left;">Vậy phương tr&igrave;nh đ&atilde; cho c&oacute; hai nghiệm c&ugrave;ng dương \(x = \dfrac{3}{4};\,x = \dfrac{5}{3}\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Tích các nghiệm của phương trình \({x^3} + 4{x^2} + x - 6 = 0\) là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(1\)    </p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\( - 6\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(6\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có</p>
+<p>${x^3} + 4{x^2} + x - 6 = 0\\{x^3} - {x^2} + 5{x^2} - 5x + 6x - 6 = 0\\{x^2}\left( {x - 1} \right) + 5x\left( {x - 1} \right) + 6\left( {x - 1} \right) = 0\\ \left( {x - 1} \right)\left( {{x^2} + 5x + 6} \right) = 0\\ \left( {x - 1} \right)\left( {{x^2} + 2x + 3x + 6} \right) = 0\\ \left( {x - 1} \right)\left[ {x\left( {x + 2} \right) + 3\left( {x + 2} \right)} \right] = 0\\ \left( {x - 1} \right)\left( {x + 2} \right)\left( {x + 3} \right) = 0.$</p>
+<p>Suy ra \(x - 1 = 0\) hoặc \(x + 2 = 0\) hoặc \(x + 3 = 0\)<br>hay \(x = 1\) hoặc \(x =  - 2\) hoặc \(x =  - 3\)</p>
+<p>Vậy $S = \left\{ {1; - 2; - 3} \right\}$ nên tích các nghiệm là \(1.\left( { - 2} \right).\left( { - 3} \right) = 6\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Nghiệm lớn nhất của phương tr&igrave;nh \(\left( {{x^2} - 1} \right)\left( {2x - 1} \right) = \left( {{x^2} - 1} \right)\left( {x + 3} \right)\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(2\)&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(1\)&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\( - 1\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(4\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; \(\left( {{x^2} - 1} \right)\left( {2x - 1} \right) = \left( {{x^2} - 1} \right)\left( {x + 3} \right)\)</p>
+<p>\(\left( {{x^2} - 1} \right)\left( {2x - 1} \right) - \left( {{x^2} - 1} \right)\left( {x + 3} \right) = 0\\\left( {{x^2} - 1} \right)\left( {2x - 1 - x - 3} \right) = 0\\\left( {{x^2} - 1} \right)\left( {x - 4} \right) = 0\)</p>
+<p>\(+)\,{x^2} - 1 = 0\\{x^2} = 1\\x =&nbsp; \pm 1\)</p>
+<p>\(+)\,x - 4 = 0\\x = 4\)</p>
+<p>Vậy tập nghiệm của phương tr&igrave;nh \(S = \left\{ { - 1;1;4} \right\}\) .</p>
+<p>Nghiệm lớn nhất của phương tr&igrave;nh l&agrave; \(x = 4.\)&nbsp;</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Nghiệm nhỏ nhất của phương trình \({\left( {2x + 1} \right)^2} = {\left( {x - 1} \right)^2}\) là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(3\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\( - 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta có \({\left( {2x + 1} \right)^2} - {\left( {x - 1} \right)^2} = 0\)<br>\(\left( {2x + 1 + x - 1} \right)\left( {2x + 1 - x + 1} \right) = 0\\ 3x\left( {x + 2} \right) = 0\)</p>
+<p>\(+)\,3x = 0\\x = 0\)</p>
+<p>\(+)\,x + 2 = 0\\x =  - 2\)</p>
+<p>Vậy tập nghiệm của phương trình \(S = \left\{ {0; - 2} \right\}\).</p>
+<p>Nghiệm nhỏ nhất là \(x =  - 2\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Tập nghiệm của phương tr&igrave;nh \(\left( {{x^2} + x} \right)\left( {{x^2} + x + 1} \right) = 6\) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">\(S = \left\{ { - 1; - 2} \right\}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">\(S = \left\{ {1;2} \right\}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">\(S = \left\{ {1; - 2} \right\}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">\(S = \left\{ { - 1;2} \right\}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&nbsp;Đặt \({x^2} + x = y,\) ta c&oacute;:</p>
+<p>&nbsp;</p>
+<p>\(y\left( {y + 1} \right) = 6\)</p>
+<p>\( {y^2} + y - 6 = 0 \)\({y^2} + 2y - 3y - 6 = 0\\ y\left( {y + 2} \right) - 3\left( {y + 2} \right) = 0 \)</p>
+<p>\(\left( {y + 3} \right)\left( {y - 2} \right) = 0\)</p>
+<p>suy ra \(y =&nbsp; - 3\) hoặc \(y = 2\)</p>
+<p>+ Với \(y =&nbsp; - 3,\) ta c&oacute; \({x^2} + x + 3 = 0,\) v&ocirc; nghiệm v&igrave;:</p>
+<p>\({x^2} + x + 3 = {\left( {x + \dfrac{1}{2}} \right)^2} + \dfrac{{11}}{4} &gt; 0\)</p>
+<p>+ Với \(y = 2\), ta c&oacute;</p>
+<p>\(\begin{array}{l}{x^2} + x - 2 = 0 {x^2} + 2x - x - 2 = 0\\ x\left( {x + 2} \right) - \left( {x + 2} \right) = 0\\ \left( {x + 2} \right)\left( {x - 1} \right) = 0\end{array}\)</p>
+<p>suy ra \( x = -2\) hoặc \(x = 1\)</p>
+<p>Vậy \(S = \left\{ { 1;-2} \right\}\) .</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

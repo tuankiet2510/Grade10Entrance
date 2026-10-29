@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng tần số và biểu đồ tần số - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 29: Bảng tần số và biểu đồ tần số</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Tần số là gì? Cách xác định tần số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách xác định tần số</h3>
+<div>Để xác định tần số của một giá trị trong dãy dữ liệu, ta đếm số lần xuất hiện của giá trị đó trong mẫu dữ liệu.</div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Gieo một con x&uacute;c xắc 50 lần v&agrave; được kết quả như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0218/1739874644780-mceclip0.png" /></p>
+<p>Tần số xuất hiện của mặt ba chấm l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>9.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tần số xuất hiện của mặt ba chấm l&agrave; 9.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Điểm kiểm tra m&ocirc;n to&aacute;n giữa học k&igrave; 1 lớp 9A cho bởi bảng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786257088-mceclip0.png" /></p>
+<p>Số học sinh đạt điểm từ 8 đến 10 l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>17.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>23.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>18.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t bảng tr&ecirc;n, ta thấy:</p>
+<p>+ Số lần xuất hiện điểm 8 l&agrave;: 10</p>
+<p>+ Số lần xuất hiện điểm 9 l&agrave;: 4</p>
+<p>+ Số lần xuất hiện điểm 10 l&agrave;: 3</p>
+<p>Vậy điểm từ 8 đến 10 c&oacute; số lần xuất hiện l&agrave; 10 + 4 + 3 = 17.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Trong b&#xE0;i th&#x1A1; &#x201C;Qu&#xEA; h&#x1B0;&#x1A1;ng&#x201D; c&#x1EE7;a t&#xE1;c gi&#x1EA3; &#x110;&#x1ED7; Trung Qu&#xE2;n c&#xF3; hai c&#xE2;u th&#x1A1;:</p>
+<p style="text-align: center;"><em>&#x201C;Qu&#xEA; h&#x1B0;&#x1A1;ng n&#x1EBF;u ai kh&#xF4;ng nh&#x1EDB;</em></p>
+<p style="text-align: center;"><em>S&#x1EBD; kh&#xF4;ng l&#x1EDB;n n&#x1ED5;i th&#xE0;nh ng&#x1B0;&#x1EDD;i&#x201D;</em></p>
+<p>M&#x1EAB;u d&#x1EEF; li&#x1EC7;u th&#x1ED1;ng k&#xEA; c&#xE1;c ch&#x1EEF; c&#xE1;i H; N; G; L l&#x1EA7;n l&#x1B0;&#x1EE3;t xu&#x1EA5;t hi&#x1EC7;n trong hai c&#xE2;u th&#x1A1; tr&#xEA;n l&#xE0;:</p>
+<p>H; N; G; N; H; N; G; N; H; H; N; G; L; N; N; H; N; H; N; G.</p>
+<p>T&#x1EA7;n s&#x1ED1; xu&#x1EA5;t hi&#x1EC7;n ch&#x1EEF; c&#xE1;i N trong hai c&#xE2;u th&#x1A1; tr&#xEA;n l&#xE0;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>9.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>10.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&#xE1;t m&#x1EAB;u d&#x1EEF; li&#x1EC7;u th&#x1ED1;ng k&#xEA; c&#xE1;c ch&#x1EEF; c&#xE1;i H; N; G; L tr&#xEA;n ta th&#x1EA5;y ch&#x1EEF; c&#xE1;i N c&#xF3; s&#x1ED1; l&#x1EA7;n xu&#x1EA5;t hi&#x1EC7;n l&#xE0; 9.</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Khảo s&aacute;t về phương tiện đến trường của c&aacute;c bạn học sinh nam lớp 9A2, bạn Mai thu được mẫu dữ liệu sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786130189-mceclip0.png" /></p>
+<p>Tần số xuất hiện của gi&aacute; trị &ldquo;đi bộ&rdquo; l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>8.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>9.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t bảng tr&ecirc;n ta gi&aacute; trị &ldquo;đi bộ&rdquo; c&oacute; số lần xuất hiện l&agrave; 9.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body">Gieo một con xúc xắc 50 lần cho kết quả như sau:<img style="text-align: center;" src="https://img.loigiaihay.com/picture/2024/1025/screenshot-54.png" />
+<p>Tần số xuất hiện mặt 3 chấm là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>9</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 10</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 11</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 12</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tần số xuất hiện mặt 3 chấm là: 50 – 8 – 7 – 8 – 6 – 11 = 10</p>
+<p><strong>Chọn B.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body">Gieo một con xúc xắc 30 lần cho kết quả như sau:
+<p style="text-align: center;"><img src="https://img.loigiaihay.com/picture/2024/1024/screenshot-32.png" /></p>
+<p>Tần số xuất hiện mặt 5 chấm là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 5.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> 6.</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 7.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tần số xuất hiện mặt 5 chấm là \(30 - 5 - 4 - 6 - 2 - 6 = 7\)</p>
+<p><strong>Chọn D.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Gieo một con x&uacute;c xắc 100 lần cho kết quả như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786551557-mceclip0.png" /></p>
+<p>Tần số xuất hiện của mặt 4 chấm l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>18.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>20.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>22.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>24.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t bảng tr&ecirc;n ta thấy mặt 4 chấm xuất hiện l&agrave;:</p>
+<p>&nbsp;100 &ndash; (16+14+16+12+22) = 20.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Mẫu số liệu là gì? Bảng tần số là gì? Cách lập bảng tần số. Mục đích của bảng tần số là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Mẫu số liệu</h3>
+<div><strong><em>Mẫu số liệu </em></strong>là tập hợp các dữ liệu thu thập được theo tiêu chí cho trước.</div>
+</div>
+<div style="padding: 7px">
+<h3>2. Bảng tần số</h3>
+<div><p><strong><em>Bảng tần số </em></strong>là bảng thống kê cho biết tần số của các giá trị trong mẫu dữ liệu.</p>
+<p>Bảng tần số có dạng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622130671-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong đó \({m_1}\) là tần số của \({x_1}\), \({m_2}\) là tần số của \({x_2}\),…, \({m_k}\) là tần số của \({x_k}\).</p>
+<p><strong><em>Chú ý: </em></strong><em>Bảng tần số </em>cũng được cho ở dạng cột:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622135674-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Nhận xét:</em></strong> Trong bảng tần số, ta chỉ liệt kê các giá trị \({x_i}\) khác nhau. Các giá trị \({x_i}\) này có thể không là số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Lập bảng tần số</h3>
+<div><p>Để lập bảng tần số ở dạng bảng ngang ta có thể làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các giá trị khác nhau của mẫu dữ liệu và tìm tần số của mỗi giá trị đó.</p>
+<p><strong><em>Bước 2:</em></strong> Lập bảng gồm 2 dòng và một số cột</p>
+<p>Theo thứ tự từ trên xuống dưới, ta lần lượt ghi:</p>
+<p>+ Cột đầu tiên: Tên các giá trị (x) , tần số(n) .</p>
+<p>+ Các cột tiếp theo lần lượt ghi giá trị và tần số của giá trị đó.</p>
+<p>+ Cột cuối cùng : Cộng, N = ...</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622159110-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Mục đích của bảng tần số</h3>
+<div><p>+ Biểu đồ tần số dạng cột biểu diễn một cách trực quan sự phân bố của dữ liệu. Nó cho ta biết dữ liệu tập trung nhiều nhất ở giá trị nào, ít xuất hiện nhất ở giá trị nào. Nó thuận tiện cho việc so sánh tần số của các giá trị hoặc xác định những giá trị đặc biệt trong mẫu dữ liệu.</p>
+<p>+ Biểu đồ tần số dạng đoạn thẳng biểu thị rõ xu hướng thay đổi tần số các giá trị theo thời gian, giúp ta so sánh mức độ biến động của tần số.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một cửa h&agrave;ng đem c&acirc;n một số bao gạo (đơn vị kilogram), kết&nbsp;quả ghi lại ở bảng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786066104-mceclip0.png" /></p>
+<p>Chọn ph&aacute;t biểu sai trong c&aacute;c ph&aacute;t biểu sau</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>C&oacute; 6 gi&aacute; trị kh&aacute;c nhau của dấu hiệu.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Khối lượng chủ yếu của 1 bao gạo l&agrave; 55kg.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Khối lượng cao nhất của một bao gạo l&agrave; 60kg.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Khối lượng thấp nhất của một bao gạo l&agrave; 40 kg.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>C&oacute; 6 gi&aacute; trị kh&aacute;c nhau l&agrave;: 40; 45; 50; 55; 60; 65 n&ecirc;n A đ&uacute;ng.</p>
+<p>Tần số của bao gạo 55 kg l&agrave; lớn nhất n&ecirc;n khối lượng chủ yếu của một bao gạo l&agrave; 55kg do đ&oacute; B đ&uacute;ng.</p>
+<p>Khối lượng thấp nhất v&agrave; cao nhất của một bao gạo l&agrave; 40kg v&agrave; 65kg n&ecirc;n C sai, D đ&uacute;ng.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Thời gian giải một b&agrave;i to&aacute;n (t&iacute;nh theo ph&uacute;t) của học sinh lớp 9 được ghi lại trong bảng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732785982833-mceclip0.png" /></p>
+<p>Mẫu dữ liệu tr&ecirc;n c&oacute; bao nhi&ecirc;u gi&aacute; trị kh&aacute;c nhau l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>7.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>8.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t bảng tr&ecirc;n c&oacute;&nbsp;8&nbsp;gi&aacute; trị kh&aacute;c nhau của dữ liệu l&agrave;:&nbsp;3; 4; 5; 6; 7; 8; 9; 10.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Một bảng tần số về điểm kiểm tra của lớp 9A như sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732785916926-mceclip0.png" /></p>
+<p>Cỡ mẫu của mẫu số liệu tr&ecirc;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>30.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>40.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>50.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>60.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Cỡ mẫu của mẫu số liệu tr&ecirc;n l&agrave;:</p>
+<p>10 + 15 + 20 + 5 = 50.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Một cửa h&agrave;ng đồ chơi trong th&aacute;ng qua b&aacute;n được 60 hộp lego thuộc nhiều thương hiệu đồ chơi kh&aacute;c nhau. Dưới đ&acirc;y l&agrave; bảng thống k&ecirc; của đại l&iacute;:</p><p><img src="https://img.loigiaihay.com/picture/2025/0305/1741160384501-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Lego v&agrave; Hot Wheel.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Lego v&agrave; Sembo Block.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Hot Wheel v&agrave; Moyu Block.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Lego v&agrave; Moyu Block.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Theo bảng tần số, tần số của Lego, Hot Wheel, Cada, Moyu Block, Wange, Sembo Block lần lượt l&agrave; 18; 9; 5; 18; 3; 7.</p>
+<p>M&agrave; 18 &gt; 9 &gt; 7 &gt; 5 &gt; 3 n&ecirc;n tần số của Lego v&agrave; Moyu Block l&agrave; lớn nhất.</p>
+<p>Vậy cửa h&agrave;ng n&ecirc;n nhập lego của c&aacute;c h&atilde;ng Lego v&agrave; Moyu Block.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>C&aacute;c số liệu thống k&ecirc; k&iacute;ch thước (đơn vị: cm) của 24 con mực được nu&ocirc;i cấy thử nghiệm của trung t&acirc;m A được ghi lại như sau:</p>
+<p>12, 11, 11, 12, 8, 11, 12, 7, 7, 10, 11, 12, 9, 12, 5, 9, 9, 12, 8, 9, 7, 10, 12, 10.</p>
+<p>Trong 24 số liệu tr&ecirc;n c&oacute; bao nhi&ecirc;u gi&aacute; trị kh&aacute;c nhau?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>C&oacute; 5 gi&aacute; trị kh&aacute;c nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>C&oacute; 6 gi&aacute; trị kh&aacute;c nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>C&oacute; 7 gi&aacute; trị kh&aacute;c nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>C&oacute; 8 gi&aacute; trị kh&aacute;c nhau.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; bảng tần số:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0303/1740987495707-mceclip0.png" /></p>
+<p>C&oacute; 7 gi&aacute; trị kh&aacute;c nhau.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Bảng dưới đ&acirc;y thể hiện v&eacute; xuất ra trong 1 ng&agrave;y của VinWonders Cửa Hội tại Cửa L&ograve;. Bảng thống k&ecirc; n&agrave;y được gọi l&agrave; loại bảng thống k&ecirc; n&agrave;o?</p><p><img src="https://img.loigiaihay.com/picture/2025/0301/1740814218326-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Bảng tần số.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Bảng tần số tương đối.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Bảng thống k&ecirc;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Bảng tần suất.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Bảng tr&ecirc;n l&agrave; bảng tần số.</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Một người thống k&ecirc; nhiệt độ v&agrave;o buổi trưa của một tuần (t&iacute;nh bằng (\(^\circ C\))) như sau:</p>
+<p>23&nbsp;&nbsp; 24&nbsp;&nbsp; 24&nbsp;&nbsp; 23&nbsp;&nbsp; 24&nbsp;&nbsp; 25&nbsp;&nbsp; 21</p>
+<p>Đ&acirc;u l&agrave; bảng tần số của mẫu số liệu tr&ecirc;n?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786484443-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786488911-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786494932-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArQAAACYCAMAAAFVFroaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURf///0JCQt7e3iEhIYyMjJSUlO/v5t7m5tbO1vf39wAAAEpKSjoxOmtrY7W1ta2trTExMSkpIZScnFpaUhAICHNrc6WcpQAICMXOxXt7c8W9xVJKUr21vRAZEEpalLVavYxaQubWEOZaEIxaEBlanIRa7xla7xlacxlaxVpjY7UZ70oZnL0ZQkoZ7+aUQuYZQuaUlOYZlL0ZEJTm3rWUEEoZc0oZxeaUa+YZa7XOY0qMY0reEBBCGWve5r2Ua1qt5hmt5ine5oTvYxmtYxneMRnvY0re5pyUawje5hnOY3t7hOalveZCveZzveYQvbVa771aQubWlEpa7+ZalObWQuZaQhAQQnuca71aEObWa0paxeZaa7XvY0rvY0qtY0reMRBjGUrOY+al7+ZC7+/WveZz7+YQ71oQQlpaEFoQEIQQc4TOEBmMEDpaGYQpvYQIvXNavWuMpSmMpRlCSkqMpQiMpb2MzpSMzpxac7UQc7XOEEqMEDEQQloxQub3lFpaMVoxELUpvYwpQualEOYpEIwpELUIvYwIQuaEEOYIEIwIEL3vpYQp74SlOhkpnBkp75y975TvpYSlEBkpcxkpxYQQlITOMRmMMWuM5imM5oTOcxmMcxnvEIQxc4TvEBmtEL3OpYQI74SEOhkInBkI75y9zpTOpYSEEBkIcxkIxUqM5giM5oTOUhmMUhnOEBljSmutpSmtpWvvpSnvpUrvpQjvpUqtpQitpWvOpSnOpUrOpQjOpZRavb3m772M7zEQCLWlOnNalL2MpZSM75xalLUQlLXOMUqMMb1ac7Uxc7XvEEqtEL3mzrWEOoQxlITvMRmtMb1alLUxlLXvMUqtMUpKa8W95rWMjOb3Geb3SpS1lIyEpffW7721nN7O79733pS1tTEQIToxEHNSY0JaSu/W3hAIIff33t7m99bmvUpjUtbOvYScjOb3/0I6UgghIYR7jPfv99bO3pSEjAAAEJScjNbm3vfv5kIxQoSMjP/3/yEpIYyMlNbe3pSUjAAAAKfTTZsAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAACXBIWXMAABcRAAAXEQHKJvM/AAA2W0lEQVR4Xu197XKbOrQ2CCISagIF4wgHLsC34vt8L+Od3kD/nj/7eCbxJM2PvYuTcdJJxk1nzlqSAAHC+CNx0jZPWoMxiKVHS0tL38ar4UIeN0PSOHaDyONm8OQxlsdubBduEd5G4bqGMTaMJYPImQwuBQb1H4yleKWZrPBgDFyWcXkjw+fhxjme4A25YMUPjJSfcODDtsF+ZtltxmnjN3PA+wCX/BPfBrdyOa/E8TESt16KGy14BcWTHD8kD2nmmolljAkKhzIn8HGDv4T4AeCP8PAoPAlHNmZTvAQ38PDhBgi6TFIRboVKXBFSHT3pxoV45qfNcNfjXejDFngtebcNF1UAoEuqGrbhAVVL6P46BDZ+FvKiMjWfkTFPFf31AxAglxlBD/GbwoMpT1sQceHhBhZ8IcRb8ktaJAF+QrhcHny2FcfipRy7pZvMVGuwW7giruvQqwI1FOEV8van9yFRSMPtlA5FZOtid2qKhCOPvcHWuewLtrj7Vh5bWBOsb4SlQrgXqL540ze0+Y5BAwOKHpA2Nq54RreskGePxDXApM+MPDAm/AnToLEMXQSbPGOw/GNupsY5HGWm47dFhbTi5abxLz/e4a/8BnidPA2ioQtZhwc7Mlx8YAqPmcOHyDiGL7YIowgWpD05/sEvQaEogjeW6SNIKwA3ZsZyZSYPKZyq3FaFqCyDQIgtkwxZ+gf+751kirQKNg32hRWsEKY32BN5FBjIYxd6g92PhF2yAw24qwJ4bFok0ATIDEJa+eRSqnQ4x0+Qlt8AP7rgxHHMpLTc9idGRMUtCuDuMlhQX47CBeLBK8H6Lio8hwjWMqgDmdM5ZrIcLlEEiyTImEjvzrC5zVWCDWU2AVu/N7dFfiluFOgL9pUM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" /></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t mẫu số liệu thống k&ecirc; tr&ecirc;n tr&ecirc;n ta thấy:</p>
+<p>\(21^\circ C\) xuất hiện 1 lần,</p>
+<p>\(22^\circ C\) kh&ocirc;ng xuất hiện,</p>
+<p>\(23^\circ C\) xuất hiện 2 lần,</p>
+<p>\(24^\circ C\) xuất hiện 3 lần,</p>
+<p>\(25^\circ C\) xuất hiện 1 lần.</p>
+<p>Do đ&oacute; bảng tần số của mẫu số liệu tr&ecirc;n l&agrave; bảng D.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786520927-mceclip0.png" /></p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Biểu đồ tần số là gì? Các loại biểu đồ tần số thường gặp</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biểu đồ tần số</h3>
+<div><p>Biểu đồ biểu diễn bảng tần số được gọi là <strong><em>biểu đồ tần số</em></strong>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Biểu đồ tần số thường gặp</h3>
+<div><p>Biểu đồ tần số thường gặp là biểu đồ tần số dạng cột và biểu đồ tần số dạng đoạn thẳng (còn được gọi là  đa giác tần số - frequency polygon).</p>
+<p><em>Ví dụ:</em> Hai biểu đồ này cùng biểu diễn dữ liệu “Kết quả kiểm tra môn Toán”:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622212184-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tuổi nghề (đơn vị: năm) của 32 gi&aacute;o vi&ecirc;n ở một trường trung học cơ sở được biểu diễn ở biểu đồ cột như h&igrave;nh dưới đ&acirc;y:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786927089-mceclip0.png" /></p>
+<p>Tần số của gi&aacute;o vi&ecirc;n c&oacute; tuổi nghề 10 năm l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>6.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>8.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t biểu đồ cột tr&ecirc;n ta thấy gi&aacute;o vi&ecirc;n c&oacute; tuổi nghề 10 năm c&oacute; số gi&aacute;o vi&ecirc;n l&agrave; 6.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho biểu đồ tần số biểu diễn số con vật của một trang trại nhỏ:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732786998342-mceclip0.png" /></p><p>Bảng tần số của biểu đồ n&agrave;y l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787029782-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787033559-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787037668-mceclip0.png" /></p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787041834-mceclip0.png" /></p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Tần số của cừu l&agrave; 5, b&ograve; l&agrave; 3, lợn l&agrave; 1 v&agrave; g&agrave; l&agrave; 6 n&ecirc;n bảng tần số biểu diễn l&agrave; bảng C.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787057028-mceclip0.png" /></p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Mỗi sản phẩm trước khi ra mắt đều cần thử nghiệm để đ&aacute;nh gi&aacute; sản phẩm mới trước khi ch&uacute;ng được b&aacute;n ra thị trường.</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787297733-mceclip0.png" /></p>
+<p>Để nghi&ecirc;n cứu &ldquo;tuổi thọ&rdquo; của một loại b&oacute;ng đ&egrave;n, người ta đ&atilde; chọn t&ugrave;y &yacute; 50 b&oacute;ng đ&egrave;n v&agrave; bật s&aacute;ng li&ecirc;n tục cho tới l&uacute;c ch&uacute;ng tự tắt. &ldquo;Tuổi thọ&rdquo; của c&aacute;c b&oacute;ng (t&iacute;nh theo giờ) được ghi lại ở biểu đồ tần số sau: (l&agrave;m tr&ograve;n đến h&agrave;ng chục)</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1128/1732787302548-mceclip0.png" /></p>
+<p>&ldquo;Tuổi thọ&rdquo; của b&oacute;ng đ&egrave;n c&oacute; tần số lớn nhất l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1160.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>1170.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>1180.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>1190.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Quan s&aacute;t biểu đồ ta thấy gi&aacute; trị 1180 c&oacute; tần số lớn nhất (18) n&ecirc;n &ldquo;tuổi thọ&rdquo; của b&oacute;ng đ&egrave;n c&oacute; tần số lớn nhất l&agrave; 1180 giờ.</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách vẽ biểu đồ tần số dạng đoạn thẳng</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biểu đồ tần số</h3>
+<div><p>Biểu đồ biểu diễn bảng tần số được gọi là <strong><em>biểu đồ tần số</em></strong>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách vẽ biểu đồ tần số dạng đoạn thẳng</h3>
+<div><p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2.</em> Với mỗi giá trị trên trục ngang và tần số tương ứng ta xác định một điểm. Nối các điểm liên tiếp với nhau.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2.</em> Với mỗi giá trị trên trục ngang và tần số tương ứng ta xác định một điểm. Nối các điểm liên tiếp với nhau.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p>Ví dụ: Vẽ biểu đồ tần số dạng đoạn thẳng:</p>
+<p><em>Bước 1. </em>Vẽ các trục.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622244952-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2.</em> Xác định các điểm và nối các điểm liên tiếp với nhau.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622252357-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622257844-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Cách vẽ biểu đồ tần số dạng cột</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Biểu đồ tần số</h3>
+<div><p>Biểu đồ biểu diễn bảng tần số được gọi là <strong><em>biểu đồ tần số</em></strong>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách vẽ biểu đồ tần số dạng cột</h3>
+<div><p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2. </em>Với mỗi giá trị trên trục ngang, vẽ những cột hình chữ nhật: cách đều nhau; có cùng chiều rộng; có chiều cao thể hiện tần số của các giá trị.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Khi biểu diễn bảng tần số bằng một biểu đồ hay khi đọc và phân tích dữ liệu trên các biểu đồ, ta phải chú ý đến đơn vị của trục tung, tránh đưa ra những kết luận không chính xác do chỉ căn cứ vào hình vẽ.</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Khi vẽ biểu đồ, ta nên chọn đơn vị phù hợp cho trục tần số để có thể bắt đầu từ số 0, không gây nhầm lẫn về thị giác.</p>
+<p><em>Ví dụ:</em> Hai biểu đồ này cùng mô tả một dữ liệu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622285636-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Tổng hợp về biểu đồ tần số</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Tần số</h3>
+<div><p><strong><em>Tần số </em></strong>của một giá trị là số lần xuất hiện giá trị đó trong mẫu dữ liệu.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Bảng tần số</h3>
+<div><p><strong><em>Bảng tần số </em></strong>là bảng thống kê cho biết tần số của các giá trị trong mẫu dữ liệu.</p>
+<p>Bảng tần số có dạng sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622130671-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Trong đó \({m_1}\) là tần số của \({x_1}\), \({m_2}\) là tần số của \({x_2}\),…, \({m_k}\) là tần số của \({x_k}\).</p>
+<p><strong><em>Chú ý: </em></strong><em>Bảng tần số </em>cũng được cho ở dạng cột:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622135674-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Nhận xét:</em></strong> Trong bảng tần số, ta chỉ liệt kê các giá trị \({x_i}\) khác nhau. Các giá trị \({x_i}\) này có thể không là số.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Lập bảng tần số</h3>
+<div><p>Để lập bảng tần số ở dạng bảng ngang ta có thể làm như sau:</p>
+<p><strong><em>Bước 1:</em></strong> Xác định các giá trị khác nhau của mẫu dữ liệu và tìm tần số của mỗi giá trị đó.</p>
+<p><strong><em>Bước 2:</em></strong> Lập bảng gồm 2 dòng và một số cột</p>
+<p>Theo thứ tự từ trên xuống dưới, ta lần lượt ghi:</p>
+<p>+ Cột đầu tiên: Tên các giá trị (x) , tần số(n) .</p>
+<p>+ Các cột tiếp theo lần lượt ghi giá trị và tần số của giá trị đó.</p>
+<p>+ Cột cuối cùng : Cộng, N = ...</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622159110-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Biểu đồ tần số</h3>
+<div><p>Biểu đồ biểu diễn bảng tần số được gọi là <strong><em>biểu đồ tần số</em></strong>.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Biểu đồ tần số thường gặp</h3>
+<div><p>Biểu đồ tần số thường gặp là biểu đồ tần số dạng cột và biểu đồ tần số dạng đoạn thẳng (còn được gọi là  đa giác tần số - frequency polygon).</p>
+<p><em>Ví dụ:</em> Hai biểu đồ này cùng biểu diễn dữ liệu “Kết quả kiểm tra môn Toán”:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622212184-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách vẽ biểu đồ tần số dạng đoạn thẳng</h3>
+<div><p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2.</em> Với mỗi giá trị trên trục ngang và tần số tương ứng ta xác định một điểm. Nối các điểm liên tiếp với nhau.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2.</em> Với mỗi giá trị trên trục ngang và tần số tương ứng ta xác định một điểm. Nối các điểm liên tiếp với nhau.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p>Ví dụ: Vẽ biểu đồ tần số dạng đoạn thẳng:</p>
+<p><em>Bước 1. </em>Vẽ các trục.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622244952-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 2.</em> Xác định các điểm và nối các điểm liên tiếp với nhau.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622252357-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622257844-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>7. Cách vẽ biểu đồ tần số dạng cột</h3>
+<div><p><em>Bước 1. </em>Vẽ trục ngang để biểu diễn các giá trị trong dãy dữ liệu, vẽ trục đứng thể hiện tần số.</p>
+<p><em>Bước 2. </em>Với mỗi giá trị trên trục ngang, vẽ những cột hình chữ nhật: cách đều nhau; có cùng chiều rộng; có chiều cao thể hiện tần số của các giá trị.</p>
+<p><em>Bước 3. </em>Ghi chú giải cho các trục, các điểm và tiêu đề của biểu đồ.</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Khi biểu diễn bảng tần số bằng một biểu đồ hay khi đọc và phân tích dữ liệu trên các biểu đồ, ta phải chú ý đến đơn vị của trục tung, tránh đưa ra những kết luận không chính xác do chỉ căn cứ vào hình vẽ.</p>
+<p><strong><em>Lưu ý:</em></strong></p>
+<p>Khi vẽ biểu đồ, ta nên chọn đơn vị phù hợp cho trục tần số để có thể bắt đầu từ số 0, không gây nhầm lẫn về thị giác.</p>
+<p><em>Ví dụ:</em> Hai biểu đồ này cùng mô tả một dữ liệu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0704/1751622285636-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+    </div>
+</body>
+</html>

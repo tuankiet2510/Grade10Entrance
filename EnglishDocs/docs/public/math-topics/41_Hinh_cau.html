@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hình cầu - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 41: Hình cầu</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hình cầu là gì? Hình cầu có các yếu tố gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915696375-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915713543-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình cầu như ở hình trên, ta có:</p>
+<p>- Nửa đường tròn đường kính AB quét nên mặt cầu; như vậy, mặt cầu là hình được tạo ra khi quay một nửa đường tròn một vòng xung quanh đường thẳng cố định chứa đường kính của nó;</p>
+<p>- Điểm O là tâm của hình cầu (hay tâm của mặt cầu);</p>
+<p>- Đoạn thẳng AB là đường kính của hình cầu (hay đường kính của mặt cầu);</p>
+<p>- R là bán kính của hình cầu (hay bán kính của mặt cầu).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ dưới đ&acirc;y</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0403/1743663855795-mceclip0.png" /></p>
+<p>B&aacute;n k&iacute;nh h&igrave;nh cầu bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(\sqrt {10} cm.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(5cm.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(10cm.\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(20cm.\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh của h&igrave;nh cầu l&agrave;: \(R = \frac{{10}}{2} = 5\left( {cm} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Một c&aacute;i bồn chứa xăng gồm hai nửa h&igrave;nh cầu v&agrave; một h&igrave;nh trụ. Bán kính của hai nửa hình c&acirc;̀u là</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1210/1733820577822-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>0,9m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>1,8m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>0,6m.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>1,2m.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Đường kính đáy của b&ocirc;̣ ph&acirc;̣n hình trụ bằng 1,8 m n&ecirc;n bán kính đáy của h&igrave;nh trụ bằng bán kính của nửa hình c&acirc;̀u là: 1,8 : 2 = 0,9 m</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Một h&igrave;nh cầu c&oacute; đường k&iacute;nh l&agrave; 10cm. B&aacute;n k&iacute;nh của h&igrave;nh cầu l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(10\,{\rm{cm}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(5\,{\rm{cm}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\sqrt 5 \,{\rm{cm}}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(20\,{\rm{cm}}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh của h&igrave;nh cầu l&agrave;: \(R = \frac{{10}}{2} = 5cm\)</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Mặt cầu là gì? Cách tạo lập hình cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm mặt cầu</h3>
+<div><p>Mặt cầu là phần chung giữa mặt phẳng và hình cầu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915756849-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu cắt một hình cầu bởi một mặt phẳng thì phần chung giữa chúng là một hình tròn như hình trên.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Đường tròn lớn của một mặt cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915785918-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu cắt một hình cầu bởi một mặt phẳng đi qua tâm hình cầu thì phần chung giữa chúng là một hình tròn lớn như hình trên.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định phần chung của mặt phẳng và hình cầu</h3>
+<div><p>Nếu cắt một mặt cầu bởi một mặt phẳng thì phần chung giữa chúng là một đường tròn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tạo lập hình cầu</h3>
+<div><p>Cắt một số miếng bìa có dạng hình tròn có cùng đường kính (hình 1).<br/>Mỗi miếng bìa tròn đó được cắt hai nửa hình tròn (hình 2).<br/>Ghép các miếng bìa có dạng nửa hình tròn đó để được một hình cầu như dưới đây (hình 3).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915819588-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>H&igrave;nh cầu t&acirc;m \(O\) b&aacute;n k&iacute;nh \(R\) được tạo ra khi quay</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>nửa đường tr&ograve;n t&acirc;m \(O\) b&aacute;n k&iacute;nh \(R\) quanh đường k&iacute;nh của n&oacute;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>tam gi&aacute;c vu&ocirc;ng quanh cạnh g&oacute;c vu&ocirc;ng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>nửa h&igrave;nh tr&ograve;n t&acirc;m \(O\) b&aacute;n k&iacute;nh \(R\) quanh đường k&iacute;nh của n&oacute;.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>h&igrave;nh chữ nhật quanh một cạnh của n&oacute;.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>H&igrave;nh cầu t&acirc;m O b&aacute;n k&iacute;nh R được tạo ra khi quay nửa h&igrave;nh tr&ograve;n t&acirc;m O b&aacute;n k&iacute;nh R quanh đường k&iacute;nh của n&oacute;.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Quan s&aacute;t h&igrave;nh sau cho biết phần chung giữa mặt phẳng v&agrave; h&igrave;nh cầu l&agrave; h&igrave;nh g&igrave;?</p><p><img src="https://img.loigiaihay.com/picture/2025/0412/1744426471365-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>H&igrave;nh vu&ocirc;ng.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>H&igrave;nh chữ nhật.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>H&igrave;nh tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>H&igrave;nh thang.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Phần chung giữa mặt phẳng v&agrave; h&igrave;nh cầu l&agrave; h&igrave;nh tr&ograve;n.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Khi cắt h&igrave;nh cầu t&acirc;m \(O\) b&aacute;n k&iacute;nh \(R\) bởi một mặt phẳng bất kỳ th&igrave; mặt cắt thu được lu&ocirc;n l&agrave; một</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>h&igrave;nh chữ nhật.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>h&igrave;nh tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>đường tr&ograve;n.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>h&igrave;nh vu&ocirc;ng.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Khi cắt h&igrave;nh cầu t&acirc;m \(O\) b&aacute;n k&iacute;nh \(R\) bởi một mặt phẳng bất kỳ th&igrave; mặt cắt thu được lu&ocirc;n l&agrave; một h&igrave;nh tr&ograve;n.</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Tr&aacute;i Đất của ch&uacute;ng ta được xem l&agrave; c&oacute; dạng h&igrave;nh cầu, c&oacute; b&aacute;n k&iacute;nh l&agrave; R. Khi đ&oacute; b&aacute;n k&iacute;nh của đường x&iacute;ch đạo l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(2R\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(\frac{R}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(4R\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>R.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733821210484-mceclip0.png" /></p><p>Đường x&iacute;ch đạo l&agrave; một đường tr&ograve;n lớn đi qua t&acirc;m Tr&aacute;i Đất n&ecirc;n b&aacute;n k&iacute;nh của n&oacute; bằng b&aacute;n k&iacute;nh R của Tr&aacute;i Đất.</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách tính diện tích mặt cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915696375-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm mặt cầu</h3>
+<div><p>Mặt cầu là phần chung giữa mặt phẳng và hình cầu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915756849-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu cắt một hình cầu bởi một mặt phẳng thì phần chung giữa chúng là một hình tròn như hình trên.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Diện tích mặt cầu</h3>
+<div><p>Diện tích S của mặt cầu có bán kính R là:</p>
+<p>\(S = 4\pi {R^2}\).</p>
+<p><em>Ví dụ: </em></p>
+<p>Diện tích mặt cầu là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915848613-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>\(S = 4\pi {R^2} = 4\pi {.10^2} = 400\pi \left( {c{m^2}} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>T&iacute;nh diện t&iacute;ch mặt cầu của quả địa cầu trong h&igrave;nh vẽ sau, biết đường k&iacute;nh quả địa cầu \(d = 30cm\) (quả địa cầu c&oacute; dạng một h&igrave;nh cầu).</p><p><img src="https://img.loigiaihay.com/picture/2025/0404/1743754849016-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(60\pi \) \(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(450\pi \) \(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(900\pi \) \(\left( {c{m^2}} \right)\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(300\pi \) \(\left( {c{m^2}} \right)\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0404/1743754883088-mceclip0.png" /></p><p>Giả sử quả địa cầu l&agrave; một h&igrave;nh cầu t&acirc;m O b&aacute;n k&iacute;nh r.</p>
+<p>Diện t&iacute;ch mặt cầu c&oacute; t&acirc;m O b&aacute;n k&iacute;nh r l&agrave;: \(S = 4\pi {r^2}\) hay \(S = \pi {d^2}\) (với \(d = 2r\) l&agrave; đường k&iacute;nh của h&igrave;nh cầu)</p>
+<p>Do đ&oacute; \(S = \pi {.30^2} = 900\pi \left( {c{m^2}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body">Diện tích bề mặt của một quả bóng hình cầu có bán kính 5cm là</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(10\pi c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(400\pi c{m^2}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(50\pi c{m^2}\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(100\pi c{m^2}\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Diện tích bề mặt của một quả bóng hình cầu có bán kính 5cm là \(S = 4\pi {r^2} = 4\pi {.5^2} = 100\pi {\mkern 1mu} {\mkern 1mu} (c{m^2})\)</p>
+<p><strong>Chọn D.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh cầu c&oacute; đường k&iacute;nh \(d = 6cm\). Diện t&iacute;ch mặt cầu l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(36\pi \,(c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(9\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(12\pi (c{m^2})\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(36\pi (cm)\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>B&aacute;n k&iacute;nh của mặt cầu l&agrave;: \(6:2 = 3cm\)</p>
+<p>Diện t&iacute;ch mặt cầu l&agrave;:</p>
+<p>\(S = 4\pi {R^2} = 4\pi {.3^2} = 36\pi \,(c{m^2})\)</p>
+<p><strong>Đ&aacute;p &aacute;n A</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính thể tích hình cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915696375-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915713543-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình cầu như ở hình trên, ta có:</p>
+<p>- Nửa đường tròn đường kính AB quét nên mặt cầu; như vậy, mặt cầu là hình được tạo ra khi quay một nửa đường tròn một vòng xung quanh đường thẳng cố định chứa đường kính của nó;</p>
+<p>- Điểm O là tâm của hình cầu (hay tâm của mặt cầu);</p>
+<p>- Đoạn thẳng AB là đường kính của hình cầu (hay đường kính của mặt cầu);</p>
+<p>- R là bán kính của hình cầu (hay bán kính của mặt cầu).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Khái niệm mặt cầu</h3>
+<div><p>Mặt cầu là phần chung giữa mặt phẳng và hình cầu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915756849-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu cắt một hình cầu bởi một mặt phẳng thì phần chung giữa chúng là một hình tròn như hình trên.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Thể tích hình cầu</h3>
+<div><p>Thể tích của hình cầu có bán kính R là</p>
+<p>\(V = \frac{4}{3}\pi {R^3}\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915876460-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Thể tích hình cầu là:</p>
+<p>\(V = \frac{4}{3}\pi {R^3} = \frac{4}{3}\pi {.10^3} = \frac{{4000\pi }}{3}\left( {c{m^3}} \right)\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một mặt phẳng đi qua tâm hình cầu, cắt hình cầu theo một hình tròn có diện tích \(9\pi c{m^2}.\) Thể tích của hình cầu bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p><strong>$927\pi c{{m}^{3}}$</strong>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p><strong>$36\pi c{{m}^{3}}$</strong>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p><strong>$6\pi c{{m}^{3}}$</strong>.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p><strong>$81\pi c{{m}^{3}}$</strong>.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2025/0331/1743407618081-mceclip0.png"></p><p>Vì diện tích của hình tròn là \(9\pi c{m^2}\) nên ta có: \(\pi {r^2} = 9\pi \)</p>
+<p>Suy ra bán kính của hình cầu là: \(r = \sqrt 9  = 3\left( {cm} \right)\)</p>
+<p>Do đó thể tích của hình cầu là: \(V = \frac{4}{3}\pi {r^3} = \frac{4}{3}\pi {.3^3} = 36\pi \left( {c{m^3}} \right)\)</p>
+<p><strong>Đáp án B</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Tổng hợp về hình cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Định nghĩa Hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915696375-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Yếu tố của hình cầu</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915713543-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Với hình cầu như ở hình trên, ta có:</p>
+<p>- Nửa đường tròn đường kính AB quét nên mặt cầu; như vậy, mặt cầu là hình được tạo ra khi quay một nửa đường tròn một vòng xung quanh đường thẳng cố định chứa đường kính của nó;</p>
+<p>- Điểm O là tâm của hình cầu (hay tâm của mặt cầu);</p>
+<p>- Đoạn thẳng AB là đường kính của hình cầu (hay đường kính của mặt cầu);</p>
+<p>- R là bán kính của hình cầu (hay bán kính của mặt cầu).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Khái niệm mặt cầu</h3>
+<div><p>Mặt cầu là phần chung giữa mặt phẳng và hình cầu.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915756849-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Nếu cắt một hình cầu bởi một mặt phẳng thì phần chung giữa chúng là một hình tròn như hình trên.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách tạo lập hình cầu</h3>
+<div><p>Cắt một số miếng bìa có dạng hình tròn có cùng đường kính (hình 1).<br/>Mỗi miếng bìa tròn đó được cắt hai nửa hình tròn (hình 2).<br/>Ghép các miếng bìa có dạng nửa hình tròn đó để được một hình cầu như dưới đây (hình 3).</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915819588-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Diện tích mặt cầu</h3>
+<div><p>Diện tích S của mặt cầu có bán kính R là:</p>
+<p>\(S = 4\pi {R^2}\).</p>
+<p><em>Ví dụ: </em></p>
+<p>Diện tích mặt cầu là:</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915848613-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>\(S = 4\pi {R^2} = 4\pi {.10^2} = 400\pi \left( {c{m^2}} \right)\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Thể tích hình cầu</h3>
+<div><p>Thể tích của hình cầu có bán kính R là</p>
+<p>\(V = \frac{4}{3}\pi {R^3}\).</p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0719/1752915876460-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Thể tích hình cầu là:</p>
+<p>\(V = \frac{4}{3}\pi {R^3} = \frac{4}{3}\pi {.10^3} = \frac{{4000\pi }}{3}\left( {c{m^3}} \right)\).</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Kết hợp hình trụ, hình nón, hình cầu</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Kết hợp hình trụ, hình nón, hình cầu</h3>
+<div><table border="1" cellpadding="0" cellspacing="0" style="width: 100%;">
+<tbody>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p> </p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p>Hình trụ</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915928359-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p>Hình nón</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915931859-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p>Hình cầu</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0719/1752915935752-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+</td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Định nghĩa</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p>Hình trụ là hình được tạo ra khi quay một hình chữ nhật một vòng xung quanh một đường thẳng cố định chứa một cạnh của nó.</p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p>Hình nón là hình được tạo ra khi quay một hình tam giác vuông một vòng xung quanh đường thẳng cố định chứa một cạnh góc vuông của tam giác đó.</p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p>Hình cầu là hình được tạo ra khi quay một nửa hình tròn một vòng xung quanh một đường thẳng cố định chứa đường kính của nó.</p>
+</td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Đặc điểm</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%"><img src="https://img.loigiaihay.com/picture/2025/0719/1752915940104-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></td>
+<td style="width: 30%;" valign="top" width="30%"><img src="https://img.loigiaihay.com/picture/2025/0719/1752915943090-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></td>
+<td style="width: 32%;" valign="top" width="32%"><img src="https://img.loigiaihay.com/picture/2025/0719/1752915953241-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Diện tích xung quanh</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p>\({S_{xq}} = 2\pi rh\)</p>
+<p>bán kính đáy r và chiều cao h</p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p>\({S_{xq}} = \pi rl\)</p>
+<p>bán kính đáy r, độ dài đường sinh l</p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p> </p>
+</td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Diện tích toàn phần</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p>\({S_{tp}} = 2\pi rh + 2\pi {r^2} = 2\pi r\left( {h + r} \right)\)</p>
+<p>bán kính đáy r và chiều cao h</p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p>\({S_{tp}} = \pi rl + \pi {r^2} = \pi r\left( {l + r} \right)\)</p>
+<p>bán kính đáy r, độ dài đường sinh l và chiều cao h</p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p> </p>
+</td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Diện tích mặt cầu</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p> </p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p> </p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p>\(S = 4\pi {R^2}\)</p>
+<p>bán kính R</p>
+</td>
+</tr>
+<tr>
+<td style="width: 6%;" valign="top" width="6%">
+<p>Thể tích</p>
+</td>
+<td style="width: 31%;" valign="top" width="31%">
+<p>\(V = S.h = \pi {r^2}h\)</p>
+<p>bán kính đáy r và chiều cao h</p>
+</td>
+<td style="width: 30%;" valign="top" width="30%">
+<p>\(V = \frac{1}{3}\pi {r^2}h\)</p>
+<p>bán kính đáy r và chiều cao h</p>
+</td>
+<td style="width: 32%;" valign="top" width="32%">
+<p>\(V = \frac{4}{3}\pi {R^3}\)</p>
+<p>bán kính R</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p> </p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Một que kem ốc quế gồm hai phần: phần kem c&oacute; dạng h&igrave;nh cầu, phần ốc quế c&oacute; dạng h&igrave;nh n&oacute;n. Biết b&aacute;n k&iacute;nh h&igrave;nh cầu v&agrave; b&aacute;n k&iacute;nh h&igrave;nh n&oacute;n bằng nhau v&agrave; bằng 2,5 cm; chiều cao của h&igrave;nh n&oacute;n gấp 3 lần b&aacute;n k&iacute;nh h&igrave;nh cầu. T&iacute;nh thể t&iacute;ch của que kem? (Lấy \(\pi&nbsp; = 3,14\) v&agrave; l&agrave;m tr&ograve;n kết quả đến h&agrave;ng đơn vị).</p><p><img src="https://img.loigiaihay.com/picture/2024/1210/1733821901011-mceclip0.png" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(55\left( {c{m^3}} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(82\left( {c{m^3}} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(28\left( {c{m^3}} \right)\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(85\left( {c{m^3}} \right)\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Chiều cao của h&igrave;nh n&oacute;n l&agrave;:</p>
+<p>\({\rm{h&nbsp; = 3}}{\rm{.2,5 = 7,5}}\,\,{\rm{(cm)}}\)</p>
+<p>Thể t&iacute;ch phần th&acirc;n h&igrave;nh n&oacute;n l&agrave;:</p>
+<p>\({V_1} = \frac{1}{3}.\pi .{R^2}.h\,{\rm{ =&nbsp; }}\frac{1}{3}.\pi .2,{5^2}.7,5 = \frac{{125}}{8}.\pi \,\,(c{m^3})\)</p>
+<p>Thể t&iacute;ch phần kem nửa h&igrave;nh cầu ph&iacute;a tr&ecirc;n l&agrave;:</p>
+<p>\({V_2} = \frac{1}{2}.\frac{4}{3}.\pi .{R^3} = \frac{1}{2}.\frac{4}{3}.\pi .2,{5^3} = \frac{{125}}{{12}}.\pi \,(c{m^3})\)</p>
+<p>Thể t&iacute;ch que kem l&agrave;:</p>
+<p>\(V = {V_1} + {V_2} = \frac{{125}}{8}.\pi&nbsp; + \frac{{125}}{{12}}.\pi&nbsp; = \frac{{625}}{{24}}.\pi&nbsp; \approx 82\left( {c{m^3}} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p><img src="https://img.loigiaihay.com/picture/2025/0603/1748940064180picture9-1718876737.png" alt="Media VietJack" width="209" height="201"></p>
+<div>Một xưởng sản xuất muốn tạo ra những chiếc đồng hồ cát bằng thủy tinh có dạng hình trụ, phần chứa cát là hai nửa hình cầu bằng nhau. Hình vẽ bên với các kích thước đã cho là bản thiết kế thiết diện qua trục của chiếc đồng hồ này (phần không tô màu làm bằng thủy tinh). Khi đó, lượng thủy tinh làm chiếc đồng hồ cát gần nhất với giá trị nào trong các giá trị sau?</div></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <div>
+<p class="MsoNormal" style="text-align: justify;  mso-pagination: none; tab-stops: 14.2pt 127.6pt 241.0pt 354.4pt;">\(711,6\;\,{\rm{c}}{{\rm{m}}^3}.\)    </p>
+</div>
+                                            </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <div>\(1070,8\;\,{\rm{c}}{{\rm{m}}^3}.\)                    </div>
+                                            </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <div>\(602,2\;\,{\rm{c}}{{\rm{m}}^3}.\)                      </div>
+                                            </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <div>\(6021,3\;\,{\rm{c}}{{\rm{m}}^3}.\)</div>
+                                            </div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><div>
+<p>Thể tích của hình trụ là: \({V_1} = \pi {r^2}h = \pi  \cdot {\left( {\frac{{13,2}}{2}} \right)^2} \cdot 13,2 = 1806,39\,\,\left( {\;{\rm{c}}{{\rm{m}}^3}} \right).\)</p>
+<p>Thể tích hình cầu chứa cát là: \({V_2} = \frac{4}{3}\pi {R^3} = \frac{4}{3}\pi  \cdot {\left( {\frac{{13,2 - 2}}{2}} \right)^3} = 735,62\,\,\left( {\;{\rm{c}}{{\rm{m}}^3}} \right).\)</p>
+<p>Vậy lượng thủy tinh cần phải làm là: \(V = {V_1} - {V_2} = 1070,77\,\,\left( {\;{\rm{c}}{{\rm{m}}^3}} \right).\) Chọn B.</p>
+</div></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Một hộp dựng bóng tennis có dạng hình trụ. Biết rằng hộp chứa vừa khít ba quả bóng tennis được xếp theo chiều dọc, các quả bóng tennis có kích thước như nhau. Thể tích phần không gian còn trống trong hộp chiếm tỉ lệ a% so với thể tích của hộp bóng tennis. Số a gần nhất với số nào sau đây?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>50.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>66.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>30.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>33.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><strong><img src="https://img.loigiaihay.com/picture/2025/0611/174961107354054-1581148058.png" alt="" width="434" height="153"></strong></p>
+<p>Gọi r là bán kính của quả bóng tennis.</p>
+<p>Khi đó bán kính đáy hộp bằng r, chiều cao hộp bằng 6r.</p>
+<p>Khi đó thể tích hộp bóng hình trụ là: \(V = \pi.r^2.h = \pi.r^2.6r = 6\pi.r^3\)</p>
+<p>Thể tích một quả bóng tennis là: \(V_b = \frac{4}{3} \pi r^3\)</p>
+<p>Thể tích ba quả bóng tennis là: \(3.V_b = 3.\frac{4}{3}\pi r^3 = 4\pi r^3\)</p>
+<p>Thể tích phần không gian còn trống trong hộp là:</p>
+<p>\(V_{kg} = V - 3V_b = 6\pi r^3 - 4 \pi r^3 = 2\pi r^3\)</p>
+<p>Ta có: \(\frac{V_{kg}}{V} = \frac{ 2\pi r^3}{6\pi r^3} = \frac{1}{3} \approx 33\% = a\%\)</p>
+<p>Do đó \(a \approx 33\)</p>
+<p><strong>Đáp án D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

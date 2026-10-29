@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Căn thức bậc hai - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 10: Căn thức bậc hai</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Căn thức bậc hai là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+
+</div>
+            </div>
+            
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Điều kiện xác định là gì? Điều kiện xác định của căn thức bậc hai là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định</h3>
+<div><p>Điều kiện xác định của phương trình là điều kiện các giá trị của ẩn trong biểu thức được xác định.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body">Điều kiện xác định của \(\sqrt x \) là</div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x &gt; 0\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(x \ge 0\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(x &lt; 0\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(x \le 0\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\sqrt x \) có nghĩa khi \(x \ge 0\)</p>
+<p><strong>Chọn B.</strong></p>
+<p> </p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Cách tìm điều kiện xác định của căn thức bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định hay có nghĩa khi \(A \ge 0\). Từ đó ta giải bất phương trình để tìm điều kiện xác định.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Căn thức \(\sqrt {4 - 2x} \) x&aacute;c định khi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \ge 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x \le 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ge&nbsp; - 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \le&nbsp; - 2\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Căn thức \(\sqrt {4 - 2x} \) x&aacute;c định khi \(4 - 2x \ge 0\) suy ra \(x \le 2\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Biểu thức \(\sqrt {2x - 1} \) x&aacute;c định khi</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x \le \frac{1}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x \ge \frac{1}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x &lt; \frac{1}{2}\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x &gt; \frac{1}{2}\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện x&aacute;c định của \(\sqrt {2x - 1} \) l&agrave; \(2x - 1 \ge 0\) hay \(x \ge \frac{1}{2}\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Điều kiện x&aacute;c định của biểu thức \(\sqrt {x - 10} \) l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x - 10 &lt; 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x - 10 \le 0\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \ge 10\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \le 10\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Điều kiện x&aacute;c định của biểu thức \(\sqrt {x - 10} \) l&agrave; \(x - 10 \ge 0\) hay \(x \ge 10\).</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>T&igrave;m \(x\) để \(\sqrt {\dfrac{{{{\left( { - 5} \right)}^2}}}{{6 - 3x}}} \) c&oacute; nghĩa</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(x &lt; 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(x &gt; 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(x \le 2\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(x \ge 2\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sqrt {\dfrac{{{{\left( { - 5} \right)}^2}}}{{6 - 3x}}} \) c&oacute; nghĩa khi</p>
+<p>\(\dfrac{{{{\left( { - 5} \right)}^2}}}{{6 - 3x}} \ge 0 \\ \dfrac{{25}}{{6 - 3x}} \ge 0\) m&agrave; \(25 &gt; 0\)\(6 - 3x &gt; 0 \\ 6 &gt; 3x \\ x &lt; 2\).</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Cách tính giá trị biểu thức chứa căn tại giá trị của ẩn cho trước</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách tính giá trị biểu thức chứa căn tại giá trị của ẩn cho trước</h3>
+<div><p>Để tính giá trị biểu thức chứa căn tại giá trị cho trước, ta làm các bước sau:</p>
+<p><em>+ Bước 1: </em>Kiểm tra xem giá trị có thoả mãn điều kiện của biểu thức không.</p>
+<p><em>+ Bước 2: </em>Nếu giá trị thoả mãn, ta thay giá trị cho trước của ẩn vào biểu thức để tính.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách tìm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định hay có nghĩa khi \(A \ge 0\). Từ đó ta giải bất phương trình để tìm điều kiện xác định.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Tính giá trị của biểu thức \(A = \frac{{x - 3}}{{\sqrt {x - 2}  - 1}}\) tại \(x = 5 - 2\sqrt 2 \).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(A = 2\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(A = 1 - \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(A = \sqrt 2 \).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(A =  - \sqrt 2 \).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Thay \(x = 5 - 2\sqrt 2 \) vào A, ta được:</p>
+<p>\(\begin{array}{l}A = \frac{{5 - 2\sqrt 2  - 3}}{{\sqrt {5 - 2\sqrt 2  - 2}  - 1}} = \frac{{2 - 2\sqrt 2 }}{{\sqrt {3 - 2\sqrt 2 }  - 1}}\\ = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\sqrt {2 - 2\sqrt 2  + 1}  - 1}} = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\sqrt {{{\left( {\sqrt 2  - 1} \right)}^2}}  - 1}}\\ = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\left| {\sqrt 2  - 1} \right| - 1}} = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\sqrt 2  - 1 - 1}}\\ = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\sqrt 2  - 2}} = \frac{{2\left( {1 - \sqrt 2 } \right)}}{{\sqrt 2 \left( {1 - \sqrt 2 } \right)}} = \sqrt 2 \end{array}\)</p>
+<p><strong>Đáp án C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Căn thức bậc hai có tính chất gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Tính chất của căn thức bậc hai</h3>
+<div><p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Biểu thức \(\sqrt {{{\left( {3 - 2x} \right)}^2}} \) bằng</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(3 - 2x\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(2x - 3\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(\left| {2x - 3} \right|\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(3x - 2\) v&agrave; \(2 - 3x\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\sqrt {{{\left( {3 - 2x} \right)}^2}}&nbsp; = \left| {3 - 2x} \right| = \left| {2x - 3} \right|\).</p>
+<p><strong>Đ&aacute;p &aacute;n C.</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Rút gọn biểu thức sau \(\sqrt {{{\left( {a - b} \right)}^2}}  - 3\sqrt {{a^2}}  + 2\sqrt {{b^2}} \) với \(a &lt; 0 &lt; b\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \( - 2a + b\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(3b - 2a\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(2a + 3b\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(a + b\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>\(\sqrt {{{\left( {a - b} \right)}^2}}&nbsp; - 3\sqrt {{a^2}}&nbsp; + 2\sqrt {{b^2}}&nbsp; = \left| {a - b} \right| - 3\left| a \right| + 2\left| b \right|\)</p>
+<p>V&igrave; \(a &lt; 0 &lt; b \Rightarrow \left\{ \begin{array}{l}a - b &lt; 0\\a &lt; 0\\b &gt; 0\end{array} \right. \Rightarrow \left\{ \begin{array}{l}\left| {a - b} \right| = b - a\\\left| a \right| =&nbsp; - a\\\left| b \right| = b\end{array} \right.\)</p>
+<p>\(\begin{array}{l} \Rightarrow \left| {a - b} \right| - 3\left| a \right| + 2\left| b \right| = b - a - 3\left( { - a} \right) + 2b\\ = b - a + 3a + 2b\\ = b - a + 3a + 2b\\ = 2a + 3b.\end{array}\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(A = \sqrt {144{a^2}}&nbsp; - 9a\) với \(a &gt; 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - 9a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( - 3a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(3a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(9a\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sqrt {144{a^2}}&nbsp; = \sqrt {{{\left( {12a} \right)}^2}}&nbsp; = \left| {12a} \right|\) m&agrave; \(a &gt; 0 \Rightarrow 12a &gt; 0\) n&ecirc;n \(\left| {12a} \right| = 12a\) hay \(\sqrt {144{a^2}}&nbsp; = 12a\).</p>
+<p>Từ đ&oacute;: \(A = \sqrt {144{a^2}}&nbsp; - 9a = 12a - 9a = 3a.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức</p>
+<p style="text-align: left;">$\sqrt {{a^2} + 8a + 16}&nbsp; + \sqrt {{a^2} - 8a + 16} $ với $ - 4 \le a \le 4$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$8$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ - 8$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 2a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {{a^2} + 8a + 16}&nbsp; = \sqrt {{{\left( {a + 4} \right)}^2}}&nbsp; = \left| {a + 4} \right|$.</p>
+<p style="text-align: left;">M&agrave; $ - 4 \le a \le 4 \Rightarrow a + 4 \ge 0$</p>
+<p style="text-align: left;">$\Rightarrow \left| {a + 4} \right| = a + 4$</p>
+<p style="text-align: left;">Hay $\sqrt {{a^2} + 8a + 16}&nbsp; = a + 4$ với $ - 4 \le a \le 4$</p>
+<p style="text-align: left;">Ta c&oacute; $\sqrt {{a^2} - 8a + 16}&nbsp; = \sqrt {{{\left( {a - 4} \right)}^2}} $</p>
+<p style="text-align: left;">$= \left| {a - 4} \right|$.</p>
+<p style="text-align: left;">M&agrave; $ - 4 \le a \le 4 \Rightarrow a - 4 \le 0 $</p>
+<p style="text-align: left;">$\Rightarrow \left| {a - 4} \right| = 4 - a$</p>
+<p style="text-align: left;">Hay $\sqrt {{a^2} - 8a + 16}&nbsp; = 4 - a$ với $ - 4 \le a \le 4$</p>
+<p style="text-align: left;">Khi đ&oacute; $\sqrt {{a^2} + 8a + 16}&nbsp; + \sqrt {{a^2} - 8a + 16}&nbsp; $</p>
+<p style="text-align: left;">$= a + 4 + 4 - a = 8$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức $A = \sqrt {36{a^2}}&nbsp; + 3a$ với $a &gt; 0$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$ - 9a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ - 3a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ 3a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ 9a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;&nbsp; $\sqrt {36{a^2}}&nbsp; = \sqrt {{{\left( {6a} \right)}^2}}&nbsp; = \left| {6a} \right|$ m&agrave; $a &gt; 0 \Rightarrow 6a &gt; 0$ n&ecirc;n $\left| {6a} \right| = 6a$ hay $\sqrt {36{a^2}}&nbsp; = 6a$.</p>
+<p style="text-align: left;">Từ đ&oacute; $A = \sqrt {36{a^2}}&nbsp; + 3a = 6a + 3a = 9a$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Cách rút gọn căn thức bậc hai</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm căn thức bậc hai</h3>
+<div><p><em>Căn thức bậc hai </em>là biểu thức có dạng \(\sqrt A \), trong đó A là một biểu thức đại số. A được gọi là biểu thức lấy căn hoặc biểu thức dưới dấu căn.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm điều kiện xác định của căn thức bậc hai</h3>
+<div><p>\(\sqrt A \) xác định khi A lấy giá trị không âm và ta thường viết là \(A \ge 0\). Ta nói \(A \ge 0\) là <em>điều kiện xác định </em>(hay điều kiện có nghĩa) của \(\sqrt A \).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của căn thức bậc hai</h3>
+<div><p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Cách rút gọn căn thức bậc hai</h3>
+<div><p>Để rút gọn căn thức bậc hai, ta dựa vào các kiến thức:</p>
+<p>- Đưa các biểu thức dưới dấu căn về hằng đẳng thức. Thông thường là</p>
+<p>· \({\left( {a + b} \right)^2} = {a^2} + 2ab + {b^2}\)</p>
+<p>· \({\left( {a - b} \right)^2} = {a^2} - 2ab + {b^2}\)</p>
+<p>Với A là một biểu thức, ta có:</p>
+<p>· Với \(A \ge 0\) ta có \(\sqrt A  \ge 0\); \({\left( {\sqrt A } \right)^2} = A\);</p>
+<p>· \(\sqrt {{A^2}}  = \left| A \right|\).</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>R&uacute;t gọn biểu thức \(A = \sqrt {144{a^2}}&nbsp; - 9a\) với \(a &gt; 0\).</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\( - 9a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( - 3a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(3a\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(9a\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\sqrt {144{a^2}}&nbsp; = \sqrt {{{\left( {12a} \right)}^2}}&nbsp; = \left| {12a} \right|\) m&agrave; \(a &gt; 0 \Rightarrow 12a &gt; 0\) n&ecirc;n \(\left| {12a} \right| = 12a\) hay \(\sqrt {144{a^2}}&nbsp; = 12a\).</p>
+<p>Từ đ&oacute;: \(A = \sqrt {144{a^2}}&nbsp; - 9a = 12a - 9a = 3a.\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức $\dfrac{{\sqrt {{x^2} - 6x + 9} }}{{x - 3}}$ với $x &lt; 3$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$ - 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ 1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ 2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 2$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {{x^2} - 6x + 9}&nbsp; = \sqrt {{{\left( {x - 3} \right)}^2}}&nbsp; = \left| {x - 3} \right| = 3 - x$ v&igrave; $x &lt; 3$.</p>
+<p style="text-align: left;">N&ecirc;n $\dfrac{{\sqrt {{x^2} - 6x + 9} }}{{x - 3}} = \dfrac{{3 - x}}{{x - 3}} = \dfrac{{ - \left( {x - 3} \right)}}{{\left( {x - 3} \right)}} =&nbsp; - 1$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức</p>
+<p style="text-align: left;">$\sqrt {{a^2} + 8a + 16}&nbsp; + \sqrt {{a^2} - 8a + 16} $ với $ - 4 \le a \le 4$ ta được</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$2a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$8$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ - 8$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ - 2a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute; $\sqrt {{a^2} + 8a + 16}&nbsp; = \sqrt {{{\left( {a + 4} \right)}^2}}&nbsp; = \left| {a + 4} \right|$.</p>
+<p style="text-align: left;">M&agrave; $ - 4 \le a \le 4 \Rightarrow a + 4 \ge 0$</p>
+<p style="text-align: left;">$\Rightarrow \left| {a + 4} \right| = a + 4$</p>
+<p style="text-align: left;">Hay $\sqrt {{a^2} + 8a + 16}&nbsp; = a + 4$ với $ - 4 \le a \le 4$</p>
+<p style="text-align: left;">Ta c&oacute; $\sqrt {{a^2} - 8a + 16}&nbsp; = \sqrt {{{\left( {a - 4} \right)}^2}} $</p>
+<p style="text-align: left;">$= \left| {a - 4} \right|$.</p>
+<p style="text-align: left;">M&agrave; $ - 4 \le a \le 4 \Rightarrow a - 4 \le 0 $</p>
+<p style="text-align: left;">$\Rightarrow \left| {a - 4} \right| = 4 - a$</p>
+<p style="text-align: left;">Hay $\sqrt {{a^2} - 8a + 16}&nbsp; = 4 - a$ với $ - 4 \le a \le 4$</p>
+<p style="text-align: left;">Khi đ&oacute; $\sqrt {{a^2} + 8a + 16}&nbsp; + \sqrt {{a^2} - 8a + 16}&nbsp; $</p>
+<p style="text-align: left;">$= a + 4 + 4 - a = 8$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">R&uacute;t gọn biểu thức $A = \sqrt {36{a^2}}&nbsp; + 3a$ với $a &gt; 0$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$ - 9a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$ - 3a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$ 3a$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$ 9a$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Ta c&oacute;&nbsp; $\sqrt {36{a^2}}&nbsp; = \sqrt {{{\left( {6a} \right)}^2}}&nbsp; = \left| {6a} \right|$ m&agrave; $a &gt; 0 \Rightarrow 6a &gt; 0$ n&ecirc;n $\left| {6a} \right| = 6a$ hay $\sqrt {36{a^2}}&nbsp; = 6a$.</p>
+<p style="text-align: left;">Từ đ&oacute; $A = \sqrt {36{a^2}}&nbsp; + 3a = 6a + 3a = 9a$</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

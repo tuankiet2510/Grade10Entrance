@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vị trí tương đối của hai đường tròn - Ôn Thi Toán 9</title>
+    <!-- MathJax 3 config -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: { fontCache: 'global' }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-light: #eff6ff;
+            --accent: #2563eb;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --border-color: #e5e7eb;
+            --bg-quiz: #f8fafc;
+            --bg-solution: #f0fdf4;
+            --border-solution: #bbf7d0;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px 40px;
+            background-color: #f3f4f6;
+        }
+
+        .document-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            padding: 40px 50px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .topic-header-banner {
+            text-align: center;
+            border-bottom: 3px double var(--primary);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .topic-header-banner .doc-subtitle {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .topic-header-banner h1 {
+            font-size: 26px;
+            color: var(--primary);
+            margin: 0 0 10px 0;
+        }
+
+        .lesson-article {
+            margin-bottom: 40px;
+        }
+
+        .lesson-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            border-left: 5px solid var(--accent);
+            padding-left: 14px;
+            background: var(--primary-light);
+            padding-top: 8px;
+            padding-bottom: 8px;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .lesson-badge {
+            background: var(--primary);
+            color: #ffffff;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .lesson-title {
+            font-size: 20px;
+            color: var(--primary);
+            margin: 0;
+        }
+
+        .theory-section {
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .theory-section h3 {
+            color: #1e40af;
+            font-size: 17px;
+            margin-top: 18px;
+            margin-bottom: 8px;
+        }
+
+        .theory-section p {
+            margin: 6px 0;
+        }
+
+        .exercise-section {
+            background: var(--bg-quiz);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-top: 25px;
+        }
+
+        .exercise-header {
+            font-size: 18px;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 18px;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 8px;
+        }
+
+        .quiz-item {
+            margin-bottom: 22px;
+            padding-bottom: 18px;
+            border-bottom: 1px dashed #cbd5e1;
+        }
+
+        .quiz-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .quiz-title {
+            color: #1e3a8a;
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .quiz-question-body p {
+            margin: 4px 0;
+        }
+
+        .quiz-answers-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px 16px;
+            margin: 12px 0 14px 0;
+        }
+
+        @media (max-width: 600px) {
+            .quiz-answers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .quiz-answer-opt {
+            display: flex;
+            align-items: baseline;
+            gap: 6px;
+            background: #ffffff;
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .quiz-answer-opt .opt-label {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .quiz-answer-opt p {
+            margin: 0;
+            display: inline;
+        }
+
+        .quiz-solution-box {
+            background: var(--bg-solution);
+            border: 1px solid var(--border-solution);
+            border-radius: 4px;
+            padding: 10px 14px;
+            margin-top: 10px;
+        }
+
+        .quiz-solution-box summary {
+            cursor: pointer;
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .quiz-solution-content {
+            margin-top: 8px;
+            font-size: 15px;
+            color: #14532d;
+        }
+
+        .quiz-solution-content p {
+            margin: 4px 0;
+        }
+
+        /* Print styles */
+        @media print {
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+            }
+
+            .document-wrapper {
+                box-shadow: none !important;
+                padding: 0 !important;
+                max-width: 100% !important;
+            }
+
+            .lesson-page-break {
+                page-break-before: always !important;
+                break-before: page !important;
+            }
+
+            .quiz-item {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .quiz-solution-box {
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            details.quiz-solution-box {
+                display: block !important;
+            }
+
+            details.quiz-solution-box summary {
+                display: block !important;
+            }
+        }
+    
+        /* Mobile & iPhone viewport rules */
+        html, body {
+            overflow-x: hidden;
+            max-width: 100vw;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        .document-wrapper {
+            padding-left: max(20px, env(safe-area-inset-left));
+            padding-right: max(20px, env(safe-area-inset-right));
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+
+        /* MathJax equation overflow */
+        .MathJax, mjx-container {
+            max-width: 100% !important;
+            overflow-x: auto !important;
+            overflow-y: hidden !important;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        table {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 10px 8px;
+            }
+            .document-wrapper {
+                padding: 20px 14px;
+                border-radius: 6px;
+            }
+            .topic-header-banner h1 {
+                font-size: 20px;
+            }
+            .lesson-title {
+                font-size: 17px;
+            }
+            .quiz-answers-grid {
+                grid-template-columns: 1fr !important;
+            }
+            .quiz-answer-opt {
+                padding: 10px 12px;
+                min-height: 44px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="document-wrapper">
+        <header class="topic-header-banner">
+            <div class="doc-subtitle">Tài Liệu Ôn Thi Toán 9 - Chuyên Đề &amp; Bài Tập</div>
+            <h1>Chủ đề 23: Vị trí tương đối của hai đường tròn</h1>
+        </header>
+
+        
+        <article class="lesson-article ">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 1</span>
+                <h2 class="lesson-title">1. Hai đường tròn có các vị trí tương đối nào? Cách xác định vị trí tương đối của hai đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Vị trí tương đối của hai đường tròn</h3>
+<div><p>Hai đường trong có thể cắt nhau, tiếp xúc nhau (tiếp xúc trong, tiếp xúc ngoài), không giao nhau (ở ngoài nhau, đựng nhau, đồng tâm)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Bảng tổng kết vị trí tương đối của hai đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549788764-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Chú ý:</em><strong><br/></strong>• Đường nối tâm (đường thẳng đi qua tâm 2 đường tròn) là trục đối xứng của hình tạo bởi hai đường tròn.<br/>• Nếu hai đường tròn tiếp xúc nhau thì tiếp điểm nằm trên đường nối tâm.<br/>• Nếu hai đường tròn cắt nhau thì đường nối tâm là đường trung trực của dây chung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Cách xác định vị trí tương đối của hai đường tròn</h3>
+<div><p>Để xác định vị trí tương đối của hai đường tròn \(\left( {O;R} \right)\) và \(\left( {O';R'} \right)\) \(\left( {R \ge R'} \right)\), ta dựa vào số điểm chung hoặc hệ thức giữa OO’ với R và R’.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho h&igrave;nh vẽ. Chọn khẳng định đ&uacute;ng.</p><p><img src="https://img.loigiaihay.com/picture/2024/1126/1732604069250-mceclip0.png" width="300" /></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Hai đường tr&ograve;n \(\left( I \right)\) v&agrave; \(\left( {I{}'} \right)\) tiếp x&uacute;c trong.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Hai đường tr&ograve;n \(\left( I \right)\) v&agrave; \(\left( {I{}'} \right)\) tiếp x&uacute;c ngo&agrave;i.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Hai đường tr&ograve;n \(\left( I \right)\) v&agrave; \(\left( {I{}'} \right)\) cắt nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Hai đường tr&ograve;n \(\left( I \right)\) v&agrave; \(\left( {I{}'} \right)\) kh&ocirc;ng giao nhau.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai đường tr&ograve;n \(\left( I \right)\) v&agrave; \(\left( {I{}'} \right)\) c&oacute; hai điểm chung n&ecirc;n ch&uacute;ng cắt nhau.</p>
+<p><strong>Đ&aacute;p &aacute;n C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n (O) &#x111;&#x1B0;&#x1EDD;ng k&#xED;nh 8cm v&#xE0; &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n \((O&apos;;2cm)\). OA l&#xE0; m&#x1ED9;t b&#xE1;n k&#xED;nh c&#x1EE7;a (O) (A \( \in \) (O)) v&#xE0; \(O&apos;\) l&#xE0; trung &#x111;i&#x1EC3;m c&#x1EE7;a &#x111;o&#x1EA1;n \(OA\). V&#x1ECB; tr&#xED; t&#x1B0;&#x1A1;ng &#x111;&#x1ED1;i c&#x1EE7;a hai &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n tr&#xEA;n l&#xE0;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Tiếp x&uacute;c ngo&agrave;i.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Cắt nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Ở ngo&agrave;i nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Tiếp x&uacute;c trong.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>&#x110;&#x1B0;&#x1EDD;ng tr&#xF2;n (O) c&#xF3; &#x111;&#x1B0;&#x1EDD;ng k&#xED;nh 8cm n&#xEA;n b&#xE1;n k&#xED;nh l&#xE0; \(8:2 = 4cm\).</p>
+<p><strong><em>C&#xE1;ch 1.</em></strong> V&#x1EBD; &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n (O) v&#xE0; (O&#x2019;) theo &#x111;&#x1EC1; b&#xE0;i, ta &#x111;&#x1B0;&#x1EE3;c h&#xEC;nh v&#x1EBD; sau:</p>
+<p><img src="https://img.loigiaihay.com/picture/2024/1210/1733795128517-mceclip0.png"></p>
+<p>Quan s&#xE1;t h&#xEC;nh v&#x1EBD; ta th&#x1EA5;y hai &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n ti&#x1EBF;p x&#xFA;c trong.</p>
+<p><strong><em>C&#xE1;ch 2.</em></strong> V&#xEC; O&#x2019; l&#xE0; trung &#x111;i&#x1EC3;m c&#x1EE7;a OA n&#xEA;n OO&#x2019; = 4 : 2 = 2(cm).</p>
+<p>Do &#x111;&#xF3; hai &#x111;&#x1B0;&#x1EDD;ng tr&#xF2;n n&#xE0;y ti&#x1EBF;p x&#xFA;c trong v&#x1EDB;i nhau v&#xEC; \(OO&apos; = OA - O&apos;A = 4 - 2 = 2cm\).</p>
+<p><strong>&#x110;&#xE1;p &#xE1;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \((O,11cm)\) v&agrave; \((O',1cm)\), biết \(OO' = 5cm\). Vị tr&iacute; tương đối của hai đường tr&ograve;n l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>Tiếp x&uacute;c trong.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>Ở ngo&agrave;i nhau.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>Tiếp x&uacute;c ngo&agrave;i.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>Đường tr&ograve;n \((O)\) đựng \((O')\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;:</p>
+<p>\(R - R' = 11 - 1 = 10 &gt; OO'\) hay \(R - R' &gt; OO'\) n&ecirc;n đường tr&ograve;n \((O)\) đựng \((O')\).</p>
+<p><strong>Đ&aacute;p &aacute;n D</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tròn \(\left( {O;4cm} \right)\)và \(\left( {I;6cm} \right)\). Biết \(OI = 2cm\). Tìm vị trí tương đối của hai đường tròn.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> Tiếp xúc ngoài</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> Đựng nhau</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> Tiếp xúc trong</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Cắt nhau.</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \({R_1} = 6cm;\,\,\,{R_2} = 4cm;\,\,d = 2cm\)\( \Rightarrow {R_1} - {R_2} = d = 2cm.\)</p>
+<p>\( \Rightarrow \) hai đường tr&ograve;n tiếp x&uacute;c trong.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Hai đường tròn \(\left( {O;5} \right)\) và \(\left( {O';8} \right)\) có vị trí tương đối với nhau như thế nào biết \(OO' = 12\) <strong></strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> Tiếp xúc nhau  </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> Không giao nhau </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> Tiếp xúc ngoài </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Cắt nhau</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(\left| {{R_1} - {R_2}} \right| = 8 - 5 = 3;\;\;{R_1} + {R_2} = 8 + 5 = 13.\)</p>
+<p>\( \Rightarrow \left| {{R_1} - {R_2}} \right| &lt; OO' &lt; {R_1} + {R_2} \Rightarrow \) hai đường tr&ograve;n cắt nhau.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tròn \(\left( {I;7cm} \right)\) và \(\left( {K;5cm} \right)\). Biết \(IK = 2cm\). Quan hệ giữa hai đường tròn là:<strong></strong></p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> Tiếp xúc trong</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> Tiếp xúc ngoài</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> Cắt nhau</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> Đựng nhau</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \({R_1} + {R_2} = 7 + 5 = 12;\;\;\left| {{R_1} - {R_2}} \right| = 7 - 5 = 2 = IK.\;\;\)</p>
+<p>\( \Rightarrow \left( {I;\;7cm} \right),\;\left( {K;\;5cm} \right)\) tiếp x&uacute;c trong với nhau.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 2</span>
+                <h2 class="lesson-title">2. Hai đường tròn cắt nhau là gì? Cách làm các bài toán có hai đường tròn cắt nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hai đường tròn cắt nhau</h3>
+<div><p>Nếu hai đường tròn có đúng một điểm chung thì ta gọi đó là <strong>hai đường tròn cắt nhau</strong>.</p>
+<p>Hai điểm chung đó là hai <em>giao điểm </em>của chúng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549827603-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hai đường tròn (O;R) và (O;R’) cắt nhau khi</p>
+<p>\(R - R' &lt; OO' &lt; R + R'\) (với \(R &gt; R'\))</p>
+<p><em>Ví dụ:</em> Cho OO’ = 5cm, khi đó hai đường tròn (O;4cm) và (O’;3cm) cắt nhau vì:</p>
+<p>4cm – 3cm = 1cm &lt; 5cm &lt; 7cm = 4cm + 3cm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách làm các bài toán có hai đường tròn cắt nhau</h3>
+<div><p><em>Để có thể giải quyết dạng toán này, bạn cần thực hiện theo phương pháp sau:</em></p>
+<ul>
+<li>Nối dây chung của hai đường tròn rồi dùng tính chất đường nối tâm của hai đường tròn</li>
+<li>Hệ thức liên hệ: \(R - R' &lt; OO' &lt; R + R'\)</li>
+</ul></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \(\left( {O;20cm} \right)\) v&agrave; \(\left( {O';15cm} \right)\) cắt nhau. Khi đ&oacute;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(OO' &lt; 5cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(5cm &lt; OO' &lt; 35cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(OO' &gt; 35cm\).</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(OO' = 35cm\).</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>V&igrave; hai đường tr&ograve;n \(\left( {O;20cm} \right)\) v&agrave; \(\left( {O';15cm} \right)\) cắt nhau n&ecirc;n \(20cm - 15cm &lt; OO' &lt; 20cm + 15cm\), suy ra \(5cm &lt; OO' &lt; 35cm\).</p>
+<p><strong>Đ&aacute;p &aacute;n B</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Hai đường tr&ograve;n (O; 5cm) v&agrave; (O&rsquo;; 3cm) cắt nhau. Số gi&aacute; trị nguy&ecirc;n m&agrave; độ d&agrave;i OO&rsquo; c&oacute; thể nhận được (đơn vị cm) l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>4.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>5.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>6.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai đường tr&ograve;n (O; 5cm) v&agrave; (O&rsquo;; 3cm) cắt nhau n&ecirc;n \(5 - 3 &lt; OO' &lt; 5 + 3\) hay \(2 &lt; OO' &lt; 8\) suy ra \(OO'\) nhận c&aacute;c gi&aacute; trị 3; 4; 5; 6; 7.</p>
+<p>Vậy c&oacute; 5 gi&aacute; trị thỏa m&atilde;n.</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tròn (O;5) và (O’;5) cắt nhau tại A và B. Biết OO’=8. Độ dài dây cung AB là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> 6cm                                     </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 7cm                                    </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span>  5cm                                      </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 8cm</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0714/1594708652551_hai_duong_tron_cat_nhau_tai_A,_B.png" alt="" width="393" height="229" /></p>
+<p style="text-align: left;">Ta c&oacute; \(OA=O'A=5cm\) n&ecirc;n tam gi&aacute;c \(AOO'\)&nbsp; c&acirc;n tại A.</p>
+<p style="text-align: left;">M&agrave; AH vu&ocirc;ng g&oacute;c với OO&rsquo; n&ecirc;n H l&agrave; trung điểm của OO&rsquo;. Suy ra \(OH=4cm\) .</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c AOH vu&ocirc;ng tại H n&ecirc;n suy ra</p>
+<p style="text-align: left;">\(A{{H}^{2}}=O{{A}^{2}}-O{{H}^{2}}={{5}^{2}}-{{4}^{2}}=9={{3}^{2}}\).</p>
+<p style="text-align: left;">Vậy \(AH=3cm\) .</p>
+<p style="text-align: left;">M&agrave; \(AB=2AH\) ( mối quan hệ giữa đường nối t&acirc;m v&agrave; d&acirc;y cung).</p>
+<p style="text-align: left;">Vậy \(AB=6cm\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \(\left( {O;10cm} \right)\) v&agrave; \(\left( {O';5cm} \right)\) cắt nhau tại \(A\) v&agrave; \(B\) . T&iacute;nh đoạn nối t&acirc;m&nbsp; \(OO'\), biết rằng \(AB = 8\,cm\) v&agrave; \(O\) v&agrave; \(O'\)&nbsp; nằm c&ugrave;ng ph&iacute;a đối với \(AB\) . (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ nhất)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(OO' \approx 6,5\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(OO' \approx 6,1\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(OO' \approx 6\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(OO' \approx 6,2\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(AI = \dfrac{1}{2}AB = 4\,cm\)</p>
+<p>Theo định l&yacute; Pytago ta c&oacute;</p>
+<p>\(O{I^2} = O{A^2}-A{I^2} = {10^2} - {4^2} = 84\) \( \Rightarrow \)&nbsp; \(OI = 2\sqrt {21} \) v&agrave; \(O'I = \sqrt {O'{A^2} - I{A^2}}&nbsp; = \sqrt {{5^2} - {4^2}}&nbsp; = 3\)</p>
+<p>Do đ&oacute;: \(OO' = OI-O'I = 2\sqrt {21} -3 \approx 6,2\left( {cm} \right)\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n&nbsp; \(\left( O \right);\left( {O'} \right)\) cắt nhau tại \(A,B\). Kẻ đường k&iacute;nh \(AC\) của đường tr&ograve;n \(\left( O \right)\) v&agrave; đường k&iacute;nh \(AD\) của đường tr&ograve;n \(\left( {O'} \right).\) Chọn khẳng định sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(OO' = \dfrac{{DC}}{2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(C,\,B,\,D\) thẳng h&agrave;ng</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(OO' \bot AB\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(BC = BD\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai đường tr&ograve;n \(\left( O \right);\left( {O'} \right)\) cắt nhau tại \(A\) v&agrave; \(B\) n&ecirc;n \(OO'\) l&agrave; đường trung trực của \(AB \Rightarrow OO' \bot AB\) (t&iacute;nh chất đường nối t&acirc;m) n&ecirc;n đ&aacute;p &aacute;n C đ&uacute;ng.</p>
+<p>X&eacute;t đường tr&ograve;n \(\left( O \right)\) c&oacute; \(AC\) l&agrave; đường k&iacute;nh, suy ra \(\Delta ABC\) vu&ocirc;ng tại \(B\) hay \(\widehat {CBA} = 90^\circ \)</p>
+<p>X&eacute;t đường tr&ograve;n \(\left( O \right)\) c&oacute; \(AD\) l&agrave; đường k&iacute;nh, suy ra \(\Delta ABD\) vu&ocirc;ng tại \(B\) hay \(\widehat {DBA} = 90^\circ \)</p>
+<p>Suy ra \(\widehat {CBA} + \widehat {DBA} = 90^\circ&nbsp; + 90^\circ&nbsp; = 180^\circ \) hay ba điểm \(B,\,C,\,D\) thẳng h&agrave;ng n&ecirc;n đ&aacute;p &aacute;n B đ&uacute;ng.</p>
+<p>X&eacute;t tam gi&aacute;c \(ADC\) c&oacute; \(O\) l&agrave; trung điểm đoạn \(AC\) v&agrave; \(O'\) l&agrave; trung điểm đoạn \(AD\) n&ecirc;n \(OO'\) l&agrave; đường trung b&igrave;nh của tam gi&aacute;c \(ACD \Rightarrow OO' = \dfrac{{DC}}{2}\) (t&iacute;nh chất đường trung b&igrave;nh) n&ecirc;n đ&aacute;p &aacute;n A đ&uacute;ng.</p>
+<p>Ta chưa thể kết luận g&igrave; về độ d&agrave;i \(BC\) v&agrave; \(BD\) n&ecirc;n đ&aacute;p &aacute;n D sai.</p>
+<p>N&ecirc;n A, B, C đ&uacute;ng, D sai</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( {O;5} \right)$ v&agrave; $\left( {O';5} \right)$ cắt nhau tại $A$ v&agrave; $B.$ Biết $OO' = 8.$ Độ d&agrave;i d&acirc;y cung $AB$ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$6cm\;$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$7cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$5cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$8cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; $OA = O'A = 5cm$ n&ecirc;n tam gi&aacute;c $AOO'$&nbsp; c&acirc;n tại A.</p>
+<p>M&agrave; AH vu&ocirc;ng g&oacute;c với OO&rsquo; n&ecirc;n H l&agrave; trung điểm của OO&rsquo;. Suy ra $OH = 4cm$ .</p>
+<p>X&eacute;t tam gi&aacute;c AOH vu&ocirc;ng tại H n&ecirc;n suy ra</p>
+<p>$A{H^2} = O{A^2} - O{H^2} = {5^2} - {4^2} = 9 = {3^2}$.</p>
+<p>Vậy $AH = 3cm$ .</p>
+<p>M&agrave; $AB = 2AH$ ( mối quan hệ giữa đường nối t&acirc;m v&agrave; d&acirc;y cung).</p>
+<p>Vậy $AB = 6cm$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( {O;4cm} \right)$ v&agrave; $\left( {O';3cm} \right)$ biết $OO' = 5cm$. Hai đường tr&ograve;n tr&ecirc;n cắt nhau tại $A$ v&agrave; \(B\). Độ d&agrave;i $AB$ l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$2,4cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$4,8cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$\dfrac{5}{{12}}cm$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$5cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t tam gi&aacute;c $OAO'$&nbsp; c&oacute; $O{A^2} + O'{A^2} = OO{'^2}$ (v&igrave; ${4^2} + {3^2} = {5^2}$) n&ecirc;n tam gi&aacute;c $OAO'$&nbsp; vu&ocirc;ng tại $A$.</p>
+<p>X&eacute;t $\Delta HAO \backsim \Delta AO'O (g.g)$ n&ecirc;n $\frac{AH}{OA} = \frac{O'A}{OO'}$ suy ra $AH.OO' = OA.O'A \Rightarrow AH = \dfrac{{OA.O'A}}{{OO'}} = \dfrac{{4.3}}{5} = \dfrac{{12}}{5}$</p>
+<p>M&agrave; $AB = 2AH$ n&ecirc;n $AB = \dfrac{{24}}{5} = 4,8cm$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai đường tr&ograve;n&nbsp; $\left( O \right);\left( {O'} \right)$ cắt nhau tại $A,B$, trong đ&oacute; $O' \in \left( O \right)$. Kẻ đường k&iacute;nh $O'OC$ của đường tr&ograve;n $\left( O \right)$. Chọn khẳng định sai?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$AC = CB$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$\widehat {CBO'} = 90^\circ $</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$CA,CB$ l&agrave; hai tiếp tuyến của $\left( {O'} \right)$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$CA,CB$ l&agrave; hai c&aacute;t tuyến của $\left( {O'} \right)$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">X&eacute;t đường tr&ograve;n $\left( O \right)$ c&oacute; $O'C$ l&agrave; đường k&iacute;nh, suy ra $\widehat {CBO'} = \widehat {CAO'} = 90^\circ $ hay $CB \bot O'B$ tại $B$ v&agrave; $AC \bot AO'$ tại $A$.</p>
+<p style="text-align: left;">Do đ&oacute; $AC,BC$ l&agrave; hai tiếp tuyến của $\left( {O'} \right)$ n&ecirc;n $AC = CB$ (t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p style="text-align: left;">N&ecirc;n A, B, C đ&uacute;ng.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 3</span>
+                <h2 class="lesson-title">3. Hai đường tròn không giao nhau là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hai đường tròn không giao nhau</h3>
+<div><p>Nếu hai đường tròn không có điểm chung nào thi ta nói đó là <strong><em>hai đường tròn không giao nhau.</em></strong></p>
+<p><strong><em><img src="https://img.loigiaihay.com/picture/2025/0610/1749549863502-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></strong></p>
+<p>- Hai đường tròn (O;R) và (O’;R’) <em>ngoài nhau </em>khi \(OO' &gt; R + R'\);</p>
+<p>- Đường tròn (O;R) <em>đựng </em>đường tròn (O’;R’) khi \(R &gt; R'\) và \(OO' &lt; R - R'\).</p>
+<p>Khi O trùng với O’ và \(R \ne R'\) thì ta có hai đường tròn <em>đồng tâm.</em></p>
+<p><em>Ví dụ: </em>Cho đường tròn (O;3cm) và (O’;4cm) có \(OO' &gt; 8cm\) thì \(OO' = 8cm &gt; 3cm + 4cm = R + R'\) nên (O;3cm) và (O’;4cm) là hai đường tròn ngoài nhau.</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n đồng t&acirc;m O. Biết BC l&agrave; đường k&iacute;nh của đường tr&ograve;n lớn v&agrave; c&oacute; độ d&agrave;i bằng 12cm. D&acirc;y CD của đường tr&ograve;n lớn đồng thời l&agrave; tiếp tuyến của đường tr&ograve;n nhỏ v&agrave; \(\widehat {BCD} = 30^\circ \). H&atilde;y t&iacute;nh b&aacute;n k&iacute;nh đường tr&ograve;n nhỏ?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>6cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>9cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>4cm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0703/1720001362051-mceclip0.png" /></p>
+<p>V&igrave; CD l&agrave; tiếp tuyến của đường tr&ograve;n nhỏ (O) n&ecirc;n CD vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua tiếp điểm. Gọi E l&agrave; điểm tiếp x&uacute;c, khi đ&oacute; \(OE \bot CD\) tại E.</p>
+<p>V&igrave; BC l&agrave; đường k&iacute;nh đường tr&ograve;n lớn n&ecirc;n \(OC = \frac{{BC}}{2} = \frac{{12}}{2} = 6\left( {cm} \right)\)</p>
+<p>X&eacute;t tam gi&aacute;c OEC vu&ocirc;ng tại E, ta c&oacute;:</p>
+<p>\(\sin 30^\circ&nbsp; = \frac{{OE}}{{OC}}\) suy ra \(OE = OC.\sin 30^\circ&nbsp; = 6.\sin 30^\circ&nbsp; = 3\left( {cm} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Nếu hai đường tr&ograve;n kh&ocirc;ng cắt nhau th&igrave; số điểm chung của hai đường tr&ograve;n l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>1.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>2.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>0.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai đường tr&ograve;n kh&ocirc;ng cắt nhau th&igrave; số điểm chung l&agrave; 0.</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>D</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 4</span>
+                <h2 class="lesson-title">4. Hai đường tròn tiếp xúc nhau là gì? Cách làm các bài toán có hai đường tròn tiếp xúc nhau</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Hai đường tròn tiếp xúc nhau</h3>
+<div><p>Nếu hai đường tròn có đúng một điểm chung thì ta gọi đó là <strong>hai đường tròn cắt nhau</strong>.</p>
+<p>Hai điểm chung đó là hai <em>giao điểm </em>của chúng.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549882329-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Hai đường tròn (O;R) và (O;R’) cắt nhau khi</p>
+<p>\(R - R' &lt; OO' &lt; R + R'\) (với \(R &gt; R'\))</p>
+<p><em>Ví dụ:</em> Cho OO’ = 5cm, khi đó hai đường tròn (O;4cm) và (O’;3cm) cắt nhau vì:</p>
+<p>4cm – 3cm = 1cm &lt; 5cm &lt; 7cm = 4cm + 3cm.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Cách làm các bài toán có hai đường tròn tiếp xúc nhau</h3>
+<div><p><em>Để có thể giải quyết dạng toán này, chúng ta có thể sử dụng, áp dụng những định lý, tính chất sau:</em></p>
+<ul>
+<li>Tiếp điểm nằm trên đường nối tâm</li>
+<li>Hệ thức d = R + r</li>
+<li>Khi làm ta có thể vẽ thêm tiếp tuyến chung của cả hai đường tròn (nếu cần).</li>
+</ul></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n tiếp x&uacute;c ngo&agrave;i \(\left( {O;R} \right)\) v&agrave; \(\left( {O';r} \right)\) với \(R &gt; r\) v&agrave; \(OO' = d\) . Chọn khẳng định đ&uacute;ng?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(d = R-r\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(d &gt; R + r\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(R-r &lt; d &lt; R + r\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(d = R + r\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Hai đường tr&ograve;n \(\left( {O;R} \right)\) v&agrave; \(\left( {O';r} \right)\)\(\left( {R &gt; r} \right)\)cắt nhau</p><p>Hai đường tr&ograve;n \(\left( O \right)\) v&agrave; \(\left( {O'} \right)\) tiếp x&uacute;c ngo&agrave;i n&ecirc;n hệ thức li&ecirc;n hệ \(d = R + r\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \(\left( O \right)\) v&agrave; \(\left( {O'} \right)\)tiếp x&uacute;c ngo&agrave;i tại \(A\). Kẻ c&aacute;c đường k&iacute;nh \(AOB;AO'C\). Gọi \(DE\) l&agrave; tiếp tuyến chung của hai đường&nbsp; tr&ograve;n&nbsp; \(\left( {D \in \left( O \right);E \in \left( {O'} \right)} \right)\). Gọi \(M\) l&agrave; giao điểm của \(BD\) v&agrave; \(CE\). T&iacute;nh diện t&iacute;ch tứ gi&aacute;c \(ADME\) biết \(\widehat {DOA} = 60^\circ \) v&agrave; \(OA = 8\,cm\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(12\sqrt 3 \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( \dfrac{64}{3}\sqrt 3&nbsp; \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\( \dfrac{32}{3}\sqrt 3 \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(36\,\,c{m^2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t \(\left( O \right)\) c&oacute; \(OD = OA \Rightarrow \Delta OAD\) c&acirc;n tại \(O \Rightarrow \widehat {ODA} = \widehat {OAD}\)</p>
+<p>X&eacute;t \(\left( {O'} \right)\) c&oacute; \(O'E = O'A \Rightarrow \Delta O'EB\) c&acirc;n tại \(O' \Rightarrow \widehat {O'EA} = \widehat {O'AE}\)</p>
+<p>M&agrave; \(\widehat O + \widehat {O'} = 360^\circ&nbsp; - \widehat {O'ED} - \widehat {ODE} = 180^\circ \)</p>
+<p>\( \Leftrightarrow 180^\circ&nbsp; - \widehat {ODA} - \widehat {OAD} + 180^\circ&nbsp; - \widehat {O'EA} - \widehat {O'AE} = 180^\circ&nbsp; \Leftrightarrow 2\left( {\widehat {OAD} + \widehat {O'AE}} \right) = 180^\circ \)</p>
+<p>\( \Rightarrow \widehat {OAD} + \widehat {O'AE} = 90^\circ \)\( \Rightarrow \widehat {DAE} = 90^\circ&nbsp; \Rightarrow \Delta ADE\) vu&ocirc;ng tại \(A\).</p>
+<p>M&agrave; \(\widehat {BDA} = 90^\circ \) ( v&igrave; tam gi&aacute;c \(BAD\) c&oacute; cạnh \(AB\) l&agrave; đường k&iacute;nh của \(\left( O \right)\)v&agrave; \(D \in \left( O \right)\) ) n&ecirc;n \(BD \bot AD \Rightarrow \widehat {MDA} = 90^\circ \)</p>
+<p>Tương tự ta c&oacute; \(\widehat {MEA} = 90^\circ \) .\(\)\(\)</p>
+<p>N&ecirc;n tứ gi&aacute;c \(DMEA\) l&agrave; h&igrave;nh chữ nhật.</p>
+<p>X&eacute;t tam gi&aacute;c \(OAD\) c&acirc;n tại \(O\) c&oacute; \(\widehat {DOA} = 60^\circ \) n&ecirc;n \(\Delta DOA\) đều, suy ra \(OA = AD = 8\,cm\) v&agrave; \(\widehat {ODA} = 60^\circ \)</p>
+<p>\( \Rightarrow \widehat {ADE} = 30^\circ \). X&eacute;t tam gi&aacute;c \(ADE\) ta c&oacute; \(EA = AD.\tan \widehat {EDA} = 8.\tan 30^\circ&nbsp; = \dfrac{8}{3}\sqrt 3 \)</p>
+<p>\({S_{DMEA}} = AD.AE = 8.\dfrac{8}{3}\sqrt 3&nbsp; = \dfrac{64}{3}\sqrt 3 \,\,c{m^2}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( O \right)$&nbsp; v&agrave; $\left( {O'} \right)$&nbsp; tiếp x&uacute;c ngo&agrave;i tại $A$. Kẻ tiếp tuyến chung ngo&agrave;i $BC,B \in \left( O \right)$ v&agrave; $C \in (O')$. Tiếp tuyến chung trong tại $A$ cắt tiếp tuyến chung ngo&agrave;i $BC$ tại $I$. T&iacute;nh độ d&agrave;i $BC$ biết $OA = 9cm,O'A = 4cm$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$12cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$18cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$10cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$6cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; $IO$ l&agrave; tia ph&acirc;n gi&aacute;c của \(\widehat {BIA}\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>$IO'$ l&agrave; tia ph&acirc;n gi&aacute;c của \(\widehat {CIA}\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>M&agrave; \(\widehat {BIA} + \widehat {CIA} = {180^0} \Rightarrow \widehat {OIO'} = {90^0}\)</p>
+<p>X&eacute;t $\Delta OIA \backsim \Delta IO'A$ n&ecirc;n $\frac{AO}{IA} = \frac{IA}{AO'}$ n&ecirc;n $I{A^2} = AO.AO' = 9.4 = 36 \Rightarrow IA = 6cm$.</p>
+<p>\( \Rightarrow IA = IB = IC = 6cm\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>Vậy $BC = 2IA = 2.6 = 12\left( {cm} \right)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai đường tr&ograve;n $\left( O \right)$ v&agrave; $\left( {O'} \right)$ tiếp x&uacute;c ngo&agrave;i tại $A$. Kẻ c&aacute;c đường k&iacute;nh $AOB;AO'C$. Gọi $DE$ l&agrave; tiếp tuyến chung của hai đường&nbsp; tr&ograve;n&nbsp; $\left( {D \in \left( O \right);E \in \left( {O'} \right)} \right)$. Gọi $M$ l&agrave; giao điểm của $BD$ v&agrave; $CE$. T&iacute;nh diện t&iacute;ch tứ gi&aacute;c $ADME$ biết $\widehat {DOA} = 60^\circ $ v&agrave; $OA = 6\,cm.$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12\sqrt 3 \,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$12\,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$16\,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$24\,\,c{m^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Chứng minh tương tự c&acirc;u trước ta c&oacute; được $\widehat {DAE} = 90^\circ $</p>
+<p style="text-align: left;">M&agrave; \(\widehat {BDA} = 90^\circ \) ( v&igrave; tam gi&aacute;c \(BAD\) c&oacute; cạnh \(AB\) l&agrave; đường k&iacute;nh của \(\left( O \right)\) v&agrave; \(D \in \left( O \right)\) ) n&ecirc;n \(BD \bot AD \Rightarrow \widehat {MDA} = 90^\circ .\) Tương tự ta c&oacute; \(\widehat {MEA} = 90^\circ .\)</p>
+<p style="text-align: left;">N&ecirc;n tứ gi&aacute;c $DMEA$ l&agrave; h&igrave;nh chữ nhật.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $OAD$ c&acirc;n tại $O$ c&oacute; $\widehat {DOA} = 60^\circ $ n&ecirc;n $\Delta DOA$ đều,</p>
+<p style="text-align: left;">suy ra $OA = AD = 6\,cm$ v&agrave; $\widehat {ODA} = 60^\circ $</p>
+<p style="text-align: left;">$ \Rightarrow \widehat {ADE} = 30^\circ $.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $ADE$ ta c&oacute;</p>
+<p style="text-align: left;">$EA = AD.\tan \widehat {EDA} = 6.\tan 30^\circ&nbsp; = 2\sqrt 3 $</p>
+<p style="text-align: left;">${S_{DMEA}} = AD.AE = 6.2\sqrt 3&nbsp; = 12\sqrt 3 \,\,c{m^2}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Nếu hai đường tr&ograve;n tiếp x&uacute;c với nhau th&igrave; số điểm chung của hai đường tr&ograve;n l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$1$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$2$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$3$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$4$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Hai đường tr&ograve;n tiếp x&uacute;c với nhau th&igrave; c&oacute; một điểm chung duy nhất</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 5</span>
+                <h2 class="lesson-title">5. Tiếp tuyến chung của hai đường tròn là gì?</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Bảng tổng kết vị trí tương đối của hai đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549788764-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Chú ý:</em><strong><br/></strong>• Đường nối tâm (đường thẳng đi qua tâm 2 đường tròn) là trục đối xứng của hình tạo bởi hai đường tròn.<br/>• Nếu hai đường tròn tiếp xúc nhau thì tiếp điểm nằm trên đường nối tâm.<br/>• Nếu hai đường tròn cắt nhau thì đường nối tâm là đường trung trực của dây chung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tiếp tuyến chung của hai đường tròn</h3>
+<div><p><strong><em>Tiếp tuyến chung của hai đường tròn</em></strong> là đường thẳng tiếp xúc với cả hai đường tròn đó. Ta có các trường hợp tiếp tuyến chung của hai đường tròn như sau:</p>
+<p>1) Hai đường tròn cắt nhau có hai tiếp tuyến chung ngoài.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549936614-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>2) Hai đường tròn tiếp xúc ngoài có hai tiếp tuyến chung ngoài và một tiếp tuyến chung.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549932761-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>3) Hai đường tròn tiếp xúc trong chỉ có một tiếp tuyến chung.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549927751-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>4) Hai đường tròn ngoài nhau có hai tiếp tuyến chung ngoài và hai tiếp tuyến chung trong.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549922467-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><strong><em>Chú ý:</em></strong></p>
+<p>• Hai đường tròn chứa nhau không có tiếp tuyến chung.</p>
+<p>• Hai đường tròn đồng tâm không có tiếp tuyến chung</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho đường tròn tâm \(O\) bán kính \(R = 2cm\) và đường tròn tâm \(O'\) bán kính \(R' = 3cm.\) Biết \(OO' = 6cm.\) Số tiếp tuyến chung của hai đường tròn đã cho là:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> \(1\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> \(2\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> \(3\)</div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> \(4\)</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(OO' = 6cm\)</p>
+<p>Lại c&oacute;: \(\left\{ \begin{array}{l}R' = 3cm\\R = 2cm\end{array} \right. \Rightarrow R' + R = 3 + 2 = 5cm &lt; OO'\)</p>
+<p>\( \Rightarrow \) Hai đường tr&ograve;n nằm ngo&agrave;i nhau</p>
+<p>\( \Rightarrow \) Hai đường tr&ograve;n c&oacute; \(4\) tiếp tuyến chung.</p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+        <article class="lesson-article lesson-page-break">
+            <header class="lesson-header">
+                <span class="lesson-badge">Bài 6</span>
+                <h2 class="lesson-title">6. Các bài toán tính độ dài, diện tích liên quan đến vị trí tương đối của hai đường tròn</h2>
+            </header>
+            <div class="theory-section">
+                <div id="main-content" style="padding: 7px 0">
+<div style="padding: 7px">
+<h3>1. Các bài toán tính độ dài, diện tích</h3>
+<div><p><em>Để làm dạng bài tập này, ta sử dụng kết hợp các kiến thức:</em></p>
+<p>- Tính chất của tiếp tuyến</p>
+<p>- Định lí về vị trí tương đối của đường thẳng và đường tròn, hai đường tròn.</p>
+<p>- Định lí Pythagore, hệ thức lượng trong tam giác vuông.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>2. Khái niệm Tiếp tuyến của đường tròn</h3>
+<div><p>Nếu đường thẳng và đường tròn tiếp xúc nhau thì đường thẳng được gọi là <strong>tiếp tuyến </strong>của đường tròn, điểm chung được gọi là <strong>tiếp điểm</strong>.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463069672-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Điểm chung H của đường thẳng và đường tròn tiếp xúc với nhau goi là <strong>tiếp điểm</strong><em>.</em></p>
+<p>Khi đó đường thẳng a còn gọi là <strong>tiếp tuyến</strong> của đường tròn (O) tại H.</p>
+<p>Đường thẳng a tiếp xúc với đường tròn (O) tại H thì \(OH \bot a\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>3. Tính chất của hai tiếp tuyến cắt nhau</h3>
+<div><p>Nếu hai tiếp tuyến của một đường tròn cắt nhau tại một điểm thì:<br/>• Điểm đó cách đều hai tiếp điểm.<br/>• Tia kẻ từ điểm đó đi qua tâm là tia phân giác của góc tạo bởi hai tiếp tuyến.<br/>• Tia kẻ từ tâm đi qua điểm đó là tia phân giác của góc tạo bởi hai bán kính đi qua các tiếp điểm.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463146853-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Ví dụ: </em>Cho đường tròn (O), B, C \( \in \) (O). Tiếp tuyến của (O) tại B và C cắt nhau tại A.</p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749463141174-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p>Khi đó:</p>
+<p>- AB = AC</p>
+<p>- Tia AO là tia phân giác của \(\widehat {BAC}\).</p>
+<p>- Tia OA là tia phân giác của \(\widehat {BOC}\).</p></div>
+</div>
+<div style="padding: 7px">
+<h3>4. Vị trí tương đối của đường thẳng và đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0609/1749462972161-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><img src="https://img.loigiaihay.com/picture/2025/0609/1749462978677-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p></div>
+</div>
+<div style="padding: 7px">
+<h3>5. Bảng tổng kết vị trí tương đối của hai đường tròn</h3>
+<div><p><img src="https://img.loigiaihay.com/picture/2025/0610/1749549788764-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></p>
+<p><em>Chú ý:</em><strong><br/></strong>• Đường nối tâm (đường thẳng đi qua tâm 2 đường tròn) là trục đối xứng của hình tạo bởi hai đường tròn.<br/>• Nếu hai đường tròn tiếp xúc nhau thì tiếp điểm nằm trên đường nối tâm.<br/>• Nếu hai đường tròn cắt nhau thì đường nối tâm là đường trung trực của dây chung.</p></div>
+</div>
+<div style="padding: 7px">
+<h3>6. Cách tính cạnh góc vuông theo cạnh huyền và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh huyền nhân với sin góc đối hoặc nhân với côsin góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh huyền ) × (sin góc đối) </em></p>
+<p><em>= (cạnh huyền ) × (cosin góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907908794-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = a.\sin B = a.\cos C;\\c = a.\sin C = a.\cos B.\end{array}\)</p></div>
+</div>
+<div style="padding: 7px">
+<h3>7. Cách tính cạnh góc vuông theo cạnh góc vuông còn lại và tỉ số lượng giác của góc nhọn</h3>
+<div><p>Trong tam giác vuông, mỗi cạnh góc vuông bằng cạnh góc vuông kia nhân với tang góc đối hoặc côtang góc kề.</p>
+<p><em>Cạnh góc vuông = (cạnh góc vuông còn lại ) × (tan góc đối) </em></p>
+<p><em>= (cạnh góc vuông còn lại ) × (cot góc kề)</em></p>
+<p><em>Ví dụ:</em></p>
+<p><em><img src="https://img.loigiaihay.com/picture/2025/0522/1747907938917-mceclip0.png" style="max-width: 100%; height: auto; display: block; margin: 10px auto;"/></em></p>
+<p>Trong tam giác ABC vuông tại A, ta có:</p>
+<p>\(\begin{array}{l}b = c.\tan B = c.\cot C;\\c = b.\tan C = b.\cot B.\end{array}\)</p></div>
+</div>
+
+
+
+
+
+
+</div>
+            </div>
+            <div class="exercise-section">
+<h3 class="exercise-header">📝 BÀI TẬP VẬN DỤNG CÓ LỜI GIẢI</h3>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 1:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tròn (O;5) và (O’;5) cắt nhau tại A và B. Biết OO’=8. Độ dài dây cung AB là</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> 6cm                                     </div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> 7cm                                    </div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span>  5cm                                      </div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> 8cm</div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://cdn.vungoi.vn/vungoi/2020/0714/1594708652551_hai_duong_tron_cat_nhau_tai_A,_B.png" alt="" width="393" height="229" /></p>
+<p style="text-align: left;">Ta c&oacute; \(OA=O'A=5cm\) n&ecirc;n tam gi&aacute;c \(AOO'\)&nbsp; c&acirc;n tại A.</p>
+<p style="text-align: left;">M&agrave; AH vu&ocirc;ng g&oacute;c với OO&rsquo; n&ecirc;n H l&agrave; trung điểm của OO&rsquo;. Suy ra \(OH=4cm\) .</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c AOH vu&ocirc;ng tại H n&ecirc;n suy ra</p>
+<p style="text-align: left;">\(A{{H}^{2}}=O{{A}^{2}}-O{{H}^{2}}={{5}^{2}}-{{4}^{2}}=9={{3}^{2}}\).</p>
+<p style="text-align: left;">Vậy \(AH=3cm\) .</p>
+<p style="text-align: left;">M&agrave; \(AB=2AH\) ( mối quan hệ giữa đường nối t&acirc;m v&agrave; d&acirc;y cung).</p>
+<p style="text-align: left;">Vậy \(AB=6cm\)</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 2:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \(\left( {O;10cm} \right)\) v&agrave; \(\left( {O';5cm} \right)\) cắt nhau tại \(A\) v&agrave; \(B\) . T&iacute;nh đoạn nối t&acirc;m&nbsp; \(OO'\), biết rằng \(AB = 8\,cm\) v&agrave; \(O\) v&agrave; \(O'\)&nbsp; nằm c&ugrave;ng ph&iacute;a đối với \(AB\) . (l&agrave;m tr&ograve;n đến chữ số thập ph&acirc;n thứ nhất)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(OO' \approx 6,5\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\(OO' \approx 6,1\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\(OO' \approx 6\,cm\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(OO' \approx 6,2\,cm\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute;: \(AI = \dfrac{1}{2}AB = 4\,cm\)</p>
+<p>Theo định l&yacute; Pytago ta c&oacute;</p>
+<p>\(O{I^2} = O{A^2}-A{I^2} = {10^2} - {4^2} = 84\) \( \Rightarrow \)&nbsp; \(OI = 2\sqrt {21} \) v&agrave; \(O'I = \sqrt {O'{A^2} - I{A^2}}&nbsp; = \sqrt {{5^2} - {4^2}}&nbsp; = 3\)</p>
+<p>Do đ&oacute;: \(OO' = OI-O'I = 2\sqrt {21} -3 \approx 6,2\left( {cm} \right)\) .</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 3:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( {O;5} \right)$ v&agrave; $\left( {O';5} \right)$ cắt nhau tại $A$ v&agrave; $B.$ Biết $OO' = 8.$ Độ d&agrave;i d&acirc;y cung $AB$ l&agrave;</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$6cm\;$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$7cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$5cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$8cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; $OA = O'A = 5cm$ n&ecirc;n tam gi&aacute;c $AOO'$&nbsp; c&acirc;n tại A.</p>
+<p>M&agrave; AH vu&ocirc;ng g&oacute;c với OO&rsquo; n&ecirc;n H l&agrave; trung điểm của OO&rsquo;. Suy ra $OH = 4cm$ .</p>
+<p>X&eacute;t tam gi&aacute;c AOH vu&ocirc;ng tại H n&ecirc;n suy ra</p>
+<p>$A{H^2} = O{A^2} - O{H^2} = {5^2} - {4^2} = 9 = {3^2}$.</p>
+<p>Vậy $AH = 3cm$ .</p>
+<p>M&agrave; $AB = 2AH$ ( mối quan hệ giữa đường nối t&acirc;m v&agrave; d&acirc;y cung).</p>
+<p>Vậy $AB = 6cm$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 4:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( {O;4cm} \right)$ v&agrave; $\left( {O';3cm} \right)$ biết $OO' = 5cm$. Hai đường tr&ograve;n tr&ecirc;n cắt nhau tại $A$ v&agrave; \(B\). Độ d&agrave;i $AB$ l&agrave;:</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$2,4cm$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$4,8cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$\dfrac{5}{{12}}cm$&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$5cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t tam gi&aacute;c $OAO'$&nbsp; c&oacute; $O{A^2} + O'{A^2} = OO{'^2}$ (v&igrave; ${4^2} + {3^2} = {5^2}$) n&ecirc;n tam gi&aacute;c $OAO'$&nbsp; vu&ocirc;ng tại $A$.</p>
+<p>X&eacute;t $\Delta HAO \backsim \Delta AO'O (g.g)$ n&ecirc;n $\frac{AH}{OA} = \frac{O'A}{OO'}$ suy ra $AH.OO' = OA.O'A \Rightarrow AH = \dfrac{{OA.O'A}}{{OO'}} = \dfrac{{4.3}}{5} = \dfrac{{12}}{5}$</p>
+<p>M&agrave; $AB = 2AH$ n&ecirc;n $AB = \dfrac{{24}}{5} = 4,8cm$</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 5:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n \(\left( O \right)\) v&agrave; \(\left( {O'} \right)\)tiếp x&uacute;c ngo&agrave;i tại \(A\). Kẻ c&aacute;c đường k&iacute;nh \(AOB;AO'C\). Gọi \(DE\) l&agrave; tiếp tuyến chung của hai đường&nbsp; tr&ograve;n&nbsp; \(\left( {D \in \left( O \right);E \in \left( {O'} \right)} \right)\). Gọi \(M\) l&agrave; giao điểm của \(BD\) v&agrave; \(CE\). T&iacute;nh diện t&iacute;ch tứ gi&aacute;c \(ADME\) biết \(\widehat {DOA} = 60^\circ \) v&agrave; \(OA = 8\,cm\)</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>\(12\sqrt 3 \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>\( \dfrac{64}{3}\sqrt 3&nbsp; \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>\( \dfrac{32}{3}\sqrt 3 \,\,c{m^2}\)</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>\(36\,\,c{m^2}\)</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>X&eacute;t \(\left( O \right)\) c&oacute; \(OD = OA \Rightarrow \Delta OAD\) c&acirc;n tại \(O \Rightarrow \widehat {ODA} = \widehat {OAD}\)</p>
+<p>X&eacute;t \(\left( {O'} \right)\) c&oacute; \(O'E = O'A \Rightarrow \Delta O'EB\) c&acirc;n tại \(O' \Rightarrow \widehat {O'EA} = \widehat {O'AE}\)</p>
+<p>M&agrave; \(\widehat O + \widehat {O'} = 360^\circ&nbsp; - \widehat {O'ED} - \widehat {ODE} = 180^\circ \)</p>
+<p>\( \Leftrightarrow 180^\circ&nbsp; - \widehat {ODA} - \widehat {OAD} + 180^\circ&nbsp; - \widehat {O'EA} - \widehat {O'AE} = 180^\circ&nbsp; \Leftrightarrow 2\left( {\widehat {OAD} + \widehat {O'AE}} \right) = 180^\circ \)</p>
+<p>\( \Rightarrow \widehat {OAD} + \widehat {O'AE} = 90^\circ \)\( \Rightarrow \widehat {DAE} = 90^\circ&nbsp; \Rightarrow \Delta ADE\) vu&ocirc;ng tại \(A\).</p>
+<p>M&agrave; \(\widehat {BDA} = 90^\circ \) ( v&igrave; tam gi&aacute;c \(BAD\) c&oacute; cạnh \(AB\) l&agrave; đường k&iacute;nh của \(\left( O \right)\)v&agrave; \(D \in \left( O \right)\) ) n&ecirc;n \(BD \bot AD \Rightarrow \widehat {MDA} = 90^\circ \)</p>
+<p>Tương tự ta c&oacute; \(\widehat {MEA} = 90^\circ \) .\(\)\(\)</p>
+<p>N&ecirc;n tứ gi&aacute;c \(DMEA\) l&agrave; h&igrave;nh chữ nhật.</p>
+<p>X&eacute;t tam gi&aacute;c \(OAD\) c&acirc;n tại \(O\) c&oacute; \(\widehat {DOA} = 60^\circ \) n&ecirc;n \(\Delta DOA\) đều, suy ra \(OA = AD = 8\,cm\) v&agrave; \(\widehat {ODA} = 60^\circ \)</p>
+<p>\( \Rightarrow \widehat {ADE} = 30^\circ \). X&eacute;t tam gi&aacute;c \(ADE\) ta c&oacute; \(EA = AD.\tan \widehat {EDA} = 8.\tan 30^\circ&nbsp; = \dfrac{8}{3}\sqrt 3 \)</p>
+<p>\({S_{DMEA}} = AD.AE = 8.\dfrac{8}{3}\sqrt 3&nbsp; = \dfrac{64}{3}\sqrt 3 \,\,c{m^2}\).</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 6:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n $\left( O \right)$&nbsp; v&agrave; $\left( {O'} \right)$&nbsp; tiếp x&uacute;c ngo&agrave;i tại $A$. Kẻ tiếp tuyến chung ngo&agrave;i $BC,B \in \left( O \right)$ v&agrave; $C \in (O')$. Tiếp tuyến chung trong tại $A$ cắt tiếp tuyến chung ngo&agrave;i $BC$ tại $I$. T&iacute;nh độ d&agrave;i $BC$ biết $OA = 9cm,O'A = 4cm$.</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>$12cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>$18cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>$10cm$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>$6cm$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p>Ta c&oacute; $IO$ l&agrave; tia ph&acirc;n gi&aacute;c của \(\widehat {BIA}\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>$IO'$ l&agrave; tia ph&acirc;n gi&aacute;c của \(\widehat {CIA}\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>M&agrave; \(\widehat {BIA} + \widehat {CIA} = {180^0} \Rightarrow \widehat {OIO'} = {90^0}\)</p>
+<p>X&eacute;t $\Delta OIA \backsim \Delta IO'A$ n&ecirc;n $\frac{AO}{IA} = \frac{IA}{AO'}$ n&ecirc;n $I{A^2} = AO.AO' = 9.4 = 36 \Rightarrow IA = 6cm$.</p>
+<p>\( \Rightarrow IA = IB = IC = 6cm\)&nbsp;(t&iacute;nh chất hai tiếp tuyến cắt nhau)</p>
+<p>Vậy $BC = 2IA = 2.6 = 12\left( {cm} \right)$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 7:</strong></div>
+  <div class="quiz-question-body"><p style="text-align: left;">Cho hai đường tr&ograve;n $\left( O \right)$ v&agrave; $\left( {O'} \right)$ tiếp x&uacute;c ngo&agrave;i tại $A$. Kẻ c&aacute;c đường k&iacute;nh $AOB;AO'C$. Gọi $DE$ l&agrave; tiếp tuyến chung của hai đường&nbsp; tr&ograve;n&nbsp; $\left( {D \in \left( O \right);E \in \left( {O'} \right)} \right)$. Gọi $M$ l&agrave; giao điểm của $BD$ v&agrave; $CE$. T&iacute;nh diện t&iacute;ch tứ gi&aacute;c $ADME$ biết $\widehat {DOA} = 60^\circ $ v&agrave; $OA = 6\,cm.$</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p style="text-align: left;">$12\sqrt 3 \,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p style="text-align: left;">$12\,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p style="text-align: left;">$16\,\,c{m^2}$</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p style="text-align: left;">$24\,\,c{m^2}$</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p style="text-align: left;">Chứng minh tương tự c&acirc;u trước ta c&oacute; được $\widehat {DAE} = 90^\circ $</p>
+<p style="text-align: left;">M&agrave; \(\widehat {BDA} = 90^\circ \) ( v&igrave; tam gi&aacute;c \(BAD\) c&oacute; cạnh \(AB\) l&agrave; đường k&iacute;nh của \(\left( O \right)\) v&agrave; \(D \in \left( O \right)\) ) n&ecirc;n \(BD \bot AD \Rightarrow \widehat {MDA} = 90^\circ .\) Tương tự ta c&oacute; \(\widehat {MEA} = 90^\circ .\)</p>
+<p style="text-align: left;">N&ecirc;n tứ gi&aacute;c $DMEA$ l&agrave; h&igrave;nh chữ nhật.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $OAD$ c&acirc;n tại $O$ c&oacute; $\widehat {DOA} = 60^\circ $ n&ecirc;n $\Delta DOA$ đều,</p>
+<p style="text-align: left;">suy ra $OA = AD = 6\,cm$ v&agrave; $\widehat {ODA} = 60^\circ $</p>
+<p style="text-align: left;">$ \Rightarrow \widehat {ADE} = 30^\circ $.</p>
+<p style="text-align: left;">X&eacute;t tam gi&aacute;c $ADE$ ta c&oacute;</p>
+<p style="text-align: left;">$EA = AD.\tan \widehat {EDA} = 6.\tan 30^\circ&nbsp; = 2\sqrt 3 $</p>
+<p style="text-align: left;">${S_{DMEA}} = AD.AE = 6.2\sqrt 3&nbsp; = 12\sqrt 3 \,\,c{m^2}$.</p></div>
+  </details>
+</div>
+<div class="quiz-item">
+  <div class="quiz-title"><strong>Câu 8:</strong></div>
+  <div class="quiz-question-body"><p>Cho hai đường tr&ograve;n đồng t&acirc;m O. Biết BC l&agrave; đường k&iacute;nh của đường tr&ograve;n lớn v&agrave; c&oacute; độ d&agrave;i bằng 12cm. D&acirc;y CD của đường tr&ograve;n lớn đồng thời l&agrave; tiếp tuyến của đường tr&ograve;n nhỏ v&agrave; \(\widehat {BCD} = 30^\circ \). H&atilde;y t&iacute;nh b&aacute;n k&iacute;nh đường tr&ograve;n nhỏ?</p></div>
+  <div class="quiz-answers-grid">
+    <div class="quiz-answer-opt"><span class="opt-label">A.</span> <p>6cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">B.</span> <p>9cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">C.</span> <p>3cm.</p></div>
+    <div class="quiz-answer-opt"><span class="opt-label">D.</span> <p>4cm.</p></div>
+  </div>
+  <details class="quiz-solution-box" open>
+    <summary><strong>💡 Lời giải chi tiết</strong></summary>
+    <div class="quiz-solution-content"><p><img src="https://img.loigiaihay.com/picture/2024/0703/1720001362051-mceclip0.png" /></p>
+<p>V&igrave; CD l&agrave; tiếp tuyến của đường tr&ograve;n nhỏ (O) n&ecirc;n CD vu&ocirc;ng g&oacute;c với b&aacute;n k&iacute;nh đi qua tiếp điểm. Gọi E l&agrave; điểm tiếp x&uacute;c, khi đ&oacute; \(OE \bot CD\) tại E.</p>
+<p>V&igrave; BC l&agrave; đường k&iacute;nh đường tr&ograve;n lớn n&ecirc;n \(OC = \frac{{BC}}{2} = \frac{{12}}{2} = 6\left( {cm} \right)\)</p>
+<p>X&eacute;t tam gi&aacute;c OEC vu&ocirc;ng tại E, ta c&oacute;:</p>
+<p>\(\sin 30^\circ&nbsp; = \frac{{OE}}{{OC}}\) suy ra \(OE = OC.\sin 30^\circ&nbsp; = 6.\sin 30^\circ&nbsp; = 3\left( {cm} \right)\)</p>
+<p><strong>Đ&aacute;p &aacute;n </strong><strong>C</strong></p></div>
+  </details>
+</div>
+</div>
+        </article>
+        
+    </div>
+</body>
+</html>

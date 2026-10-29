@@ -1,0 +1,46 @@
+# Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+
+# Node & Build Outputs
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+cache/
+**/.vitepress/cache/
+**/.vitepress/dist/
+
+# Python Cache & Bytecode
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+
+# Environment Variables & Secrets (CRITICAL SECURITY)
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Scratch & Temporary
+scratch/
+**/scratch/
+probe_output/
+
+# OS & Editor Files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git Backups
+.git_backup/
+**/.git_backup/
