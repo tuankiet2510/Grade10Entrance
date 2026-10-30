@@ -370,7 +370,7 @@ html.hide-aside .VPDoc .aside {
 
 /* ==========================================================================
    MERMAID DIAGRAMS - THEME HARMONIZATION & HIGH-CONTRAST ACCESSIBILITY
-   Fixes dark mode text contrast & unifies palette with Study4 design system
+   Crystal-clear contrast in both Light Mode and Dark Mode (WCAG AAA)
    ========================================================================== */
 
 .mermaid {
@@ -384,140 +384,324 @@ html.hide-aside .VPDoc .aside {
   margin: 1.75rem 0;
   overflow-x: auto;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 .mermaid svg {
   max-width: min(100%, 750px) !important;
   height: auto !important;
+  font-family: 'Plus Jakarta Sans', -apple-system, sans-serif !important;
 }
 
-/* --- Dark Mode Mermaid Fixes (Matches User Screenshot & Study4 Dark Theme) --- */
-.dark .mermaid {
-  background: #0f172a !important; /* Deep navy slate matching high-end UI */
-  border-color: rgba(255, 255, 255, 0.08) !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important;
+/* ==========================================================================
+   LIGHT MODE: HIGH-CONTRAST SATELLITE PALETTE
+   ========================================================================== */
+:root:not(.dark) .mermaid {
+  background: #f8fafc !important;
+  border-color: #e2e8f0 !important;
 }
 
-/* Dark Mode: Translucent glowing backgrounds for pastel nodes */
-.dark .mermaid svg [style*="#dcfce7"],
-.dark .mermaid svg [style*="#f0fdf4"],
-.dark .mermaid svg [fill="#dcfce7"],
-.dark .mermaid svg [fill="#f0fdf4"] {
-  fill: rgba(6, 78, 59, 0.55) !important;
-  stroke: #10b981 !important;
+/* Root / Hero Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#2563eb"],
+:root:not(.dark) .mermaid svg [style*="37, 99, 235"],
+:root:not(.dark) .mermaid svg [style*="37,99,235"],
+:root:not(.dark) .mermaid svg [fill="#2563eb"] {
+  fill: #2563eb !important;
+  stroke: #1d4ed8 !important;
   stroke-width: 2px !important;
 }
-
-.dark .mermaid svg [style*="#fef3c7"],
-.dark .mermaid svg [style*="#fefce8"],
-.dark .mermaid svg [fill="#fef3c7"],
-.dark .mermaid svg [fill="#fefce8"] {
-  fill: rgba(120, 53, 15, 0.55) !important;
-  stroke: #f59e0b !important;
-  stroke-width: 2px !important;
-}
-
-.dark .mermaid svg [style*="#ede9fe"],
-.dark .mermaid svg [style*="#faf5ff"],
-.dark .mermaid svg [fill="#ede9fe"],
-.dark .mermaid svg [fill="#faf5ff"] {
-  fill: rgba(88, 28, 135, 0.55) !important;
-  stroke: #a855f7 !important;
-  stroke-width: 2px !important;
-}
-
-.dark .mermaid svg [style*="#eff6ff"],
-.dark .mermaid svg [fill="#eff6ff"] {
-  fill: rgba(30, 58, 138, 0.55) !important;
-  stroke: #3b82f6 !important;
-  stroke-width: 2px !important;
-}
-
-.dark .mermaid svg [style*="#fee2e2"],
-.dark .mermaid svg [style*="#fef2f2"],
-.dark .mermaid svg [fill="#fee2e2"],
-.dark .mermaid svg [fill="#fef2f2"] {
-  fill: rgba(127, 29, 29, 0.55) !important;
-  stroke: #ef4444 !important;
-  stroke-width: 2px !important;
-}
-
-.dark .mermaid svg [style*="#f1f5f9"],
-.dark .mermaid svg [fill="#f1f5f9"] {
-  fill: rgba(30, 41, 59, 0.75) !important;
-  stroke: #64748b !important;
-  stroke-width: 1.5px !important;
-}
-
-.dark .mermaid svg [style*="#2563eb"],
-.dark .mermaid svg [fill="#2563eb"] {
-  fill: #1d4ed8 !important;
-  stroke: #60a5fa !important;
-  stroke-width: 2px !important;
-}
-
-/* Dark Mode: Text Contrast Enforcement */
-.dark .mermaid svg text,
-.dark .mermaid svg tspan,
-.dark .mermaid svg .label,
-.dark .mermaid svg .nodeLabel,
-.dark .mermaid svg span,
-.dark .mermaid svg div {
-  color: #f8fafc !important;
-  fill: #f8fafc !important;
-  font-weight: 600 !important;
-}
-
-.dark .mermaid svg .edgeLabel,
-.dark .mermaid svg .edgeLabel span {
-  background: #0f172a !important;
-  color: #94a3b8 !important;
-  fill: #94a3b8 !important;
-}
-
-.dark .mermaid svg .flowchart-link {
-  stroke: #64748b !important;
-}
-
-.dark .mermaid svg .marker {
-  fill: #64748b !important;
-  stroke: #64748b !important;
-}
-
-/* --- Light Mode Mermaid Contrast Tuning --- */
 :root:not(.dark) .mermaid svg [style*="#2563eb"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="37, 99, 235"] ~ .label *,
 :root:not(.dark) .mermaid svg [fill="#2563eb"] ~ .label * {
   color: #ffffff !important;
   fill: #ffffff !important;
+  font-weight: 700 !important;
 }
 
+/* Blue Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#eff6ff"],
+:root:not(.dark) .mermaid svg [style*="239, 246, 255"],
+:root:not(.dark) .mermaid svg [style*="239,246,255"],
+:root:not(.dark) .mermaid svg [fill="#eff6ff"] {
+  fill: #eff6ff !important;
+  stroke: #3b82f6 !important;
+  stroke-width: 2px !important;
+}
+:root:not(.dark) .mermaid svg [style*="#eff6ff"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="239, 246, 255"] ~ .label *,
+:root:not(.dark) .mermaid svg [fill="#eff6ff"] ~ .label * {
+  color: #1e3a8a !important; /* Deep Navy - WCAG AAA */
+  fill: #1e3a8a !important;
+  font-weight: 700 !important;
+}
+
+/* Green Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#dcfce7"],
+:root:not(.dark) .mermaid svg [style*="#f0fdf4"],
+:root:not(.dark) .mermaid svg [style*="220, 252, 231"],
+:root:not(.dark) .mermaid svg [style*="240, 253, 244"],
+:root:not(.dark) .mermaid svg [fill="#dcfce7"],
+:root:not(.dark) .mermaid svg [fill="#f0fdf4"] {
+  fill: #f0fdf4 !important;
+  stroke: #16a34a !important;
+  stroke-width: 2px !important;
+}
 :root:not(.dark) .mermaid svg [style*="#dcfce7"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="#f0fdf4"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="220, 252, 231"] ~ .label *,
 :root:not(.dark) .mermaid svg [fill="#dcfce7"] ~ .label * {
-  color: #14532d !important;
+  color: #14532d !important; /* Deep Forest Green - WCAG AAA */
   fill: #14532d !important;
   font-weight: 700 !important;
 }
 
+/* Amber / Yellow Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#fef3c7"],
+:root:not(.dark) .mermaid svg [style*="#fefce8"],
+:root:not(.dark) .mermaid svg [style*="#fffbeb"],
+:root:not(.dark) .mermaid svg [style*="254, 243, 199"],
+:root:not(.dark) .mermaid svg [style*="254, 252, 232"],
+:root:not(.dark) .mermaid svg [fill="#fef3c7"],
+:root:not(.dark) .mermaid svg [fill="#fefce8"] {
+  fill: #fffbeb !important;
+  stroke: #d97706 !important;
+  stroke-width: 2px !important;
+}
 :root:not(.dark) .mermaid svg [style*="#fef3c7"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="#fefce8"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="254, 243, 199"] ~ .label *,
 :root:not(.dark) .mermaid svg [fill="#fef3c7"] ~ .label * {
-  color: #78350f !important;
+  color: #78350f !important; /* Deep Amber Brown - WCAG AAA */
   fill: #78350f !important;
   font-weight: 700 !important;
 }
 
+/* Purple Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#ede9fe"],
+:root:not(.dark) .mermaid svg [style*="#faf5ff"],
+:root:not(.dark) .mermaid svg [style*="237, 233, 254"],
+:root:not(.dark) .mermaid svg [fill="#ede9fe"],
+:root:not(.dark) .mermaid svg [fill="#faf5ff"] {
+  fill: #faf5ff !important;
+  stroke: #9333ea !important;
+  stroke-width: 2px !important;
+}
 :root:not(.dark) .mermaid svg [style*="#ede9fe"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="#faf5ff"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="237, 233, 254"] ~ .label *,
 :root:not(.dark) .mermaid svg [fill="#ede9fe"] ~ .label * {
-  color: #4c1d95 !important;
+  color: #4c1d95 !important; /* Deep Violet - WCAG AAA */
   fill: #4c1d95 !important;
   font-weight: 700 !important;
 }
 
-:root:not(.dark) .mermaid svg [style*="#eff6ff"] ~ .label *,
-:root:not(.dark) .mermaid svg [fill="#eff6ff"] ~ .label * {
-  color: #1e40af !important;
-  fill: #1e40af !important;
+/* Rose / Red Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#fee2e2"],
+:root:not(.dark) .mermaid svg [style*="#fef2f2"],
+:root:not(.dark) .mermaid svg [style*="#fff1f2"],
+:root:not(.dark) .mermaid svg [style*="254, 226, 226"],
+:root:not(.dark) .mermaid svg [fill="#fee2e2"],
+:root:not(.dark) .mermaid svg [fill="#fef2f2"] {
+  fill: #fff1f2 !important;
+  stroke: #e11d48 !important;
+  stroke-width: 2px !important;
+}
+:root:not(.dark) .mermaid svg [style*="#fee2e2"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="#fef2f2"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="254, 226, 226"] ~ .label *,
+:root:not(.dark) .mermaid svg [fill="#fee2e2"] ~ .label * {
+  color: #881337 !important; /* Deep Crimson - WCAG AAA */
+  fill: #881337 !important;
   font-weight: 700 !important;
 }
+
+/* Slate / Default Nodes in Light Mode */
+:root:not(.dark) .mermaid svg [style*="#f1f5f9"],
+:root:not(.dark) .mermaid svg [style*="241, 245, 249"],
+:root:not(.dark) .mermaid svg [fill="#f1f5f9"] {
+  fill: #f8fafc !important;
+  stroke: #94a3b8 !important;
+  stroke-width: 1.5px !important;
+}
+:root:not(.dark) .mermaid svg [style*="#f1f5f9"] ~ .label *,
+:root:not(.dark) .mermaid svg [style*="241, 245, 249"] ~ .label *,
+:root:not(.dark) .mermaid svg [fill="#f1f5f9"] ~ .label * {
+  color: #0f172a !important; /* Crisp Dark Slate - WCAG AAA */
+  fill: #0f172a !important;
+  font-weight: 700 !important;
+}
+
+/* ==========================================================================
+   DARK MODE: RICH, DEEP NEON-EDGED PALETTE (STUDY4 HIGH CONTRAST)
+   ========================================================================== */
+.dark .mermaid {
+  background: #0b1120 !important; /* Deepest Midnight Slate */
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Root / Hero Nodes in Dark Mode */
+.dark .mermaid svg [style*="#2563eb"],
+.dark .mermaid svg [style*="37, 99, 235"],
+.dark .mermaid svg [style*="37,99,235"],
+.dark .mermaid svg [fill="#2563eb"] {
+  fill: #1d4ed8 !important;
+  stroke: #60a5fa !important;
+  stroke-width: 2.5px !important;
+}
+.dark .mermaid svg [style*="#2563eb"] ~ .label *,
+.dark .mermaid svg [style*="37, 99, 235"] ~ .label *,
+.dark .mermaid svg [fill="#2563eb"] ~ .label * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Blue Nodes in Dark Mode */
+.dark .mermaid svg [style*="#eff6ff"],
+.dark .mermaid svg [style*="239, 246, 255"],
+.dark .mermaid svg [style*="239,246,255"],
+.dark .mermaid svg [fill="#eff6ff"] {
+  fill: #172554 !important; /* Deep Navy Blue */
+  stroke: #3b82f6 !important;
+  stroke-width: 2px !important;
+}
+.dark .mermaid svg [style*="#eff6ff"] ~ .label *,
+.dark .mermaid svg [style*="239, 246, 255"] ~ .label *,
+.dark .mermaid svg [fill="#eff6ff"] ~ .label * {
+  color: #dbeafe !important; /* Bright Ice Blue */
+  fill: #dbeafe !important;
+  font-weight: 700 !important;
+}
+
+/* Green Nodes in Dark Mode */
+.dark .mermaid svg [style*="#dcfce7"],
+.dark .mermaid svg [style*="#f0fdf4"],
+.dark .mermaid svg [style*="220, 252, 231"],
+.dark .mermaid svg [style*="240, 253, 244"],
+.dark .mermaid svg [fill="#dcfce7"],
+.dark .mermaid svg [fill="#f0fdf4"] {
+  fill: #052e16 !important; /* Deep Forest Emerald */
+  stroke: #10b981 !important;
+  stroke-width: 2px !important;
+}
+.dark .mermaid svg [style*="#dcfce7"] ~ .label *,
+.dark .mermaid svg [style*="#f0fdf4"] ~ .label *,
+.dark .mermaid svg [style*="220, 252, 231"] ~ .label *,
+.dark .mermaid svg [fill="#dcfce7"] ~ .label * {
+  color: #d1fae5 !important; /* Bright Mint White */
+  fill: #d1fae5 !important;
+  font-weight: 700 !important;
+}
+
+/* Amber / Yellow Nodes in Dark Mode */
+.dark .mermaid svg [style*="#fef3c7"],
+.dark .mermaid svg [style*="#fefce8"],
+.dark .mermaid svg [style*="#fffbeb"],
+.dark .mermaid svg [style*="254, 243, 199"],
+.dark .mermaid svg [style*="254, 252, 232"],
+.dark .mermaid svg [fill="#fef3c7"],
+.dark .mermaid svg [fill="#fefce8"] {
+  fill: #451a03 !important; /* Deep Golden Amber */
+  stroke: #f59e0b !important;
+  stroke-width: 2px !important;
+}
+.dark .mermaid svg [style*="#fef3c7"] ~ .label *,
+.dark .mermaid svg [style*="#fefce8"] ~ .label *,
+.dark .mermaid svg [style*="254, 243, 199"] ~ .label *,
+.dark .mermaid svg [fill="#fef3c7"] ~ .label * {
+  color: #fef3c7 !important; /* Bright Warm Gold */
+  fill: #fef3c7 !important;
+  font-weight: 700 !important;
+}
+
+/* Purple Nodes in Dark Mode */
+.dark .mermaid svg [style*="#ede9fe"],
+.dark .mermaid svg [style*="#faf5ff"],
+.dark .mermaid svg [style*="237, 233, 254"],
+.dark .mermaid svg [fill="#ede9fe"],
+.dark .mermaid svg [fill="#faf5ff"] {
+  fill: #2e1065 !important; /* Deep Royal Purple */
+  stroke: #a855f7 !important;
+  stroke-width: 2px !important;
+}
+.dark .mermaid svg [style*="#ede9fe"] ~ .label *,
+.dark .mermaid svg [style*="#faf5ff"] ~ .label *,
+.dark .mermaid svg [style*="237, 233, 254"] ~ .label *,
+.dark .mermaid svg [fill="#ede9fe"] ~ .label * {
+  color: #f3e8ff !important; /* Bright Lilac White */
+  fill: #f3e8ff !important;
+  font-weight: 700 !important;
+}
+
+/* Rose / Red Nodes in Dark Mode */
+.dark .mermaid svg [style*="#fee2e2"],
+.dark .mermaid svg [style*="#fef2f2"],
+.dark .mermaid svg [style*="#fff1f2"],
+.dark .mermaid svg [style*="254, 226, 226"],
+.dark .mermaid svg [fill="#fee2e2"],
+.dark .mermaid svg [fill="#fef2f2"] {
+  fill: #4c0519 !important; /* Deep Crimson Ruby */
+  stroke: #f43f5e !important;
+  stroke-width: 2px !important;
+}
+.dark .mermaid svg [style*="#fee2e2"] ~ .label *,
+.dark .mermaid svg [style*="#fef2f2"] ~ .label *,
+.dark .mermaid svg [style*="254, 226, 226"] ~ .label *,
+.dark .mermaid svg [fill="#fee2e2"] ~ .label * {
+  color: #ffe4e6 !important; /* Bright Rose White */
+  fill: #ffe4e6 !important;
+  font-weight: 700 !important;
+}
+
+/* Slate Nodes in Dark Mode */
+.dark .mermaid svg [style*="#f1f5f9"],
+.dark .mermaid svg [style*="241, 245, 249"],
+.dark .mermaid svg [fill="#f1f5f9"] {
+  fill: #1e293b !important; /* Slate 800 */
+  stroke: #64748b !important;
+  stroke-width: 1.5px !important;
+}
+.dark .mermaid svg [style*="#f1f5f9"] ~ .label *,
+.dark .mermaid svg [style*="241, 245, 249"] ~ .label *,
+.dark .mermaid svg [fill="#f1f5f9"] ~ .label * {
+  color: #f8fafc !important; /* Pure Crisp White */
+  fill: #f8fafc !important;
+  font-weight: 700 !important;
+}
+
+/* Link Lines and Markers */
+.dark .mermaid svg .flowchart-link {
+  stroke: #94a3b8 !important;
+  stroke-width: 1.75px !important;
+}
+.dark .mermaid svg .marker {
+  fill: #94a3b8 !important;
+  stroke: #94a3b8 !important;
+}
+:root:not(.dark) .mermaid svg .flowchart-link {
+  stroke: #64748b !important;
+  stroke-width: 1.75px !important;
+}
+:root:not(.dark) .mermaid svg .marker {
+  fill: #64748b !important;
+  stroke: #64748b !important;
+}
+
+/* Edge Labels (Between Nodes) */
+.dark .mermaid svg .edgeLabel,
+.dark .mermaid svg .edgeLabel span {
+  background: #0b1120 !important;
+  color: #cbd5e1 !important;
+  fill: #cbd5e1 !important;
+}
+:root:not(.dark) .mermaid svg .edgeLabel,
+:root:not(.dark) .mermaid svg .edgeLabel span {
+  background: #f8fafc !important;
+  color: #334155 !important;
+  fill: #334155 !important;
+}
+
 
 /* Reading Passage Card */
 .reading-passage-box {

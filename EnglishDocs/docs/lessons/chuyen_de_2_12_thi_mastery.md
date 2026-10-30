@@ -34,7 +34,7 @@ flowchart LR
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
     style B fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#0f172a,font-weight:bold
-    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
     style D fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style E fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
     style F fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold

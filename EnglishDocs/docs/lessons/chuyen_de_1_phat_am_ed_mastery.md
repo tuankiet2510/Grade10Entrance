@@ -21,7 +21,7 @@ flowchart LR
     style B fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#0f172a,font-weight:bold
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style D fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
-    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
 ```
 
 ---

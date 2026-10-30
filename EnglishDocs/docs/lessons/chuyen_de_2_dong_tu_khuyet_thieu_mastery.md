@@ -16,9 +16,9 @@ flowchart LR
     A --> E["Không cần thiết<br/>NEEDN'T / DON'T HAVE TO"]
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
-    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d,font-weight:bold
+    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#881337,font-weight:bold
     style E fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
 ```
 

@@ -18,12 +18,12 @@ flowchart LR
     D --> D1["Too...to ➔ So...that<br/>Prefer ➔ Would rather"]
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
-    style C fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#166534,font-weight:bold
-    style D fill:#fefce8,stroke:#ca8a04,stroke-width:2px,color:#854d0e,font-weight:bold
-    style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
-    style C1 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95
-    style D1 fill:#fee2e2,stroke:#dc2626,stroke-width:1.5px,color:#7f1d1d
+    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
+    style C fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
+    style D fill:#fefce8,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
+    style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d,font-weight:bold
+    style C1 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95,font-weight:bold
+    style D1 fill:#fee2e2,stroke:#dc2626,stroke-width:1.5px,color:#881337,font-weight:bold
 ```
 
 ---

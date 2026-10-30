@@ -29,7 +29,7 @@ flowchart LR
     style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style B2 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
     style C1 fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
-    style C2 fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style C2 fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
 ```
 
 ---
