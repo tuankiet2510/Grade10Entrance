@@ -1,7 +1,7 @@
 ---
 title: "Đề Luyện Thi Vào 10 Form 36 Câu - Test 06"
 category: "Bộ Đề Tuyển Sinh Vào 10"
-description: "Bộ đề rèn luyện luyện tập bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với trọng tâm cấu trúc ngữ pháp điều kiện, so sánh kép và bảo tồn thiên nhiên."
+description: "Bộ đề luyện thi bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với trọng tâm cấu trúc ngữ pháp điều kiện, so sánh kép và bảo tồn thiên nhiên."
 source_type: "practice-exam"
 ---
 

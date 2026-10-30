@@ -7,7 +7,6 @@ const MODULE_NAMES: Record<string, string> = {
   "chuyen_de_4": "Chuyên đề 4: Biển Báo & Giao Tiếp",
   "chuyen_de_5": "Chuyên đề 5: Viết Luận & Đoạn Văn",
   "chuyen_de_6": "Chuyên đề 6: 12 Units SGK Lớp 9",
-  "guide": "Cẩm Nang Phương Pháp",
   "exams": "Bộ Đề Tuyển Sinh Vào 10"
 }
 
@@ -19,6 +18,9 @@ export interface LessonMeta {
   readingTime: number
   wordCount: number
   sourceType: string
+  isExam: boolean
+  duration?: number
+  totalQuestions?: number
 }
 
 declare const data: LessonMeta[]
@@ -30,8 +32,8 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
     return raw
       .filter(({ url }) => {
         if (!url || url.endsWith('/lessons/') || url.endsWith('/exams/') || url.toLowerCase().endsWith('/readme.html')) return false
-        // Lọc bỏ các thư mục tạm / UUID Notion / superpowers
-        if (url.includes('c674a7bc') || url.includes('ExportBlock') || url.includes('superpowers')) return false
+        // Lọc bỏ file devlog guide.md và các thư mục tạm / UUID Notion / superpowers
+        if (url.includes('/guide') || url.includes('c674a7bc') || url.includes('ExportBlock') || url.includes('superpowers')) return false
         return true
       })
       .map(({ url, frontmatter, src }) => {
@@ -40,15 +42,18 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
 
         let catKey = 'general'
         if (fileName.startsWith('chuyen_de_1')) catKey = 'chuyen_de_1'
-        else if (fileName.startsWith('chuyen_de_2')) catKey = 'chuyen_de_2'
+        else if (fileName.startsWith('chuyen_de_2') || fileName.startsWith('de_cuong')) catKey = 'chuyen_de_2'
         else if (fileName.startsWith('chuyen_de_3')) catKey = 'chuyen_de_3'
         else if (fileName.startsWith('chuyen_de_4')) catKey = 'chuyen_de_4'
         else if (fileName.startsWith('chuyen_de_5')) catKey = 'chuyen_de_5'
         else if (fileName.startsWith('chuyen_de_6')) catKey = 'chuyen_de_6'
-        else if (fileName.startsWith('guide')) catKey = 'guide'
         else if (fileName.includes('exam') || fileName.includes('de_thi') || fileName.includes('qng') || fileName.includes('36_cau') || fileName.includes('45_cau')) catKey = 'exams'
 
-        const category = frontmatter.category || MODULE_NAMES[catKey] || 'Tài Liệu Chung'
+        const isExam = url.includes('/exams/') || catKey === 'exams'
+        let category = frontmatter.category
+        if (!category || category === 'Ngữ Pháp Trọng Tâm' || category === 'Tài Liệu Phương Pháp' || category === 'Cẩm Nang Phương Pháp' || category === 'Tài Liệu Phương Pháp Học Tập') {
+          category = MODULE_NAMES[catKey] || (isExam ? 'Bộ Đề Tuyển Sinh Vào 10' : 'Chuyên đề 2: Ngữ Pháp & Cấu Trúc')
+        }
 
         let title = frontmatter.title
         if (!title && src) {
@@ -62,6 +67,9 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
         const wordCount = (src || '').trim().split(/\s+/).length
         const readingTime = Math.max(1, Math.ceil(wordCount / 200))
 
+        let duration = frontmatter.duration || (isExam ? (fileName.includes('2026_2027') ? 90 : 60) : undefined)
+        let totalQuestions = frontmatter.total || (isExam ? (fileName.includes('36_cau') ? 36 : (fileName.includes('45_cau') ? 45 : 36)) : undefined)
+
         let description = frontmatter.description
         if (!description && src) {
           const cleanSrc = src.replace(/^---[\s\S]*?---/, '')
@@ -70,7 +78,6 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
             let line = rawLine.trim()
             if (!line || line.startsWith('#') || line.startsWith('```') || line.startsWith('|') || line.startsWith('---')) continue
 
-            // Làm sạch cú pháp Notion / Callout
             line = line.replace(/^>\s*(\[![\w-]+\])?\s*/i, '')
             line = line.replace(/\*\*([^*]+)\*\*/g, '$1')
             line = line.replace(/\*([^*]+)\*/g, '$1')
@@ -85,13 +92,21 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
           }
         }
 
+        // Làm sạch mô tả tránh lặp từ
+        if (description) {
+          description = description.replace(/rèn luyện luyện tập/g, 'luyện thi')
+        }
+
         return {
           title,
-          description: description || 'Tài liệu luyện thi chuyên sâu vào lớp 10 theo chuẩn chương trình GDPT mới.',
+          description: description || 'Tài liệu ôn tập chuyên sâu môn Tiếng Anh vào lớp 10 chuẩn GDPT mới.',
           category,
           readingTime,
           wordCount,
           sourceType: frontmatter.source_type || 'markdown',
+          isExam,
+          duration,
+          totalQuestions,
           url
         }
       })

@@ -1,7 +1,7 @@
 ---
 title: "Đề Luyện Thi Vào 10 Form 36 Câu - Test 07"
 category: "Bộ Đề Tuyển Sinh Vào 10"
-description: "Bộ đề rèn luyện luyện tập bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với các câu hỏi về trí tuệ nhân tạo, bảo vệ môi trường và thành phố thông minh."
+description: "Bộ đề luyện thi bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với các câu hỏi về trí tuệ nhân tạo, bảo vệ môi trường và thành phố thông minh."
 source_type: "practice-exam"
 ---
 
