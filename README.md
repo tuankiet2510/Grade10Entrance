@@ -84,3 +84,4 @@ npm run docs:preview
 
 ## 📜 Giấy Phép & Tác Quyền
 Dự án được xây dựng và chia sẻ phục vụ mục đích học tập, ôn luyện thi vào lớp 10 THPT. Dữ liệu đề thi và câu hỏi được tổng hợp và chuẩn hóa từ các nguồn chính thống và Sở GD&ĐT.
+
