@@ -6,9 +6,9 @@ description: "Phương pháp chinh phục câu hỏi viết luận đoạn văn 
 
 # Chuyên Đề 5: Hướng Dẫn Viết Đoạn Văn Nghị Luận 100 - 120 Từ
 
-> [!IMPORTANT] **ĐẶC TRƯNG ĐỀ THI QUẢNG NGÃI 2026 - 2027 & GDPT 2018:**
-> Trong cấu trúc đề thi tuyển sinh mới của Sở GD&ĐT Quảng Ngãi, bài viết đoạn văn ngắn chiếm **1.0 đến 1.5 điểm** (10% - 15% tổng số điểm toàn bài thi). Học sinh được yêu cầu viết một đoạn văn mạch lạc từ **100 đến 120 từ** dựa trên các câu hỏi gợi ý (cues).
-
+::: info ĐẶC TRƯNG ĐỀ THI QUẢNG NGÃI 2026 - 2027 & GDPT 2018:
+Trong cấu trúc đề thi tuyển sinh mới của Sở GD&ĐT Quảng Ngãi, bài viết đoạn văn ngắn chiếm **1.0 đến 1.5 điểm** (10% - 15% tổng số điểm toàn bài thi). Học sinh được yêu cầu viết một đoạn văn mạch lạc từ **100 đến 120 từ** dựa trên các câu hỏi gợi ý (cues).
+:::
 ---
 
 ## I. CẤU TRÚC ĐOẠN VĂN CHUẨN 3 PHẦN (PEEL / O-B-E MODEL)

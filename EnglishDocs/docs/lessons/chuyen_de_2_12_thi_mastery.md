@@ -116,9 +116,9 @@ Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nh�
 
 ## IV. CẨM NANG BIẾN ĐỔI CÂU (SENTENCE TRANSFORMATION) QKĐ <-> HTHT
 
-> [!PURPLE] **4 CÔNG THỨC VIẾT LẠI CÂU LẤY ĐIỂM TUYỆT ĐỐI ĐỀ THI VÀO 10:**
-> Đây là dạng câu tự luận bắt buộc trong đề thi tuyển sinh 10 của Sở GD Quảng Ngãi. Học sinh chỉ cần nắm vững 4 cặp biến đổi tương đương dưới đây:
-
+::: info 4 CÔNG THỨC VIẾT LẠI CÂU LẤY ĐIỂM TUYỆT ĐỐI ĐỀ THI VÀO 10:
+Đây là dạng câu tự luận bắt buộc trong đề thi tuyển sinh 10 của Sở GD Quảng Ngãi. Học sinh chỉ cần nắm vững 4 cặp biến đổi tương đương dưới đây:
+:::
 | Dạng biến đổi | Câu gốc (Quá khứ đơn - `V2/ed`) | Câu viết lại tương đương (Hiện tại hoàn thành - `have/has + V3/ed`) |
 | :--- | :--- | :--- |
 | **Dạng 1: Bắt đầu làm gì $\rightarrow$ Đã làm được bao lâu** | `S + started / began + V-ing / to-V + [khoảng TG] + ago`<br>*(hoặc `in / when + mốc TG`)* | $\rightarrow$ `S + have/has + V3/ed / been V-ing + FOR + [khoảng TG]`<br>*(hoặc `SINCE + mốc TG`)* |

@@ -127,8 +127,9 @@ Kho đề rèn luyện 45 câu toàn diện ngữ âm, cấu trúc ngữ pháp c
 ---
 
 ## 🎯 CHIẾN THUẬT PHÂN BỔ THỜI GIAN PHÒNG THI
-> [!TIP] **BÍ KÍP ĐẠT ĐIỂM 9+ MÔN TIẾNG ANH VÀO 10:**
-> 1. **10 phút đầu:** Xử lý nhanh gọn 100% phần **Ngữ âm & Trọng âm** và các câu **Ngữ pháp nhận biết** (câu 1 - 15).
-> 2. **15 phút tiếp theo:** Tập trung cao độ cho bài **Điền từ vào đoạn văn & Đọc hiểu**. Đọc lướt câu hỏi trước để định vị từ khóa trong bài.
-> 3. **15 phút cho phần Viết lại câu:** Chú ý kỹ sự hòa hợp chủ - vị, lùi thì trong câu gián tiếp, và các cặp cấu trúc tương đương (*so... that $\leftrightarrow$ such... that*, *Unless $\leftrightarrow$ If... not*).
-> 4. **10 phút cuối:** Nhìn vào thanh tiến độ **Exam Scoreboard**, kiểm tra lại toàn bộ phiếu trả lời, soát lỗi chính tả và các đuôi danh từ trong phần Word Form.
+::: tip BÍ KÍP ĐẠT ĐIỂM 9+ MÔN TIẾNG ANH VÀO 10:
+1. **10 phút đầu:** Xử lý nhanh gọn 100% phần **Ngữ âm & Trọng âm** và các câu **Ngữ pháp nhận biết** (câu 1 - 15).
+2. **15 phút tiếp theo:** Tập trung cao độ cho bài **Điền từ vào đoạn văn & Đọc hiểu**. Đọc lướt câu hỏi trước để định vị từ khóa trong bài.
+3. **15 phút cho phần Viết lại câu:** Chú ý kỹ sự hòa hợp chủ - vị, lùi thì trong câu gián tiếp, và các cặp cấu trúc tương đương (*so... that $\leftrightarrow$ such... that*, *Unless $\leftrightarrow$ If... not*).
+4. **10 phút cuối:** Nhìn vào thanh tiến độ **Exam Scoreboard**, kiểm tra lại toàn bộ phiếu trả lời, soát lỗi chính tả và các đuôi danh từ trong phần Word Form.
+:::

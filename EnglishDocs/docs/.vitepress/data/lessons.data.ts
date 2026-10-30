@@ -46,7 +46,7 @@ export default createContentLoader(['lessons/**/*.md', 'exams/**/*.md'], {
         else if (fileName.startsWith('chuyen_de_3')) catKey = 'chuyen_de_3'
         else if (fileName.startsWith('chuyen_de_4')) catKey = 'chuyen_de_4'
         else if (fileName.startsWith('chuyen_de_5')) catKey = 'chuyen_de_5'
-        else if (fileName.startsWith('chuyen_de_6')) catKey = 'chuyen_de_6'
+        else if (fileName.startsWith('chuyen_de_6') || fileName.startsWith('unit_')) catKey = 'chuyen_de_6'
         else if (fileName.includes('exam') || fileName.includes('de_thi') || fileName.includes('qng') || fileName.includes('36_cau') || fileName.includes('45_cau')) catKey = 'exams'
 
         const isExam = url.includes('/exams/') || catKey === 'exams'

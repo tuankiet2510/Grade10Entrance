@@ -73,7 +73,7 @@ function scanDirectoryRecursive(dirPath: string, urlPrefix: string): any[] {
       else if (f.rawName.startsWith('chuyen_de_3')) gKey = 'Phần 3: Từ Vựng Chọn Lọc'
       else if (f.rawName.startsWith('chuyen_de_4')) gKey = 'Phần 4: Biển Báo & Giao Tiếp Thực Tế'
       else if (f.rawName.startsWith('chuyen_de_5')) gKey = 'Phần 5: Kỹ Năng Viết Luận & Đoạn Văn'
-      else if (f.rawName.startsWith('chuyen_de_6')) gKey = 'Phần 6: Trọng Tâm 12 Units SGK Lớp 9'
+      else if (f.rawName.startsWith('chuyen_de_6') || f.rawName.startsWith('unit_')) gKey = 'Phần 6: 12 Units SGK Global Success 9'
       else if (f.rawName.startsWith('guide')) gKey = 'Cẩm Nang Phương Pháp'
       else if (f.rawName.startsWith('de_cuong')) gKey = '📘 Đề Cương Ôn Tập Giữa Kỳ'
       else if (f.rawName.includes('quang_ngai') || f.rawName.includes('da_nang')) gKey = '🏛️ Đề Thi Chính Thức Sở GD&ĐT'

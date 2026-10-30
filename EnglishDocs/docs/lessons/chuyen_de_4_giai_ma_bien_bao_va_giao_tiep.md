@@ -6,9 +6,9 @@ description: "Trọng tâm đề thi tuyển sinh Đà Nẵng & GDPT 2018: Phư�
 
 # Chuyên Đề 4: Biển Báo Công Cộng Và Tình Huống Giao Tiếp
 
-> [!IMPORTANT] **ĐẶC TRƯNG ĐỀ THI TUYỂN SINH ĐÀ NẴNG & GDPT 2018:**
-> Trong cấu trúc đề thi tuyển sinh vào lớp 10 của Sở GD&ĐT Đà Nẵng và định hướng đổi mới theo chương trình GDPT 2018, phần **Biển báo thực tế (Public Signs & Notices)** và **Giao tiếp đời sống (Social Situational Communication)** chiếm từ **1.5 đến 2.0 điểm** (4 đến 6 câu hỏi). Dạng câu hỏi này đánh giá năng lực ngôn ngữ ứng dụng thực tế của học sinh.
-
+::: info ĐẶC TRƯNG ĐỀ THI TUYỂN SINH ĐÀ NẴNG & GDPT 2018:
+Trong cấu trúc đề thi tuyển sinh vào lớp 10 của Sở GD&ĐT Đà Nẵng và định hướng đổi mới theo chương trình GDPT 2018, phần **Biển báo thực tế (Public Signs & Notices)** và **Giao tiếp đời sống (Social Situational Communication)** chiếm từ **1.5 đến 2.0 điểm** (4 đến 6 câu hỏi). Dạng câu hỏi này đánh giá năng lực ngôn ngữ ứng dụng thực tế của học sinh.
+:::
 ---
 
 ## I. MA TRẬN 4 NHÓM BIỂN BÁO CÔNG CỘNG THƯỜNG GẶP

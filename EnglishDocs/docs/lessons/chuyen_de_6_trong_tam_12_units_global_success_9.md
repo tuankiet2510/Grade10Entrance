@@ -1,17 +1,37 @@
 ---
 title: "Chuyên Đề 6: Tổng Ôn Trọng Tâm 12 Units SGK Tiếng Anh 9"
-category: "Chuyên đề 3: Từ Vựng Chọn Lọc"
-description: "Hệ thống hóa toàn bộ từ vựng then chốt, ngữ pháp trọng tâm và cấu trúc ăn điểm của 12 Units SGK Tiếng Anh 9 Global Success bám sát ma trận đề thi tuyển sinh vào 10."
+category: "Chuyên đề 6: 12 Units SGK Lớp 9"
+description: "Hệ thống hóa toàn bộ từ vựng then chốt, ngữ pháp trọng tâm và liên kết học tập chi tiết của 12 Units SGK Tiếng Anh 9 Global Success bám sát ma trận đề thi tuyển sinh vào 10."
 ---
 
 # Chuyên Đề 6: Tổng Ôn Trọng Tâm 12 Units SGK Tiếng Anh 9
 
-> [!IMPORTANT] **ĐỊNH HƯỚNG MA TRẬN ĐỀ THI VÀO 10 THEO CHƯƠNG TRÌNH 2018:**
-> Đề thi tuyển sinh vào 10 tại Quảng Ngãi, Đà Nẵng và các tỉnh thành lớn khai thác **100% chủ đề ngữ liệu** từ 12 Units của bộ SGK mới (*Tiếng Anh 9 Global Success - Kết nối tri thức với cuộc sống*). Nắm vững từ vựng và ngữ pháp của 12 bài học này sẽ giúp học sinh tự tin giải quyết toàn bộ bài đọc hiểu, điền từ và viết lại câu.
+::: info Định hướng ma trận đề thi vào 10 theo chương trình GDPT 2018
+Đề thi tuyển sinh vào 10 khai thác ngữ liệu từ 12 Units của bộ sách giáo khoa mới (*Tiếng Anh 9 Global Success - Kết nối tri thức với cuộc sống*). Mỗi bài học dưới đây đều được biên soạn riêng thành một chuyên đề chuyên sâu với đầy đủ: **Từ vựng IPA, Ngữ pháp, Quy tắc phát âm/trọng âm, Cạm bẫy phòng thi và Bài tập trắc nghiệm tương tác**.
+:::
 
 ---
 
-## I. TỔNG HỢP KIẾN THỨC THEO 4 HỌC PHẦN (12 UNITS)
+## I. MỤC LỤC TRUY CẬP NHANH 12 UNITS BÀI HỌC
+
+| Học kỳ | Tên Unit & Chủ đề bài học | Nội dung trọng tâm | Liên kết tài liệu |
+| :---: | :--- | :--- | :---: |
+| **HK1** | **Unit 1: Local Community** | Làng nghề thủ công; Question words + to-V; Phrasal verbs; Âm /æ/, /ɑː/, /e/ | [Học Unit 1 →](./unit_01_local_community) |
+| **HK1** | **Unit 2: City Life** | Đời sống thành thị; So sánh kép (*The more... the more...*); Âm /aʊ/, /əʊ/, /eə/ | [Học Unit 2 →](./unit_02_city_life) |
+| **HK1** | **Unit 3: Healthy Living for Teens** | Dinh dưỡng & Tinh thần; Động từ khuyết thiếu trong ĐK loại 1; Phụ âm /h/ & /r/ | [Học Unit 3 →](./unit_03_healthy_living_for_teens) |
+| **HK1** | **Unit 4: Remembering the Past** | Nếp sống xưa; Quá khứ tiếp diễn (*when/while*); Câu ước (*Wish*); Phụ âm /m/ & /l/ | [Học Unit 4 →](./unit_04_remembering_the_past) |
+| **HK1** | **Unit 5: Our Experiences** | Trải nghiệm thử thách; Hiện tại hoàn thành (*since, for, yet*); Biến đổi QKĐ $\leftrightarrow$ HTHT | [Học Unit 5 →](./unit_05_our_experiences) |
+| **HK1** | **Unit 6: Vietnamese Lifestyle** | Tiện nghi & Cơ sở hạ tầng; Quá khứ hoàn thành (*had + V3*); Động từ to-V / V-ing | [Học Unit 6 →](./unit_06_vietnamese_lifestyle_then_and_now) |
+| **HK2** | **Unit 7: Natural Wonders of the World**| Danh lam địa mạo; Câu gián tiếp Yes/No (*if/whether*); Cụm âm /sl/ & /sn/ | [Học Unit 7 →](./unit_07_natural_wonders_of_the_world) |
+| **HK2** | **Unit 8: Tourism** | Du lịch sinh thái; Mệnh đề quan hệ (*who, which, whose*); Mạo từ địa lý; Đuôi -ic, -ious | [Học Unit 8 →](./unit_08_tourism) |
+| **HK2** | **Unit 9: World Englishes** | Ngôn ngữ quốc tế; Mệnh đề quan hệ xác định & lược bỏ đại từ; Đuôi -ion, -ity | [Học Unit 9 →](./unit_09_world_englishes) |
+| **HK2** | **Unit 10: Planet Earth** | Biến đổi khí hậu; Mệnh đề quan hệ không xác định (dấu phẩy, cấm 'that'); Nhịp điệu câu | [Học Unit 10 →](./unit_10_planet_earth) |
+| **HK2** | **Unit 11: Electronic Devices** | Trí tuệ nhân tạo (AI); Cấu trúc đề xuất (*suggest / recommend + V-ing / that S V-inf*) | [Học Unit 11 →](./unit_11_electronic_devices) |
+| **HK2** | **Unit 12: Career Choices** | Hướng nghiệp tương lai; Mệnh đề trạng ngữ (*Although / Despite*, *So/Such that*) | [Học Unit 12 →](./unit_12_career_choices) |
+
+---
+
+## II. SƠ ĐỒ HỆ THỐNG KIẾN THỨC 12 UNITS THEO 4 HỌC PHẦN
 
 ```mermaid
 flowchart TD
@@ -19,43 +39,17 @@ flowchart TD
     A --> C["Học Phần 2: Di Sản & Trải Nghiệm (Units 4 - 6)"]
     A --> D["Học Phần 3: Kỳ Quan & Du Lịch Toàn Cầu (Units 7 - 9)"]
     A --> E["Học Phần 4: Hành Tinh, Công Nghệ & Tương Lai (Units 10 - 12)"]
+    
+    style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
+    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a8a,font-weight:bold
+    style C fill:#f0fdf4,stroke:#22c55e,stroke-width:1.5px,color:#14532d,font-weight:bold
+    style D fill:#fefce8,stroke:#eab308,stroke-width:1.5px,color:#713f12,font-weight:bold
+    style E fill:#faf5ff,stroke:#a855f7,stroke-width:1.5px,color:#581c87,font-weight:bold
 ```
-
-### 1. Học Phần 1: Cộng Đồng & Đời Sống (Units 1 - 3)
-
-| Unit & Chủ đề | Từ vựng trọng tâm (Keywords) | Ngữ pháp chìa khóa |
-| :--- | :--- | :--- |
-| **Unit 1: Local community** | *artisan, craft village, pottery, souvenir, preserve, look round, pass down, hand down, community helper* | Câu phức với liên từ chỉ nhượng bộ (*although/though*), nguyên nhân (*because*), mục đích (*so that*) |
-| **Unit 2: City life** | *bustling, liveable, concrete jungle, traffic congestion, commuter, metro, run out of, get on with, cut down on* | So sánh kép (*The more... the more...* / *The busier... the more stressful...*) |
-| **Unit 3: Healthy living for teens** | *well-balanced, physical/mental health, cope with, anxious, anxiety, fattening food, nutritious, stay up late* | Từ để hỏi kết hợp động từ nguyên mẫu có to (*Wh- + to V*: *how to deal with*, *where to go*) |
-
-### 2. Học Phần 2: Di Sản & Trải Nghiệm (Units 4 - 6)
-
-| Unit & Chủ đề | Từ vựng trọng tâm (Keywords) | Ngữ pháp chìa khóa |
-| :--- | :--- | :--- |
-| **Unit 4: Remembering the past** | *deep-rooted, preserve, take pride in, seniority, generation gap, thatched house, barefoot, extended family* | Cấu trúc *used to / didn't use to + V-inf* và sự kết hợp thì Quá khứ đơn & Quá khứ tiếp diễn (*When/While*) |
-| **Unit 5: Our experiences** | *breathtaking, once in a lifetime, adventurous, spectacular, overcome fear, challenge, memorable* | Thì Hiện tại hoàn thành với *since, for, already, yet, ever, never* |
-| **Unit 6: Viet Nam: Then and now** | *dramatic changes, infrastructure, tram system, agricultural, facilities, modern conveniences* | Quá khứ hoàn thành (*had + V3/ed*) diễn tả hành động xảy ra trước một hành động khác trong quá khứ |
-
-### 3. Học Phần 3: Kỳ Quan & Du Lịch Toàn Cầu (Units 7 - 9)
-
-| Unit & Chủ đề | Từ vựng trọng tâm (Keywords) | Ngữ pháp chìa khóa |
-| :--- | :--- | :--- |
-| **Unit 7: Natural wonders of the world** | *limestone karsts, subterranean caves, coral reef, flora and fauna, UNESCO World Heritage, majestic* | Bị động khách quan: *It is said/believed/reported that...* $\leftrightarrow$ *S + is said/believed to V-inf* |
-| **Unit 8: Tourism** | *ecotourism, sustainable travel, itinerary, homestay, domestic/international tourists, scenic spots* | Quy tắc sử dụng mạo từ xác định (*the*), không xác định (*a/an*) và mạo từ rỗng (*zero article ∅*) |
-| **Unit 9: World Englishes** | *bilingual, official language, mother tongue, accent, dialect, imitate, pick up, global communication* | Mệnh đề quan hệ xác định và không xác định (*who, whom, which, that, whose, where, when*) |
-
-### 4. Học Phần 4: Hành Tinh, Công Nghệ & Tương Lai (Units 10 - 12)
-
-| Unit & Chủ đề | Từ vựng trọng tâm (Keywords) | Ngữ pháp chìa khóa |
-| :--- | :--- | :--- |
-| **Unit 10: Planet Earth** | *deforestation, greenhouse gas emissions, carbon footprint, renewable energy, climate change, extinction* | Câu điều kiện loại 1 & loại 2 (*If + S + V-ed, S + would/could + V-inf*) |
-| **Unit 11: Electronic devices** | *artificial intelligence (AI), virtual reality, user-friendly, portable gadgets, state-of-the-art, revolution* | Mệnh đề chỉ kết quả với *so... that* và *such... that* |
-| **Unit 12: Career choices** | *vocational training, job prospects, interview skills, apprentice, passionate, qualification, salary* | Câu gián tiếp với câu hỏi Yes/No (*if/whether*) và câu hỏi có từ để hỏi (*Wh-questions*) |
 
 ---
 
-## II. BÀI TẬP CỦNG CỐ TRỌNG TÂM 12 UNITS (INTERACTIVE QUIZ)
+## III. BÀI TẬP TỔNG HỢP ÔN LUYỆN 12 UNITS (INTERACTIVE QUIZ)
 
 <QuizItem
   :number="1"
@@ -107,50 +101,50 @@ flowchart TD
 
 <QuizItem
   :number="7"
-  question="Ha Long Bay is believed __________ one of the most magnificent geological wonders. (Unit 7)"
-  options="A. be | B. to be | C. being | D. was"
-  correct="B"
-  explanation="Cấu trúc bị động khách quan: S + is believed + to V-inf (to be)."
+  question="The foreign tourists asked the ranger __________ they could explore the subterranean caves. (Unit 7)"
+  options="A. whether | B. that | C. weather | D. did"
+  correct="A"
+  explanation="Câu hỏi gián tiếp Yes/No dùng liên từ 'whether' hoặc 'if'."
 />
 
 <QuizItem
   :number="8"
-  question="Ecotourists are advised to minimize their impact on __________ environment. (Unit 8)"
+  question="Last summer, our class organized an ecotourist excursion to __________ Himalayas. (Unit 8)"
   options="A. a | B. an | C. the | D. ∅"
   correct="C"
-  explanation="Danh từ duy nhất chỉ môi trường tự nhiên dùng mạo từ xác định 'the environment'."
+  explanation="Tên dãy núi (số nhiều) bắt buộc dùng mạo từ xác định 'the'."
 />
 
 <QuizItem
   :number="9"
-  question="The foreign volunteer __________ taught us spoken English was very humorous. (Unit 9)"
+  question="The Australian volunteer __________ teaches us communicative English speaks with a distinct accent. (Unit 9)"
   options="A. who | B. which | C. whom | D. whose"
   correct="A"
-  explanation="Đại từ quan hệ 'who' thay thế cho danh từ chỉ người 'The foreign volunteer' làm chủ ngữ."
+  explanation="Đại từ quan hệ 'who' thay thế cho danh từ chỉ người làm chủ ngữ cho động từ 'teaches'."
 />
 
 <QuizItem
   :number="10"
-  question="If everyone used renewable electricity, we __________ atmospheric pollution. (Unit 10)"
-  options="A. will reduce | B. would reduce | C. reduced | D. can reduce"
+  question="The Amazon Rainforest, __________ covers millions of square kilometers, is vital for Earth's climate. (Unit 10)"
+  options="A. that | B. which | C. where | D. what"
   correct="B"
-  explanation="Câu điều kiện loại 2: If + S + V-ed, S + would + V-inf."
+  explanation="Tên riêng đi kèm mệnh đề quan hệ không xác định (có dấu phẩy), tuyệt đối không dùng 'that' -> dùng 'which'."
 />
 
 <QuizItem
   :number="11"
-  question="This electronic device is __________ portable that it easily fits into a pocket. (Unit 11)"
-  options="A. so | B. such | C. too | D. enough"
+  question="The IT specialist suggested that every student __________ strong passwords for their accounts. (Unit 11)"
+  options="A. create | B. creates | C. created | D. creating"
   correct="A"
-  explanation="Cấu trúc: so + adj + that (quá... đến nỗi mà)."
+  explanation="Cấu trúc giả định: 'suggest that + S + (should) + V-inf'. Động từ 'create' luôn ở dạng nguyên mẫu."
 />
 
 <QuizItem
   :number="12"
-  question="My mother asked me what career I __________ after graduation. (Unit 12)"
-  options="A. pursue | B. will pursue | C. would pursue | D. am pursuing"
-  correct="C"
-  explanation="Câu gián tiếp lùi thì từ 'will pursue' sang 'would pursue'."
+  question="The vocational training course was __________ intensive that only twelve candidates graduated. (Unit 12)"
+  options="A. so | B. such | C. too | D. enough"
+  correct="A"
+  explanation="Cấu trúc: 'so + adj (intensive) + that' (quá... đến nỗi mà)."
 />
 
 ---
@@ -166,11 +160,11 @@ flowchart TD
 | **4** | `A` | Unit 4: Thói quen quá khứ (used to walk) |
 | **5** | `B` | Unit 5: So sánh nhất & HTHT (have ever seen) |
 | **6** | `B` | Unit 6: Quá khứ hoàn thành (had already left) |
-| **7** | `B` | Unit 7: Bị động khách quan (to be) |
-| **8** | `C` | Unit 8: Mạo từ xác định (the environment) |
-| **9** | `A` | Unit 9: Đại từ quan hệ (who) |
-| **10** | `B` | Unit 10: Điều kiện loại 2 (would reduce) |
-| **11** | `A` | Unit 11: So... that (so portable that) |
-| **12** | `C` | Unit 12: Câu gián tiếp (would pursue) |
+| **7** | `A` | Unit 7: Câu gián tiếp Yes/No (whether) |
+| **8** | `C` | Unit 8: Mạo từ xác định với dãy núi (the Himalayas) |
+| **9** | `A` | Unit 9: Đại từ quan hệ chỉ người làm chủ ngữ (who) |
+| **10** | `B` | Unit 10: Mệnh đề không xác định với tên riêng (which) |
+| **11** | `A` | Unit 11: Thức giả định sau suggest that (create) |
+| **12** | `A` | Unit 12: Mệnh đề chỉ kết quả (so intensive that) |
 
 </details>
