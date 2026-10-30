@@ -1,7 +1,8 @@
 # CHUYÊN ĐỀ 2: HỆ THỐNG 12 THÌ, MA TRẬN SO SÁNH & PHỐI HỢP THÌ TRỌNG TÂM ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Tiếng Việt dùng từ chỉ thời gian (*đã, đang, sẽ*) đặt trước động từ nguyên thể, còn tiếng Anh **biến đổi trực tiếp hình thái của động từ (V)** theo 2 trục: **Thời gian (Time)** (Quá khứ - Hiện tại - Tương lai) và **Tính chất hành động (Aspect)** (Đơn - Tiếp diễn - Hoàn thành).
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Tiếng Việt dùng từ chỉ thời gian (*đã, đang, sẽ*) đặt trước động từ nguyên thể, còn tiếng Anh **biến đổi trực tiếp hình thái của động từ (V)** theo 2 trục: **Thời gian (Time)** (Quá khứ - Hiện tại - Tương lai) và **Tính chất hành động (Aspect)** (Đơn - Tiếp diễn - Hoàn thành).
+:::
 
 ---
 
@@ -44,10 +45,11 @@ flowchart LR
 
 ## II. BẢNG TỔNG HỢP CÔNG THỨC & DẤU HIỆU 12 THÌ TIẾNG ANH
 
-> [!GREEN] **MẸO NHỚ CÔNG THỨC GỐC CHO MỌI THÌ:**
-> - Hễ có chữ **Tiếp diễn (Continuous)** $\rightarrow$ Chắc chắn có `be + V-ing`.
-> - Hễ có chữ **Hoàn thành (Perfect)** $\rightarrow$ Chắc chắn có `have/has/had + V3/ed`.
-> - Hễ có chữ **Hoàn thành Tiếp diễn** $\rightarrow$ Ghép lại thành `have/has/had + been + V-ing`.
+::: tip MẸO NHỚ CÔNG THỨC GỐC CHO MỌI THÌ
+- Hễ có chữ **Tiếp diễn (Continuous)** $\rightarrow$ Chắc chắn có `be + V-ing`.
+- Hễ có chữ **Hoàn thành (Perfect)** $\rightarrow$ Chắc chắn có `have/has/had + V3/ed`.
+- Hễ có chữ **Hoàn thành Tiếp diễn** $\rightarrow$ Ghép lại thành `have/has/had + been + V-ing`.
+:::
 
 | Tên Thì (Tense) | Công thức Khẳng định (+) / Phủ định (-) / Nghi vấn (?) | Bản chất cốt lõi | Dấu hiệu nhận biết (Signal Words) |
 | :--- | :--- | :--- | :--- |
@@ -77,27 +79,30 @@ flowchart LR
 | **Ví dụ đối chiếu 1** | *I **have lost** my key.* (Giờ vẫn chưa tìm thấy, không vào nhà được). | *I **lost** my key yesterday.* (Kể lại sự việc hôm qua; giờ có thể đã làm chìa mới). |
 | **Ví dụ đối chiếu 2** | *She **has lived** in Quang Ngai **for 10 years**.* (Hiện tại cô ấy vẫn đang sống ở Quảng Ngãi). | *She **lived** in Quang Ngai **for 10 years**.* (Giờ cô ấy đã chuyển đi nơi khác sống). |
 
-> [!RED] **BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP):**
-> Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nhưng trong tiếng Anh:
-> - ❌ **Sai:** *I **saw** that movie three times.* (Báo số lần tính đến nay mà chia QKĐ là sai).
-> - ✅ **Đúng:** *I **have seen** that movie three times.* (Trải nghiệm tính đến hiện tại phải dùng **Hiện tại hoàn thành**).
+::: danger BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP)
+Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nhưng trong tiếng Anh:
+- ❌ **Sai:** *I **saw** that movie three times.* (Báo số lần tính đến nay mà chia QKĐ là sai).
+- ✅ **Đúng:** *I **have seen** that movie three times.* (Trải nghiệm tính đến hiện tại phải dùng **Hiện tại hoàn thành**).
+:::
 
 ### 2. Sự phối hợp thì giữa Quá khứ đơn (`V2/ed`) và Quá khứ tiếp diễn (`was/were + V-ing`)
 
-> [!BLUE] **3 CÔNG THỨC PHỐI HỢP VỚI `WHEN` & `WHILE`:**
-> - **Hành động đang diễn ra (dài) thì hành động khác cắt ngang (ngắn):**
->   `When + S + V2/ed (cắt ngang), S + was/were + V-ing (đang diễn ra)`
->   `While + S + was/were + V-ing (đang diễn ra), S + V2/ed (cắt ngang)`
-> - **Hai hành động diễn ra song song cùng lúc trong quá khứ:**
->   `While + S1 + was/were + V-ing, S2 + was/were + V-ing`
+::: info 3 CÔNG THỨC PHỐI HỢP VỚI `WHEN` & `WHILE`
+- **Hành động đang diễn ra (dài) thì hành động khác cắt ngang (ngắn):**
+  `When + S + V2/ed (cắt ngang), S + was/were + V-ing (đang diễn ra)`
+  `While + S + was/were + V-ing (đang diễn ra), S + V2/ed (cắt ngang)`
+- **Hai hành động diễn ra song song cùng lúc trong quá khứ:**
+  `While + S1 + was/were + V-ing, S2 + was/were + V-ing`
+:::
 
 - **Ví dụ 1 (Cắt ngang):** *When the teacher **came** (`/keɪm/`) in, the students **were talking** (`/wɜː ˈtɔːkɪŋ/`) noisily.*
 - **Ví dụ 2 (Song song):** *Last night, while my mother **was cooking** dinner, my father **was reading** a newspaper.*
 
 ### 3. Quy tắc Phối hợp thì với Liên từ chỉ Thời gian (`By the time`, `Since`, `After`, `Before`)
 
-> [!YELLOW] **LUẬT BẤT DI BẤT DỊCH TRONG MỆNH ĐỀ THỜI GIAN:**
-> **TUYỆT ĐỐI KHÔNG dùng `will` (Tương lai) ngay sau các liên từ thời gian** (`when, while, as soon as, before, after, until, till, by the time`). Để diễn tả tương lai, mệnh đề sau liên từ thời gian phải lùi về **Hiện tại đơn** hoặc **Hiện tại hoàn thành**!
+::: warning LUẬT BẤT DI BẤT DỊCH TRONG MỆNH ĐỀ THỜI GIAN
+**TUYỆT ĐỐI KHÔNG dùng `will` (Tương lai) ngay sau các liên từ thời gian** (`when, while, as soon as, before, after, until, till, by the time`). Để diễn tả tương lai, mệnh đề sau liên từ thời gian phải lùi về **Hiện tại đơn** hoặc **Hiện tại hoàn thành**!
+:::
 
 | Cấu trúc Liên từ | Công thức chuẩn xác (100% ra thi) | Ví dụ chuẩn |
 | :--- | :--- | :--- |

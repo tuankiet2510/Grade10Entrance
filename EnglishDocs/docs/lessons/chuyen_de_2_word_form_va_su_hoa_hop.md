@@ -1,8 +1,9 @@
 # CHUYÊN ĐỀ 2: CẤU TẠO TỪ (WORD FORM) & SỰ HÒA HỢP CHỦ - VỊ (SUBJECT-VERB AGREEMENT)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> - **Cấu tạo từ (Word Form):** Tiếng Anh xây dựng nghĩa từ gốc từ (Root) thông qua **Tiền tố (Prefix - đổi nghĩa)** và **Hậu tố (Suffix - đổi từ loại N/V/Adj/Adv)**. Muốn làm đúng dạng này, bạn không cần tra từ điển hết mọi từ mà phải dùng kỹ thuật **Bắt mạch cú pháp (Syntax Check)** để xác định ô trống cần loại từ nào trước khi biến đổi.
-> - **Sự hòa hợp Chủ - Vị (Subject-Verb Agreement):** Động từ số ít hay số nhiều phụ thuộc vào **Chủ ngữ cốt lõi (Head Noun)**, tuyệt đối không bị đánh lừa bởi các thành phần phụ chêm xen (*along with, as well as, of...*).
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+- **Cấu tạo từ (Word Form):** Tiếng Anh xây dựng nghĩa từ gốc từ (Root) thông qua **Tiền tố (Prefix - đổi nghĩa)** và **Hậu tố (Suffix - đổi từ loại N/V/Adj/Adv)**. Muốn làm đúng dạng này, bạn không cần tra từ điển hết mọi từ mà phải dùng kỹ thuật **Bắt mạch cú pháp (Syntax Check)** để xác định ô trống cần loại từ nào trước khi biến đổi.
+- **Sự hòa hợp Chủ - Vị (Subject-Verb Agreement):** Động từ số ít hay số nhiều phụ thuộc vào **Chủ ngữ cốt lõi (Head Noun)**, tuyệt đối không bị đánh lừa bởi các thành phần phụ chêm xen (*along with, as well as, of...*).
+:::
 
 ---
 
@@ -56,13 +57,14 @@ flowchart LR
   - `-ify`: *beautify, simplify, purify*.
 
 ### 2. Tiền tố mang nghĩa phủ định (Negative Prefixes)
-> [!RED] **QUY TẮC GHÉP TIỀN TỐ PHỦ ĐỊNH CHÍNH XÁC:**
-> - **`IM-`**: Đi trước từ bắt đầu bằng chữ **`m`** hoặc **`p`** (*impatient, impossible, impolite*).
-> - **`IL-`**: Đi trước từ bắt đầu bằng chữ **`l`** (*illegal, illiterate, illogical*).
-> - **`IR-`**: Đi trước từ bắt đầu bằng chữ **`r`** (*irresponsible, irregular, irrelevant*).
-> - **`DIS-`**: Thường đi với động từ/tính từ (*disappear, disagree, dishonest, disable*).
-> - **`UN-`**: Tiền tố phổ biến nhất (*unhappy, unfriendly, uncomfortable, unnecessary*).
-> - **`IN-`**: Thường gặp trong các từ gốc Latinh (*inexpensive, convenient ➔ inconvenient, direct ➔ indirect*).
+::: danger QUY TẮC GHÉP TIỀN TỐ PHỦ ĐỊNH CHÍNH XÁC
+- **`IM-`**: Đi trước từ bắt đầu bằng chữ **`m`** hoặc **`p`** (*impatient, impossible, impolite*).
+- **`IL-`**: Đi trước từ bắt đầu bằng chữ **`l`** (*illegal, illiterate, illogical*).
+- **`IR-`**: Đi trước từ bắt đầu bằng chữ **`r`** (*irresponsible, irregular, irrelevant*).
+- **`DIS-`**: Thường đi với động từ/tính từ (*disappear, disagree, dishonest, disable*).
+- **`UN-`**: Tiền tố phổ biến nhất (*unhappy, unfriendly, uncomfortable, unnecessary*).
+- **`IN-`**: Thường gặp trong các từ gốc Latinh (*inexpensive, convenient ➔ inconvenient, direct ➔ indirect*).
+:::
 
 ---
 

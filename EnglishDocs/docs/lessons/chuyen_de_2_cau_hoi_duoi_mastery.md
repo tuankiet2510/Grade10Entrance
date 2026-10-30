@@ -1,9 +1,10 @@
 # CHUYÊN ĐỀ 2: CÂU HỎI ĐUÔI & TRỢ ĐỘNG TỪ (QUESTION TAGS MASTERY)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Câu hỏi đuôi (Tag Question) là một câu hỏi cực ngắn đính vào cuối câu trần thuật để **xác minh thông tin** hoặc **tìm kiếm sự đồng thuận**. Cấu trúc luôn tuân thủ nguyên tắc vàng **"Trái Dấu"**:
-> `Khẳng định (+) ➔ Đuôi Phủ định (-)`  |  `Phủ định (-) ➔ Đuôi Khẳng định (+)`
-> Công thức: `[Mệnh đề trần thuật], [Trợ động từ (+ not)] + [Đại từ nhân xưng]?`
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Câu hỏi đuôi (Tag Question) là một câu hỏi cực ngắn đính vào cuối câu trần thuật để **xác minh thông tin** hoặc **tìm kiếm sự đồng thuận**. Cấu trúc luôn tuân thủ nguyên tắc vàng **"Trái Dấu"**:
+`Khẳng định (+) ➔ Đuôi Phủ định (-)`  |  `Phủ định (-) ➔ Đuôi Khẳng định (+)`
+Công thức: `[Mệnh đề trần thuật], [Trợ động từ (+ not)] + [Đại từ nhân xưng]?`
+:::
 
 ---
 
@@ -40,20 +41,23 @@ flowchart LR
 
 ## III. 8 BẪY ĐẶC BIỆT CHẮC CHẮN GÀI TRONG ĐỀ THI VÀO 10
 
-> [!RED] **BẪY 1: CÂU CHỨA TỪ PHỦ ĐỊNH NGẦM (LỖI SAI THƯỜNG GẶP NHẤT):**
-> Nếu mệnh đề chính chứa các từ phủ định hoặc bán phủ định: **`never, seldom, rarely, hardly, scarcely, little, few, neither, no, nobody, nothing`**, thì câu đó **MANG NGHĨA PHỦ ĐỊNH (-)**.
-> ➔ Phần đuôi **BẮT BUỘC Ở DẠNG KHẲNG ĐỊNH (+)**!
-> - ❌ *Sai:* She **never** comes late, **doesn't she**?
-> - ✅ *Đúng:* She **never** comes late, **does she**?
-> - *Ví dụ 2:* There is **little** milk left in the fridge, **is there**?
+::: danger BẪY 1: CÂU CHỨA TỪ PHỦ ĐỊNH NGẦM (LỖI SAI THƯỜNG GẶP NHẤT)
+Nếu mệnh đề chính chứa các từ phủ định hoặc bán phủ định: **`never, seldom, rarely, hardly, scarcely, little, few, neither, no, nobody, nothing`**, thì câu đó **MANG NGHĨA PHỦ ĐỊNH (-)**.
+➔ Phần đuôi **BẮT BUỘC Ở DẠNG KHẲNG ĐỊNH (+)**!
+- ❌ *Sai:* She **never** comes late, **doesn't she**?
+- ✅ *Đúng:* She **never** comes late, **does she**?
+- *Ví dụ 2:* There is **little** milk left in the fridge, **is there**?
+:::
 
-> [!YELLOW] **BẪY 2: CHỦ NGỮ LÀ ĐẠI TỪ BẤT ĐỊNH CHỈ NGƯỜI (EVERYONE, NOBODY...):**
-> Khi chủ ngữ là `everyone, everybody, someone, somebody, anyone, anybody, no one, nobody`, đại từ ở câu hỏi đuôi **BẮT BUỘC LÀ `THEY`**.
-> *(Chú ý: Khi đổi sang `they`, trợ động từ phải chia ở số nhiều!)*
-> - *Ví dụ:* **Everyone** attended the meeting, **didn't they**?
-> - *Ví dụ gài bẫy:* **Nobody** came to the party, **did they**? *(Nobody mang nghĩa phủ định + đổi thành they ➔ đuôi khẳng định `did they`)*.
+::: warning BẪY 2: CHỦ NGỮ LÀ ĐẠI TỪ BẤT ĐỊNH CHỈ NGƯỜI (EVERYONE, NOBODY...)
+Khi chủ ngữ là `everyone, everybody, someone, somebody, anyone, anybody, no one, nobody`, đại từ ở câu hỏi đuôi **BẮT BUỘC LÀ `THEY`**.
+*(Chú ý: Khi đổi sang `they`, trợ động từ phải chia ở số nhiều!)*
+- *Ví dụ:* **Everyone** attended the meeting, **didn't they**?
+- *Ví dụ gài bẫy:* **Nobody** came to the party, **did they**? *(Nobody mang nghĩa phủ định + đổi thành they ➔ đuôi khẳng định `did they`)*.
+:::
 
-> [!GREEN] **BẢNG TỔNG HỢP CÁC TRƯỜNG HỢP NGOẠI LỆ ĐẶC BIỆT:**
+::: tip BẢNG TỔNG HỢP CÁC TRƯỜNG HỢP NGOẠI LỆ ĐẶC BIỆT
+:::
 
 | Trường hợp | Mệnh đề chính | Quy tắc phần câu hỏi đuôi | Ví dụ chuẩn |
 | :--- | :--- | :--- | :--- |

@@ -1,10 +1,11 @@
 # CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM ĐUÔI "S / ES" BẰNG CÂU THẦN CHÚ ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Đuôi **`-s`** hoặc **`-es`** khi thêm vào danh từ số nhiều hoặc động từ ngôi thứ 3 số ít sẽ có 3 cách phát âm, hoàn toàn phụ thuộc vào **Âm thanh kết thúc (Ending Sound)** của từ gốc:
-> - **Âm gió (Sibilants):** Tạo ra tiếng xì, rít ➔ Phát âm là **/ɪz/** để dễ phát âm, không bị nghẹn hơi.
-> - **Âm vô thanh (Voiceless):** Không rung cổ họng ➔ Phát âm là **/s/** (vô thanh).
-> - **Âm hữu thanh (Voiced):** Có rung cổ họng ➔ Phát âm là **/z/** (hữu thanh).
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Đuôi **`-s`** hoặc **`-es`** khi thêm vào danh từ số nhiều hoặc động từ ngôi thứ 3 số ít sẽ có 3 cách phát âm, hoàn toàn phụ thuộc vào **Âm thanh kết thúc (Ending Sound)** của từ gốc:
+- **Âm gió (Sibilants):** Tạo ra tiếng xì, rít ➔ Phát âm là **/ɪz/** để dễ phát âm, không bị nghẹn hơi.
+- **Âm vô thanh (Voiceless):** Không rung cổ họng ➔ Phát âm là **/s/** (vô thanh).
+- **Âm hữu thanh (Voiced):** Có rung cổ họng ➔ Phát âm là **/z/** (hữu thanh).
+:::
 
 ---
 
@@ -66,20 +67,23 @@ flowchart LR
 
 ## III. 3 BẪY NGOẠI LỆ KINH ĐIỂN CỦA ĐUÔI -S / -ES
 
-> [!RED] **BẪY 1: TỪ "HOUSES" (100% GÀI BẪY TRONG ĐỀ THI VÀO 10)**
-> - Từ đơn lẻ: *house* kết thúc bằng âm `/s/` ➔ đọc là `/haʊs/`.
-> - Khi thêm -es: *houses* **BIẾN ĐỔI ÂM THÀNH `/z/` RỒI MỚI THÊM `/ɪz/`**:
->   - ❌ *Sai:* /ˈhaʊ.sɪz/
->   - ✅ **Đúng:** **/ˈhaʊ.zɪz/** *(đọc là /z/ + /ɪz/)*
+::: danger BẪY 1: TỪ "HOUSES" (100% GÀI BẪY TRONG ĐỀ THI VÀO 10)
+- Từ đơn lẻ: *house* kết thúc bằng âm `/s/` ➔ đọc là `/haʊs/`.
+- Khi thêm -es: *houses* **BIẾN ĐỔI ÂM THÀNH `/z/` RỒI MỚI THÊM `/ɪz/`**:
+  - ❌ *Sai:* /ˈhaʊ.sɪz/
+  - ✅ **Đúng:** **/ˈhaʊ.zɪz/** *(đọc là /z/ + /ɪz/)*
+:::
 
-> [!YELLOW] **BẪY 2: PHÂN BIỆT ĐUÔI "-THS" TRONG TỪ VỰNG**
-> - *months* `/mʌnθs/`: Âm /θ/ là vô thanh ➔ đuôi đọc là **/s/**.
-> - *clothes* /kləʊðz/ (hoặc /kləʊz/): Âm /ð/ là hữu thanh ➔ đuôi đọc là **/z/**.
+::: warning BẪY 2: PHÂN BIỆT ĐUÔI "-THS" TRONG TỪ VỰNG
+- *months* `/mʌnθs/`: Âm /θ/ là vô thanh ➔ đuôi đọc là **/s/**.
+- *clothes* /kləʊðz/ (hoặc /kləʊz/): Âm /ð/ là hữu thanh ➔ đuôi đọc là **/z/**.
+:::
 
-> [!GREEN] **BẪY 3: ĐỘNG TỪ BẤT QUY TẮC "DOES" VÀ "GOES"**
-> - *does* `/dʌz/` ➔ kết thúc bằng âm **/z/**.
-> - *goes* `/ɡəʊz/` ➔ kết thúc bằng âm **/z/**.
-> - *says* `/sez/` ➔ đọc là nguyên âm /e/ kết hợp âm **/z/**.
+::: tip BẪY 3: ĐỘNG TỪ BẤT QUY TẮC "DOES" VÀ "GOES"
+- *does* `/dʌz/` ➔ kết thúc bằng âm **/z/**.
+- *goes* `/ɡəʊz/` ➔ kết thúc bằng âm **/z/**.
+- *says* `/sez/` ➔ đọc là nguyên âm /e/ kết hợp âm **/z/**.
+:::
 
 ---
 

@@ -1,8 +1,9 @@
 # CHUYÊN ĐỀ 2: CẨM NANG GIỚI TỪ (PREPOSITIONS: TIME, PLACE & COLLOCATIONS) ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Giới từ (Preposition) là từ nối định vị mối quan hệ giữa các thành phần trong câu theo 3 chiều kích: **Thời gian (Time)**, **Không gian / Nơi chốn (Place)** và **Sự kết hợp cố định (Collocations)**.
-> Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn ➔ Cụ thể ➔ Chính xác tuyệt đối) sẽ giúp bạn giải quyết 90% câu hỏi giới từ thời gian và nơi chốn trong đề thi vào 10.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Giới từ (Preposition) là từ nối định vị mối quan hệ giữa các thành phần trong câu theo 3 chiều kích: **Thời gian (Time)**, **Không gian / Nơi chốn (Place)** và **Sự kết hợp cố định (Collocations)**.
+Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn ➔ Cụ thể ➔ Chính xác tuyệt đối) sẽ giúp bạn giải quyết 90% câu hỏi giới từ thời gian và nơi chốn trong đề thi vào 10.
+:::
 
 ---
 
@@ -28,7 +29,8 @@
 
 ## II. BẢNG TRA CỨU CỤM GIỚI TỪ ĐI VỚI TÍNH TỪ (ADJECTIVE + PREPOSITION)
 
-> [!GREEN] **CÁC CẶP TÍNH TỪ + GIỚI TỪ PHẢI THUỘC LÒNG (100% CÓ TRONG ĐỀ THI VÀO 10):**
+::: tip CÁC CẶP TÍNH TỪ + GIỚI TỪ PHẢI THUỘC LÒNG (100% CÓ TRONG ĐỀ THI VÀO 10)
+:::
 
 | Cụm Tính từ + Giới từ | Phiên âm IPA | Nghĩa tiếng Việt | Ví dụ thực chiến |
 | :--- | :--- | :--- | :--- |
@@ -48,13 +50,14 @@
 
 ## III. BẢNG TRA CỨU CỤM GIỚI TỪ ĐI VỚI ĐỘNG TỪ (VERB + PREPOSITION)
 
-> [!YELLOW] **CÁC CẤU TRÚC ĐỘNG TỪ + TÂN NGỮ + GIỚI TỪ KINH ĐIỂN:**
-> - **`prevent / stop someone FROM + V-ing`**: Ngăn chặn ai làm gì (*The heavy rain prevented us from going camping*).
-> - **`congratulate someone ON + V-ing/N`**: Chúc mừng ai vì điều gì (*I congratulated Nam on winning the first prize*).
-> - **`apologize TO someone FOR + V-ing`**: Xin lỗi ai vì việc gì (*She apologized to the teacher for being late*).
-> - **`provide someone WITH something`**: Cung cấp cho ai cái gì (*The organization provides poor children with free books*).
-> - **`spend time / money ON something`**: Chi tiêu thời gian, tiền bạc vào việc gì.
-> - **`depend ON / rely ON`**: Phụ thuộc vào, tin tưởng vào (*Success depends on hard work*).
+::: warning CÁC CẤU TRÚC ĐỘNG TỪ + TÂN NGỮ + GIỚI TỪ KINH ĐIỂN
+- **`prevent / stop someone FROM + V-ing`**: Ngăn chặn ai làm gì (*The heavy rain prevented us from going camping*).
+- **`congratulate someone ON + V-ing/N`**: Chúc mừng ai vì điều gì (*I congratulated Nam on winning the first prize*).
+- **`apologize TO someone FOR + V-ing`**: Xin lỗi ai vì việc gì (*She apologized to the teacher for being late*).
+- **`provide someone WITH something`**: Cung cấp cho ai cái gì (*The organization provides poor children with free books*).
+- **`spend time / money ON something`**: Chi tiêu thời gian, tiền bạc vào việc gì.
+- **`depend ON / rely ON`**: Phụ thuộc vào, tin tưởng vào (*Success depends on hard work*).
+:::
 
 ---
 

@@ -1,7 +1,8 @@
 # CẨM NANG 10 CẤU TRÚC BIẾN ĐỔI CÂU (SENTENCE TRANSFORMATION MASTERY) ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Biến đổi câu (*Sentence Transformation*) là kỹ thuật **giữ nguyên 100% nghĩa gốc (Semantic Equivalence)** nhưng **thay đổi cấu trúc ngữ pháp (Syntactic Structure)** theo từ gợi ý đầu câu. Chìa khóa ăn điểm tuyệt đối nằm ở 2 thao tác: **Đổi từ loại (Mệnh đề ↔ Cụm danh từ/V-ing)** và **Lùi thì động từ**.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Biến đổi câu (*Sentence Transformation*) là kỹ thuật **giữ nguyên 100% nghĩa gốc (Semantic Equivalence)** nhưng **thay đổi cấu trúc ngữ pháp (Syntactic Structure)** theo từ gợi ý đầu câu. Chìa khóa ăn điểm tuyệt đối nằm ở 2 thao tác: **Đổi từ loại (Mệnh đề ↔ Cụm danh từ/V-ing)** và **Lùi thì động từ**.
+:::
 
 ---
 
@@ -32,10 +33,11 @@ flowchart LR
 
 ### 1. Cấu trúc 1: Câu điều kiện (Type 1, 2, 3, Unless, Without / But for)
 
-> [!BLUE] **CÔNG THỨC CỐT LÕI 3 LOẠI CÂU ĐIỀU KIỆN:**
-> - **Loại 1 (Có thật ở HT/TL):** `If + S + V(s/es), S + will/can/may + V-inf`
-> - **Loại 2 (Trái với Hiện tại):** `If + S + V2/ed (be -> were), S + would/could + V-inf`
-> - **Loại 3 (Trái với Quá khứ):** `If + S + had + V3/ed, S + would/could + have + V3/ed`
+::: info CÔNG THỨC CỐT LÕI 3 LOẠI CÂU ĐIỀU KIỆN
+- **Loại 1 (Có thật ở HT/TL):** `If + S + V(s/es), S + will/can/may + V-inf`
+- **Loại 2 (Trái với Hiện tại):** `If + S + V2/ed (be -> were), S + would/could + V-inf`
+- **Loại 3 (Trái với Quá khứ):** `If + S + had + V3/ed, S + would/could + have + V3/ed`
+:::
 
 | Dạng đề cho (Câu gốc) | Công thức viết lại tương đương | Ví dụ chuẩn (kèm IPA từ khóa) |
 | :--- | :--- | :--- |
@@ -45,18 +47,20 @@ flowchart LR
 | **`If ... not`** | `Unless + S + V(khẳng định), Mệnh đề chính giữ nguyên` | ***If** it **doesn't rain**, we will go camping.*<br>➔ ***Unless** it **rains** (`/reɪnz/`), we will go camping.* |
 | **`If it weren't for` / `If it hadn't been for`** | `Without / But for + Cụm N / V-ing, S + would (have)...` | *If you hadn't helped me, I would have failed.*<br>➔ ***But for / Without** your help, I would have failed.* |
 
-> [!RED] **BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP):**
-> Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nên động từ đi ngay sau `Unless` **bắt buộc ở thể khẳng định**.
-> - ❌ **Sai:** *Unless you **don't study** hard, you will fail the exam.*
-> - ✅ **Đúng:** *Unless you **study** hard, you will fail the exam.*
+::: danger BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP)
+Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nên động từ đi ngay sau `Unless` **bắt buộc ở thể khẳng định**.
+- ❌ **Sai:** *Unless you **don't study** hard, you will fail the exam.*
+- ✅ **Đúng:** *Unless you **study** hard, you will fail the exam.*
+:::
 
 ### 2. Cấu trúc 2: Câu ước (`Wish` / `If only`) ở 3 thì
 
-> [!GREEN] **MẸO NHỚ QUY TẮC "TRÁI DẤU & LÙI THÌ" KHI VIẾT CÂU `WISH`:**
-> - Câu gốc ở **Khẳng định (+)** ➔ Câu `Wish` đổi sang **Phủ định (-)** (và ngược lại).
-> - Câu gốc ở **Tương lai (`will`)** ➔ Lùi về `would/could + V-inf`.
-> - Câu gốc ở **Hiện tại (`V-s/es`)** ➔ Lùi về **Quá khứ đơn (`V2/ed` / `were`)**.
-> - Câu gốc ở **Quá khứ (`V2/ed`)** ➔ Lùi về **Quá khứ hoàn thành (`had + V3/ed`)**.
+::: tip MẸO NHỚ QUY TẮC "TRÁI DẤU & LÙI THÌ" KHI VIẾT CÂU `WISH`
+- Câu gốc ở **Khẳng định (+)** ➔ Câu `Wish` đổi sang **Phủ định (-)** (và ngược lại).
+- Câu gốc ở **Tương lai (`will`)** ➔ Lùi về `would/could + V-inf`.
+- Câu gốc ở **Hiện tại (`V-s/es`)** ➔ Lùi về **Quá khứ đơn (`V2/ed` / `were`)**.
+- Câu gốc ở **Quá khứ (`V2/ed`)** ➔ Lùi về **Quá khứ hoàn thành (`had + V3/ed`)**.
+:::
 
 | Loại câu ước | Dấu hiệu trong câu gốc | Công thức `S + wish(es) / If only` | Ví dụ thực chiến |
 | :--- | :--- | :--- | :--- |
@@ -70,9 +74,10 @@ flowchart LR
 
 ### 3. Cấu trúc 3: Câu bị động cơ bản, Bị động kép & Bị động nhờ vả
 
-> [!BLUE] **QUY TẮC BẤT BIẾN CỦA BỊ ĐỘNG:**
-> Đưa Tân ngữ (`O`) lên làm Chủ ngữ mới, chia động từ `be` theo đúng thì của động từ chính, và biến động từ chính thành **`V3/ed`**:
-> `Chủ động: S + V + O` ➔ `Bị động: S(O) + BE + V3/ed + (Nơi chốn) + (by O) + (Thời gian)`
+::: info QUY TẮC BẤT BIẾN CỦA BỊ ĐỘNG
+Đưa Tân ngữ (`O`) lên làm Chủ ngữ mới, chia động từ `be` theo đúng thì của động từ chính, và biến động từ chính thành **`V3/ed`**:
+`Chủ động: S + V + O` ➔ `Bị động: S(O) + BE + V3/ed + (Nơi chốn) + (by O) + (Thời gian)`
+:::
 
 | Dạng Bị động | Cấu trúc Chủ động (Active) | Cấu trúc Bị động (Passive) | Ví dụ minh họa |
 | :--- | :--- | :--- | :--- |
@@ -83,10 +88,11 @@ flowchart LR
 
 ### 4. Cấu trúc 4: Câu gián tiếp / Tường thuật (Reported Speech)
 
-> [!YELLOW] **3 BƯỚC CHUYỂN CÂU TRỰC TIẾP SANG GIÁN TIẾP:**
-> **Bước 1 (Đổi ngôi):** Nhất chủ - Nhì tân - Tam nguyên (`I/we` đổi theo người nói; `you` đổi theo người nghe; `he/she/they` giữ nguyên).
-> **Bước 2 (Lùi 1 thì):** `HTĐ ➔ QKĐ`, `HTTD ➔ QKTD`, `HTHT / QKĐ ➔ QKHT (had V3/ed)`, `will/can/may ➔ would/could/might`, `must ➔ had to`.
-> **Bước 3 (Đổi trạng từ):** `now ➔ then`, `today ➔ that day`, `tomorrow ➔ the next/following day`, `yesterday ➔ the previous day / the day before`, `ago ➔ before`, `this/these ➔ that/those`, `here ➔ there`.
+::: warning 3 BƯỚC CHUYỂN CÂU TRỰC TIẾP SANG GIÁN TIẾP
+**Bước 1 (Đổi ngôi):** Nhất chủ - Nhì tân - Tam nguyên (`I/we` đổi theo người nói; `you` đổi theo người nghe; `he/she/they` giữ nguyên).
+**Bước 2 (Lùi 1 thì):** `HTĐ ➔ QKĐ`, `HTTD ➔ QKTD`, `HTHT / QKĐ ➔ QKHT (had V3/ed)`, `will/can/may ➔ would/could/might`, `must ➔ had to`.
+**Bước 3 (Đổi trạng từ):** `now ➔ then`, `today ➔ that day`, `tomorrow ➔ the next/following day`, `yesterday ➔ the previous day / the day before`, `ago ➔ before`, `this/these ➔ that/those`, `here ➔ there`.
+:::
 
 | Loại câu tường thuật | Công thức chuẩn | Ví dụ thực chiến |
 | :--- | :--- | :--- |
@@ -95,10 +101,11 @@ flowchart LR
 | **3. Câu hỏi Wh-Questions** | `S + asked + O + Wh-word + S + V(lùi thì)` *(Bỏ đảo ngữ trợ động từ!)* | *"Where **did** you **go** yesterday?" Tom asked Mary.*<br>➔ *Tom asked Mary where she **had gone** the day before.* |
 | **4. Câu mệnh lệnh / Yêu cầu** | `S + told / asked + O + (NOT) + to V-inf` | *"**Don't open** the door!" the mother said to her son.*<br>➔ *The mother told her son **not to open** the door.* |
 
-> [!RED] **LƯU Ý KHI LÀM BÀI THI VÀO 10 (GIỮ NGUYÊN ĐẢO NGỮ TRONG CÂU HỎI GIÁN TIẾP):**
-> Khi đã chuyển sang câu tường thuật, câu hỏi biến thành mệnh đề phụ khẳng định nên **tuyệt đối không đảo `was/were/did` lên trước chủ ngữ**.
-> - ❌ **Sai:** *He asked me where **was I** going.*
-> - ✅ **Đúng:** *He asked me where **I was** going.*
+::: danger LƯU Ý KHI LÀM BÀI THI VÀO 10 (GIỮ NGUYÊN ĐẢO NGỮ TRONG CÂU HỎI GIÁN TIẾP)
+Khi đã chuyển sang câu tường thuật, câu hỏi biến thành mệnh đề phụ khẳng định nên **tuyệt đối không đảo `was/were/did` lên trước chủ ngữ**.
+- ❌ **Sai:** *He asked me where **was I** going.*
+- ✅ **Đúng:** *He asked me where **I was** going.*
+:::
 
 ---
 
@@ -113,26 +120,29 @@ flowchart LR
 | **`TOO ... TO`** *(Quá... đến nỗi không thể)* | `S + be/V + TOO + adj/adv + (for O) + TO V-inf` *(Bỏ tân ngữ lặp ở cuối!)* | ➔ *The box is **too heavy for me to lift**.* *(Bỏ `it` ở cuối!)* |
 | **`ENOUGH ... TO`** *(Đủ... để có thể)* | `S + be/V + adj(ngược nghĩa) + ENOUGH + (for O) + TO V-inf` | ➔ *The box is **not light enough for me to lift**.* |
 
-> [!YELLOW] **NGOẠI LỆ VỚI ĐỊNH LƯỢNG TỪ (`many, much, few, little`):**
-> Dù đi kèm Danh từ (`N`), nhưng nếu có `many / much / few / little` đứng trước thì bắt buộc dùng **`SO`**, không dùng `SUCH`!
-> - Công thức: `S + V + SO + many/few + N(số nhiều) / much/little + N(không đếm được) + THAT + S + V`
-> - Ví dụ: *He has **so many books that** he can't read them all.*
+::: warning NGOẠI LỆ VỚI ĐỊNH LƯỢNG TỪ (`many, much, few, little`)
+Dù đi kèm Danh từ (`N`), nhưng nếu có `many / much / few / little` đứng trước thì bắt buộc dùng **`SO`**, không dùng `SUCH`!
+- Công thức: `S + V + SO + many/few + N(số nhiều) / much/little + N(không đếm được) + THAT + S + V`
+- Ví dụ: *He has **so many books that** he can't read them all.*
+:::
 
 ### 6. Cấu trúc 6 & 7: Nhượng bộ (`Although` ↔ `In spite of`) & Lý do (`Because` ↔ `Because of`)
 
-> [!BLUE] **CÔNG THỨC CHUYỂN ĐỔI MỆNH ĐỀ (`S + V`) SANG CỤM TỪ (`N / V-ing`):**
-> - **Nhượng bộ (Mặc dù):** `Although / Even though / Though + S + V` $\leftrightarrow$ `In spite of / Despite + Cụm N / V-ing / the fact that S + V`
-> - **Lý do (Bởi vì):** `Because / Since / As + S + V` $\leftrightarrow$ `Because of / Due to / Owing to + Cụm N / V-ing`
+::: info CÔNG THỨC CHUYỂN ĐỔI MỆNH ĐỀ (`S + V`) SANG CỤM TỪ (`N / V-ing`)
+- **Nhượng bộ (Mặc dù):** `Although / Even though / Though + S + V` $\leftrightarrow$ `In spite of / Despite + Cụm N / V-ing / the fact that S + V`
+- **Lý do (Bởi vì):** `Because / Since / As + S + V` $\leftrightarrow$ `Because of / Due to / Owing to + Cụm N / V-ing`
+:::
 
-> [!GREEN] **4 QUY TẮC VÀNG RÚT GỌN MỆNH ĐỀ (`S + V`) THÀNH CỤM DANH TỪ (`NOUN PHRASE`):**
-> 1. **Hai vế cùng chủ ngữ (`S1 = S2`):** Bỏ chủ ngữ, đưa động từ về **`V-ing`**.
->    *Ví dụ:* *Although **she felt** tired, she worked on.* ➔ *Despite **feeling** tired, she worked on.*
-> 2. **`Đại từ nhân xưng (he/she/I/they) + be + Adj`:** Đổi thành **`Tính từ sở hữu (his/her/my/their) + N(từ adj)`**.
->    *Ví dụ:* *Because **he was sick**, he stayed home.* ➔ *Because of **his sickness**, he stayed home.*
-> 3. **`Danh từ (The weather / The traffic) + be + Adj`:** Đưa `Adj` lên trước `Danh từ` thành **`The + Adj + N`**.
->    *Ví dụ:* *Although **the traffic was heavy**, we arrived on time.* ➔ *In spite of **the heavy traffic**, we arrived on time.*
-> 4. **`It + be + Adj (thời tiết)` hoặc `S + V + Adv`:** Đổi thành **`The + Adj + weather`** hoặc **`Sở hữu + Adj + N`**.
->    *Ví dụ:* *Because **he behaved badly**, he was punished.* ➔ *Because of **his bad behavior**, he was punished.*
+::: tip 4 QUY TẮC VÀNG RÚT GỌN MỆNH ĐỀ (`S + V`) THÀNH CỤM DANH TỪ (`NOUN PHRASE`)
+1. **Hai vế cùng chủ ngữ (`S1 = S2`):** Bỏ chủ ngữ, đưa động từ về **`V-ing`**.
+   *Ví dụ:* *Although **she felt** tired, she worked on.* ➔ *Despite **feeling** tired, she worked on.*
+2. **`Đại từ nhân xưng (he/she/I/they) + be + Adj`:** Đổi thành **`Tính từ sở hữu (his/her/my/their) + N(từ adj)`**.
+   *Ví dụ:* *Because **he was sick**, he stayed home.* ➔ *Because of **his sickness**, he stayed home.*
+3. **`Danh từ (The weather / The traffic) + be + Adj`:** Đưa `Adj` lên trước `Danh từ` thành **`The + Adj + N`**.
+   *Ví dụ:* *Although **the traffic was heavy**, we arrived on time.* ➔ *In spite of **the heavy traffic**, we arrived on time.*
+4. **`It + be + Adj (thời tiết)` hoặc `S + V + Adv`:** Đổi thành **`The + Adj + weather`** hoặc **`Sở hữu + Adj + N`**.
+   *Ví dụ:* *Because **he behaved badly**, he was punished.* ➔ *Because of **his bad behavior**, he was punished.*
+:::
 
 ---
 
@@ -140,16 +150,18 @@ flowchart LR
 
 ### 8. Cấu trúc 8: Câu gợi ý với `Suggest` (Cực kỳ hay ra trong đề Quảng Ngãi)
 
-> [!BLUE] **2 CÔNG THỨC `SUGGEST` BẮT BUỘC THUỘC LÒNG:**
-> - **Cùng thực hiện chung (`Let's... / Why don't we... / Shall we... / How about...`):**
->   `S + suggested + V-ing` *(hoặc `S + suggested that + we + (should) + V-inf`)*
-> - **Khuyên người khác làm gì (`Why don't you... / You should...`):**
->   `S + suggested (that) + S2 + (should) + V-inf (nguyên mẫu không chia!)`
+::: info 2 CÔNG THỨC `SUGGEST` BẮT BUỘC THUỘC LÒNG
+- **Cùng thực hiện chung (`Let's... / Why don't we... / Shall we... / How about...`):**
+  `S + suggested + V-ing` *(hoặc `S + suggested that + we + (should) + V-inf`)*
+- **Khuyên người khác làm gì (`Why don't you... / You should...`):**
+  `S + suggested (that) + S2 + (should) + V-inf (nguyên mẫu không chia!)`
+:::
 
-> [!RED] **BẪY TUYỆT ĐỐI TRÁNH VỚI `SUGGEST`:**
-> Trong tiếng Anh chuẩn, **`SUGGEST` KHÔNG BAO GIỜ đi với `O + to-V`**!
-> - ❌ **Sai:** *He suggested **me to buy** that dictionary.*
-> - ✅ **Đúng:** *He suggested **that I (should) buy** that dictionary.*
+::: danger BẪY TUYỆT ĐỐI TRÁNH VỚI `SUGGEST`
+Trong tiếng Anh chuẩn, **`SUGGEST` KHÔNG BAO GIỜ đi với `O + to-V`**!
+- ❌ **Sai:** *He suggested **me to buy** that dictionary.*
+- ✅ **Đúng:** *He suggested **that I (should) buy** that dictionary.*
+:::
 
 ### 9. Cấu trúc 9: Chuyển đổi cấp độ So sánh (Comparison Transformation)
 

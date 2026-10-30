@@ -1,7 +1,8 @@
 # CHUYÊN ĐỀ 2: MỆNH ĐỀ QUAN HỆ & RÚT GỌN MỆNH ĐỀ QUAN HỆ (RELATIVE CLAUSES MASTERY)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Mệnh đề quan hệ (Relative Clause) bản chất là **một tính từ dài (Adjective Clause)** đứng ngay sau danh từ để miêu tả, làm rõ danh từ đó mà không cần phải ngắt thành hai câu cụt lủn. Mấu chốt ăn điểm nằm ở: **Xác định từ được thay thế (Người hay Vật? Chủ ngữ hay Tân ngữ?)** và **Kỹ thuật rút gọn 3 bước (V-ing / V3-ed / To V-inf)**.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Mệnh đề quan hệ (Relative Clause) bản chất là **một tính từ dài (Adjective Clause)** đứng ngay sau danh từ để miêu tả, làm rõ danh từ đó mà không cần phải ngắt thành hai câu cụt lủn. Mấu chốt ăn điểm nằm ở: **Xác định từ được thay thế (Người hay Vật? Chủ ngữ hay Tân ngữ?)** và **Kỹ thuật rút gọn 3 bước (V-ing / V3-ed / To V-inf)**.
+:::
 
 ---
 
@@ -55,9 +56,10 @@ flowchart LR
 
 ## III. 2 QUY TẮC SỐNG CÒN: MỆNH ĐỀ QUAN HỆ XÁC ĐỊNH VS. KHÔNG XÁC ĐỊNH
 
-> [!YELLOW] **BẢNG ĐỐI CHIẾU 2 LOẠI MỆNH ĐỀ QUAN HỆ:**
-> - **Mệnh đề xác định (Defining):** Cần thiết cho nghĩa của câu, không thể bỏ được, **KHÔNG CÓ DẤU PHẨY**.
-> - **Mệnh đề không xác định (Non-defining):** Chỉ cung cấp thêm thông tin phụ, **BẮT BUỘC KẸP GIỮA HAI DẤU PHẨY (,)**.
+::: warning BẢNG ĐỐI CHIẾU 2 LOẠI MỆNH ĐỀ QUAN HỆ
+- **Mệnh đề xác định (Defining):** Cần thiết cho nghĩa của câu, không thể bỏ được, **KHÔNG CÓ DẤU PHẨY**.
+- **Mệnh đề không xác định (Non-defining):** Chỉ cung cấp thêm thông tin phụ, **BẮT BUỘC KẸP GIỮA HAI DẤU PHẨY (,)**.
+:::
 
 | Đặc điểm | Mệnh đề Xác định (Không có dấu phẩy) | Mệnh đề Không xác định (CÓ DẤU PHẨY `,`) |
 | :--- | :--- | :--- |
@@ -66,13 +68,14 @@ flowchart LR
 | **Có được lược bỏ đại từ?** | Khi làm tân ngữ (O) thì **được quyền lược bỏ**. | **TUYỆT ĐỐI KHÔNG ĐƯỢC LƯỢC BỎ** đại từ quan hệ! |
 | **Ví dụ minh họa** | *The woman **(who/that)** you saw yesterday is my aunt.* | *Ba To, **which** is a mountainous district of Quang Ngai, is very peaceful.* |
 
-> [!RED] **2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI BẪY TRONG ĐỀ THI):**
-> 1. **KHÔNG BAO GIỜ dùng `THAT` sau dấu phẩy `,`**
->    - ❌ *Sai:* Quang Ngai, **that** is my hometown, has many scenic spots.
->    - ✅ *Đúng:* Quang Ngai, **which** is my hometown, has many scenic spots.
-> 2. **KHÔNG BAO GIỜ dùng `THAT` ngay sau Giới từ (`in, on, at, with, about...`)**
->    - ❌ *Sai:* The house in **that** I was born is very old.
->    - ✅ *Đúng:* The house **in which** I was born is very old. *(hoặc: The house **that** I was born in...)*
+::: danger 2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI BẪY TRONG ĐỀ THI)
+1. **KHÔNG BAO GIỜ dùng `THAT` sau dấu phẩy `,`**
+   - ❌ *Sai:* Quang Ngai, **that** is my hometown, has many scenic spots.
+   - ✅ *Đúng:* Quang Ngai, **which** is my hometown, has many scenic spots.
+2. **KHÔNG BAO GIỜ dùng `THAT` ngay sau Giới từ (`in, on, at, with, about...`)**
+   - ❌ *Sai:* The house in **that** I was born is very old.
+   - ✅ *Đúng:* The house **in which** I was born is very old. *(hoặc: The house **that** I was born in...)*
+:::
 
 ---
 
@@ -112,21 +115,24 @@ MĐQH CẦN RÚT GỌN ─┼── BỊ ĐỘNG (Passive)   ──► Rút gọ
 
 ## V. 3 LỖI SAI PHỔ BIẾN CẦN TRÁNH TRONG ĐỀ THI VÀO 10 (VIETLISH TRAPS)
 
-> [!RED] **BẪY 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN**
-> - Dùng **`WHERE`** khi nơi chốn đóng vai trò **trạng từ** (sau đó là mệnh đề hoàn chỉnh S + V, không thiếu tân ngữ).
-> - Dùng **`WHICH`** khi nơi chốn đóng vai trò **Chủ ngữ (S)** hoặc **Tân ngữ (O)** của động từ phía sau!
-> - *Ví dụ A:* This is the hotel **which** we visited last summer. *(visit sth -> thiếu tân ngữ -> dùng WHICH)*
-> - *Ví dụ B:* This is the hotel **where** we stayed last summer. *(stay at a hotel -> nơi chốn -> dùng WHERE)*
+::: danger BẪY 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN
+- Dùng **`WHERE`** khi nơi chốn đóng vai trò **trạng từ** (sau đó là mệnh đề hoàn chỉnh S + V, không thiếu tân ngữ).
+- Dùng **`WHICH`** khi nơi chốn đóng vai trò **Chủ ngữ (S)** hoặc **Tân ngữ (O)** của động từ phía sau!
+- *Ví dụ A:* This is the hotel **which** we visited last summer. *(visit sth -> thiếu tân ngữ -> dùng WHICH)*
+- *Ví dụ B:* This is the hotel **where** we stayed last summer. *(stay at a hotel -> nơi chốn -> dùng WHERE)*
+:::
 
-> [!RED] **BẪY 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`**
-> - **`WHOSE + Danh từ`**: Đại từ quan hệ chỉ sở hữu (*whose car, whose parents*).
-> - **`WHO'S`**: Dạng viết tắt của `Who is` hoặc `Who has`!
-> - ❌ *Sai:* I have a friend **who's** dog won the contest.
-> - ✅ *Đúng:* I have a friend **whose** dog won the contest.
+::: danger BẪY 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`
+- **`WHOSE + Danh từ`**: Đại từ quan hệ chỉ sở hữu (*whose car, whose parents*).
+- **`WHO'S`**: Dạng viết tắt của `Who is` hoặc `Who has`!
+- ❌ *Sai:* I have a friend **who's** dog won the contest.
+- ✅ *Đúng:* I have a friend **whose** dog won the contest.
+:::
 
-> [!GREEN] **MẸO DÙNG `WHICH` THAY THẾ CHO CẢ MỆNH ĐỀ ĐỨNG TRƯỚC:**
-> Khi muốn diễn tả ý *"điều đó / điều này"* thay cho toàn bộ sự việc ở mệnh đề trước, ta dùng **, WHICH** (bắt buộc có dấu phẩy):
-> *He passed the exam with flying colors, **which** made his parents very proud.*
+::: tip MẸO DÙNG `WHICH` THAY THẾ CHO CẢ MỆNH ĐỀ ĐỨNG TRƯỚC
+Khi muốn diễn tả ý *"điều đó / điều này"* thay cho toàn bộ sự việc ở mệnh đề trước, ta dùng **, WHICH** (bắt buộc có dấu phẩy):
+*He passed the exam with flying colors, **which** made his parents very proud.*
+:::
 
 ---
 

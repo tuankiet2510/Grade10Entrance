@@ -1,8 +1,9 @@
 # CHUYÊN ĐỀ 3: CẨM NANG TỪ ĐỒNG NGHĨA & TRÁI NGHĨA (SYNONYMS & ANTONYMS MASTERY)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Dạng bài tìm từ **Đồng nghĩa (`CLOSEST IN MEANING`)** và **Trái nghĩa (`OPPOSITE IN MEANING`)** chiếm ít nhất **4 câu (1.0 điểm)** trong đề thi tuyển sinh vào 10.
-> Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; bí quyết nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc bẫy tâm lý *"Đọc nhầm yêu cầu đề bài"*.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Dạng bài tìm từ **Đồng nghĩa (`CLOSEST IN MEANING`)** và **Trái nghĩa (`OPPOSITE IN MEANING`)** chiếm ít nhất **4 câu (1.0 điểm)** trong đề thi tuyển sinh vào 10.
+Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; bí quyết nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc bẫy tâm lý *"Đọc nhầm yêu cầu đề bài"*.
+:::
 
 ---
 
@@ -28,24 +29,28 @@ flowchart LR
 
 ## II. 4 CHIẾN THUẬT ĐOÁN NGHĨA TỪ MỚI QUA NGỮ CẢNH (CONTEXT CLUES)
 
-> [!GREEN] **1. Dựa vào Liên từ tương phản (`but, however, although, while, whereas`):**
-> Từ gạch chân sẽ có nghĩa **đối lập hoàn toàn** với vế còn lại.
-> *Ví dụ:* *Although the mountain path was **perilous**, all hikers reached the peak safely.*
-> ➔ Vế sau *"an toàn"* đi kèm *"mặc dù"* ➔ *perilous* chắc chắn mang nghĩa tiêu cực: *nguy hiểm* (`dangerous`).
+::: tip 1. Dựa vào Liên từ tương phản (`but, however, although, while, whereas`)
+Từ gạch chân sẽ có nghĩa **đối lập hoàn toàn** với vế còn lại.
+*Ví dụ:* *Although the mountain path was **perilous**, all hikers reached the peak safely.*
+➔ Vế sau *"an toàn"* đi kèm *"mặc dù"* ➔ *perilous* chắc chắn mang nghĩa tiêu cực: *nguy hiểm* (`dangerous`).
+:::
 
-> [!GREEN] **2. Dựa vào Liên từ tương đồng (`and, as well as, not only... but also`):**
-> Từ gạch chân sẽ có **cùng sắc thái** với từ đã biết đứng cạnh.
-> *Ví dụ:* *The local people were warm, generous and **hospitable**.*
-> ➔ Đi cùng *ấm áp*, *hào phóng* ➔ *hospitable* chắc chắn là tính từ tích cực: *hiếu khách* (`friendly`).
+::: tip 2. Dựa vào Liên từ tương đồng (`and, as well as, not only... but also`)
+Từ gạch chân sẽ có **cùng sắc thái** với từ đã biết đứng cạnh.
+*Ví dụ:* *The local people were warm, generous and **hospitable**.*
+➔ Đi cùng *ấm áp*, *hào phóng* ➔ *hospitable* chắc chắn là tính từ tích cực: *hiếu khách* (`friendly`).
+:::
 
-> [!GREEN] **3. Dựa vào Từ chỉ nguyên nhân - kết quả (`because, so, therefore, as a result`):**
-> *Ví dụ:* *Heavy rains continued for three days; **consequently**, the low-lying areas were submerged.*
-> ➔ Mưa to kéo dài 3 ngày ➔ khu vực trũng bị *ngập lụt* (`flooded`).
+::: tip 3. Dựa vào Từ chỉ nguyên nhân - kết quả (`because, so, therefore, as a result`)
+*Ví dụ:* *Heavy rains continued for three days; **consequently**, the low-lying areas were submerged.*
+➔ Mưa to kéo dài 3 ngày ➔ khu vực trũng bị *ngập lụt* (`flooded`).
+:::
 
-> [!RED] **BẪY TÂM LÝ KINH ĐIỂN CỦA HỌC SINH (VIETLISH TRAP):**
-> Đề bài yêu cầu tìm từ **TRÁI NGHĨA (`OPPOSITE`)**, nhưng người ra đề luôn cố tình đặt **TỪ ĐỒNG NGHĨA ở ngay Đáp án A**!
-> Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A mà quên mất đề đang hỏi từ TRÁI NGHĨA.
-> - **Nguyên tắc sống còn:** Cầm bút chì gạch chân/khoanh tròn to chữ **`OPPOSITE`** hoặc **`CLOSEST`** ngay khi đọc đề!
+::: danger BẪY TÂM LÝ KINH ĐIỂN CỦA HỌC SINH (VIETLISH TRAP)
+Đề bài yêu cầu tìm từ **TRÁI NGHĨA (`OPPOSITE`)**, nhưng người ra đề luôn cố tình đặt **TỪ ĐỒNG NGHĨA ở ngay Đáp án A**!
+Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A mà quên mất đề đang hỏi từ TRÁI NGHĨA.
+- **Nguyên tắc sống còn:** Cầm bút chì gạch chân/khoanh tròn to chữ **`OPPOSITE`** hoặc **`CLOSEST`** ngay khi đọc đề!
+:::
 
 ---
 

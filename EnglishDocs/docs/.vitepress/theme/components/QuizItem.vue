@@ -227,19 +227,31 @@ function playAudio(text: string, event?: Event) {
 
 <style scoped>
 :deep(.quiz-target-char) {
-  text-decoration: underline 2.5px var(--vp-c-brand-1);
+  text-decoration: underline 2.5px #2563eb;
   text-underline-offset: 3px;
-  color: var(--vp-c-brand-1);
+  color: #1e40af;
   font-weight: 700;
 }
 
+.dark :deep(.quiz-target-char) {
+  text-decoration-color: #38bdf8;
+  color: #38bdf8;
+}
+
 :deep(.quiz-inline-code) {
-  background: var(--vp-c-brand-soft);
-  color: var(--vp-c-brand-1);
+  background: #f1f5f9;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
   padding: 0.12rem 0.38rem;
   border-radius: 5px;
   font-size: 0.88em;
   font-family: var(--vp-font-family-mono);
+}
+
+.dark :deep(.quiz-inline-code) {
+  background: #1e293b;
+  color: #f8fafc;
+  border-color: #475569;
 }
 
 .study4-quiz-card {
@@ -391,8 +403,12 @@ function playAudio(text: string, event?: Event) {
 
 .opt-ipa {
   font-size: 0.75rem;
-  color: var(--vp-c-brand-1);
+  color: #1e40af;
   font-family: var(--vp-font-family-mono);
+}
+
+.dark .opt-ipa {
+  color: #38bdf8;
 }
 
 .audio-speaker-btn {
@@ -479,11 +495,18 @@ function playAudio(text: string, event?: Event) {
 }
 
 .prompt-code {
-  background: var(--vp-c-bg);
+  background: #f1f5f9;
   padding: 0.2rem 0.5rem;
   border-radius: 6px;
-  color: var(--vp-c-brand-1);
+  color: #1e40af;
   font-weight: 600;
+  border: 1px solid #cbd5e1;
+}
+
+.dark .prompt-code {
+  background: #1e293b;
+  color: #38bdf8;
+  border-color: #475569;
 }
 
 .transform-input-row {
@@ -588,11 +611,17 @@ function playAudio(text: string, event?: Event) {
 .explanation-body {
   margin-top: 0.75rem;
   padding: 0.95rem 1.15rem;
-  background: var(--vp-c-bg);
+  background: #f8fafc;
   border-radius: 10px;
-  border: 1px solid var(--vp-c-divider);
+  border: 1px solid #cbd5e1;
   font-size: 0.9rem;
   line-height: 1.65;
-  color: var(--vp-c-text-1);
+  color: #0f172a;
+}
+
+.dark .explanation-body {
+  background: #0f172a;
+  border-color: #334155;
+  color: #f8fafc;
 }
 </style>

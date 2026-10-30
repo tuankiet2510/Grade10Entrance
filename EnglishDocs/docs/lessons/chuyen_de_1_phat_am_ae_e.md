@@ -1,9 +1,10 @@
 # CHUYÊN ĐỀ 1: PHÂN BIỆT PHÁT ÂM NGUYÊN ÂM /æ/ VÀ /e/ ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Cặp nguyên âm `/æ/` (A bẹt) và `/e/` (E ngắn) là điểm khác biệt cốt tử trong ngữ âm tiếng Anh. Sự khác nhau nằm ở **Độ mở của khuôn miệng và độ hạ của xương hàm dưới**:
-> - **Âm `/e/` (E ngắn):** Miệng mở vừa phải, khóe môi kéo nhẹ sang hai bên như cười mỉm, âm dứt khoát: *pen, bed, men*.
-> - **Âm `/æ/` (A bẹt):** Miệng mở rất rộng cả chiều dọc lẫn chiều ngang, hạ thấp xương hàm dưới, lưỡi ép phẳng, âm vang pha trộn giữa "A" và "E": *pan, bad, man*.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Cặp nguyên âm `/æ/` (A bẹt) và `/e/` (E ngắn) là điểm khác biệt cốt tử trong ngữ âm tiếng Anh. Sự khác nhau nằm ở **Độ mở của khuôn miệng và độ hạ của xương hàm dưới**:
+- **Âm `/e/` (E ngắn):** Miệng mở vừa phải, khóe môi kéo nhẹ sang hai bên như cười mỉm, âm dứt khoát: *pen, bed, men*.
+- **Âm `/æ/` (A bẹt):** Miệng mở rất rộng cả chiều dọc lẫn chiều ngang, hạ thấp xương hàm dưới, lưỡi ép phẳng, âm vang pha trộn giữa "A" và "E": *pan, bad, man*.
+:::
 
 ---
 
@@ -23,21 +24,24 @@
 
 ## II. QUY TẮC NHẬN DIỆN MẶT CHỮ (SPELLING RULES)
 
-> [!GREEN] **KHI NÀO PHÁT ÂM LÀ `/e/`?**
-> 1. Chữ cái `"e"` trong từ có 1 âm tiết, đứng giữa các phụ âm: *pen, ten, red, bell, smell, test, help, spend*.
-> 2. Chữ cái `"ea"` trong một số từ đặc biệt (100% lưu ý khi làm bài thi): *head, heavy, health, breath, dead, weather, leather, ready, breakfast*.
+::: tip KHI NÀO PHÁT ÂM LÀ `/e/`?
+1. Chữ cái `"e"` trong từ có 1 âm tiết, đứng giữa các phụ âm: *pen, ten, red, bell, smell, test, help, spend*.
+2. Chữ cái `"ea"` trong một số từ đặc biệt (100% lưu ý khi làm bài thi): *head, heavy, health, breath, dead, weather, leather, ready, breakfast*.
+:::
 
-> [!GREEN] **KHI NÀO PHÁT ÂM LÀ `/æ/`?**
-> 1. Chữ cái `"a"` trong từ có 1 âm tiết, đứng giữa các phụ âm: *cat, hat, fat, bag, map, fan, hand, stand, black, plant*.
-> 2. Chữ cái `"a"` trong các từ nhiều âm tiết có trọng âm rơi vào âm đó: *family* /ˈfæm.ɪ.li/, *camera* /ˈkæm.rə/, *animal* /ˈæn.ɪ.məl/, *channel* /ˈtʃæn.əl/, *candle* /ˈkæn.dəl/.
+::: tip KHI NÀO PHÁT ÂM LÀ `/æ/`?
+1. Chữ cái `"a"` trong từ có 1 âm tiết, đứng giữa các phụ âm: *cat, hat, fat, bag, map, fan, hand, stand, black, plant*.
+2. Chữ cái `"a"` trong các từ nhiều âm tiết có trọng âm rơi vào âm đó: *family* /ˈfæm.ɪ.li/, *camera* /ˈkæm.rə/, *animal* /ˈæn.ɪ.məl/, *channel* /ˈtʃæn.əl/, *candle* /ˈkæn.dəl/.
+:::
 
 ---
 
 ## III. BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAPS)
 
-> [!RED] **BẪY PHÁT ÂM ĐỒNG NHẤT HÓA THÀNH ÂM TIẾNG VIỆT:**
-> Người Việt có xu hướng đưa cả hai âm về âm "e" trong tiếng Việt (*men* và *man* đọc y hệt nhau), hoặc đọc `/æ/` thành âm "a" thuần túy.
-> - **Khắc phục:** Khi đọc `/æ/`, hãy tưởng tượng bạn đang chuẩn bị phát âm "E" nhưng miệng phải há to và hạ cằm xuống như khi khám họng phát âm "A". Luồng hơi đi từ sâu trong cổ họng tạo âm đanh và bẹt.
+::: danger BẪY PHÁT ÂM ĐỒNG NHẤT HÓA THÀNH ÂM TIẾNG VIỆT
+Người Việt có xu hướng đưa cả hai âm về âm "e" trong tiếng Việt (*men* và *man* đọc y hệt nhau), hoặc đọc `/æ/` thành âm "a" thuần túy.
+- **Khắc phục:** Khi đọc `/æ/`, hãy tưởng tượng bạn đang chuẩn bị phát âm "E" nhưng miệng phải há to và hạ cằm xuống như khi khám họng phát âm "A". Luồng hơi đi từ sâu trong cổ họng tạo âm đanh và bẹt.
+:::
 
 ---
 

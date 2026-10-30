@@ -1,8 +1,9 @@
 # CHUYÊN ĐỀ 2: ĐỘNG TỪ KHUYẾT THIẾU (MODAL VERBS MASTERY) ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Động từ khuyết thiếu (Modal Verbs: *can, could, may, might, must, should, have to, needn't*) không diễn tả một hành động vật lý cụ thể, mà dùng để biểu thị **thái độ của người nói** đối với hành động đó: **Mức độ chắc chắn**, **Khả năng**, **Sự cho phép**, **Sự bắt buộc** hoặc **Lời khuyên**.
-> Nguyên tắc ngữ pháp bất biến: **`S + MODAL VERB + V-INF (nguyên mẫu không chia)`**.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Động từ khuyết thiếu (Modal Verbs: *can, could, may, might, must, should, have to, needn't*) không diễn tả một hành động vật lý cụ thể, mà dùng để biểu thị **thái độ của người nói** đối với hành động đó: **Mức độ chắc chắn**, **Khả năng**, **Sự cho phép**, **Sự bắt buộc** hoặc **Lời khuyên**.
+Nguyên tắc ngữ pháp bất biến: **`S + MODAL VERB + V-INF (nguyên mẫu không chia)`**.
+:::
 
 ---
 
@@ -39,7 +40,8 @@ flowchart LR
 
 ## III. 5 CÔNG THỨC VIẾT LẠI CÂU VỚI MODAL VERBS (CHẮC CHẮN RA THI)
 
-> [!RED] **BẢNG QUY ĐỔI CÂU TƯƠNG ĐƯƠNG VỚI MODAL VERBS:**
+::: danger BẢNG QUY ĐỔI CÂU TƯƠNG ĐƯƠNG VỚI MODAL VERBS
+:::
 
 | Dạng câu gốc trong đề | Công thức viết lại tương đương | Ví dụ chuẩn trong đề thi |
 | :--- | :--- | :--- |

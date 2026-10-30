@@ -1,12 +1,13 @@
 # CHUYÊN ĐỀ 1: QUY TẮC TRỌNG ÂM TỪ (WORD STRESS MASTERY) & BỘ THẦN CHÚ TIẾNG VIỆT 5 GIÂY
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và DÀI HƠN** các âm tiết còn lại trong từ.
-> 
-> 💡 **NGUYÊN TẮC VÀNG ĐỀ THI VÀO 10 (SỞ GD QUẢNG NGÃI & TOÀN QUỐC):**
-> Đề thi luôn có đúng 2 câu trọng âm:
-> 1. **Câu 1: Từ 2 âm tiết** (Quy tắc Từ loại Danh/Tính vs Động từ).
-> 2. **Câu 2: Từ 3 âm tiết trở lên** (Quy tắc Hậu tố / Suffixes & Tiền tố).
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và DÀI HƠN** các âm tiết còn lại trong từ.
+
+💡 **NGUYÊN TẮC VÀNG ĐỀ THI VÀO 10 (SỞ GD QUẢNG NGÃI & TOÀN QUỐC):**
+Đề thi luôn có đúng 2 câu trọng âm:
+1. **Câu 1: Từ 2 âm tiết** (Quy tắc Từ loại Danh/Tính vs Động từ).
+2. **Câu 2: Từ 3 âm tiết trở lên** (Quy tắc Hậu tố / Suffixes & Tiền tố).
+:::
 
 ---
 
@@ -63,36 +64,39 @@ flowchart LR
 
 ## III. 5 BẪY NGOẠI LỆ KINH ĐIỂN CỦA TỪ 2 ÂM TIẾT
 
-> [!RED] **BẪY 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)**
-> Động từ có âm tiết thứ 2 là nguyên âm ngắn yếu `/ə/` hoặc `/ɪ/` thì trọng âm bị đẩy về **ÂM 1**:
-> - *visit* /ˈvɪz.ɪt/ *(thăm)*
-> - *answer* /ˈɑːn.sər/ *(trả lời)*
-> - *enter* /ˈen.tər/ *(đi vào)*
-> - *listen* /ˈlɪs.ən/ *(lắng nghe)*
-> - *happen* /ˈhæp.ən/ *(xảy ra)*
-> - *open* /ˈəʊ.pən/ *(mở ra)*
-> - *cancel* /ˈkæn.səl/ *(hủy bỏ)*
-> - *follow* /ˈfɒl.əʊ/ *(theo sau)*
-> 
-> 💡 **Thần chú ghi nhớ:** *"HÃY VÀO MỞ CỬA LẮNG NGHE CHUYỆN GÌ ĐÃ XẢY RA"* (Enter - Open - Listen - Happen).
+::: danger BẪY 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)
+Động từ có âm tiết thứ 2 là nguyên âm ngắn yếu `/ə/` hoặc `/ɪ/` thì trọng âm bị đẩy về **ÂM 1**:
+- *visit* /ˈvɪz.ɪt/ *(thăm)*
+- *answer* /ˈɑːn.sər/ *(trả lời)*
+- *enter* /ˈen.tər/ *(đi vào)*
+- *listen* /ˈlɪs.ən/ *(lắng nghe)*
+- *happen* /ˈhæp.ən/ *(xảy ra)*
+- *open* /ˈəʊ.pən/ *(mở ra)*
+- *cancel* /ˈkæn.səl/ *(hủy bỏ)*
+- *follow* /ˈfɒl.əʊ/ *(theo sau)*
 
-> [!YELLOW] **BẪY 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2**
-> Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng âm nhảy sang **ÂM 2**:
-> - *machine* /məˈʃiːn/ *(máy móc)*
-> - *mistake* /mɪˈsteɪk/ *(lỗi lầm)*
-> - *advice* /ədˈvaɪs/ *(lời khuyên)*
-> - *hotel* /həʊˈtel/ *(khách sạn)*
-> - *police* /pəˈliːs/ *(cảnh sát)*
-> - *alone* /əˈləʊn/ *(cô đơn)*
-> - *alive* /əˈlaɪv/ *(còn sống)*
+💡 **Thần chú ghi nhớ:** *"HÃY VÀO MỞ CỬA LẮNG NGHE CHUYỆN GÌ ĐÃ XẢY RA"* (Enter - Open - Listen - Happen).
+:::
 
-> [!GREEN] **BẪY 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)**
-> Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động từ nhấn ÂM 2**:
-> - *`PRE-sent`* (Danh từ: món quà) vs *`pre-SENT`* (Động từ: thuyết trình, trao thưởng)
-> - *`RE-cord`* (Danh từ: kỷ lục) vs *`re-CORD`* (Động từ: thu âm, ghi chép)
-> - *`OB-ject`* (Danh từ: đồ vật) vs *`ob-JECT`* (Động từ: phản đối)
-> - *`PRO-ject`* (Danh từ: dự án) vs *`pro-JECT`* (Động từ: phóng, chiếu)
-> - *`CON-trast`* (Danh từ: sự tương phản) vs *`con-TRAST`* (Động từ: làm tương phản)
+::: warning BẪY 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2
+Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng âm nhảy sang **ÂM 2**:
+- *machine* /məˈʃiːn/ *(máy móc)*
+- *mistake* /mɪˈsteɪk/ *(lỗi lầm)*
+- *advice* /ədˈvaɪs/ *(lời khuyên)*
+- *hotel* /həʊˈtel/ *(khách sạn)*
+- *police* /pəˈliːs/ *(cảnh sát)*
+- *alone* /əˈləʊn/ *(cô đơn)*
+- *alive* /əˈlaɪv/ *(còn sống)*
+:::
+
+::: tip BẪY 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)
+Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động từ nhấn ÂM 2**:
+- *`PRE-sent`* (Danh từ: món quà) vs *`pre-SENT`* (Động từ: thuyết trình, trao thưởng)
+- *`RE-cord`* (Danh từ: kỷ lục) vs *`re-CORD`* (Động từ: thu âm, ghi chép)
+- *`OB-ject`* (Danh từ: đồ vật) vs *`ob-JECT`* (Động từ: phản đối)
+- *`PRO-ject`* (Danh từ: dự án) vs *`pro-JECT`* (Động từ: phóng, chiếu)
+- *`CON-trast`* (Danh từ: sự tương phản) vs *`con-TRAST`* (Động từ: làm tương phản)
+:::
 
 ---
 

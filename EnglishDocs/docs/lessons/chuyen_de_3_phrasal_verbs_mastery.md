@@ -1,8 +1,9 @@
 # CHUYÊN ĐỀ 3: CẨM NANG 50 CỤM ĐỘNG TỪ (PHRASAL VERBS) TỦ ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Cụm động từ (Phrasal Verb) là sự kết hợp giữa một **Động từ gốc (Verb)** với một hoặc hai **Tiểu từ / Giới từ (Particle/Preposition)** để tạo ra một **nghĩa hoàn toàn mới**, khác hẳn nghĩa đen của từng từ đơn lẻ.
-> Thay vì học vẹt 2.300 cụm từ bất tận, 95% câu hỏi trong đề thi tuyển sinh vào 10 chỉ xoay quanh **9 động từ gốc quen thuộc**: `LOOK, GO, TAKE, TURN, GIVE, GET, PUT, RUN, BRING`.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Cụm động từ (Phrasal Verb) là sự kết hợp giữa một **Động từ gốc (Verb)** với một hoặc hai **Tiểu từ / Giới từ (Particle/Preposition)** để tạo ra một **nghĩa hoàn toàn mới**, khác hẳn nghĩa đen của từng từ đơn lẻ.
+Thay vì học vẹt 2.300 cụm từ bất tận, 95% câu hỏi trong đề thi tuyển sinh vào 10 chỉ xoay quanh **9 động từ gốc quen thuộc**: `LOOK, GO, TAKE, TURN, GIVE, GET, PUT, RUN, BRING`.
+:::
 
 ---
 
@@ -81,20 +82,23 @@ flowchart LR
 
 ## III. 4 BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAPS)
 
-> [!RED] **BẪY 1: ĐẠI TỪ TÂN NGỮ (`IT`, `THEM`) VỚI CỤM ĐỘNG TỪ TÁCH RỜI**
-> Với cụm động từ có thể tách rời (*turn on, turn off, put on, take off*):
-> - Khi tân ngữ là **Danh từ riêng/chung**: Đặt ở giữa hoặc ở cuối đều đúng (*turn on the light* ✅ hoặc *turn the light on* ✅).
-> - Khi tân ngữ là **Đại từ (`it`, `them`, `him`, `her`)**: **BẮT BUỘC KẸP Ở GIỮA**!
->   - ❌ **Sai:** *Turn on it!* / *Take off them!*
->   - ✅ **Đúng:** *Turn **it** on!* / *Take **them** off!*
+::: danger BẪY 1: ĐẠI TỪ TÂN NGỮ (`IT`, `THEM`) VỚI CỤM ĐỘNG TỪ TÁCH RỜI
+Với cụm động từ có thể tách rời (*turn on, turn off, put on, take off*):
+- Khi tân ngữ là **Danh từ riêng/chung**: Đặt ở giữa hoặc ở cuối đều đúng (*turn on the light* ✅ hoặc *turn the light on* ✅).
+- Khi tân ngữ là **Đại từ (`it`, `them`, `him`, `her`)**: **BẮT BUỘC KẸP Ở GIỮA**!
+  - ❌ **Sai:** *Turn on it!* / *Take off them!*
+  - ✅ **Đúng:** *Turn **it** on!* / *Take **them** off!*
+:::
 
-> [!RED] **BẪY 2: PHÂN BIỆT `CALL OFF` VS. `PUT OFF`**
-> - **`CALL OFF`**: **Hủy bỏ hoàn toàn** (`= cancel`), không tổ chức lại nữa.
-> - **`PUT OFF`**: **Hoãn lại** (`= postpone, delay`), sẽ tổ chức vào một ngày khác trong tương lai.
+::: danger BẪY 2: PHÂN BIỆT `CALL OFF` VS. `PUT OFF`
+- **`CALL OFF`**: **Hủy bỏ hoàn toàn** (`= cancel`), không tổ chức lại nữa.
+- **`PUT OFF`**: **Hoãn lại** (`= postpone, delay`), sẽ tổ chức vào một ngày khác trong tương lai.
+:::
 
-> [!YELLOW] **BẪY 3: PHÂN BIỆT `TAKE AFTER` VS. `LOOK AFTER`**
-> - **`TAKE AFTER`**: Giống ai đó trong gia đình về tính cách, ngoại hình (`= resemble`).
-> - **`LOOK AFTER`**: Chăm sóc, trông nom ai (`= take care of`).
+::: warning BẪY 3: PHÂN BIỆT `TAKE AFTER` VS. `LOOK AFTER`
+- **`TAKE AFTER`**: Giống ai đó trong gia đình về tính cách, ngoại hình (`= resemble`).
+- **`LOOK AFTER`**: Chăm sóc, trông nom ai (`= take care of`).
+:::
 
 ---
 

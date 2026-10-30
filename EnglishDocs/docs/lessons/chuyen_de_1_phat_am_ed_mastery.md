@@ -1,10 +1,11 @@
 # CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM ĐUÔI "ED" BẰNG CÂU THẦN CHÚ & NGOẠI LỆ TÍNH TỪ
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì Quá khứ và Phân từ 2. Âm thanh thực tế phát ra phụ thuộc vào **Âm cuối cùng (Ending Sound)** của động từ trước khi thêm -ed:
-> - **Âm rung (Hữu thanh):** Cổ họng rung ➔ Đuôi -ed phát âm là **/d/** (cùng tính chất rung).
-> - **Âm không rung (Vô thanh):** Cổ họng không rung ➔ Đuôi -ed phát âm là **/t/** (cùng tính chất vô thanh).
-> - **Âm /t/ hoặc /d/:** Để tránh dính 2 âm giống nhau liền kề ➔ Chèn thêm nguyên âm /ɪ/ thành **/ɪd/**.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì Quá khứ và Phân từ 2. Âm thanh thực tế phát ra phụ thuộc vào **Âm cuối cùng (Ending Sound)** của động từ trước khi thêm -ed:
+- **Âm rung (Hữu thanh):** Cổ họng rung ➔ Đuôi -ed phát âm là **/d/** (cùng tính chất rung).
+- **Âm không rung (Vô thanh):** Cổ họng không rung ➔ Đuôi -ed phát âm là **/t/** (cùng tính chất vô thanh).
+- **Âm /t/ hoặc /d/:** Để tránh dính 2 âm giống nhau liền kề ➔ Chèn thêm nguyên âm /ɪ/ thành **/ɪd/**.
+:::
 
 ---
 
@@ -65,8 +66,9 @@ flowchart LR
 
 ## III. BẢNG 10 TÍNH TỪ NGOẠI LỆ "VÀNG" (LUÔN PHÁT ÂM LÀ /ɪd/)
 
-> [!RED] **BẪY GÀI 100% CỦA ĐỀ THI TUYỂN SINH VÀO 10:**
-> Các từ dưới đây khi đóng vai trò là **Tính từ (Adjective)** thì đuôi **-ed LUÔN ĐỌC LÀ `/ɪd/`**, bất kể âm phía trước là gì!
+::: danger BẪY GÀI 100% CỦA ĐỀ THI TUYỂN SINH VÀO 10
+Các từ dưới đây khi đóng vai trò là **Tính từ (Adjective)** thì đuôi **-ed LUÔN ĐỌC LÀ `/ɪd/`**, bất kể âm phía trước là gì!
+:::
 
 | Tính từ ngoại lệ | Phiên âm IPA | Dịch nghĩa tiếng Việt | Cụm từ hay gặp trong đề thi |
 | :--- | :--- | :--- | :--- |
@@ -81,10 +83,11 @@ flowchart LR
 | **dogged** | /ˈdɒɡ.ɪd/ | Bền bỉ, kiên cường | *dogged determination* |
 | **wretched** | /ˈretʃ.ɪd/ | Khốn khổ, bất hạnh | *a wretched life* (cuộc đời khốn khổ) |
 
-> [!YELLOW] **LƯU Ý ĐỐI CHIẾU:**
-> Nếu các từ trên dùng như **Động từ thường (Verb)** chia thì quá khứ, ta vẫn áp dụng quy tắc thông thường:
-> - *He aged quickly* ➔ đọc là `/eɪdʒd/` (`/d/`).
-> - *He learned English well* ➔ đọc là `/lɜːnd/` (`/d/`).
+::: warning LƯU Ý ĐỐI CHIẾU
+Nếu các từ trên dùng như **Động từ thường (Verb)** chia thì quá khứ, ta vẫn áp dụng quy tắc thông thường:
+- *He aged quickly* ➔ đọc là `/eɪdʒd/` (`/d/`).
+- *He learned English well* ➔ đọc là `/lɜːnd/` (`/d/`).
+:::
 
 ---
 

@@ -1,9 +1,10 @@
 # CHUYÊN ĐỀ 2: DANH ĐỘNG TỪ & ĐỘNG TỪ NGUYÊN MẪU (GERUNDS & INFINITIVES: V-ING & TO-V)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ hai phải biến đổi hình thái theo bản chất logic của hành động:
-> - **`TO-V` (Infinitive):** Hướng về **Tương lai**, **Mục đích**, kế hoạch, hoặc hành động **chưa xảy ra**.
-> - **`V-ING` (Gerund):** Hướng về **Trải nghiệm**, **Sự thật**, thói quen, hoặc hành động **đã/đang diễn ra**.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ hai phải biến đổi hình thái theo bản chất logic của hành động:
+- **`TO-V` (Infinitive):** Hướng về **Tương lai**, **Mục đích**, kế hoạch, hoặc hành động **chưa xảy ra**.
+- **`V-ING` (Gerund):** Hướng về **Trải nghiệm**, **Sự thật**, thói quen, hoặc hành động **đã/đang diễn ra**.
+:::
 
 ---
 
@@ -43,8 +44,9 @@ flowchart LR
 
 ## III. 6 CẶP ĐỘNG TỪ ĐỔI NGHĨA KINH ĐIỂN (CHIẾM 80% LƯU Ý KHI LÀM BÀI THI)
 
-> [!RED] **QUY TẮC "QUÁ KHỨ DÙNG V-ING, TƯƠNG LAI/BỔN PHẬN DÙNG TO-V":**
-> Đây là dạng bài phân loại học sinh giỏi hay gặp nhất trong đề thi tuyển sinh lớp 10. Hãy đối chiếu thật kỹ nghĩa ngữ cảnh trước khi chọn:
+::: danger QUY TẮC "QUÁ KHỨ DÙNG V-ING, TƯƠNG LAI/BỔN PHẬN DÙNG TO-V"
+Đây là dạng bài phân loại học sinh giỏi hay gặp nhất trong đề thi tuyển sinh lớp 10. Hãy đối chiếu thật kỹ nghĩa ngữ cảnh trước khi chọn:
+:::
 
 | Động từ | Đi với `TO V-inf` (Mục đích / Tương lai / Bổn phận) | Đi với `V-ING` (Trải nghiệm / Đã xảy ra trong quá khứ) |
 | :--- | :--- | :--- |
@@ -59,18 +61,20 @@ flowchart LR
 
 ## IV. CÁC THÀNH NGỮ & CỤM TỪ CỐ ĐỊNH BẮT BUỘC ĐI VỚI `V-ING`
 
-> [!YELLOW] **BẪY GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM):**
-> Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động từ nguyên mẫu `V-inf`. Nhưng trong các cụm sau, `to` đóng vai trò là **Giới từ (Preposition)**, nên động từ theo sau **BẮT BUỘC Ở DẠNG `V-ING`**:
-> - **`look forward to + V-ing`**: Trông mong, háo hức (*I look forward to hearing from you*).
-> - **`be / get used to + V-ing`**: Đã quen với việc gì ở hiện tại (*He is used to getting up early*).
-> - **`object to / be opposed to + V-ing`**: Phản đối việc gì.
+::: warning BẪY GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM)
+Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động từ nguyên mẫu `V-inf`. Nhưng trong các cụm sau, `to` đóng vai trò là **Giới từ (Preposition)**, nên động từ theo sau **BẮT BUỘC Ở DẠNG `V-ING`**:
+- **`look forward to + V-ing`**: Trông mong, háo hức (*I look forward to hearing from you*).
+- **`be / get used to + V-ing`**: Đã quen với việc gì ở hiện tại (*He is used to getting up early*).
+- **`object to / be opposed to + V-ing`**: Phản đối việc gì.
+:::
 
-> [!GREEN] **CÁC CẤU TRÚC ĐẶC BIỆT KHÁC ĐI VỚI `V-ING`:**
-> - `can't help / can't stand / can't bear + V-ing`: Không thể nhịn được / Không thể chịu đựng nổi.
-> - `It's no use / It's no good / There's no point in + V-ing`: Thật vô ích khi làm gì.
-> - `be busy + V-ing`: Đang bận rộn làm gì.
-> - `be worth + V-ing`: Đáng để làm gì (*This documentary is worth watching*).
-> - `spend / waste + time/money + V-ing`: Dành / lãng phí thời gian, tiền bạc làm gì.
+::: tip CÁC CẤU TRÚC ĐẶC BIỆT KHÁC ĐI VỚI `V-ING`
+- `can't help / can't stand / can't bear + V-ing`: Không thể nhịn được / Không thể chịu đựng nổi.
+- `It's no use / It's no good / There's no point in + V-ing`: Thật vô ích khi làm gì.
+- `be busy + V-ing`: Đang bận rộn làm gì.
+- `be worth + V-ing`: Đáng để làm gì (*This documentary is worth watching*).
+- `spend / waste + time/money + V-ing`: Dành / lãng phí thời gian, tiền bạc làm gì.
+:::
 
 ---
 

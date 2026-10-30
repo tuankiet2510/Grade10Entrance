@@ -1,10 +1,11 @@
 # CHUYÊN ĐỀ 2: CẨM NANG MẠO TỪ (ARTICLES: A, AN, THE & ZERO ARTICLE) ÔN THI VÀO 10
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Mạo từ (Articles) là chiếc **"nhãn dán xác định"** đặt trước danh từ để báo hiệu cho người nghe:
-> - **`A / AN` (Mạo từ bất định):** Danh từ này là **chung chung**, người nghe **chưa hề biết** đó là ai/cái gì.
-> - **`THE` (Mạo từ xác định):** Cả người nói và người nghe **đều biết rõ 100%** danh từ đó là gì.
-> - **`Ø` (Không mạo từ - Zero Article):** Chỉ bản chất chung, sự vật số nhiều hoặc danh từ không đếm được nói chung.
+::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+Mạo từ (Articles) là chiếc **"nhãn dán xác định"** đặt trước danh từ để báo hiệu cho người nghe:
+- **`A / AN` (Mạo từ bất định):** Danh từ này là **chung chung**, người nghe **chưa hề biết** đó là ai/cái gì.
+- **`THE` (Mạo từ xác định):** Cả người nói và người nghe **đều biết rõ 100%** danh từ đó là gì.
+- **`Ø` (Không mạo từ - Zero Article):** Chỉ bản chất chung, sự vật số nhiều hoặc danh từ không đếm được nói chung.
+:::
 
 ---
 
@@ -31,17 +32,18 @@ flowchart LR
 
 ## II. QUY TẮC SỬ DỤNG MẠO TỪ BẤT ĐỊNH (A / AN) & CÁC BẪY PHIÊN ÂM
 
-> [!RED] **LƯU Ý QUAN TRỌNG KHI DÙNG "A" VÀ "AN": XÉT THEO ÂM THANH (IPA), KHÔNG XÉT THEO CHỮ CÁI!**
-> - Dùng **`AN`** trước danh từ bắt đầu bằng một **NGUYÊN ÂM THEO PHIÊN ÂM IPA** (`/æ/, /e/, /ɪ/, /ɒ/, /ʌ/`...):
->   - *an hour* /ˈaʊ.ər/ *(chữ "h" câm, bắt đầu bằng nguyên âm /aʊ/)*.
->   - *an honest person* /ˈɒn.ɪst/ *(chữ "h" câm, bắt đầu bằng nguyên âm /ɒ/)*.
->   - *an MP3 player* /ˌem.piːˈθriː/ *(chữ M đọc là /em/, bắt đầu bằng nguyên âm /e/)*.
->   - *an SOS message* /ˌes.əʊˈes/ *(chữ S đọc là /es/, bắt đầu bằng nguyên âm /e/)*.
-> - Dùng **`A`** trước danh từ bắt đầu bằng một **PHỤ ÂM HOẶC BÁN NGUYÊN ÂM (/j/, /w/)**:
->   - *a university* /ˌjuː.nɪˈvɜː.sə.ti/ *(bắt đầu bằng bán phụ âm /j/, KHÔNG dùng "an")*.
->   - *a uniform* /ˈjuː.nɪ.fɔːm/ *(bắt đầu bằng bán phụ âm /j/)*.
->   - *a European country* /ˌjʊə.rəˈpiː.ən/ *(chữ Eu đọc là /jʊə/, bắt đầu bằng phụ âm /j/)*.
->   - *a one-way ticket* /wʌn/ *(chữ "one" đọc là /wʌn/, bắt đầu bằng phụ âm /w/)*.
+::: danger LƯU Ý QUAN TRỌNG KHI DÙNG "A" VÀ "AN": XÉT THEO ÂM THANH (IPA), KHÔNG XÉT THEO CHỮ CÁI!
+- Dùng **`AN`** trước danh từ bắt đầu bằng một **NGUYÊN ÂM THEO PHIÊN ÂM IPA** (`/æ/, /e/, /ɪ/, /ɒ/, /ʌ/`...):
+  - *an hour* /ˈaʊ.ər/ *(chữ "h" câm, bắt đầu bằng nguyên âm /aʊ/)*.
+  - *an honest person* /ˈɒn.ɪst/ *(chữ "h" câm, bắt đầu bằng nguyên âm /ɒ/)*.
+  - *an MP3 player* /ˌem.piːˈθriː/ *(chữ M đọc là /em/, bắt đầu bằng nguyên âm /e/)*.
+  - *an SOS message* /ˌes.əʊˈes/ *(chữ S đọc là /es/, bắt đầu bằng nguyên âm /e/)*.
+- Dùng **`A`** trước danh từ bắt đầu bằng một **PHỤ ÂM HOẶC BÁN NGUYÊN ÂM (/j/, /w/)**:
+  - *a university* /ˌjuː.nɪˈvɜː.sə.ti/ *(bắt đầu bằng bán phụ âm /j/, KHÔNG dùng "an")*.
+  - *a uniform* /ˈjuː.nɪ.fɔːm/ *(bắt đầu bằng bán phụ âm /j/)*.
+  - *a European country* /ˌjʊə.rəˈpiː.ən/ *(chữ Eu đọc là /jʊə/, bắt đầu bằng phụ âm /j/)*.
+  - *a one-way ticket* /wʌn/ *(chữ "one" đọc là /wʌn/, bắt đầu bằng phụ âm /w/)*.
+:::
 
 ---
 
@@ -62,16 +64,17 @@ flowchart LR
 
 ## IV. CÁC TRƯỜNG HỢP TUYỆT ĐỐI KHÔNG DÙNG MẠO TỪ (ZERO ARTICLE: Ø)
 
-> [!YELLOW] **BẢNG TRA CỨU CÁC DANH TỪ KHÔNG ĐI VỚI MẠO TỪ:**
-> 1. **Trước Bữa ăn hàng ngày:** `have breakfast, have lunch, have dinner`. *(Nhưng nếu có tính từ khen ngợi: have a delicious dinner)*.
-> 2. **Trước Môn thể thao, Trò chơi:** `play football, play chess, play tennis, play badminton`.
-> 3. **Trước Tên riêng, Quốc gia, Thành phố, Châu lục:** `Vietnam, Ha Noi, Quang Ngai, Asia, Europe`. *(Trừ the USA, the UK...)*.
-> 4. **Trước Một đỉnh núi đơn lẻ, Một hòn đảo đơn lẻ:** `Mount Everest, Mount Fuji, Ly Son Island, Phu Quoc Island`.
-> 5. **Trước Danh từ trừu tượng hoặc Danh từ số nhiều nói chung:** `Water is essential for life`; `Cats are cute animals`.
-> 6. **Cấu trúc đi đến địa điểm đúng mục đích tự nhiên:**
->    - `go to school` *(đi học)* vs. `go to the school` *(đến trường gặp ai đó)*.
->    - `go to hospital` *(đi nằm viện)* vs. `go to the hospital` *(đến bệnh viện thăm người ốm)*.
->    - `go to bed` *(đi ngủ)* vs. `sit on the bed` *(ngồi trên giường)*.
+::: warning BẢNG TRA CỨU CÁC DANH TỪ KHÔNG ĐI VỚI MẠO TỪ
+1. **Trước Bữa ăn hàng ngày:** `have breakfast, have lunch, have dinner`. *(Nhưng nếu có tính từ khen ngợi: have a delicious dinner)*.
+2. **Trước Môn thể thao, Trò chơi:** `play football, play chess, play tennis, play badminton`.
+3. **Trước Tên riêng, Quốc gia, Thành phố, Châu lục:** `Vietnam, Ha Noi, Quang Ngai, Asia, Europe`. *(Trừ the USA, the UK...)*.
+4. **Trước Một đỉnh núi đơn lẻ, Một hòn đảo đơn lẻ:** `Mount Everest, Mount Fuji, Ly Son Island, Phu Quoc Island`.
+5. **Trước Danh từ trừu tượng hoặc Danh từ số nhiều nói chung:** `Water is essential for life`; `Cats are cute animals`.
+6. **Cấu trúc đi đến địa điểm đúng mục đích tự nhiên:**
+   - `go to school` *(đi học)* vs. `go to the school` *(đến trường gặp ai đó)*.
+   - `go to hospital` *(đi nằm viện)* vs. `go to the hospital` *(đến bệnh viện thăm người ốm)*.
+   - `go to bed` *(đi ngủ)* vs. `sit on the bed` *(ngồi trên giường)*.
+:::
 
 ---
 
