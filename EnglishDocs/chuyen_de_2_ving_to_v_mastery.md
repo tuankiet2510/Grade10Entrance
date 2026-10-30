@@ -1,13 +1,14 @@
-# CHUYÊN ĐỀ 2: DANH ĐỘNG TỪ & ĐỘNG TỪ NGUYÊN MẪU (GERUNDS & INFINITIVES: V-ING & TO-V)
+# Chuyên Đề 2: Danh Động Từ (V-ing) Và Động Từ Nguyên Mẫu (to-V)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ hai phải biến đổi hình thái theo bản chất logic của hành động:
-> - **`TO-V` (Infinitive):** Hướng về **Tương lai**, **Mục đích**, kế hoạch, hoặc hành động **chưa xảy ra**.
-> - **`V-ING` (Gerund):** Hướng về **Trải nghiệm**, **Sự thật**, thói quen, hoặc hành động **đã/đang diễn ra**.
+::: info Kiến thức trọng tâm
+Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ hai phải biến đổi hình thái theo bản chất logic của hành động:
+- **`TO-V` (Infinitive):** Hướng về **Tương lai**, **Mục đích**, kế hoạch, hoặc hành động **chưa xảy ra**.
+- **`V-ING` (Gerund):** Hướng về **Trải nghiệm**, **Sự thật**, thói quen, hoặc hành động **đã/đang diễn ra**.
+:::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN PHÂN LOẠI DẠNG ĐỘNG TỪ TRONG 3 GIÂY
+## I. Sơ đồ phân loại dạng động từ V-ing và To-V
 
 ```mermaid
 flowchart LR
@@ -21,18 +22,18 @@ flowchart LR
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
     style B fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
-    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
     style D fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
     style E fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
-    style E1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
-    style E2 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
+    style E1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d,font-weight:bold
+    style E2 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a8a,font-weight:bold
 ```
 
 ---
 
 ## II. BẢNG TRA CỨU CÁC NHÓM ĐỘNG TỪ PHỔ BIẾN NHẤT TRONG ĐỀ THI VÀO 10
 
-| Nhóm | Động từ tiêu biểu (Đi kèm ví dụ thực chiến) | Công thức chuẩn |
+| Nhóm | Động từ tiêu biểu (Đi kèm ví dụ luyện tập) | Công thức chuẩn |
 | :--- | :--- | :--- |
 | **1. Bắt buộc đi với `V-ING`** | `avoid, admit, consider, deny, enjoy, finish, imagine, keep, mind, postpone, practice, suggest, miss, risk` | `S + V + V-ing`<br>*Ví dụ:* *She **avoids meeting** (`avoid meet`) him at the party.*<br>*We should **practice speaking** English every day.* |
 | **2. Bắt buộc đi với `TO-V`** | `agree, afford, decide, expect, hope, learn, manage, offer, plan, promise, refuse, tend, want, wish` | `S + V + TO V-inf`<br>*Ví dụ:* *They **decided to buy** (`decide buy`) a new apartment.*<br>*He **refused to answer** my question.* |
@@ -41,10 +42,11 @@ flowchart LR
 
 ---
 
-## III. 6 CẶP ĐỘNG TỪ ĐỔI NGHĨA KINH ĐIỂN (CHIẾM 80% LƯU Ý KHI LÀM BÀI THI)
+## III. 6 Các cặp động từ đổi nghĩa cần lưu ý (CHIẾM 80% LƯU Ý KHI LÀM BÀI THI)
 
-> [!RED] **QUY TẮC "QUÁ KHỨ DÙNG V-ING, TƯƠNG LAI/BỔN PHẬN DÙNG TO-V":**
-> Đây là dạng bài phân loại học sinh giỏi hay gặp nhất trong đề thi tuyển sinh lớp 10. Hãy đối chiếu thật kỹ nghĩa ngữ cảnh trước khi chọn:
+::: danger QUY TẮC "QUÁ KHỨ DÙNG V-ING, TƯƠNG LAI/BỔN PHẬN DÙNG TO-V"
+Đây là dạng bài phân loại học sinh giỏi hay gặp nhất trong đề thi tuyển sinh lớp 10. Hãy đối chiếu thật kỹ nghĩa ngữ cảnh trước khi chọn:
+:::
 
 | Động từ | Đi với `TO V-inf` (Mục đích / Tương lai / Bổn phận) | Đi với `V-ING` (Trải nghiệm / Đã xảy ra trong quá khứ) |
 | :--- | :--- | :--- |
@@ -59,45 +61,109 @@ flowchart LR
 
 ## IV. CÁC THÀNH NGỮ & CỤM TỪ CỐ ĐỊNH BẮT BUỘC ĐI VỚI `V-ING`
 
-> [!YELLOW] **BẪY GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM):**
-> Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động từ nguyên mẫu `V-inf`. Nhưng trong các cụm sau, `to` đóng vai trò là **Giới từ (Preposition)**, nên động từ theo sau **BẮT BUỘC Ở DẠNG `V-ING`**:
-> - **`look forward to + V-ing`**: Trông mong, háo hức (*I look forward to hearing from you*).
-> - **`be / get used to + V-ing`**: Đã quen với việc gì ở hiện tại (*He is used to getting up early*).
-> - **`object to / be opposed to + V-ing`**: Phản đối việc gì.
+::: warning LƯU Ý GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM)
+Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động từ nguyên mẫu `V-inf`. Nhưng trong các cụm sau, `to` đóng vai trò là **Giới từ (Preposition)**, nên động từ theo sau **BẮT BUỘC Ở DẠNG `V-ING`**:
+- **`look forward to + V-ing`**: Trông mong, háo hức (*I look forward to hearing from you*).
+- **`be / get used to + V-ing`**: Đã quen với việc gì ở hiện tại (*He is used to getting up early*).
+- **`object to / be opposed to + V-ing`**: Phản đối việc gì.
+:::
 
-> [!GREEN] **CÁC CẤU TRÚC ĐẶC BIỆT KHÁC ĐI VỚI `V-ING`:**
-> - `can't help / can't stand / can't bear + V-ing`: Không thể nhịn được / Không thể chịu đựng nổi.
-> - `It's no use / It's no good / There's no point in + V-ing`: Thật vô ích khi làm gì.
-> - `be busy + V-ing`: Đang bận rộn làm gì.
-> - `be worth + V-ing`: Đáng để làm gì (*This documentary is worth watching*).
-> - `spend / waste + time/money + V-ing`: Dành / lãng phí thời gian, tiền bạc làm gì.
+::: tip CÁC CẤU TRÚC ĐẶC BIỆT KHÁC ĐI VỚI `V-ING`
+- `can't help / can't stand / can't bear + V-ing`: Không thể nhịn được / Không thể chịu đựng nổi.
+- `It's no use / It's no good / There's no point in + V-ing`: Thật vô ích khi làm gì.
+- `be busy + V-ing`: Đang bận rộn làm gì.
+- `be worth + V-ing`: Đáng để làm gì (*This documentary is worth watching*).
+- `spend / waste + time/money + V-ing`: Dành / lãng phí thời gian, tiền bạc làm gì.
+:::
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
-1. My parents always encourage me ______ English by watching foreign movies with subtitles.
-   `A. practice` | `B. to practice` | `C. practicing` | `D. practiced`
-2. Don't forget ______ the front door before you go to bed tonight.
-   `A. lock` | `B. locking` | `C. to lock` | `D. to locking`
-3. We are really looking forward to ______ our grandparents in the countryside this weekend.
-   `A. visit` | `B. visiting` | `C. visited` | `D. to visit`
-4. The grass in the garden is too tall; it urgently needs ______.
-   `A. cut` | `B. to cut` | `C. cutting` | `D. to cutting`
-5. After walking along the coastal road for an hour, they stopped ______ some fresh coconut water.
-   `A. drink` | `B. drinking` | `C. drank` | `D. to drink`
-6. Lan avoided ______ eye contact with the teacher because she hadn't prepared her homework.
-   `A. making` | `B. to make` | `C. make` | `D. made`
-7. It's no use ______ about the bad weather; let's think of some indoor games.
-   `A. complain` | `B. complaining` | `C. to complain` | `D. complained`
-8. Did you remember ______ the letter for me this morning? — Oh, I'm sorry, I forgot!
-   `A. post` | `B. posting` | `C. to post` | `D. posted`
-9. He promised ______ all his tasks before the deadline tomorrow afternoon.
-   `A. finish` | `B. to finish` | `C. finishing` | `D. finished`
-10. Although my brother tried ______ the heavy stone, he couldn't move it even an inch.
-   `A. lift` | `B. to lift` | `C. lifting` | `D. lifted`
+<QuizItem
+  :number="1"
+  question="My parents always encourage me ______ English by watching foreign movies with subtitles."
+  options="A. practice | B. to practice | C. practicing | D. practiced"
+  correct="B"
+  explanation=". Đáp án B (to practice):** Cấu trúc `encourage someone + TO V-inf` (khuyến khích ai làm gì)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="Don't forget ______ the front door before you go to bed tonight."
+  options="A. lock | B. locking | C. to lock | D. to locking"
+  correct="C"
+  explanation=". Đáp án C (to lock):** `Don't forget + TO V-inf` biểu thị việc bổn phận phải nhớ làm trong tương lai (*nhớ khóa cửa*)."
+/>
+
+<QuizItem
+  :number="3"
+  question="We are really looking forward to ______ our grandparents in the countryside this weekend."
+  options="A. visit | B. visiting | C. visited | D. to visit"
+  correct="B"
+  explanation=". Đáp án B (visiting):** Cụm từ cố định `look forward to + V-ING` (chữ `to` ở đây là giới từ)."
+/>
+
+<QuizItem
+  :number="4"
+  question="The grass in the garden is too tall; it urgently needs ______."
+  options="A. cut | B. to cut | C. cutting | D. to cutting"
+  correct="C"
+  explanation=". Đáp án C (cutting):** Chủ ngữ chỉ vật `The grass`, mang nghĩa bị động: `need + V-ing` (= `need to be cut`)."
+/>
+
+<QuizItem
+  :number="5"
+  question="After walking along the coastal road for an hour, they stopped ______ some fresh coconut water."
+  options="A. drink | B. drinking | C. drank | D. to drink"
+  correct="D"
+  explanation=". Đáp án D (to drink):** Ngữ cảnh dừng lại ĐỂ làm việc khác: `stop + TO V-inf` (dừng đi bộ lại để uống nước)."
+/>
+
+<QuizItem
+  :number="6"
+  question="Lan avoided ______ eye contact with the teacher because she hadn't prepared her homework."
+  options="A. making | B. to make | C. make | D. made"
+  correct="A"
+  explanation=". Đáp án A (making):** Động từ `avoid` bắt buộc đi kèm với danh động từ `V-ing` (`avoid making eye contact` = tránh nhìn vào mắt)."
+/>
+
+<QuizItem
+  :number="7"
+  question="It's no use ______ about the bad weather; let's think of some indoor games."
+  options="A. complain | B. complaining | C. to complain | D. complained"
+  correct="B"
+  explanation=". Đáp án B (complaining):** Cấu trúc `It's no use + V-ING` (thật vô ích khi phàn nàn)."
+/>
+
+<QuizItem
+  :number="8"
+  question="Did you remember ______ the letter for me this morning? — Oh, I'm sorry, I forgot!"
+  options="A. post | B. posting | C. to post | D. posted"
+  correct="C"
+  explanation=". Đáp án C (to post):** `Remember + TO V-inf` hỏi về việc bổn phận đã nhớ thực hiện chưa (*câu trả lời: I forgot = quên chưa làm*)."
+/>
+
+<QuizItem
+  :number="9"
+  question="He promised ______ all his tasks before the deadline tomorrow afternoon."
+  options="A. finish | B. to finish | C. finishing | D. finished"
+  correct="B"
+  explanation=". Đáp án B (to finish):** Động từ `promise` bắt buộc đi với `TO V-inf` (hứa làm gì)."
+/>
+
+<QuizItem
+  :number="10"
+  question="Although my brother tried ______ the heavy stone, he couldn't move it even an inch."
+  options="A. lift | B. to lift | C. lifting | D. lifted"
+  correct="B"
+  explanation=". Đáp án B (to lift):** Ngữ cảnh nói về nỗ lực vượt qua khó khăn (*không thể nhấc nổi dù chỉ 1 inch*) ➔ `try + TO V-inf` (cố gắng nhấc)."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án B (to practice):** Cấu trúc `encourage someone + TO V-inf` (khuyến khích ai làm gì).
 **2. Đáp án C (to lock):** `Don't forget + TO V-inf` biểu thị việc bổn phận phải nhớ làm trong tương lai (*nhớ khóa cửa*).
 **3. Đáp án B (visiting):** Cụm từ cố định `look forward to + V-ING` (chữ `to` ở đây là giới từ).
@@ -108,4 +174,5 @@ flowchart LR
 **8. Đáp án C (to post):** `Remember + TO V-inf` hỏi về việc bổn phận đã nhớ thực hiện chưa (*câu trả lời: I forgot = quên chưa làm*).
 **9. Đáp án B (to finish):** Động từ `promise` bắt buộc đi với `TO V-inf` (hứa làm gì).
 **10. Đáp án B (to lift):** Ngữ cảnh nói về nỗ lực vượt qua khó khăn (*không thể nhấc nổi dù chỉ 1 inch*) ➔ `try + TO V-inf` (cố gắng nhấc).
-+++
+
+</details>

@@ -9,7 +9,7 @@ const props = withDefaults(
   }>(),
   {
     total: 36,
-    title: 'Bảng Điểm Thực Chiến Phòng Thi'
+    title: 'Bảng Điểm Làm Bài'
   }
 )
 
@@ -76,7 +76,7 @@ function handleResetExam() {
         <button class="modal-close-btn" @click="showResultModal = false">✕</button>
 
         <div class="result-header">
-          <div class="result-badge-top">KẾT QUẢ PHÒNG THI THỬ</div>
+          <div class="result-badge-top">KẾT QUẢ BÀI THI</div>
           <h2 class="result-title">{{ title }}</h2>
         </div>
 

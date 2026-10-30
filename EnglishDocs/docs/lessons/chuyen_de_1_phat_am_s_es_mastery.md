@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM ĐUÔI "S / ES" BẰNG CÂU THẦN CHÚ ÔN THI VÀO 10
+# Chuyên Đề 1: Quy Tắc Phát Âm Đuôi -s Và -es
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Đuôi **`-s`** hoặc **`-es`** khi thêm vào danh từ số nhiều hoặc động từ ngôi thứ 3 số ít sẽ có 3 cách phát âm, hoàn toàn phụ thuộc vào **Âm thanh kết thúc (Ending Sound)** của từ gốc:
 - **Âm gió (Sibilants):** Tạo ra tiếng xì, rít ➔ Phát âm là **/ɪz/** để dễ phát âm, không bị nghẹn hơi.
 - **Âm vô thanh (Voiceless):** Không rung cổ họng ➔ Phát âm là **/s/** (vô thanh).
@@ -9,7 +9,7 @@
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC PHÂN LOẠI PHÁT ÂM ĐUÔI -S / -ES
+## I. Sơ đồ 3 bước phân loại phát âm đuôi -s / -es
 
 ```mermaid
 flowchart LR
@@ -27,7 +27,7 @@ flowchart LR
 
 ---
 
-## II. 3 QUY TẮC VÀNG KÈM MẸO GHI NHỚ BẰNG TIẾNG VIỆT
+## II. 3 Quy tắc cơ bản KÈM MẸO GHI NHỚ BẰNG TIẾNG VIỆT
 
 ### 1. Quy tắc 1: Phát âm là `/s/` (Thần chú: "THỜI PHONG KIẾN PHƯƠNG TÂY")
 - **Dấu hiệu:** Tận cùng là các âm vô thanh **/p, k, f, t, θ/** (Chữ cái thường gặp: *p, k, gh, ph, t, th*).
@@ -65,21 +65,21 @@ flowchart LR
 
 ---
 
-## III. 3 BẪY NGOẠI LỆ KINH ĐIỂN CỦA ĐUÔI -S / -ES
+## III. 3 Ngoại lệ thường gặp CỦA ĐUÔI -S / -ES
 
-::: danger BẪY 1: TỪ "HOUSES" (100% GÀI BẪY TRONG ĐỀ THI VÀO 10)
+::: danger LƯU Ý 1: TỪ "HOUSES" (100% GÀI LƯU Ý TRONG ĐỀ THI VÀO 10)
 - Từ đơn lẻ: *house* kết thúc bằng âm `/s/` ➔ đọc là `/haʊs/`.
 - Khi thêm -es: *houses* **BIẾN ĐỔI ÂM THÀNH `/z/` RỒI MỚI THÊM `/ɪz/`**:
   - ❌ *Sai:* /ˈhaʊ.sɪz/
   - ✅ **Đúng:** **/ˈhaʊ.zɪz/** *(đọc là /z/ + /ɪz/)*
 :::
 
-::: warning BẪY 2: PHÂN BIỆT ĐUÔI "-THS" TRONG TỪ VỰNG
+::: warning LƯU Ý 2: PHÂN BIỆT ĐUÔI "-THS" TRONG TỪ VỰNG
 - *months* `/mʌnθs/`: Âm /θ/ là vô thanh ➔ đuôi đọc là **/s/**.
 - *clothes* /kləʊðz/ (hoặc /kləʊz/): Âm /ð/ là hữu thanh ➔ đuôi đọc là **/z/**.
 :::
 
-::: tip BẪY 3: ĐỘNG TỪ BẤT QUY TẮC "DOES" VÀ "GOES"
+::: tip LƯU Ý 3: ĐỘNG TỪ BẤT QUY TẮC "DOES" VÀ "GOES"
 - *does* `/dʌz/` ➔ kết thúc bằng âm **/z/**.
 - *goes* `/ɡəʊz/` ➔ kết thúc bằng âm **/z/**.
 - *says* `/sez/` ➔ đọc là nguyên âm /e/ kết hợp âm **/z/**.
@@ -87,7 +87,7 @@ flowchart LR
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 Chọn từ có phần gạch chân phát âm khác với các từ còn lại:
 

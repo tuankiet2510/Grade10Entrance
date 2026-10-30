@@ -1,10 +1,10 @@
 ---
-title: "Chuyên Đề 5: Cẩm Nang Viết Đoạn Văn 100 - 120 Từ Chuẩn Điểm Tuyệt Đối"
-category: "Cẩm Nang Phương Pháp"
-description: "Bí quyết chinh phục câu hỏi viết luận đoạn văn (1.0 - 1.5 điểm) trong đề thi tuyển sinh vào 10 Sở GD&ĐT Quảng Ngãi: Cấu trúc PEEL, từ nối học thuật và 6 bài văn mẫu chuẩn GDPT 2018."
+title: "Chuyên Đề 5: Hướng Dẫn Viết Đoạn Văn Nghị Luận 100 - 120 Từ"
+category: "Tài Liệu Phương Pháp Học Tập"
+description: "Phương pháp chinh phục câu hỏi viết luận đoạn văn (1.0 - 1.5 điểm) trong đề thi tuyển sinh vào 10 Sở GD&ĐT Quảng Ngãi: Cấu trúc PEEL, từ nối học thuật và 6 bài văn mẫu chuẩn GDPT 2018."
 ---
 
-# ✍️ CHUYÊN ĐỀ 5: CẨM NANG VIẾT ĐOẠN VĂN 100 - 120 TỪ THI VÀO 10
+# Chuyên Đề 5: Hướng Dẫn Viết Đoạn Văn Nghị Luận 100 - 120 Từ
 
 > [!IMPORTANT] **ĐẶC TRƯNG ĐỀ THI QUẢNG NGÃI 2026 - 2027 & GDPT 2018:**
 > Trong cấu trúc đề thi tuyển sinh mới của Sở GD&ĐT Quảng Ngãi, bài viết đoạn văn ngắn chiếm **1.0 đến 1.5 điểm** (10% - 15% tổng số điểm toàn bài thi). Học sinh được yêu cầu viết một đoạn văn mạch lạc từ **100 đến 120 từ** dựa trên các câu hỏi gợi ý (cues).
@@ -46,7 +46,7 @@ flowchart TD
 
 ---
 
-## III. TUYỂN TẬP 6 BÀI LUẬN MẪU ĐIỂM 10/10 THEO CHỦ ĐỀ GDPT 2018
+## III. TUYỂN TẬP 6 BÀI LUẬN MẪU ĐẠT ĐIỂM CAO THEO CHỦ ĐỀ GDPT 2018
 
 ### Bài Mẫu 1: Nghề Nghiệp Ước Mơ (My Dream Job)
 > **Đề bài:** In about 100 - 120 words, describe your dream job. Use the cues: What is the job? What will you do? What skills are needed? Why do you want to do it?

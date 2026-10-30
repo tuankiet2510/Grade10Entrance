@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 3: CẨM NANG 50 CỤM ĐỘNG TỪ (PHRASAL VERBS) TỦ ÔN THI VÀO 10
+# Chuyên Đề 3: 50 Cụm Động Từ (Phrasal Verbs) Thường Gặp
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Cụm động từ (Phrasal Verb) là sự kết hợp giữa một **Động từ gốc (Verb)** với một hoặc hai **Tiểu từ / Giới từ (Particle/Preposition)** để tạo ra một **nghĩa hoàn toàn mới**, khác hẳn nghĩa đen của từng từ đơn lẻ.
 Thay vì học vẹt 2.300 cụm từ bất tận, 95% câu hỏi trong đề thi tuyển sinh vào 10 chỉ xoay quanh **9 động từ gốc quen thuộc**: `LOOK, GO, TAKE, TURN, GIVE, GET, PUT, RUN, BRING`.
 :::
@@ -35,7 +35,7 @@ flowchart LR
 
 ## II. BẢNG 50 CỤM ĐỘNG TỪ PHẢI THUỘC LÒNG (KÈM TỪ ĐỒNG NGHĨA & VÍ DỤ ĐỀ THI)
 
-| Động từ gốc | Cụm động từ (Phrasal Verb) | Phiên âm IPA | Nghĩa tiếng Việt & Từ đồng nghĩa | Ví dụ thực chiến trong đề thi |
+| Động từ gốc | Cụm động từ (Phrasal Verb) | Phiên âm IPA | Nghĩa tiếng Việt & Từ đồng nghĩa | Ví dụ luyện tập trong đề thi |
 | :--- | :--- | :--- | :--- | :--- |
 | **LOOK** | **look after** | `/lʊk ˈɑːf.tər/` | Chăm sóc (`= take care of`) | *She has to **look after** her younger brother.* |
 | | **look for** | `/lʊk fɔːr/` | Tìm kiếm (`= search for`) | *I am **looking for** my lost school bag.* |
@@ -80,9 +80,9 @@ flowchart LR
 
 ---
 
-## III. 4 BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAPS)
+## III. 4 Lỗi sai thường gặp và cách tránh
 
-::: danger BẪY 1: ĐẠI TỪ TÂN NGỮ (`IT`, `THEM`) VỚI CỤM ĐỘNG TỪ TÁCH RỜI
+::: danger LƯU Ý 1: ĐẠI TỪ TÂN NGỮ (`IT`, `THEM`) VỚI CỤM ĐỘNG TỪ TÁCH RỜI
 Với cụm động từ có thể tách rời (*turn on, turn off, put on, take off*):
 - Khi tân ngữ là **Danh từ riêng/chung**: Đặt ở giữa hoặc ở cuối đều đúng (*turn on the light* ✅ hoặc *turn the light on* ✅).
 - Khi tân ngữ là **Đại từ (`it`, `them`, `him`, `her`)**: **BẮT BUỘC KẸP Ở GIỮA**!
@@ -90,19 +90,19 @@ Với cụm động từ có thể tách rời (*turn on, turn off, put on, take
   - ✅ **Đúng:** *Turn **it** on!* / *Take **them** off!*
 :::
 
-::: danger BẪY 2: PHÂN BIỆT `CALL OFF` VS. `PUT OFF`
+::: danger LƯU Ý 2: PHÂN BIỆT `CALL OFF` VS. `PUT OFF`
 - **`CALL OFF`**: **Hủy bỏ hoàn toàn** (`= cancel`), không tổ chức lại nữa.
 - **`PUT OFF`**: **Hoãn lại** (`= postpone, delay`), sẽ tổ chức vào một ngày khác trong tương lai.
 :::
 
-::: warning BẪY 3: PHÂN BIỆT `TAKE AFTER` VS. `LOOK AFTER`
+::: warning LƯU Ý 3: PHÂN BIỆT `TAKE AFTER` VS. `LOOK AFTER`
 - **`TAKE AFTER`**: Giống ai đó trong gia đình về tính cách, ngoại hình (`= resemble`).
 - **`LOOK AFTER`**: Chăm sóc, trông nom ai (`= take care of`).
 :::
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

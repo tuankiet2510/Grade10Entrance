@@ -1,17 +1,17 @@
 ---
-title: "Chuyên Đề 4: Giải Mã Biển Báo Công Cộng & Giao Tiếp Thực Tế"
+title: "Chuyên Đề 4: Biển Báo Công Cộng Và Tình Huống Giao Tiếp"
 category: "Chuyên đề 2: Ngữ Pháp & Cấu Trúc"
 description: "Trọng tâm đề thi tuyển sinh Đà Nẵng & GDPT 2018: Phương pháp giải nhanh các câu hỏi biển báo cấm, biển cảnh báo, thông báo công cộng và tình huống giao tiếp đời sống."
 ---
 
-# 🛑 CHUYÊN ĐỀ 4: GIẢI MÃ BIỂN BÁO CÔNG CỘNG & GIAO TIẾP THỰC TẾ
+# Chuyên Đề 4: Biển Báo Công Cộng Và Tình Huống Giao Tiếp
 
 > [!IMPORTANT] **ĐẶC TRƯNG ĐỀ THI TUYỂN SINH ĐÀ NẴNG & GDPT 2018:**
 > Trong cấu trúc đề thi tuyển sinh vào lớp 10 của Sở GD&ĐT Đà Nẵng và định hướng đổi mới theo chương trình GDPT 2018, phần **Biển báo thực tế (Public Signs & Notices)** và **Giao tiếp đời sống (Social Situational Communication)** chiếm từ **1.5 đến 2.0 điểm** (4 đến 6 câu hỏi). Dạng câu hỏi này đánh giá năng lực ngôn ngữ ứng dụng thực tế của học sinh.
 
 ---
 
-## I. MA TRẬN 4 NHÓM BIỂN BÁO CÔNG CỘNG KINH ĐIỂN
+## I. MA TRẬN 4 NHÓM BIỂN BÁO CÔNG CỘNG THƯỜNG GẶP
 
 ```mermaid
 flowchart TD
@@ -89,7 +89,7 @@ flowchart LR
 
 ---
 
-## III. BÀI TẬP TRẮC NGHIỆM THỰC CHIẾN (CHỌN ĐÁP ÁN TỨC THỜI)
+## III. BÀI TẬP TRẮC NGHIỆM LUYỆN TẬP (CHỌN ĐÁP ÁN ĐÚNG)
 
 <QuizItem
   :number="1"

@@ -1,7 +1,7 @@
-# CHUYÊN ĐỀ 1: PHÂN BIỆT PHÁT ÂM NGUYÊN ÂM /æ/ VÀ /e/ ÔN THI VÀO 10
+# Chuyên Đề 1: Phân Biệt Phát Âm Nguyên Âm /æ/ Và /e/
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
-Cặp nguyên âm `/æ/` (A bẹt) và `/e/` (E ngắn) là điểm khác biệt cốt tử trong ngữ âm tiếng Anh. Sự khác nhau nằm ở **Độ mở của khuôn miệng và độ hạ của xương hàm dưới**:
+::: info Kiến thức trọng tâm
+Cặp nguyên âm `/æ/` (A bẹt) và `/e/` (E ngắn) là điểm khác biệt quan trọng trong ngữ âm tiếng Anh. Sự khác nhau nằm ở **Độ mở của khuôn miệng và độ hạ của xương hàm dưới**:
 - **Âm `/e/` (E ngắn):** Miệng mở vừa phải, khóe môi kéo nhẹ sang hai bên như cười mỉm, âm dứt khoát: *pen, bed, men*.
 - **Âm `/æ/` (A bẹt):** Miệng mở rất rộng cả chiều dọc lẫn chiều ngang, hạ thấp xương hàm dưới, lưỡi ép phẳng, âm vang pha trộn giữa "A" và "E": *pan, bad, man*.
 :::
@@ -36,16 +36,16 @@ Cặp nguyên âm `/æ/` (A bẹt) và `/e/` (E ngắn) là điểm khác biệt
 
 ---
 
-## III. BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAPS)
+## III. Lỗi sai thường gặp và cách tránh
 
-::: danger BẪY PHÁT ÂM ĐỒNG NHẤT HÓA THÀNH ÂM TIẾNG VIỆT
+::: danger LƯU Ý PHÁT ÂM ĐỒNG NHẤT HÓA THÀNH ÂM TIẾNG VIỆT
 Người Việt có xu hướng đưa cả hai âm về âm "e" trong tiếng Việt (*men* và *man* đọc y hệt nhau), hoặc đọc `/æ/` thành âm "a" thuần túy.
 - **Khắc phục:** Khi đọc `/æ/`, hãy tưởng tượng bạn đang chuẩn bị phát âm "E" nhưng miệng phải há to và hạ cằm xuống như khi khám họng phát âm "A". Luồng hơi đi từ sâu trong cổ họng tạo âm đanh và bẹt.
 :::
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 Chọn từ có phần gạch chân phát âm khác với các từ còn lại:
 

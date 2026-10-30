@@ -1,12 +1,12 @@
-# CẨM NANG 10 CẤU TRÚC BIẾN ĐỔI CÂU (SENTENCE TRANSFORMATION MASTERY) ÔN THI VÀO 10
+# Chuyên Đề 2: 10 Cấu Trúc Viết Lại Câu Trọng Tâm Ôn Thi Vào 10
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
-Biến đổi câu (*Sentence Transformation*) là kỹ thuật **giữ nguyên 100% nghĩa gốc (Semantic Equivalence)** nhưng **thay đổi cấu trúc ngữ pháp (Syntactic Structure)** theo từ gợi ý đầu câu. Chìa khóa ăn điểm tuyệt đối nằm ở 2 thao tác: **Đổi từ loại (Mệnh đề ↔ Cụm danh từ/V-ing)** và **Lùi thì động từ**.
+::: info Kiến thức trọng tâm
+Biến đổi câu (*Sentence Transformation*) là kỹ thuật **giữ nguyên 100% nghĩa gốc ** nhưng **thay đổi cấu trúc ngữ pháp ** theo từ gợi ý đầu câu. Điểm cần lưu ý nằm ở 2 thao tác: **Đổi từ loại (Mệnh đề ↔ Cụm danh từ/V-ing)** và **Lùi thì động từ**.
 :::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN NHẬN DIỆN NHANH DẠNG VIẾT LẠI CÂU
+## I. Sơ đồ tóm tắt các dạng viết lại câu
 
 ```mermaid
 flowchart LR
@@ -47,7 +47,7 @@ flowchart LR
 | **`If ... not`** | `Unless + S + V(khẳng định), Mệnh đề chính giữ nguyên` | ***If** it **doesn't rain**, we will go camping.*<br>➔ ***Unless** it **rains** (`/reɪnz/`), we will go camping.* |
 | **`If it weren't for` / `If it hadn't been for`** | `Without / But for + Cụm N / V-ing, S + would (have)...` | *If you hadn't helped me, I would have failed.*<br>➔ ***But for / Without** your help, I would have failed.* |
 
-::: danger BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP)
+::: danger LỖI THƯỜNG GẶP
 Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nên động từ đi ngay sau `Unless` **bắt buộc ở thể khẳng định**.
 - ❌ **Sai:** *Unless you **don't study** hard, you will fail the exam.*
 - ✅ **Đúng:** *Unless you **study** hard, you will fail the exam.*
@@ -62,7 +62,7 @@ Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nê
 - Câu gốc ở **Quá khứ (`V2/ed`)** ➔ Lùi về **Quá khứ hoàn thành (`had + V3/ed`)**.
 :::
 
-| Loại câu ước | Dấu hiệu trong câu gốc | Công thức `S + wish(es) / If only` | Ví dụ thực chiến |
+| Loại câu ước | Dấu hiệu trong câu gốc | Công thức `S + wish(es) / If only` | Ví dụ luyện tập |
 | :--- | :--- | :--- | :--- |
 | **1. Ước ở Hiện tại** | `It's a pity / What a pity / I'm sorry + S + V(htđ)` | `S + wish(es) + S + V2/ed (were) / didn't V-inf` | *It's a pity I **don't know** how to swim.*<br>➔ *I **wish** I **knew** (`/njuː/`) how to swim.* |
 | **2. Ước ở Tương lai** | Mong muốn thay đổi, phàn nàn hoặc có `tomorrow, next...` | `S + wish(es) + S + would / could + V-inf` | *It's a pity she **won't join** our trip tomorrow.*<br>➔ *I **wish** she **would join** our trip tomorrow.* |
@@ -74,7 +74,7 @@ Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nê
 
 ### 3. Cấu trúc 3: Câu bị động cơ bản, Bị động kép & Bị động nhờ vả
 
-::: info QUY TẮC BẤT BIẾN CỦA BỊ ĐỘNG
+::: info Quy tắc chuyển sang câu bị động
 Đưa Tân ngữ (`O`) lên làm Chủ ngữ mới, chia động từ `be` theo đúng thì của động từ chính, và biến động từ chính thành **`V3/ed`**:
 `Chủ động: S + V + O` ➔ `Bị động: S(O) + BE + V3/ed + (Nơi chốn) + (by O) + (Thời gian)`
 :::
@@ -94,7 +94,7 @@ Bản chất của `Unless` đã mang nghĩa phủ định (`= If ... not`), nê
 **Bước 3 (Đổi trạng từ):** `now ➔ then`, `today ➔ that day`, `tomorrow ➔ the next/following day`, `yesterday ➔ the previous day / the day before`, `ago ➔ before`, `this/these ➔ that/those`, `here ➔ there`.
 :::
 
-| Loại câu tường thuật | Công thức chuẩn | Ví dụ thực chiến |
+| Loại câu tường thuật | Công thức chuẩn | Ví dụ luyện tập |
 | :--- | :--- | :--- |
 | **1. Câu kể (Statements)** | `S + said (that) / told + O + (that) + S + V(lùi thì)` | *"I **am learning** Python **now**," Nam said.*<br>➔ *Nam said (that) he **was learning** Python **then**.* |
 | **2. Câu hỏi Yes/No** | `S + asked + O / wanted to know + IF / WHETHER + S + V(lùi thì)` | *"Do you **like** coffee?" she asked me.*<br>➔ *She asked me **if/whether** I **liked** coffee.* |
@@ -133,7 +133,7 @@ Dù đi kèm Danh từ (`N`), nhưng nếu có `many / much / few / little` đ�
 - **Lý do (Bởi vì):** `Because / Since / As + S + V` $\leftrightarrow$ `Because of / Due to / Owing to + Cụm N / V-ing`
 :::
 
-::: tip 4 QUY TẮC VÀNG RÚT GỌN MỆNH ĐỀ (`S + V`) THÀNH CỤM DANH TỪ (`NOUN PHRASE`)
+::: tip 4 Quy tắc cơ bản RÚT GỌN MỆNH ĐỀ (`S + V`) THÀNH CỤM DANH TỪ (`NOUN PHRASE`)
 1. **Hai vế cùng chủ ngữ (`S1 = S2`):** Bỏ chủ ngữ, đưa động từ về **`V-ing`**.
    *Ví dụ:* *Although **she felt** tired, she worked on.* ➔ *Despite **feeling** tired, she worked on.*
 2. **`Đại từ nhân xưng (he/she/I/they) + be + Adj`:** Đổi thành **`Tính từ sở hữu (his/her/my/their) + N(từ adj)`**.
@@ -157,7 +157,7 @@ Dù đi kèm Danh từ (`N`), nhưng nếu có `many / much / few / little` đ�
   `S + suggested (that) + S2 + (should) + V-inf (nguyên mẫu không chia!)`
 :::
 
-::: danger BẪY TUYỆT ĐỐI TRÁNH VỚI `SUGGEST`
+::: danger LƯU Ý TUYỆT ĐỐI TRÁNH VỚI `SUGGEST`
 Trong tiếng Anh chuẩn, **`SUGGEST` KHÔNG BAO GIỜ đi với `O + to-V`**!
 - ❌ **Sai:** *He suggested **me to buy** that dictionary.*
 - ✅ **Đúng:** *He suggested **that I (should) buy** that dictionary.*
@@ -165,7 +165,7 @@ Trong tiếng Anh chuẩn, **`SUGGEST` KHÔNG BAO GIỜ đi với `O + to-V`**!
 
 ### 9. Cấu trúc 9: Chuyển đổi cấp độ So sánh (Comparison Transformation)
 
-| Dạng câu gốc | Công thức biến đổi tương đương | Ví dụ thực chiến |
+| Dạng câu gốc | Công thức biến đổi tương đương | Ví dụ luyện tập |
 | :--- | :--- | :--- |
 | **So sánh hơn ↔ So sánh không bằng** | `A + be + adj-er / more adj + than + B`<br>➔ `B + be + NOT + as/so + adj(nguyên gốc) + as + A` | *Da Nang is **bigger than** Quang Ngai.*<br>➔ *Quang Ngai is **not as big as** Da Nang.* |
 | **So sánh hơn (Động từ thường)** | `A + V + adv-er / more adv + than + B`<br>➔ `B + don't/doesn't/didn't + V + as + adv + as + A` | *Lan **speaks** English **more fluently than** Mai.*<br>➔ *Mai **doesn't speak** English **as fluently as** Lan.* |
@@ -180,7 +180,7 @@ Trong tiếng Anh chuẩn, **`SUGGEST` KHÔNG BAO GIỜ đi với `O + to-V`**!
 
 ---
 
-## VI. 10 CÂU BÀI TẬP THỰC CHIẾN (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
+## VI. 10 CÂU BÀI TẬP LUYỆN TẬP (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
 
 Viết lại các câu sau sao cho nghĩa không đổi, bắt đầu bằng từ gợi ý:
 

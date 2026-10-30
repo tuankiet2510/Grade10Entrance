@@ -1,8 +1,9 @@
-# CHUYÊN ĐỀ 3: CẨM NANG TỪ ĐỒNG NGHĨA & TRÁI NGHĨA (SYNONYMS & ANTONYMS MASTERY)
+# Chuyên Đề 3: Từ Đồng Nghĩa Và Từ Trái Nghĩa
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Dạng bài tìm từ **Đồng nghĩa (`CLOSEST IN MEANING`)** và **Trái nghĩa (`OPPOSITE IN MEANING`)** chiếm ít nhất **4 câu (1.0 điểm)** trong đề thi tuyển sinh vào 10.
-> Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; bí quyết nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc bẫy tâm lý *"Đọc nhầm yêu cầu đề bài"*.
+::: info Kiến thức trọng tâm
+Dạng bài tìm từ **Đồng nghĩa (`CLOSEST IN MEANING`)** và **Trái nghĩa (`OPPOSITE IN MEANING`)** chiếm ít nhất **4 câu (1.0 điểm)** trong đề thi tuyển sinh vào 10.
+Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; phương pháp nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc lỗi sai tâm lý *"Đọc nhầm yêu cầu đề bài"*.
+:::
 
 ---
 
@@ -20,32 +21,36 @@ flowchart LR
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
     style B fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#0f172a,font-weight:bold
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
-    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d,font-weight:bold
-    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#881337,font-weight:bold
+    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
 ```
 
 ---
 
 ## II. 4 CHIẾN THUẬT ĐOÁN NGHĨA TỪ MỚI QUA NGỮ CẢNH (CONTEXT CLUES)
 
-> [!GREEN] **1. Dựa vào Liên từ tương phản (`but, however, although, while, whereas`):**
-> Từ gạch chân sẽ có nghĩa **đối lập hoàn toàn** với vế còn lại.
-> *Ví dụ:* *Although the mountain path was **perilous**, all hikers reached the peak safely.*
-> ➔ Vế sau *"an toàn"* đi kèm *"mặc dù"* ➔ *perilous* chắc chắn mang nghĩa tiêu cực: *nguy hiểm* (`dangerous`).
+::: tip 1. Dựa vào Liên từ tương phản (`but, however, although, while, whereas`)
+Từ gạch chân sẽ có nghĩa **đối lập hoàn toàn** với vế còn lại.
+*Ví dụ:* *Although the mountain path was **perilous**, all hikers reached the peak safely.*
+➔ Vế sau *"an toàn"* đi kèm *"mặc dù"* ➔ *perilous* chắc chắn mang nghĩa tiêu cực: *nguy hiểm* (`dangerous`).
+:::
 
-> [!GREEN] **2. Dựa vào Liên từ tương đồng (`and, as well as, not only... but also`):**
-> Từ gạch chân sẽ có **cùng sắc thái** với từ đã biết đứng cạnh.
-> *Ví dụ:* *The local people were warm, generous and **hospitable**.*
-> ➔ Đi cùng *ấm áp*, *hào phóng* ➔ *hospitable* chắc chắn là tính từ tích cực: *hiếu khách* (`friendly`).
+::: tip 2. Dựa vào Liên từ tương đồng (`and, as well as, not only... but also`)
+Từ gạch chân sẽ có **cùng sắc thái** với từ đã biết đứng cạnh.
+*Ví dụ:* *The local people were warm, generous and **hospitable**.*
+➔ Đi cùng *ấm áp*, *hào phóng* ➔ *hospitable* chắc chắn là tính từ tích cực: *hiếu khách* (`friendly`).
+:::
 
-> [!GREEN] **3. Dựa vào Từ chỉ nguyên nhân - kết quả (`because, so, therefore, as a result`):**
-> *Ví dụ:* *Heavy rains continued for three days; **consequently**, the low-lying areas were submerged.*
-> ➔ Mưa to kéo dài 3 ngày ➔ khu vực trũng bị *ngập lụt* (`flooded`).
+::: tip 3. Dựa vào Từ chỉ nguyên nhân - kết quả (`because, so, therefore, as a result`)
+*Ví dụ:* *Heavy rains continued for three days; **consequently**, the low-lying areas were submerged.*
+➔ Mưa to kéo dài 3 ngày ➔ khu vực trũng bị *ngập lụt* (`flooded`).
+:::
 
-> [!RED] **BẪY TÂM LÝ KINH ĐIỂN CỦA HỌC SINH (VIETLISH TRAP):**
-> Đề bài yêu cầu tìm từ **TRÁI NGHĨA (`OPPOSITE`)**, nhưng người ra đề luôn cố tình đặt **TỪ ĐỒNG NGHĨA ở ngay Đáp án A**!
-> Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A mà quên mất đề đang hỏi từ TRÁI NGHĨA.
-> - **Nguyên tắc sống còn:** Cầm bút chì gạch chân/khoanh tròn to chữ **`OPPOSITE`** hoặc **`CLOSEST`** ngay khi đọc đề!
+::: danger Lỗi sai do nhầm lẫn CỦA HỌC SINH (Lỗi sai thường gặp)
+Đề bài yêu cầu tìm từ **TRÁI NGHĨA (`OPPOSITE`)**, nhưng người ra đề luôn cố tình đặt **TỪ ĐỒNG NGHĨA ở ngay Đáp án A**!
+Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A mà quên mất đề đang hỏi từ TRÁI NGHĨA.
+- **Nguyên tắc sống còn:** Cầm bút chì gạch chân/khoanh tròn to chữ **`OPPOSITE`** hoặc **`CLOSEST`** ngay khi đọc đề!
+:::
 
 ---
 
@@ -103,33 +108,94 @@ flowchart LR
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 ### Phần A: Chọn từ đồng nghĩa (CLOSEST IN MEANING - 5 câu)
-1. In rural areas of Quang Ngai, many scenic spots remain **untouched** by mass tourism.
-   `A. damaged` | `B. pristine` | `C. polluted` | `D. crowded`
-2. We must find alternative green energy to **cut down on** greenhouse gas emissions.
-   `A. increase` | `B. reduce` | `C. produce` | `D. consume`
-3. My elder sister is very **diligent**; she studies at least four hours every evening.
-   `A. lazy` | `B. careless` | `C. hardworking` | `D. confident`
-4. The local government has decided to **demolish** the old bridge and build a modern suspension one.
-   `A. construct` | `B. preserve` | `C. destroy` | `D. renovate`
-5. Hoi An ancient town is **renowned** for its lantern-lit streets and unique cultural heritage.
-   `A. well-known` | `B. unknown` | `C. normal` | `D. modern`
 
-### Phần B: Chọn từ trái nghĩa (OPPOSITE IN MEANING - 5 câu)
-6. Wearing helmets when riding motorbikes is **compulsory** for all citizens in Vietnam.
-   `A. required` | `B. mandatory` | `C. optional` | `D. strict`
-7. It was very **generous** of Mr. Binh to donate one hundred million dong to the local orphanage.
-   `A. kind` | `B. mean` | `C. hospitable` | `D. helpful`
-8. Living in large metropolitan cities offers many modern amenities, but it can be very **stressful**.
-   `A. relaxing` | `B. tiring` | `C. difficult` | `D. anxious`
-9. Renewable energy from wind and sun is **abundant** and will never run out.
-   `A. plentiful` | `B. scarce` | `C. available` | `D. sufficient`
-10. The teacher **praised** Nam because he made remarkable progress in his English studies.
-   `A. rewarded` | `B. criticized` | `C. encouraged` | `D. admired`
+<QuizItem
+  :number="1"
+  question="In rural areas of Quang Ngai, many scenic spots remain **untouched** by mass tourism."
+  options="A. damaged | B. pristine | C. polluted | D. crowded"
+  correct="B"
+  explanation=". Đáp án B (pristine):** `untouched` = còn nguyên sơ, chưa bị du lịch tàn phá (`pristine` = nguyên sơ, tinh khôi)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="We must find alternative green energy to **cut down on** greenhouse gas emissions."
+  options="A. increase | B. reduce | C. produce | D. consume"
+  correct="B"
+  explanation=". Đáp án B (reduce):** `cut down on` = cắt giảm (`reduce`)."
+/>
+
+<QuizItem
+  :number="3"
+  question="My elder sister is very **diligent**; she studies at least four hours every evening."
+  options="A. lazy | B. careless | C. hardworking | D. confident"
+  correct="C"
+  explanation=". Đáp án C (hardworking):** `diligent` = siêng năng, chăm chỉ (`hardworking`)."
+/>
+
+<QuizItem
+  :number="4"
+  question="The local government has decided to **demolish** the old bridge and build a modern suspension one."
+  options="A. construct | B. preserve | C. destroy | D. renovate"
+  correct="C"
+  explanation=". Đáp án C (destroy):** `demolish` = phá hủy, dỡ bỏ công trình cũ (`destroy`)."
+/>
+
+<QuizItem
+  :number="5"
+  question="Hoi An ancient town is **renowned** for its lantern-lit streets and unique cultural heritage."
+  options="A. well-known | B. unknown | C. normal | D. modern"
+  correct="A"
+  explanation=". Đáp án A (well-known):** `renowned` = nổi tiếng (`well-known`)."
+/>
+
+<QuizItem
+  :number="6"
+  question="Wearing helmets when riding motorbikes is **compulsory** for all citizens in Vietnam."
+  options="A. required | B. mandatory | C. optional | D. strict"
+  correct="C"
+  explanation=". Đáp án C (optional):** Đề yêu cầu **OPPOSITE** (trái nghĩa). `compulsory` = bắt buộc ➔ Trái nghĩa là `optional` (tự chọn, không bắt buộc). *(Cẩn thận đừng chọn A hoặc B vì là từ đồng nghĩa!)*"
+/>
+
+<QuizItem
+  :number="7"
+  question="It was very **generous** of Mr. Binh to donate one hundred million dong to the local orphanage."
+  options="A. kind | B. mean | C. hospitable | D. helpful"
+  correct="B"
+  explanation=". Đáp án B (mean):** `generous` = hào phóng, rộng lượng ➔ Trái nghĩa là `mean` (keo kiệt, bủn xỉn)."
+/>
+
+<QuizItem
+  :number="8"
+  question="Living in large metropolitan cities offers many modern amenities, but it can be very **stressful**."
+  options="A. relaxing | B. tiring | C. difficult | D. anxious"
+  correct="A"
+  explanation=". Đáp án A (relaxing):** `stressful` = căng thẳng, áp lực ➔ Trái nghĩa là `relaxing` (thư giãn, thoải mái)."
+/>
+
+<QuizItem
+  :number="9"
+  question="Renewable energy from wind and sun is **abundant** and will never run out."
+  options="A. plentiful | B. scarce | C. available | D. sufficient"
+  correct="B"
+  explanation=". Đáp án B (scarce):** `abundant` = dồi dào, phong phú ➔ Trái nghĩa là `scarce` (khan hiếm, ít ỏi)."
+/>
+
+<QuizItem
+  :number="10"
+  question="The teacher **praised** Nam because he made remarkable progress in his English studies."
+  options="A. rewarded | B. criticized | C. encouraged | D. admired"
+  correct="B"
+  explanation=". Đáp án B (criticized):** `praised` = khen ngợi ➔ Trái nghĩa là `criticized` (chỉ trích, phê bình)."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án B (pristine):** `untouched` = còn nguyên sơ, chưa bị du lịch tàn phá (`pristine` = nguyên sơ, tinh khôi).
 **2. Đáp án B (reduce):** `cut down on` = cắt giảm (`reduce`).
 **3. Đáp án C (hardworking):** `diligent` = siêng năng, chăm chỉ (`hardworking`).
@@ -140,4 +206,5 @@ flowchart LR
 **8. Đáp án A (relaxing):** `stressful` = căng thẳng, áp lực ➔ Trái nghĩa là `relaxing` (thư giãn, thoải mái).
 **9. Đáp án B (scarce):** `abundant` = dồi dào, phong phú ➔ Trái nghĩa là `scarce` (khan hiếm, ít ỏi).
 **10. Đáp án B (criticized):** `praised` = khen ngợi ➔ Trái nghĩa là `criticized` (chỉ trích, phê bình).
-+++
+
+</details>

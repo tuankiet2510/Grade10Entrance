@@ -15,7 +15,7 @@ const CATEGORY_ORDER = [
   'Chuyên đề 4: Biển Báo & Giao Tiếp',
   'Chuyên đề 5: Viết Luận & Đoạn Văn',
   'Chuyên đề 6: 12 Units SGK Lớp 9',
-  'Cẩm Nang Phương Pháp'
+  'Tài Liệu Phương Pháp Học Tập'
 ]
 
 const categories = computed(() => {

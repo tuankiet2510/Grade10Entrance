@@ -35,7 +35,7 @@ description: "Hệ thống 48 chuyên đề lý thuyết chuẩn hóa, 856 bài 
 
 <div class="pdf-exam-grid">
   <div class="pdf-card">
-    <div class="pdf-card-badge">Cẩm nang tuyển sinh 2026 - 2027</div>
+    <div class="pdf-card-badge">Tài liệu tuyển sinh 2026 - 2027</div>
     <h3 class="pdf-card-title">12 Chuyên Đề Trọng Tâm Ôn Thi Vào Lớp 10 Môn Toán</h3>
     <p class="pdf-card-desc">Bản đồ phân loại cấu trúc đề thi tuyển sinh 10 THPT công lập (Rút gọn biểu thức, Hệ PT, Viète, Parabol, BĐT, Tứ giác nội tiếp...).</p>
     <div class="pdf-card-actions">
@@ -61,7 +61,7 @@ description: "Hệ thống 48 chuyên đề lý thuyết chuẩn hóa, 856 bài 
 
 ## 🎯 Bộ Đề Thi Tuyển Sinh & Chuyên Đề Nâng Cao (PDF)
 
-Tải về hoặc xem trực tuyến đề thi chính thức các tỉnh và cẩm nang phân loại điểm 9, 10.
+Tải về hoặc xem trực tuyến đề thi chính thức các tỉnh và tài liệu phân loại điểm 9, 10.
 
 <div class="pdf-exam-grid">
   <div class="pdf-card">
@@ -93,7 +93,7 @@ Tải về hoặc xem trực tuyến đề thi chính thức các tỉnh và c�
   <div class="pdf-card">
     <div class="pdf-card-badge">Chuyên đề nâng cao & Điểm 9, 10</div>
     <h3 class="pdf-card-title">Kiến thức - Kinh nghiệm - Trải nghiệm làm bài Hình học Toán chuyên lớp 9</h3>
-    <p class="pdf-card-desc">Cẩm nang giải bài hình học phẳng thi vào lớp 10 chuyên với hệ thống bổ đề kinh điển.</p>
+    <p class="pdf-card-desc">Tài liệu giải bài hình học phẳng thi vào lớp 10 chuyên với hệ thống bổ đề kinh điển.</p>
     <div class="pdf-card-actions">
       <a :href="`${site.base}math-pdf/kien-thuc-kinh-nghiem-trai-nghiem-lam-bai-hinh-hoc-toan-chuyen-cho-hoc-sinh-lop-9.pdf`" target="_blank" class="pdf-btn view-btn">
         Xem PDF ↗

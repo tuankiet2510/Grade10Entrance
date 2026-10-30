@@ -506,3 +506,4 @@ if __name__ == '__main__':
     upgrade_custom_css()
     upgrade_quiz_item()
     convert_lesson_alerts()
+

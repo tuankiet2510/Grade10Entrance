@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 2: ĐỘNG TỪ KHUYẾT THIẾU (MODAL VERBS MASTERY) ÔN THI VÀO 10
+# Chuyên Đề 2: Động Từ Khuyết Thiếu (Modal Verbs)
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Động từ khuyết thiếu (Modal Verbs: *can, could, may, might, must, should, have to, needn't*) không diễn tả một hành động vật lý cụ thể, mà dùng để biểu thị **thái độ của người nói** đối với hành động đó: **Mức độ chắc chắn**, **Khả năng**, **Sự cho phép**, **Sự bắt buộc** hoặc **Lời khuyên**.
 Nguyên tắc ngữ pháp bất biến: **`S + MODAL VERB + V-INF (nguyên mẫu không chia)`**.
 :::
@@ -25,9 +25,9 @@ flowchart LR
 
 ---
 
-## II. MA TRẬN PHÂN BIỆT CÁC CẶP MODAL VERBS HAY GÀI BẪY NHẤT
+## II. MA TRẬN PHÂN BIỆT CÁC CẶP MODAL VERBS thường gây nhầm lẫn nhất
 
-| Nhóm chức năng | Động từ & Công thức | Bản chất khác biệt & Ngữ cảnh | Ví dụ minh họa thực chiến |
+| Nhóm chức năng | Động từ & Công thức | Bản chất khác biệt & Ngữ cảnh | Ví dụ minh họa luyện tập |
 | :--- | :--- | :--- | :--- |
 | **1. Khả năng & Xin phép** | **`CAN`** vs. **`COULD`** | `CAN`: Khả năng ở hiện tại.<br>`COULD`: Khả năng trong quá khứ, hoặc lời nhờ vả lịch sự. | *She **can speak** three languages.*<br>***Could you please lend** me your pen?* |
 | **2. Dự đoán có thể xảy ra** | **`MAY`** vs. **`MIGHT`** | Diễn tả việc có thể xảy ra ở hiện tại hoặc tương lai nhưng không chắc chắn (khoảng 30% - 50%). | *Take an umbrella; it **may / might rain** this afternoon.* |
@@ -38,7 +38,7 @@ flowchart LR
 
 ---
 
-## III. 5 CÔNG THỨC VIẾT LẠI CÂU VỚI MODAL VERBS (CHẮC CHẮN RA THI)
+## III. 5 CÔNG THỨC VIẾT LẠI CÂU VỚI MODAL VERBS (thường xuất hiện trong đề thi)
 
 ::: danger BẢNG QUY ĐỔI CÂU TƯƠNG ĐƯƠNG VỚI MODAL VERBS
 :::
@@ -53,7 +53,7 @@ flowchart LR
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

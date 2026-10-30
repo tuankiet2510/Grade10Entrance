@@ -1,13 +1,14 @@
-# CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM "TH" CHUẨN XÁC (/θ/ VS. /ð/) ÔN THI VÀO 10
+# Chuyên Đề 1: Quy Tắc Phát Âm "th" (/θ/ và /ð/)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Cặp âm `"th"` là nỗi ám ảnh lớn nhất của học sinh Việt Nam vì tiếng Việt **hoàn toàn không có âm kẹp lưỡi**. Cả hai âm đều có cùng vị trí phát âm: **Đặt đầu lưỡi giữa hai hàm răng và đẩy luồng hơi ra ngoài qua kẽ răng**:
-> - **Âm vô thanh `/θ/`:** Dây thanh quản **KHÔNG RUNG** (Chỉ có luồng gió thổi xì ra).
-> - **Âm hữu thanh `/ð/`:** Dây thanh quản **RUNG MẠNH** (Có tiếng rung "dừ... dừ...").
+::: info Kiến thức trọng tâm
+Cặp âm `"th"` là nỗi ám ảnh lớn nhất của học sinh Việt Nam vì tiếng Việt **hoàn toàn không có âm kẹp lưỡi**. Cả hai âm đều có cùng vị trí phát âm: **Đặt đầu lưỡi giữa hai hàm răng và đẩy luồng hơi ra ngoài qua kẽ răng**:
+- **Âm vô thanh `/θ/`:** Dây thanh quản **KHÔNG RUNG** (Chỉ có luồng gió thổi xì ra).
+- **Âm hữu thanh `/ð/`:** Dây thanh quản **RUNG MẠNH** (Có tiếng rung "dừ... dừ...").
+:::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN PHÂN LOẠI PHÁT ÂM "TH" TRONG 3 GIÂY
+## I. Sơ đồ phân loại phát âm "th"
 
 ```mermaid
 flowchart LR
@@ -32,42 +33,117 @@ flowchart LR
 
 ---
 
-## III. 3 LƯU Ý KHI LÀM BÀI THI TUYỂN SINH VÀO 10 CẦN TRÁNH (VIETLISH TRAPS)
+## III. 3 LƯU Ý KHI LÀM BÀI THI TUYỂN SINH VÀO 10 CẦN TRÁNH (Lỗi sai thường gặp)
 
-> [!RED] **BẪY 1: CẶP TỪ DANH TỪ (/θ/) VS. ĐỘNG TỪ (/ð/)**
-> Đề thi rất hay gài bẫy các cặp từ có chữ cái tương tự nhau nhưng đuôi danh từ đọc là `/θ/`, còn đuôi động từ đọc là `/ð/`:
-> - Danh từ: **breath** `/breθ/` *(hơi thở - âm /θ/)* $\leftrightarrow$ Động từ: **breathe** `/briːð/` *(hít thở - âm /ð/)*.
-> - Danh từ: **bath** `/bɑːθ/` *(bồn tắm - âm /θ/)* $\leftrightarrow$ Động từ: **bathe** `/beɪð/` *(tắm rửa - âm /ð/)*.
-> - Danh từ: **cloth** `/klɒθ/` *(vải vụn - âm /θ/)* $\leftrightarrow$ Động từ: **clothe** `/kləʊð/` *(mặc quần áo - âm /ð/)*.
+::: danger LƯU Ý 1: CẶP TỪ DANH TỪ (/θ/) VS. ĐỘNG TỪ (/ð/)
+Đề thi rất hay gây nhầm lẫn các cặp từ có chữ cái tương tự nhau nhưng đuôi danh từ đọc là `/θ/`, còn đuôi động từ đọc là `/ð/`:
+- Danh từ: **breath** `/breθ/` *(hơi thở - âm /θ/)* $\leftrightarrow$ Động từ: **breathe** `/briːð/` *(hít thở - âm /ð/)*.
+- Danh từ: **bath** `/bɑːθ/` *(bồn tắm - âm /θ/)* $\leftrightarrow$ Động từ: **bathe** `/beɪð/` *(tắm rửa - âm /ð/)*.
+- Danh từ: **cloth** `/klɒθ/` *(vải vụn - âm /θ/)* $\leftrightarrow$ Động từ: **clothe** `/kləʊð/` *(mặc quần áo - âm /ð/)*.
+:::
 
-> [!YELLOW] **BẪY 2: NHẦM ÂM /θ/ THÀNH ÂM /t/ HOẶC /s/**
-> Người Việt có thói quen đọc âm `/θ/` thành âm *"thờ"* trong tiếng Việt (hoặc *"tờ"*, *"sờ"*):
-> - *three* `/θriː/` (số 3) đọc nhầm thành *tree* `/triː/` (cái cây) hoặc *free* `/friː/` (miễn phí).
-> - *thin* `/θɪn/` (gầy gò) đọc nhầm thành *tin* `/tɪn/` (hộp thiếc) hoặc *sin* `/sɪn/` (tội lỗi).
+::: warning LƯU Ý 2: NHẦM ÂM /θ/ THÀNH ÂM /t/ HOẶC /s/
+Người Việt có thói quen đọc âm `/θ/` thành âm *"thờ"* trong tiếng Việt (hoặc *"tờ"*, *"sờ"*):
+- *three* `/θriː/` (số 3) đọc nhầm thành *tree* `/triː/` (cái cây) hoặc *free* `/friː/` (miễn phí).
+- *thin* `/θɪn/` (gầy gò) đọc nhầm thành *tin* `/tɪn/` (hộp thiếc) hoặc *sin* `/sɪn/` (tội lỗi).
+:::
 
-> [!GREEN] **BẪY 3: TỪ NGOẠI LỆ ĐẶC BIỆT (CHỮ "TH" KHÔNG ĐỌC LÀ /θ/ HOẶC /ð/)**
-> - **Thailand** /ˈtaɪ.lænd/ *(chữ "th" phát âm là `/t/`)*.
-> - **Thames** /temz/ *(sông Thames - phát âm là `/t/`)*.
-> - **Thomas** /ˈtɒm.əs/ *(tên riêng - phát âm là `/t/`)*.
+::: tip LƯU Ý 3: TỪ NGOẠI LỆ ĐẶC BIỆT (CHỮ "TH" KHÔNG ĐỌC LÀ /θ/ HOẶC /ð/)
+- **Thailand** /ˈtaɪ.lænd/ *(chữ "th" phát âm là `/t/`)*.
+- **Thames** /temz/ *(sông Thames - phát âm là `/t/`)*.
+- **Thomas** /ˈtɒm.əs/ *(tên riêng - phát âm là `/t/`)*.
+:::
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 Chọn từ có phần gạch chân phát âm khác với các từ còn lại:
 
-1. A. **th**ink | B. **th**ank | C. **th**is | D. **th**in
-2. A. bro**th**er | B. brea**th**e | C. fea**th**er | D. heal**th**y
-3. A. ba**th** | B. clo**th** | C. sou**th** | D. ba**th**e
-4. A. **th**ere | B. **th**umb | C. **th**eater | D. **th**ursday
-5. A. clo**th**es | B. no**th**ing | C. wea**th**er | D. toge**th**er
-6. A. sou**th** | B. sou**th**ern | C. **th**eory | D. au**th**or
-7. A. wi**th**out | B. brea**th** | C. **th**roat | D. tee**th**
-8. A. fa**th**er | B. **th**rough | C. al**th**ough | D. lea**th**er
-9. A. epen**th**esis | B. smoo**th** | C. **th**eme | D. ear**th**
-10. A. **Th**ailand | B. **th**ankful | C. **th**oughtful | D. **th**orough
+<QuizItem
+  :number="1"
+  question=""
+  options="A. **th**ink | B. **th**ank | C. **th**is | D. **th**in"
+  correct="C"
+  explanation=". Đáp án C (this):** `this` phát âm là `/ð/`, các từ còn lại phát âm là `/θ/`."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question=""
+  options="A. bro**th**er | B. brea**th**e | C. fea**th**er | D. heal**th**y"
+  correct="D"
+  explanation=". Đáp án D (healthy):** `healthy` phát âm là `/θ/`, các từ còn lại phát âm là `/ð/`."
+/>
+
+<QuizItem
+  :number="3"
+  question=""
+  options="A. ba**th** | B. clo**th** | C. sou**th** | D. ba**th**e"
+  correct="D"
+  explanation=". Đáp án D (bathe):** `bathe` là động từ phát âm là `/ð/` (`/beɪð/`), các danh từ còn lại phát âm là `/θ/`."
+/>
+
+<QuizItem
+  :number="4"
+  question=""
+  options="A. **th**ere | B. **th**umb | C. **th**eater | D. **th**ursday"
+  correct="A"
+  explanation=". Đáp án A (there):** `there` phát âm là `/ð/`, các từ còn lại phát âm là `/θ/`."
+/>
+
+<QuizItem
+  :number="5"
+  question=""
+  options="A. clo**th**es | B. no**th**ing | C. wea**th**er | D. toge**th**er"
+  correct="B"
+  explanation=". Đáp án B (nothing):** `nothing` phát âm là `/θ/` (`/ˈnʌθ.ɪŋ/`), các từ còn lại phát âm là `/ð/`."
+/>
+
+<QuizItem
+  :number="6"
+  question=""
+  options="A. sou**th** | B. sou**th**ern | C. **th**eory | D. au**th**or"
+  correct="B"
+  explanation=". Đáp án B (southern):** `southern` phát âm là `/ð/` (`/ˈsʌð.ən/`), trong khi `south` và các từ còn lại phát âm là `/θ/`."
+/>
+
+<QuizItem
+  :number="7"
+  question=""
+  options="A. wi**th**out | B. brea**th** | C. **th**roat | D. tee**th**"
+  correct="A"
+  explanation=". Đáp án A (without):** `without` phát âm là `/ð/`, các từ còn lại phát âm là `/θ/`."
+/>
+
+<QuizItem
+  :number="8"
+  question=""
+  options="A. fa**th**er | B. **th**rough | C. al**th**ough | D. lea**th**er"
+  correct="B"
+  explanation=". Đáp án B (through):** `through` phát âm là `/θ/`, các từ còn lại phát âm là `/ð/`."
+/>
+
+<QuizItem
+  :number="9"
+  question=""
+  options="A. epen**th**esis | B. smoo**th** | C. **th**eme | D. ear**th**"
+  correct="B"
+  explanation=". Đáp án B (smooth):** `smooth` phát âm là `/ð/` (`/smuːð/`), các từ còn lại phát âm là `/θ/`."
+/>
+
+<QuizItem
+  :number="10"
+  question=""
+  options="A. **Th**ailand | B. **th**ankful | C. **th**oughtful | D. **th**orough"
+  correct="A"
+  explanation=". Đáp án A (Thailand):** `Thailand` là ngoại lệ tên riêng phát âm là `/t/` (`/ˈtaɪ.lænd/`), các từ còn lại phát âm là `/θ/`."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án C (this):** `this` phát âm là `/ð/`, các từ còn lại phát âm là `/θ/`.
 **2. Đáp án D (healthy):** `healthy` phát âm là `/θ/`, các từ còn lại phát âm là `/ð/`.
 **3. Đáp án D (bathe):** `bathe` là động từ phát âm là `/ð/` (`/beɪð/`), các danh từ còn lại phát âm là `/θ/`.
@@ -78,4 +154,5 @@ Chọn từ có phần gạch chân phát âm khác với các từ còn lại:
 **8. Đáp án B (through):** `through` phát âm là `/θ/`, các từ còn lại phát âm là `/ð/`.
 **9. Đáp án B (smooth):** `smooth` phát âm là `/ð/` (`/smuːð/`), các từ còn lại phát âm là `/θ/`.
 **10. Đáp án A (Thailand):** `Thailand` là ngoại lệ tên riêng phát âm là `/t/` (`/ˈtaɪ.lænd/`), các từ còn lại phát âm là `/θ/`.
-+++
+
+</details>

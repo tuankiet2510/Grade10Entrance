@@ -190,7 +190,7 @@ function playAudio(text: string, event?: Event) {
       </div>
 
       <div v-if="showTransformAnswer && sampleAnswer" class="sample-answer-box">
-        <div class="sample-label">✅ Câu viết lại chuẩn cấu trúc:</div>
+        <div class="sample-label">Đáp án tham khảo:</div>
         <div class="sample-text">{{ sampleAnswer }}</div>
       </div>
     </div>
@@ -212,7 +212,7 @@ function playAudio(text: string, event?: Event) {
       <button class="toggle-explanation-btn" @click="showExplanation = !showExplanation">
         <span class="exp-title">
           <span class="bulb-icon">📘</span>
-          <span>Phân tích đáp án & Cạm bẫy phòng thi</span>
+          <span>Giải thích chi tiết</span>
         </span>
         <span :class="['chevron-icon', { 'open': showExplanation }]">▼</span>
       </button>

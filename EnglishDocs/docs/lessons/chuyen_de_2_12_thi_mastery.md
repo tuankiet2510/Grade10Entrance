@@ -1,12 +1,12 @@
-# CHUYÊN ĐỀ 2: HỆ THỐNG 12 THÌ, MA TRẬN SO SÁNH & PHỐI HỢP THÌ TRỌNG TÂM ÔN THI VÀO 10
+# Chuyên Đề 2: Hệ Thống 12 Thì Và Cách Phối Hợp Thì Trọng Tâm
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Tiếng Việt dùng từ chỉ thời gian (*đã, đang, sẽ*) đặt trước động từ nguyên thể, còn tiếng Anh **biến đổi trực tiếp hình thái của động từ (V)** theo 2 trục: **Thời gian (Time)** (Quá khứ - Hiện tại - Tương lai) và **Tính chất hành động (Aspect)** (Đơn - Tiếp diễn - Hoàn thành).
 :::
 
 ---
 
-## I. SƠ ĐỒ TRỤC THỜI GIAN (ASCII TIMELINE) & PHÂN NHÁNH CHỌN THÌ TRONG 3 GIÂY
+## I. SƠ ĐỒ TRỤC THỜI GIAN (ASCII TIMELINE) & PHÂN NHÁNH CHỌN THÌ 
 
 ### 1. Trục thời gian trực quan (ASCII Timeline)
 
@@ -23,7 +23,7 @@ QUÁ KHỨ (PAST)                        HIỆN TẠI (PRESENT)                 
                              Bắt đầu ở QK -> Kéo dài hoặc để lại KẾT QUẢ ở HT
 ```
 
-### 2. Sơ đồ thuật toán chọn nhanh Thì trong đề thi (Mermaid Flowchart)
+### 2. Sơ đồ quy trình chọn nhanh Thì trong đề thi (Mermaid Flowchart)
 
 ```mermaid
 flowchart LR
@@ -68,7 +68,7 @@ flowchart LR
 
 ---
 
-## III. MA TRẬN SO SÁNH 3 CẶP THÌ HAY GÀI BẪY NHẤT TRONG ĐỀ THI VÀO 10
+## III. MA TRẬN SO SÁNH 3 CẶP THÌ thường gây nhầm lẫn nhất TRONG ĐỀ THI VÀO 10
 
 ### 1. Hiện tại hoàn thành (`have/has + V3/ed`) vs. Quá khứ đơn (`V2/ed`)
 
@@ -79,7 +79,7 @@ flowchart LR
 | **Ví dụ đối chiếu 1** | *I **have lost** my key.* (Giờ vẫn chưa tìm thấy, không vào nhà được). | *I **lost** my key yesterday.* (Kể lại sự việc hôm qua; giờ có thể đã làm chìa mới). |
 | **Ví dụ đối chiếu 2** | *She **has lived** in Quang Ngai **for 10 years**.* (Hiện tại cô ấy vẫn đang sống ở Quảng Ngãi). | *She **lived** in Quang Ngai **for 10 years**.* (Giờ cô ấy đã chuyển đi nơi khác sống). |
 
-::: danger BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP)
+::: danger LỖI THƯỜNG GẶP
 Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nhưng trong tiếng Anh:
 - ❌ **Sai:** *I **saw** that movie three times.* (Báo số lần tính đến nay mà chia QKĐ là sai).
 - ✅ **Đúng:** *I **have seen** that movie three times.* (Trải nghiệm tính đến hiện tại phải dùng **Hiện tại hoàn thành**).
@@ -132,7 +132,7 @@ Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nh�
 
 ---
 
-## V. 10 CÂU BÀI TẬP THỰC CHIẾN (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
+## V. 10 CÂU BÀI TẬP LUYỆN TẬP (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

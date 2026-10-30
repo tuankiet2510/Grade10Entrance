@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 2: CÂU HỎI ĐUÔI & TRỢ ĐỘNG TỪ (QUESTION TAGS MASTERY)
+# Chuyên Đề 2: Câu Hỏi Đuôi Và Các Trường Hợp Đặc Biệt
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Câu hỏi đuôi (Tag Question) là một câu hỏi cực ngắn đính vào cuối câu trần thuật để **xác minh thông tin** hoặc **tìm kiếm sự đồng thuận**. Cấu trúc luôn tuân thủ nguyên tắc vàng **"Trái Dấu"**:
 `Khẳng định (+) ➔ Đuôi Phủ định (-)`  |  `Phủ định (-) ➔ Đuôi Khẳng định (+)`
 Công thức: `[Mệnh đề trần thuật], [Trợ động từ (+ not)] + [Đại từ nhân xưng]?`
@@ -8,7 +8,7 @@ Công thức: `[Mệnh đề trần thuật], [Trợ động từ (+ not)] + [Đ
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC TẠO CÂU HỎI ĐUÔI
+## I. Sơ đồ 3 bước tạo câu hỏi đuôi
 
 ```mermaid
 flowchart LR
@@ -39,9 +39,9 @@ flowchart LR
 
 ---
 
-## III. 8 BẪY ĐẶC BIỆT CHẮC CHẮN GÀI TRONG ĐỀ THI VÀO 10
+## III. 8 LƯU Ý ĐẶC BIỆT thường gặp trong đề thi VÀO 10
 
-::: danger BẪY 1: CÂU CHỨA TỪ PHỦ ĐỊNH NGẦM (LỖI SAI THƯỜNG GẶP NHẤT)
+::: danger LƯU Ý 1: CÂU CHỨA TỪ PHỦ ĐỊNH NGẦM (LỖI SAI THƯỜNG GẶP NHẤT)
 Nếu mệnh đề chính chứa các từ phủ định hoặc bán phủ định: **`never, seldom, rarely, hardly, scarcely, little, few, neither, no, nobody, nothing`**, thì câu đó **MANG NGHĨA PHỦ ĐỊNH (-)**.
 ➔ Phần đuôi **BẮT BUỘC Ở DẠNG KHẲNG ĐỊNH (+)**!
 - ❌ *Sai:* She **never** comes late, **doesn't she**?
@@ -49,11 +49,11 @@ Nếu mệnh đề chính chứa các từ phủ định hoặc bán phủ đị
 - *Ví dụ 2:* There is **little** milk left in the fridge, **is there**?
 :::
 
-::: warning BẪY 2: CHỦ NGỮ LÀ ĐẠI TỪ BẤT ĐỊNH CHỈ NGƯỜI (EVERYONE, NOBODY...)
+::: warning LƯU Ý 2: CHỦ NGỮ LÀ ĐẠI TỪ BẤT ĐỊNH CHỈ NGƯỜI (EVERYONE, NOBODY...)
 Khi chủ ngữ là `everyone, everybody, someone, somebody, anyone, anybody, no one, nobody`, đại từ ở câu hỏi đuôi **BẮT BUỘC LÀ `THEY`**.
 *(Chú ý: Khi đổi sang `they`, trợ động từ phải chia ở số nhiều!)*
 - *Ví dụ:* **Everyone** attended the meeting, **didn't they**?
-- *Ví dụ gài bẫy:* **Nobody** came to the party, **did they**? *(Nobody mang nghĩa phủ định + đổi thành they ➔ đuôi khẳng định `did they`)*.
+- *Ví dụ gây nhầm lẫn:* **Nobody** came to the party, **did they**? *(Nobody mang nghĩa phủ định + đổi thành they ➔ đuôi khẳng định `did they`)*.
 :::
 
 ::: tip BẢNG TỔNG HỢP CÁC TRƯỜNG HỢP NGOẠI LỆ ĐẶC BIỆT
@@ -71,7 +71,7 @@ Khi chủ ngữ là `everyone, everybody, someone, somebody, anyone, anybody, no
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

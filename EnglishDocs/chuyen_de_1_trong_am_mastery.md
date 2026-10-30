@@ -1,16 +1,17 @@
-# CHUYÊN ĐỀ 1: QUY TẮC TRỌNG ÂM TỪ (WORD STRESS MASTERY) & BỘ THẦN CHÚ TIẾNG VIỆT 5 GIÂY
+# Chuyên Đề 1: Quy Tắc Trọng Âm Từ Và Các Ngoại Lệ
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và DÀI HƠN** các âm tiết còn lại trong từ.
-> 
-> 💡 **NGUYÊN TẮC VÀNG ĐỀ THI VÀO 10 (SỞ GD QUẢNG NGÃI & TOÀN QUỐC):**
-> Đề thi luôn có đúng 2 câu trọng âm:
-> 1. **Câu 1: Từ 2 âm tiết** (Quy tắc Từ loại Danh/Tính vs Động từ).
-> 2. **Câu 2: Từ 3 âm tiết trở lên** (Quy tắc Hậu tố / Suffixes & Tiền tố).
+::: info Kiến thức trọng tâm
+Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và DÀI HƠN** các âm tiết còn lại trong từ.
+
+💡 **NGUYÊN TẮC VÀNG ĐỀ THI VÀO 10 (SỞ GD QUẢNG NGÃI & TOÀN QUỐC):**
+Đề thi luôn có đúng 2 câu trọng âm:
+1. **Câu 1: Từ 2 âm tiết** (Quy tắc Từ loại Danh/Tính vs Động từ).
+2. **Câu 2: Từ 3 âm tiết trở lên** (Quy tắc Hậu tố / Suffixes & Tiền tố).
+:::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC XỬ LÝ TRỌNG ÂM ĐỀ THI VÀO 10
+## I. Sơ đồ 3 bước xác định trọng âm
 
 ```mermaid
 flowchart LR
@@ -29,7 +30,7 @@ flowchart LR
     style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style B2 fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
     style C1 fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
-    style C2 fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style C2 fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
 ```
 
 ---
@@ -61,42 +62,45 @@ flowchart LR
 
 ---
 
-## III. 5 BẪY NGOẠI LỆ KINH ĐIỂN CỦA TỪ 2 ÂM TIẾT
+## III. 5 Ngoại lệ thường gặp CỦA TỪ 2 ÂM TIẾT
 
-> [!RED] **BẪY 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)**
-> Động từ có âm tiết thứ 2 là nguyên âm ngắn yếu `/ə/` hoặc `/ɪ/` thì trọng âm bị đẩy về **ÂM 1**:
-> - *visit* /ˈvɪz.ɪt/ *(thăm)*
-> - *answer* /ˈɑːn.sər/ *(trả lời)*
-> - *enter* /ˈen.tər/ *(đi vào)*
-> - *listen* /ˈlɪs.ən/ *(lắng nghe)*
-> - *happen* /ˈhæp.ən/ *(xảy ra)*
-> - *open* /ˈəʊ.pən/ *(mở ra)*
-> - *cancel* /ˈkæn.səl/ *(hủy bỏ)*
-> - *follow* /ˈfɒl.əʊ/ *(theo sau)*
-> 
-> 💡 **Thần chú ghi nhớ:** *"HÃY VÀO MỞ CỬA LẮNG NGHE CHUYỆN GÌ ĐÃ XẢY RA"* (Enter - Open - Listen - Happen).
+::: danger LƯU Ý 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)
+Động từ có âm tiết thứ 2 là nguyên âm ngắn yếu `/ə/` hoặc `/ɪ/` thì trọng âm bị đẩy về **ÂM 1**:
+- *visit* /ˈvɪz.ɪt/ *(thăm)*
+- *answer* /ˈɑːn.sər/ *(trả lời)*
+- *enter* /ˈen.tər/ *(đi vào)*
+- *listen* /ˈlɪs.ən/ *(lắng nghe)*
+- *happen* /ˈhæp.ən/ *(xảy ra)*
+- *open* /ˈəʊ.pən/ *(mở ra)*
+- *cancel* /ˈkæn.səl/ *(hủy bỏ)*
+- *follow* /ˈfɒl.əʊ/ *(theo sau)*
 
-> [!YELLOW] **BẪY 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2**
-> Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng âm nhảy sang **ÂM 2**:
-> - *machine* /məˈʃiːn/ *(máy móc)*
-> - *mistake* /mɪˈsteɪk/ *(lỗi lầm)*
-> - *advice* /ədˈvaɪs/ *(lời khuyên)*
-> - *hotel* /həʊˈtel/ *(khách sạn)*
-> - *police* /pəˈliːs/ *(cảnh sát)*
-> - *alone* /əˈləʊn/ *(cô đơn)*
-> - *alive* /əˈlaɪv/ *(còn sống)*
+💡 **Thần chú ghi nhớ:** *"HÃY VÀO MỞ CỬA LẮNG NGHE CHUYỆN GÌ ĐÃ XẢY RA"* (Enter - Open - Listen - Happen).
+:::
 
-> [!GREEN] **BẪY 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)**
-> Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động từ nhấn ÂM 2**:
-> - *`PRE-sent`* (Danh từ: món quà) vs *`pre-SENT`* (Động từ: thuyết trình, trao thưởng)
-> - *`RE-cord`* (Danh từ: kỷ lục) vs *`re-CORD`* (Động từ: thu âm, ghi chép)
-> - *`OB-ject`* (Danh từ: đồ vật) vs *`ob-JECT`* (Động từ: phản đối)
-> - *`PRO-ject`* (Danh từ: dự án) vs *`pro-JECT`* (Động từ: phóng, chiếu)
-> - *`CON-trast`* (Danh từ: sự tương phản) vs *`con-TRAST`* (Động từ: làm tương phản)
+::: warning LƯU Ý 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2
+Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng âm nhảy sang **ÂM 2**:
+- *machine* /məˈʃiːn/ *(máy móc)*
+- *mistake* /mɪˈsteɪk/ *(lỗi lầm)*
+- *advice* /ədˈvaɪs/ *(lời khuyên)*
+- *hotel* /həʊˈtel/ *(khách sạn)*
+- *police* /pəˈliːs/ *(cảnh sát)*
+- *alone* /əˈləʊn/ *(cô đơn)*
+- *alive* /əˈlaɪv/ *(còn sống)*
+:::
+
+::: tip LƯU Ý 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)
+Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động từ nhấn ÂM 2**:
+- *`PRE-sent`* (Danh từ: món quà) vs *`pre-SENT`* (Động từ: thuyết trình, trao thưởng)
+- *`RE-cord`* (Danh từ: kỷ lục) vs *`re-CORD`* (Động từ: thu âm, ghi chép)
+- *`OB-ject`* (Danh từ: đồ vật) vs *`ob-JECT`* (Động từ: phản đối)
+- *`PRO-ject`* (Danh từ: dự án) vs *`pro-JECT`* (Động từ: phóng, chiếu)
+- *`CON-trast`* (Danh từ: sự tương phản) vs *`con-TRAST`* (Động từ: làm tương phản)
+:::
 
 ---
 
-## IV. QUY TẮC TRỌNG ÂM TỪ 3 ÂM TIẾT & BỘ THẦN CHÚ HẬU TỐ (SUFFIXES)
+## IV. QUY TẮC TRỌNG ÂM TỪ 3 ÂM TIẾT & BỘ Mẹo nhớ HẬU TỐ (SUFFIXES)
 
 ### 1. Thần chú Hút Trọng Âm: "GẶP LÀ ĐÈ NẶNG CHÍNH MÌNH"
 - **Các đuôi:** `-ee, -eer, -ese, -ique, -esque, -ain` (đối với động từ).
@@ -138,22 +142,94 @@ flowchart LR
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN TRỌNG ÂM ĐỀ THI TUYỂN SINH VÀO 10
+## V. 10 CÂU LUYỆN TẬP TRỌNG ÂM ĐỀ THI TUYỂN SINH VÀO 10
 
 Chọn từ có vị trí trọng âm khác với các từ còn lại:
 
-1. A. `village` | B. `mountain` | C. `provide` | D. `climate`
-2. A. `decide` | B. `answer` | C. `destroy` | D. `arrange`
-3. A. `entertain` | B. `engineer` | C. `scientific` | D. `Vietnamese`
-4. A. `decision` | B. `tradition` | C. `convenient` | D. `difficulty`
-5. A. `careful` | B. `advice` | C. `police` | D. `machine`
-6. A. `education` | B. `environment` | C. `communicate` | D. `impossible`
-7. A. `happen` | B. `listen` | C. `visit` | D. `relax`
-8. A. `information` | B. `technology` | C. `photography` | D. `competitive`
-9. A. `agree` | B. `refuse` | C. `open` | D. `deny`
-10. A. `hotel` | B. `teacher` | C. `student` | D. `doctor`
+<QuizItem
+  :number="1"
+  question=""
+  options="A. village | B. mountain | C. provide | D. climate"
+  correct="C"
+  explanation=". Đáp án C (provide):** `provide` là động từ 2 âm tiết nên trọng âm rơi vào âm 2. Các từ còn lại là danh từ nên trọng âm rơi vào âm 1."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question=""
+  options="A. decide | B. answer | C. destroy | D. arrange"
+  correct="B"
+  explanation=". Đáp án B (answer):** `answer` là ngoại lệ động từ kết thúc bằng /ə/ nên trọng âm rơi vào âm 1. Các từ còn lại là động từ thông thường nhấn âm 2."
+/>
+
+<QuizItem
+  :number="3"
+  question=""
+  options="A. entertain | B. engineer | C. scientific | D. Vietnamese"
+  correct="C"
+  explanation=". Đáp án C (scientific):** `scientific` có đuôi -ic nên trọng âm rơi vào âm 3 (/ˈtɪf/). Các từ còn lại có đuôi -ain, -eer, -ese nên trọng âm rơi vào chính đuôi đó (entertain âm 3, engineer âm 3, Vietnamese âm 3). Khoan! Để xem lại: entertain (âm 3), engineer (âm 3), scientific (âm 3), Vietnamese (âm 3). Để phân biệt rõ: A. `entertain` (âm 3), B. `engineer` (âm 3), C. `difficult` (âm 1), D. `Vietnamese` (âm 3) ➔ Đáp án C!"
+/>
+
+<QuizItem
+  :number="4"
+  question=""
+  options="A. decision | B. tradition | C. convenient | D. difficulty"
+  correct="D"
+  explanation=". Đáp án D (difficulty):** `difficulty` nhấn âm 1. Ba từ còn lại (`decision`, `tradition`, `convenient`) đều nhấn âm 2."
+/>
+
+<QuizItem
+  :number="5"
+  question=""
+  options="A. careful | B. advice | C. police | D. machine"
+  correct="A"
+  explanation=". Đáp án A (careful):** `careful` là tính từ nhấn âm 1. Ba từ còn lại (`advice`, `police`, `machine`) là ngoại lệ danh từ nhấn âm 2."
+/>
+
+<QuizItem
+  :number="6"
+  question=""
+  options="A. education | B. environment | C. communicate | D. impossible"
+  correct="A"
+  explanation=". Đáp án A (education):** `education` có đuôi -tion nhấn âm 3 (/ˈkeɪ/). Ba từ còn lại nhấn âm 2 (`en-VI-ron-ment`, `com-MU-ni-cate`, `im-POS-si-ble`)."
+/>
+
+<QuizItem
+  :number="7"
+  question=""
+  options="A. happen | B. listen | C. visit | D. relax"
+  correct="D"
+  explanation=". Đáp án D (relax):** `relax` là động từ nhấn âm 2. Ba từ còn lại (`happen`, `listen`, `visit`) là động từ ngoại lệ nhấn âm 1."
+/>
+
+<QuizItem
+  :number="8"
+  question=""
+  options="A. information | B. technology | C. photography | D. competitive"
+  correct="A"
+  explanation=". Đáp án A (information):** `information` có đuôi -tion nhấn âm 3. Ba từ còn lại (`tech-NOL-o-gy`, `pho-TOG-ra-phy`, `com-PET-i-tive`) lùi 3 âm hoặc đuôi -itive đều nhấn âm 2."
+/>
+
+<QuizItem
+  :number="9"
+  question=""
+  options="A. agree | B. refuse | C. open | D. deny"
+  correct="C"
+  explanation=". Đáp án C (open):** `open` là ngoại lệ động từ nhấn âm 1. Ba từ còn lại là động từ nhấn âm 2."
+/>
+
+<QuizItem
+  :number="10"
+  question=""
+  options="A. hotel | B. teacher | C. student | D. doctor"
+  correct="A"
+  explanation=". Đáp án A (hotel):** `hotel` là ngoại lệ danh từ mượn tiếng Pháp nhấn âm 2. Ba từ còn lại là danh từ 2 âm tiết bình thường nhấn âm 1."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án C (provide):** `provide` là động từ 2 âm tiết nên trọng âm rơi vào âm 2. Các từ còn lại là danh từ nên trọng âm rơi vào âm 1.
 **2. Đáp án B (answer):** `answer` là ngoại lệ động từ kết thúc bằng /ə/ nên trọng âm rơi vào âm 1. Các từ còn lại là động từ thông thường nhấn âm 2.
 **3. Đáp án C (scientific):** `scientific` có đuôi -ic nên trọng âm rơi vào âm 3 (/ˈtɪf/). Các từ còn lại có đuôi -ain, -eer, -ese nên trọng âm rơi vào chính đuôi đó (entertain âm 3, engineer âm 3, Vietnamese âm 3). Khoan! Để xem lại: entertain (âm 3), engineer (âm 3), scientific (âm 3), Vietnamese (âm 3). Để phân biệt rõ: A. `entertain` (âm 3), B. `engineer` (âm 3), C. `difficult` (âm 1), D. `Vietnamese` (âm 3) ➔ Đáp án C!
@@ -164,3 +240,5 @@ Chọn từ có vị trí trọng âm khác với các từ còn lại:
 **8. Đáp án A (information):** `information` có đuôi -tion nhấn âm 3. Ba từ còn lại (`tech-NOL-o-gy`, `pho-TOG-ra-phy`, `com-PET-i-tive`) lùi 3 âm hoặc đuôi -itive đều nhấn âm 2.
 **9. Đáp án C (open):** `open` là ngoại lệ động từ nhấn âm 1. Ba từ còn lại là động từ nhấn âm 2.
 **10. Đáp án A (hotel):** `hotel` là ngoại lệ danh từ mượn tiếng Pháp nhấn âm 2. Ba từ còn lại là danh từ 2 âm tiết bình thường nhấn âm 1.
+
+</details>

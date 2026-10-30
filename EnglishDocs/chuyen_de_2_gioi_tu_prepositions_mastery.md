@@ -1,8 +1,9 @@
-# CHUYÊN ĐỀ 2: CẨM NANG GIỚI TỪ (PREPOSITIONS: TIME, PLACE & COLLOCATIONS) ÔN THI VÀO 10
+# Chuyên Đề 2: Giới Từ Thời Gian, Nơi Chốn Và Cụm Giới Từ
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Giới từ (Preposition) là từ nối định vị mối quan hệ giữa các thành phần trong câu theo 3 chiều kích: **Thời gian (Time)**, **Không gian / Nơi chốn (Place)** và **Sự kết hợp cố định (Collocations)**.
-> Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn ➔ Cụ thể ➔ Chính xác tuyệt đối) sẽ giúp bạn giải quyết 90% câu hỏi giới từ thời gian và nơi chốn trong đề thi vào 10.
+::: info Kiến thức trọng tâm
+Giới từ (Preposition) là từ nối định vị mối quan hệ giữa các thành phần trong câu theo 3 chiều kích: **Thời gian (Time)**, **Không gian / Nơi chốn (Place)** và **Sự kết hợp cố định (Collocations)**.
+Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn ➔ Cụ thể ➔ Chính xác tuyệt đối) sẽ giúp bạn giải quyết 90% câu hỏi giới từ thời gian và nơi chốn trong đề thi vào 10.
+:::
 
 ---
 
@@ -28,9 +29,10 @@
 
 ## II. BẢNG TRA CỨU CỤM GIỚI TỪ ĐI VỚI TÍNH TỪ (ADJECTIVE + PREPOSITION)
 
-> [!GREEN] **CÁC CẶP TÍNH TỪ + GIỚI TỪ PHẢI THUỘC LÒNG (100% CÓ TRONG ĐỀ THI VÀO 10):**
+::: tip CÁC CẶP TÍNH TỪ + GIỚI TỪ PHẢI THUỘC LÒNG (100% CÓ TRONG ĐỀ THI VÀO 10)
+:::
 
-| Cụm Tính từ + Giới từ | Phiên âm IPA | Nghĩa tiếng Việt | Ví dụ thực chiến |
+| Cụm Tính từ + Giới từ | Phiên âm IPA | Nghĩa tiếng Việt | Ví dụ luyện tập |
 | :--- | :--- | :--- | :--- |
 | **good at / bad at** | `/ɡʊd æt/` | Giỏi / Dở về lĩnh vực gì | *She is very **good at** English grammar.* |
 | **interested in** | /ˈɪn.trəs.tɪd ɪn/ | Quan tâm, hứng thú với | *Are you **interested in** joining our green club?* |
@@ -48,40 +50,103 @@
 
 ## III. BẢNG TRA CỨU CỤM GIỚI TỪ ĐI VỚI ĐỘNG TỪ (VERB + PREPOSITION)
 
-> [!YELLOW] **CÁC CẤU TRÚC ĐỘNG TỪ + TÂN NGỮ + GIỚI TỪ KINH ĐIỂN:**
-> - **`prevent / stop someone FROM + V-ing`**: Ngăn chặn ai làm gì (*The heavy rain prevented us from going camping*).
-> - **`congratulate someone ON + V-ing/N`**: Chúc mừng ai vì điều gì (*I congratulated Nam on winning the first prize*).
-> - **`apologize TO someone FOR + V-ing`**: Xin lỗi ai vì việc gì (*She apologized to the teacher for being late*).
-> - **`provide someone WITH something`**: Cung cấp cho ai cái gì (*The organization provides poor children with free books*).
-> - **`spend time / money ON something`**: Chi tiêu thời gian, tiền bạc vào việc gì.
-> - **`depend ON / rely ON`**: Phụ thuộc vào, tin tưởng vào (*Success depends on hard work*).
+::: warning CÁC CẤU TRÚC ĐỘNG TỪ + TÂN NGỮ + GIỚI TỪ KINH ĐIỂN
+- **`prevent / stop someone FROM + V-ing`**: Ngăn chặn ai làm gì (*The heavy rain prevented us from going camping*).
+- **`congratulate someone ON + V-ing/N`**: Chúc mừng ai vì điều gì (*I congratulated Nam on winning the first prize*).
+- **`apologize TO someone FOR + V-ing`**: Xin lỗi ai vì việc gì (*She apologized to the teacher for being late*).
+- **`provide someone WITH something`**: Cung cấp cho ai cái gì (*The organization provides poor children with free books*).
+- **`spend time / money ON something`**: Chi tiêu thời gian, tiền bạc vào việc gì.
+- **`depend ON / rely ON`**: Phụ thuộc vào, tin tưởng vào (*Success depends on hard work*).
+:::
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
-1. The opening ceremony of the new academic year will take place ______ September 5th.
-   `A. in` | `B. on` | `C. at` | `D. for`
-2. We arrived at the central railway station ______ 7:30 a.m. sharp.
-   `A. in` | `B. on` | `C. at` | `D. to`
-3. Quang Ngai province is renowned ______ its magnificent natural landscapes and hospitable people.
-   `A. for` | `B. with` | `C. about` | `D. in`
-4. Lan has always been interested ______ environmental protection and waste recycling.
-   `A. on` | `B. about` | `C. in` | `D. of`
-5. The torrential downpour prevented the rescue team ______ reaching the isolated commune.
-   `A. from` | `B. to` | `C. of` | `D. with`
-6. His family decided to move to an apartment ______ Quang Trung street.
-   `A. in` | `B. on` | `C. at` | `D. to`
-7. They congratulated him warmly ______ his excellent graduation score.
-   `A. for` | `B. on` | `C. about` | `D. in`
-8. Most teenagers in our neighborhood are fond ______ playing outdoor sports after school.
-   `A. in` | `B. with` | `C. of` | `D. about`
-9. My grandfather usually listens to the morning news ______ 6:00 o'clock ______ the morning.
-   `A. at / on` | `B. in / at` | `C. at / in` | `D. on / in`
-10. Who is responsible ______ locking all classroom windows before going home?
-   `A. with` | `B. about` | `C. for` | `D. to`
+<QuizItem
+  :number="1"
+  question="The opening ceremony of the new academic year will take place ______ September 5th."
+  options="A. in | B. on | C. at | D. for"
+  correct="B"
+  explanation=". Đáp án B (on):** Có ngày cụ thể trong tháng `September 5th` ➔ bắt buộc dùng giới từ `on`."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="We arrived at the central railway station ______ 7:30 a.m. sharp."
+  options="A. in | B. on | C. at | D. to"
+  correct="C"
+  explanation=". Đáp án C (at):** Giờ giấc cụ thể và chính xác `7:30 a.m.` ➔ dùng giới từ `at`."
+/>
+
+<QuizItem
+  :number="3"
+  question="Quang Ngai province is renowned ______ its magnificent natural landscapes and hospitable people."
+  options="A. for | B. with | C. about | D. in"
+  correct="A"
+  explanation=". Đáp án A (for):** Cấu trúc cố định `renowned for / famous for` (nổi tiếng vì cái gì)."
+/>
+
+<QuizItem
+  :number="4"
+  question="Lan has always been interested ______ environmental protection and waste recycling."
+  options="A. on | B. about | C. in | D. of"
+  correct="C"
+  explanation=". Đáp án C (in):** Cấu trúc `interested in + N/V-ing` (hứng thú, quan tâm đến)."
+/>
+
+<QuizItem
+  :number="5"
+  question="The torrential downpour prevented the rescue team ______ reaching the isolated commune."
+  options="A. from | B. to | C. of | D. with"
+  correct="A"
+  explanation=". Đáp án A (from):** Cấu trúc `prevent someone from V-ing` (ngăn cản ai làm gì)."
+/>
+
+<QuizItem
+  :number="6"
+  question="His family decided to move to an apartment ______ Quang Trung street."
+  options="A. in | B. on | C. at | D. to"
+  correct="B"
+  explanation=". Đáp án B (on):** Tên đường phố không có số nhà `Quang Trung street` ➔ dùng `on`."
+/>
+
+<QuizItem
+  :number="7"
+  question="They congratulated him warmly ______ his excellent graduation score."
+  options="A. for | B. on | C. about | D. in"
+  correct="B"
+  explanation=". Đáp án B (on):** Cấu trúc `congratulate someone on something` (chúc mừng ai vì điều gì)."
+/>
+
+<QuizItem
+  :number="8"
+  question="Most teenagers in our neighborhood are fond ______ playing outdoor sports after school."
+  options="A. in | B. with | C. of | D. about"
+  correct="C"
+  explanation=". Đáp án C (of):** Cấu trúc `fond of + V-ing` (thích thú điều gì)."
+/>
+
+<QuizItem
+  :number="9"
+  question="My grandfather usually listens to the morning news ______ 6:00 o'clock ______ the morning."
+  options="A. at / on | B. in / at | C. at / in | D. on / in"
+  correct="C"
+  explanation=". Đáp án C (at / in):** Giờ cụ thể dùng `at` (`at 6:00 o'clock`), buổi trong ngày dùng `in` (`in the morning`)."
+/>
+
+<QuizItem
+  :number="10"
+  question="Who is responsible ______ locking all classroom windows before going home?"
+  options="A. with | B. about | C. for | D. to"
+  correct="C"
+  explanation=". Đáp án C (for):** Cấu trúc `responsible for + V-ing` (chịu trách nhiệm cho việc gì)."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án B (on):** Có ngày cụ thể trong tháng `September 5th` ➔ bắt buộc dùng giới từ `on`.
 **2. Đáp án C (at):** Giờ giấc cụ thể và chính xác `7:30 a.m.` ➔ dùng giới từ `at`.
 **3. Đáp án A (for):** Cấu trúc cố định `renowned for / famous for` (nổi tiếng vì cái gì).
@@ -92,4 +157,5 @@
 **8. Đáp án C (of):** Cấu trúc `fond of + V-ing` (thích thú điều gì).
 **9. Đáp án C (at / in):** Giờ cụ thể dùng `at` (`at 6:00 o'clock`), buổi trong ngày dùng `in` (`in the morning`).
 **10. Đáp án C (for):** Cấu trúc `responsible for + V-ing` (chịu trách nhiệm cho việc gì).
-+++
+
+</details>

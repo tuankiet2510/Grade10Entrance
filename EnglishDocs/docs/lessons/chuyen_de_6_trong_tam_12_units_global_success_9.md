@@ -1,10 +1,10 @@
 ---
-title: "Chuyên Đề 6: Tổng Ôn Toàn Diện 12 Units SGK Tiếng Anh 9 Kết Nối Tri Thức"
+title: "Chuyên Đề 6: Tổng Ôn Trọng Tâm 12 Units SGK Tiếng Anh 9"
 category: "Chuyên đề 3: Từ Vựng Chọn Lọc"
 description: "Hệ thống hóa toàn bộ từ vựng then chốt, ngữ pháp trọng tâm và cấu trúc ăn điểm của 12 Units SGK Tiếng Anh 9 Global Success bám sát ma trận đề thi tuyển sinh vào 10."
 ---
 
-# 📚 CHUYÊN ĐỀ 6: TỔNG ÔN TOÀN DIỆN 12 UNITS SGK KẾT NỐI TRI THỨC
+# Chuyên Đề 6: Tổng Ôn Trọng Tâm 12 Units SGK Tiếng Anh 9
 
 > [!IMPORTANT] **ĐỊNH HƯỚNG MA TRẬN ĐỀ THI VÀO 10 THEO CHƯƠNG TRÌNH 2018:**
 > Đề thi tuyển sinh vào 10 tại Quảng Ngãi, Đà Nẵng và các tỉnh thành lớn khai thác **100% chủ đề ngữ liệu** từ 12 Units của bộ SGK mới (*Tiếng Anh 9 Global Success - Kết nối tri thức với cuộc sống*). Nắm vững từ vựng và ngữ pháp của 12 bài học này sẽ giúp học sinh tự tin giải quyết toàn bộ bài đọc hiểu, điền từ và viết lại câu.

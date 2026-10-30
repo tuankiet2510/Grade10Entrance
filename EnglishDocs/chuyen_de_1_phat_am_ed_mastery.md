@@ -1,14 +1,15 @@
-# CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM ĐUÔI "ED" BẰNG CÂU THẦN CHÚ & NGOẠI LỆ TÍNH TỪ
+# Chuyên Đề 1: Quy Tắc Phát Âm Đuôi -ed Và Ngoại Lệ Tính Từ
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì Quá khứ và Phân từ 2. Âm thanh thực tế phát ra phụ thuộc vào **Âm cuối cùng (Ending Sound)** của động từ trước khi thêm -ed:
-> - **Âm rung (Hữu thanh):** Cổ họng rung ➔ Đuôi -ed phát âm là **/d/** (cùng tính chất rung).
-> - **Âm không rung (Vô thanh):** Cổ họng không rung ➔ Đuôi -ed phát âm là **/t/** (cùng tính chất vô thanh).
-> - **Âm /t/ hoặc /d/:** Để tránh dính 2 âm giống nhau liền kề ➔ Chèn thêm nguyên âm /ɪ/ thành **/ɪd/**.
+::: info Kiến thức trọng tâm
+Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì Quá khứ và Phân từ 2. Âm thanh thực tế phát ra phụ thuộc vào **Âm cuối cùng (Ending Sound)** của động từ trước khi thêm -ed:
+- **Âm rung (Hữu thanh):** Cổ họng rung ➔ Đuôi -ed phát âm là **/d/** (cùng tính chất rung).
+- **Âm không rung (Vô thanh):** Cổ họng không rung ➔ Đuôi -ed phát âm là **/t/** (cùng tính chất vô thanh).
+- **Âm /t/ hoặc /d/:** Để tránh dính 2 âm giống nhau liền kề ➔ Chèn thêm nguyên âm /ɪ/ thành **/ɪd/**.
+:::
 
 ---
 
-## I. SƠ ĐỒ CÂU THẦN CHÚ PHÁT ÂM ĐUÔI -ED TRONG 3 GIÂY
+## I. SƠ ĐỒ Mẹo ghi nhớ PHÁT ÂM ĐUÔI -ED 
 
 ```mermaid
 flowchart LR
@@ -21,12 +22,12 @@ flowchart LR
     style B fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#0f172a,font-weight:bold
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style D fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
-    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style E fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
 ```
 
 ---
 
-## II. 3 QUY TẮC PHÁT ÂM "ED" KÈM BỘ THẦN CHÚ TIẾNG VIỆT BẤT HỦ
+## II. 3 QUY TẮC PHÁT ÂM "ED" KÈM Mẹo ghi nhớ bằng tiếng Việt
 
 ### 1. Quy tắc 1: Phát âm là `/ɪd/` (Thần chú: "TIỀN ĐÔ" hoặc "TÌNH ĐẦU")
 - **Dấu hiệu:** Động từ có âm kết thúc là **/t/** hoặc **/d/**.
@@ -65,8 +66,9 @@ flowchart LR
 
 ## III. BẢNG 10 TÍNH TỪ NGOẠI LỆ "VÀNG" (LUÔN PHÁT ÂM LÀ /ɪd/)
 
-> [!RED] **BẪY GÀI 100% CỦA ĐỀ THI TUYỂN SINH VÀO 10:**
-> Các từ dưới đây khi đóng vai trò là **Tính từ (Adjective)** thì đuôi **-ed LUÔN ĐỌC LÀ `/ɪd/`**, bất kể âm phía trước là gì!
+::: danger Lỗi sai thường gặp khi làm bài thi
+Các từ dưới đây khi đóng vai trò là **Tính từ (Adjective)** thì đuôi **-ed LUÔN ĐỌC LÀ `/ɪd/`**, bất kể âm phía trước là gì!
+:::
 
 | Tính từ ngoại lệ | Phiên âm IPA | Dịch nghĩa tiếng Việt | Cụm từ hay gặp trong đề thi |
 | :--- | :--- | :--- | :--- |
@@ -81,29 +83,102 @@ flowchart LR
 | **dogged** | /ˈdɒɡ.ɪd/ | Bền bỉ, kiên cường | *dogged determination* |
 | **wretched** | /ˈretʃ.ɪd/ | Khốn khổ, bất hạnh | *a wretched life* (cuộc đời khốn khổ) |
 
-> [!YELLOW] **LƯU Ý ĐỐI CHIẾU:**
-> Nếu các từ trên dùng như **Động từ thường (Verb)** chia thì quá khứ, ta vẫn áp dụng quy tắc thông thường:
-> - *He aged quickly* ➔ đọc là `/eɪdʒd/` (`/d/`).
-> - *He learned English well* ➔ đọc là `/lɜːnd/` (`/d/`).
+::: warning LƯU Ý ĐỐI CHIẾU
+Nếu các từ trên dùng như **Động từ thường (Verb)** chia thì quá khứ, ta vẫn áp dụng quy tắc thông thường:
+- *He aged quickly* ➔ đọc là `/eɪdʒd/` (`/d/`).
+- *He learned English well* ➔ đọc là `/lɜːnd/` (`/d/`).
+:::
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 Chọn từ có phần đuôi -ed phát âm khác với các từ còn lại:
 
-1. A. want**ed** | B. decid**ed** | C. play**ed** | D. visit**ed**
-2. A. cook**ed** | B. fix**ed** | C. wash**ed** | D. clean**ed**
-3. A. stopp**ed** | B. watch**ed** | C. laugh**ed** | D. stay**ed**
-4. A. nak**ed** | B. look**ed** | C. book**ed** | D. danc**ed**
-5. A. clos**ed** | B. open**ed** | C. help**ed** | D. lov**ed**
-6. A. wick**ed** | B. hop**ed** | C. cross**ed** | D. miss**ed**
-7. A. invit**ed** | B. start**ed** | C. listen**ed** | D. want**ed**
-8. A. cough**ed** | B. breath**ed** | C. promis**ed** | D. pass**ed**
-9. A. learn**ed** (adj) | B. talk**ed** | C. dress**ed** | D. lik**ed**
-10. A. sacred**ly** (sacred) | B. wash**ed** | C. look**ed** | D. wish**ed**
+<QuizItem
+  :number="1"
+  question=""
+  options="A. want**ed** | B. decid**ed** | C. play**ed** | D. visit**ed**"
+  correct="C"
+  explanation=". Đáp án C (played):** `played` phát âm là `/d/`, các từ còn lại kết thúc bằng `/t, d/` nên phát âm là `/ɪd/` (Thần chú TIỀN ĐÔ)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question=""
+  options="A. cook**ed** | B. fix**ed** | C. wash**ed** | D. clean**ed**"
+  correct="D"
+  explanation=". Đáp án D (cleaned):** `cleaned` phát âm là `/d/`, các từ còn lại kết thúc bằng k, x, sh nên phát âm là `/t/` (Thần chú KHI SANG SÔNG PHẢI CHỜ PHÀ)."
+/>
+
+<QuizItem
+  :number="3"
+  question=""
+  options="A. stopp**ed** | B. watch**ed** | C. laugh**ed** | D. stay**ed**"
+  correct="D"
+  explanation=". Đáp án D (stayed):** `stayed` phát âm là `/d/`, các từ còn lại kết thúc bằng p, ch, gh nên phát âm là `/t/`."
+/>
+
+<QuizItem
+  :number="4"
+  question=""
+  options="A. nak**ed** | B. look**ed** | C. book**ed** | D. danc**ed**"
+  correct="A"
+  explanation=". Đáp án A (naked):** `naked` là tính từ ngoại lệ phát âm là `/ɪd/` (`/ˈneɪ.kɪd/`), các từ còn lại phát âm là `/t/`."
+/>
+
+<QuizItem
+  :number="5"
+  question=""
+  options="A. clos**ed** | B. open**ed** | C. help**ed** | D. lov**ed**"
+  correct="C"
+  explanation=". Đáp án C (helped):** `helped` phát âm là `/t/`, các từ còn lại phát âm là `/d/`."
+/>
+
+<QuizItem
+  :number="6"
+  question=""
+  options="A. wick**ed** | B. hop**ed** | C. cross**ed** | D. miss**ed**"
+  correct="A"
+  explanation=". Đáp án A (wicked):** `wicked` là tính từ ngoại lệ phát âm là `/ɪd/` (`/ˈwɪk.ɪd/`), các từ còn lại phát âm là `/t/`."
+/>
+
+<QuizItem
+  :number="7"
+  question=""
+  options="A. invit**ed** | B. start**ed** | C. listen**ed** | D. want**ed**"
+  correct="C"
+  explanation=". Đáp án C (listened):** `listened` phát âm là `/d/`, các từ còn lại phát âm là `/ɪd/`."
+/>
+
+<QuizItem
+  :number="8"
+  question=""
+  options="A. cough**ed** | B. breath**ed** | C. promis**ed** | D. pass**ed**"
+  correct="B"
+  explanation=". Đáp án B (breathed):** `breathed` kết thúc bằng âm `/ð/` (hữu thanh) nên phát âm là `/d/`, các từ còn lại phát âm là `/t/`."
+/>
+
+<QuizItem
+  :number="9"
+  question=""
+  options="A. learn**ed** (adj) | B. talk**ed** | C. dress**ed** | D. lik**ed**"
+  correct="A"
+  explanation=". Đáp án A (learned):** Khi là tính từ (*learned professor*), phát âm ngoại lệ là `/ɪd/` (`/ˈlɜː.nɪd/`), các từ còn lại phát âm là `/t/`."
+/>
+
+<QuizItem
+  :number="10"
+  question=""
+  options="A. sacred**ly** (sacred) | B. wash**ed** | C. look**ed** | D. wish**ed**"
+  correct="A"
+  explanation=". Đáp án A (sacred):** Tính từ ngoại lệ `sacred` phát âm là `/ɪd/` (`/ˈseɪ.krɪd/`), các từ còn lại phát âm là `/t/`."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án C (played):** `played` phát âm là `/d/`, các từ còn lại kết thúc bằng `/t, d/` nên phát âm là `/ɪd/` (Thần chú TIỀN ĐÔ).
 **2. Đáp án D (cleaned):** `cleaned` phát âm là `/d/`, các từ còn lại kết thúc bằng k, x, sh nên phát âm là `/t/` (Thần chú KHI SANG SÔNG PHẢI CHỜ PHÀ).
 **3. Đáp án D (stayed):** `stayed` phát âm là `/d/`, các từ còn lại kết thúc bằng p, ch, gh nên phát âm là `/t/`.
@@ -114,4 +189,5 @@ Chọn từ có phần đuôi -ed phát âm khác với các từ còn lại:
 **8. Đáp án B (breathed):** `breathed` kết thúc bằng âm `/ð/` (hữu thanh) nên phát âm là `/d/`, các từ còn lại phát âm là `/t/`.
 **9. Đáp án A (learned):** Khi là tính từ (*learned professor*), phát âm ngoại lệ là `/ɪd/` (`/ˈlɜː.nɪd/`), các từ còn lại phát âm là `/t/`.
 **10. Đáp án A (sacred):** Tính từ ngoại lệ `sacred` phát âm là `/ɪd/` (`/ˈseɪ.krɪd/`), các từ còn lại phát âm là `/t/`.
-+++
+
+</details>

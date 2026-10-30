@@ -1,8 +1,9 @@
-# CHUYÊN ĐỀ 2: ĐỘNG TỪ KHUYẾT THIẾU (MODAL VERBS MASTERY) ÔN THI VÀO 10
+# Chuyên Đề 2: Động Từ Khuyết Thiếu (Modal Verbs)
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Động từ khuyết thiếu (Modal Verbs: *can, could, may, might, must, should, have to, needn't*) không diễn tả một hành động vật lý cụ thể, mà dùng để biểu thị **thái độ của người nói** đối với hành động đó: **Mức độ chắc chắn**, **Khả năng**, **Sự cho phép**, **Sự bắt buộc** hoặc **Lời khuyên**.
-> Nguyên tắc ngữ pháp bất biến: **`S + MODAL VERB + V-INF (nguyên mẫu không chia)`**.
+::: info Kiến thức trọng tâm
+Động từ khuyết thiếu (Modal Verbs: *can, could, may, might, must, should, have to, needn't*) không diễn tả một hành động vật lý cụ thể, mà dùng để biểu thị **thái độ của người nói** đối với hành động đó: **Mức độ chắc chắn**, **Khả năng**, **Sự cho phép**, **Sự bắt buộc** hoặc **Lời khuyên**.
+Nguyên tắc ngữ pháp bất biến: **`S + MODAL VERB + V-INF (nguyên mẫu không chia)`**.
+:::
 
 ---
 
@@ -16,17 +17,17 @@ flowchart LR
     A --> E["Không cần thiết<br/>NEEDN'T / DON'T HAVE TO"]
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
-    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d,font-weight:bold
+    style D fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#881337,font-weight:bold
     style E fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
 ```
 
 ---
 
-## II. MA TRẬN PHÂN BIỆT CÁC CẶP MODAL VERBS HAY GÀI BẪY NHẤT
+## II. MA TRẬN PHÂN BIỆT CÁC CẶP MODAL VERBS thường gây nhầm lẫn nhất
 
-| Nhóm chức năng | Động từ & Công thức | Bản chất khác biệt & Ngữ cảnh | Ví dụ minh họa thực chiến |
+| Nhóm chức năng | Động từ & Công thức | Bản chất khác biệt & Ngữ cảnh | Ví dụ minh họa luyện tập |
 | :--- | :--- | :--- | :--- |
 | **1. Khả năng & Xin phép** | **`CAN`** vs. **`COULD`** | `CAN`: Khả năng ở hiện tại.<br>`COULD`: Khả năng trong quá khứ, hoặc lời nhờ vả lịch sự. | *She **can speak** three languages.*<br>***Could you please lend** me your pen?* |
 | **2. Dự đoán có thể xảy ra** | **`MAY`** vs. **`MIGHT`** | Diễn tả việc có thể xảy ra ở hiện tại hoặc tương lai nhưng không chắc chắn (khoảng 30% - 50%). | *Take an umbrella; it **may / might rain** this afternoon.* |
@@ -37,9 +38,10 @@ flowchart LR
 
 ---
 
-## III. 5 CÔNG THỨC VIẾT LẠI CÂU VỚI MODAL VERBS (CHẮC CHẮN RA THI)
+## III. 5 CÔNG THỨC VIẾT LẠI CÂU VỚI MODAL VERBS (thường xuất hiện trong đề thi)
 
-> [!RED] **BẢNG QUY ĐỔI CÂU TƯƠNG ĐƯƠNG VỚI MODAL VERBS:**
+::: danger BẢNG QUY ĐỔI CÂU TƯƠNG ĐƯƠNG VỚI MODAL VERBS
+:::
 
 | Dạng câu gốc trong đề | Công thức viết lại tương đương | Ví dụ chuẩn trong đề thi |
 | :--- | :--- | :--- |
@@ -51,30 +53,94 @@ flowchart LR
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
-1. You ______ drive on the left side of the road in Vietnam; it is strictly illegal.
-   `A. mustn't` | `B. needn't` | `C. shouldn't` | `D. may not`
-2. Tomorrow is a national holiday, so we ______ go to school.
-   `A. mustn't` | `B. don't have to` | `C. couldn't` | `D. shouldn't`
-3. Look at those dark clouds! It ______ rain in a few minutes.
-   `A. should` | `B. might` | `C. must` | `D. will`
-4. "______ you please pass me the salt, Lan?" asked Tom.
-   `A. Should` | `B. Must` | `C. Could` | `D. Shall`
-5. If you want to improve your pronunciation, you ______ practice speaking English every day.
-   `A. had to` | `B. ought` | `C. should` | `D. might`
-6. You ______ touch that bare wire; it is extremely dangerous!
-   `A. don't need to` | `B. mustn't` | `C. couldn't` | `D. wouldn't`
-7. It's an informal party, so you ______ wear a suit and tie.
-   `A. mustn't` | `B. needn't` | `C. can't` | `D. couldn't`
-8. All passengers ______ fasten their seat belts when the airplane is taking off.
-   `A. may` | `B. must` | `C. can` | `D. could`
-9. My grandfather ______ speak four foreign languages when he was young.
-   `A. can` | `B. could` | `C. might` | `D. should`
-10. *Viết lại câu:* It is not necessary for you to complete this task today.
-   ➔ *Viết lại:* `You don't...`
+<QuizItem
+  :number="1"
+  question="You ______ drive on the left side of the road in Vietnam; it is strictly illegal."
+  options="A. mustn't | B. needn't | C. shouldn't | D. may not"
+  correct="A"
+  explanation=". Đáp án A (mustn't):** Quy định luật pháp cấm đoán (`strictly illegal`) ➔ dùng `mustn't` (cấm)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="Tomorrow is a national holiday, so we ______ go to school."
+  options="A. mustn't | B. don't have to | C. couldn't | D. shouldn't"
+  correct="B"
+  explanation=". Đáp án B (don't have to):** Ngày nghỉ lễ thì không cần thiết phải đi học (`don't have to` = `needn't`)."
+/>
+
+<QuizItem
+  :number="3"
+  question="Look at those dark clouds! It ______ rain in a few minutes."
+  options="A. should | B. might | C. must | D. will"
+  correct="B"
+  explanation=". Đáp án B (might):** Dự đoán có thể xảy ra nhưng không chắc chắn ➔ dùng `might` (hoặc `may`)."
+/>
+
+<QuizItem
+  :number="4"
+  question="&quot;______ you please pass me the salt, Lan?&quot; asked Tom."
+  options="A. Should | B. Must | C. Could | D. Shall"
+  correct="C"
+  explanation=". Đáp án C (Could):** Lời yêu cầu, nhờ vả lịch sự: `Could you please + V-inf?`."
+/>
+
+<QuizItem
+  :number="5"
+  question="If you want to improve your pronunciation, you ______ practice speaking English every day."
+  options="A. had to | B. ought | C. should | D. might"
+  correct="C"
+  explanation=". Đáp án C (should):** Lời khuyên nên làm gì: `should + V-inf`."
+/>
+
+<QuizItem
+  :number="6"
+  question="You ______ touch that bare wire; it is extremely dangerous!"
+  options="A. don't need to | B. mustn't | C. couldn't | D. wouldn't"
+  correct="B"
+  explanation=". Đáp án B (mustn't):** Nguy hiểm tính mạng ➔ cấm tuyệt đối chạm vào dây điện trần (`mustn't`)."
+/>
+
+<QuizItem
+  :number="7"
+  question="It's an informal party, so you ______ wear a suit and tie."
+  options="A. mustn't | B. needn't | C. can't | D. couldn't"
+  correct="B"
+  explanation=". Đáp án B (needn't):** Bữa tiệc thân mật không trang trọng ➔ không cần thiết phải mặc comple cà vạt (`needn't wear`)."
+/>
+
+<QuizItem
+  :number="8"
+  question="All passengers ______ fasten their seat belts when the airplane is taking off."
+  options="A. may | B. must | C. can | D. could"
+  correct="B"
+  explanation=". Đáp án B (must):** Quy định an toàn hàng không bắt buộc mọi hành khách phải thắt dây an toàn ➔ dùng `must`."
+/>
+
+<QuizItem
+  :number="9"
+  question="My grandfather ______ speak four foreign languages when he was young."
+  options="A. can | B. could | C. might | D. should"
+  correct="B"
+  explanation=". Đáp án B (could):** Diễn tả năng lực, khả năng trong quá khứ (`when he was young`) ➔ dùng `could`."
+/>
+
+<QuizItem
+  :number="10"
+  type="transform"
+  question="*Viết lại câu:* It is not necessary for you to complete this task today.
+   ➔ *Viết lại:* `You don't...`"
+  targetPrompt=""
+  sampleAnswer="You don't have to complete this task today"
+  explanation=". Đáp án:** `You don't have to complete this task today` (hoặc `You don't need to complete this task today`). Cấu trúc `It is not necessary for S to V` chuyển thành `S + don't have to / needn't + V-inf`."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án A (mustn't):** Quy định luật pháp cấm đoán (`strictly illegal`) ➔ dùng `mustn't` (cấm).
 **2. Đáp án B (don't have to):** Ngày nghỉ lễ thì không cần thiết phải đi học (`don't have to` = `needn't`).
 **3. Đáp án B (might):** Dự đoán có thể xảy ra nhưng không chắc chắn ➔ dùng `might` (hoặc `may`).
@@ -85,4 +151,5 @@ flowchart LR
 **8. Đáp án B (must):** Quy định an toàn hàng không bắt buộc mọi hành khách phải thắt dây an toàn ➔ dùng `must`.
 **9. Đáp án B (could):** Diễn tả năng lực, khả năng trong quá khứ (`when he was young`) ➔ dùng `could`.
 **10. Đáp án:** `You don't have to complete this task today` (hoặc `You don't need to complete this task today`). Cấu trúc `It is not necessary for S to V` chuyển thành `S + don't have to / needn't + V-inf`.
-+++
+
+</details>

@@ -56,7 +56,7 @@ export function useExam(totalQuestions: number = 36) {
   const rank = computed(() => {
     const sc = parseFloat(score10.value)
     if (sc >= 8.5) return { title: 'Xuất Sắc 🏆', class: 'rank-excellent', msg: 'Kiến thức rất vững vàng! Sẵn sàng chinh phục trường chuyên / lớp chọn.' }
-    if (sc >= 7.0) return { title: 'Giỏi ⭐', class: 'rank-good', msg: 'Kết quả rất tốt! Hãy soát kỹ các câu bẫy từ vựng để đạt điểm 9+.' }
+    if (sc >= 7.0) return { title: 'Giỏi ⭐', class: 'rank-good', msg: 'Kết quả rất tốt! Hãy soát kỹ các câu lỗi sai từ vựng để đạt điểm 9+.' }
     if (sc >= 5.0) return { title: 'Khá 👍', class: 'rank-average', msg: 'Đã nắm được ngữ pháp cơ bản. Cần luyện thêm kỹ năng đọc hiểu và viết lại câu.' }
     return { title: 'Cần Cố Gắng 📚', class: 'rank-needs-work', msg: 'Nên xem lại các chuyên đề lý thuyết trọng tâm trước khi làm lại đề.' }
   })

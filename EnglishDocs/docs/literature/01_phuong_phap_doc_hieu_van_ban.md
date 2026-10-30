@@ -1,7 +1,7 @@
 ---
 title: "Chuyên Đề 1: Phương Pháp Đạt Điểm Tối Đa Phần Đọc Hiểu Văn Bản"
 category: "Ngữ Văn 9 - GDPT 2018"
-description: "Cẩm nang toàn diện giải quyết 4 cấp độ câu hỏi Đọc hiểu (Nhận biết, Thông hiểu, Vận dụng, Vận dụng cao) với ngữ liệu ngoài sách giáo khoa."
+description: "Tài liệu toàn diện giải quyết 4 cấp độ câu hỏi Đọc hiểu (Nhận biết, Thông hiểu, Vận dụng, Vận dụng cao) với ngữ liệu ngoài sách giáo khoa."
 ---
 
 # 📖 Chuyên Đề 1: Phương Pháp Đạt Điểm Tối Đa Phần Đọc Hiểu Văn Bản
@@ -30,7 +30,7 @@ description: "Cẩm nang toàn diện giải quyết 4 cấp độ câu hỏi Đ
 
 ## II. BÍ QUYẾT XỬ LÝ TỪNG CẤP ĐỘ CÂU HỎI
 
-### 1. Cấp độ 1: Nhận biết (Ăn trọn điểm trong 2 phút)
+### 1. Cấp độ 1: Nhận biết (Đạt điểm tối đa trong 2 phút)
 
 #### a) Nhận biết Phương thức biểu đạt (PTBĐ)
 - **Tự sự:** Kể lại diễn biến chuỗi sự việc, có nhân vật, có cốt truyện, lời thoại.
@@ -39,16 +39,24 @@ description: "Cẩm nang toàn diện giải quyết 4 cấp độ câu hỏi Đ
 - **Nghị luận:** Trình bày luận điểm, luận cứ, dẫn chứng để thuyết phục người đọc về một quan điểm, đạo lý, hiện tượng.
 - **Thuyết minh:** Cung cấp tri thức khách quan, chuẩn xác về đặc điểm, nguồn gốc, quy trình của sự vật/hiện tượng.
 
-> ⚠️ **Mẹo thi:** Nếu đề hỏi *"Xác định phương thức biểu đạt **chính**"* $ightarrow$ Chỉ trả lời **DUY NHẤT 1** phương thức. Nếu đề hỏi *"Phương thức biểu đạt"* $ightarrow$ Có thể nêu 2-3 phương thức.
+> ⚠️ **Mẹo thi:** Nếu đề hỏi *"Xác định phương thức biểu đạt **chính**"* $
+ightarrow$ Chỉ trả lời **DUY NHẤT 1** phương thức. Nếu đề hỏi *"Phương thức biểu đạt"* $
+ightarrow$ Có thể nêu 2-3 phương thức.
 
 #### b) Nhận biết Thể thơ
 - Đếm số chữ trong từng dòng thơ:
-  - 4 chữ $ightarrow$ Thể 4 chữ.
-  - 5 chữ $ightarrow$ Thể 5 chữ (ngũ ngôn).
-  - 7 chữ $ightarrow$ Thể 7 chữ (thất ngôn).
-  - 8 chữ $ightarrow$ Thể 8 chữ.
-  - 6/8 luân phiên $ightarrow$ Thể Lục bát.
-  - Số chữ các câu không đều nhau, ngắt nhịp linh hoạt $ightarrow$ **Thể Tự do** (phổ biến nhất trong đề thi mới).
+  - 4 chữ $
+ightarrow$ Thể 4 chữ.
+  - 5 chữ $
+ightarrow$ Thể 5 chữ (ngũ ngôn).
+  - 7 chữ $
+ightarrow$ Thể 7 chữ (thất ngôn).
+  - 8 chữ $
+ightarrow$ Thể 8 chữ.
+  - 6/8 luân phiên $
+ightarrow$ Thể Lục bát.
+  - Số chữ các câu không đều nhau, ngắt nhịp linh hoạt $
+ightarrow$ **Thể Tự do** (phổ biến nhất trong đề thi mới).
 
 ---
 

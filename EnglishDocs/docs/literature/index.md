@@ -1,6 +1,6 @@
 ---
 title: "Trung Tâm Ôn Luyện Ngữ Văn 9 - Tuyển Sinh Vào 10"
-description: "Cẩm nang toàn diện ôn thi vào lớp 10 môn Ngữ văn theo chương trình GDPT 2018 (Kết Nối Tri Thức, Cánh Diều, Chân Trời Sáng Tạo). Đọc hiểu văn bản, Nghị luận xã hội, Nghị luận văn học và Đề thi mẫu."
+description: "Tài liệu toàn diện ôn thi vào lớp 10 môn Ngữ văn theo chương trình GDPT 2018 (Kết Nối Tri Thức, Cánh Diều, Chân Trời Sáng Tạo). Đọc hiểu văn bản, Nghị luận xã hội, Nghị luận văn học và Đề thi mẫu."
 ---
 
 # 📖 Trung Tâm Ôn Luyện Ngữ Văn 9 - Tuyển Sinh Vào 10
@@ -42,7 +42,7 @@ description: "Cẩm nang toàn diện ôn thi vào lớp 10 môn Ngữ văn theo
   <div class="pdf-card">
     <div class="pdf-card-badge">Chuyên đề 1 • Kỹ năng 4.0 điểm</div>
     <h3 class="pdf-card-title">Phương pháp xử lý Đọc hiểu văn bản</h3>
-    <p class="pdf-card-desc">Bí quyết nhận diện thể loại, xác định phương thức biểu đạt, biện pháp tu từ, phân tích tác dụng và cách rút ra thông điệp cuộc sống đạt điểm tối đa.</p>
+    <p class="pdf-card-desc">Phương pháp nhận diện thể loại, xác định phương thức biểu đạt, biện pháp tu từ, phân tích tác dụng và cách rút ra thông điệp cuộc sống đạt điểm tối đa.</p>
     <div class="pdf-card-actions">
       <a href="./01_phuong_phap_doc_hieu_van_ban" class="pdf-btn view-btn">Học chuyên đề ↗</a>
     </div>
@@ -50,7 +50,7 @@ description: "Cẩm nang toàn diện ôn thi vào lớp 10 môn Ngữ văn theo
 
   <div class="pdf-card">
     <div class="pdf-card-badge">Chuyên đề 2 • Đoạn văn 200 chữ</div>
-    <h3 class="pdf-card-title">Cẩm nang Nghị luận xã hội</h3>
+    <h3 class="pdf-card-title">Tài liệu Nghị luận xã hội</h3>
     <p class="pdf-card-desc">Công thức 4 bước viết đoạn văn nghị luận 200 chữ: Mở đoạn ấn tượng, Giải thích, Bàn luận & Dẫn chứng tiêu biểu, Bài học nhận thức và hành động.</p>
     <div class="pdf-card-actions">
       <a href="./02_chuyen_de_nghi_luan_xa_hoi" class="pdf-btn view-btn">Học chuyên đề ↗</a>

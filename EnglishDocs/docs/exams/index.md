@@ -5,7 +5,7 @@ description: "Kho 25 đề thi thử và đề thi chính thức vào lớp 10 T
 
 # 🎯 TRUNG TÂM LUYỆN ĐỀ THI TUYỂN SINH VÀO 10
 
-Chào mừng bạn đến với **Module Luyện Đề Thi Thực Chiến**. Toàn bộ 25 đề thi dưới đây được số hóa trực tiếp từ đề thi chính thức của các Sở GD&ĐT và kho đề thi tuyển sinh trọng điểm, tích hợp **đồng hồ bấm giờ thi thật**, **nút loa phát âm IPA**, **bảng tính điểm thời gian thực (Exam Scoreboard)**, **chấm điểm trắc nghiệm tức thời** và **barem câu viết lại chuẩn cấu trúc**.
+Chào mừng bạn đến với **phần Luyện Đề Thi**. Toàn bộ 25 đề thi dưới đây được số hóa trực tiếp từ đề thi chính thức của các Sở GD&ĐT và kho đề thi tuyển sinh trọng điểm, tích hợp **đồng hồ bấm giờ thi thật**, **nút loa phát âm IPA**, **bảng tính điểm thời gian thực (Exam Scoreboard)**, **chấm điểm trắc nghiệm tức thời** và **barem câu viết lại chuẩn cấu trúc**.
 
 ---
 
@@ -92,7 +92,7 @@ Hệ thống đề ôn thi định kỳ bám sát phân phối chương trình S
 
 Các bộ đề rèn luyện bám sát ma trận cấu trúc 36 câu phân hóa từ nhận biết, thông hiểu đến vận dụng cao theo định dạng tuyển sinh mới của tỉnh Quảng Ngãi:
 
-| Mã Đề Thi | Tên Đề Thi | Thời Gian | Số Câu | Trạng Thái | Link Thực Chiến |
+| Mã Đề Thi | Tên Đề Thi | Thời Gian | Số Câu | Trạng Thái | Làm bài thi |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **QNG-36-01** | Đề Luyện Thi Vào 10 Form 36 Câu - Test 01 | 60 phút | 36 câu | Sẵn sàng | [Vào làm bài ✍️](./de_36_cau_test_01) |
 | **QNG-36-02** | Đề Luyện Thi Vào 10 Form 36 Câu - Test 02 | 60 phút | 36 câu | Sẵn sàng | [Vào làm bài ✍️](./de_36_cau_test_02) |
@@ -111,7 +111,7 @@ Các bộ đề rèn luyện bám sát ma trận cấu trúc 36 câu phân hóa 
 
 Kho đề rèn luyện 45 câu toàn diện ngữ âm, cấu trúc ngữ pháp chuyên sâu, đọc hiểu văn hóa và biến đổi câu nâng cao:
 
-| Mã Đề Thi | Tên Đề Thi | Thời Gian | Số Câu | Trạng Thái | Link Thực Chiến |
+| Mã Đề Thi | Tên Đề Thi | Thời Gian | Số Câu | Trạng Thái | Làm bài thi |
 | :---: | :--- | :---: | :---: | :---: | :---: |
 | **STD-45-01** | Đề Luyện Thi Chuẩn Tuyển Sinh Vào 10 - Test 01 | 60 phút | 25 câu | Sẵn sàng | [Vào làm bài ✍️](./de_45_cau_test_01) |
 | **STD-45-02** | Đề Luyện Thi Chuẩn Tuyển Sinh Vào 10 - Test 02 | 60 phút | 45 câu | Sẵn sàng | [Vào làm bài ✍️](./de_45_cau_test_02) |

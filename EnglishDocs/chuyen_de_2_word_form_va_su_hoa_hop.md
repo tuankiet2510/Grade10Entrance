@@ -1,12 +1,13 @@
-# CHUYÊN ĐỀ 2: CẤU TẠO TỪ (WORD FORM) & SỰ HÒA HỢP CHỦ - VỊ (SUBJECT-VERB AGREEMENT)
+# Chuyên Đề 2: Cấu Tạo Từ (Word Form) Và Sự Hòa Hợp Chủ - Vị
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> - **Cấu tạo từ (Word Form):** Tiếng Anh xây dựng nghĩa từ gốc từ (Root) thông qua **Tiền tố (Prefix - đổi nghĩa)** và **Hậu tố (Suffix - đổi từ loại N/V/Adj/Adv)**. Muốn làm đúng dạng này, bạn không cần tra từ điển hết mọi từ mà phải dùng kỹ thuật **Bắt mạch cú pháp (Syntax Check)** để xác định ô trống cần loại từ nào trước khi biến đổi.
-> - **Sự hòa hợp Chủ - Vị (Subject-Verb Agreement):** Động từ số ít hay số nhiều phụ thuộc vào **Chủ ngữ cốt lõi (Head Noun)**, tuyệt đối không bị đánh lừa bởi các thành phần phụ chêm xen (*along with, as well as, of...*).
+::: info Kiến thức trọng tâm
+- **Cấu tạo từ (Word Form):** Tiếng Anh xây dựng nghĩa từ gốc từ (Root) thông qua **Tiền tố (Prefix - đổi nghĩa)** và **Hậu tố (Suffix - đổi từ loại N/V/Adj/Adv)**. Muốn làm đúng dạng này, bạn không cần tra từ điển hết mọi từ mà phải dùng kỹ thuật **Bắt mạch cú pháp (Syntax Check)** để xác định ô trống cần loại từ nào trước khi biến đổi.
+- **Sự hòa hợp Chủ - Vị (Subject-Verb Agreement):** Động từ số ít hay số nhiều phụ thuộc vào **Chủ ngữ cốt lõi (Head Noun)**, tuyệt đối không bị đánh lừa bởi các thành phần phụ chêm xen (*along with, as well as, of...*).
+:::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC BẮT MẠCH TỪ LOẠI (WORD FORM)
+## I. Sơ đồ 3 bước Xác định từ loại trong câu (WORD FORM)
 
 ```mermaid
 flowchart LR
@@ -21,14 +22,14 @@ flowchart LR
     style C fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style D fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
     style E fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
-    style F fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#7f1d1d,font-weight:bold
+    style F fill:#fee2e2,stroke:#dc2626,stroke-width:2px,color:#881337,font-weight:bold
 ```
 
 ---
 
-## II. 4 VỊ TRÍ VÀNG NHẬN DIỆN TỪ LOẠI TRONG CÂU
+## II. 4 Vị trí thường gặp NHẬN DIỆN TỪ LOẠI TRONG CÂU
 
-| Từ loại | Ký hiệu | Các vị trí xuất hiện đặc trưng trong câu | Ví dụ minh họa thực chiến |
+| Từ loại | Ký hiệu | Các vị trí xuất hiện đặc trưng trong câu | Ví dụ minh họa luyện tập |
 | :--- | :--- | :--- | :--- |
 | **DANH TỪ** | `(N)` | 1. Đứng đầu câu làm **Chủ ngữ (S)**.<br>2. Sau mạo từ: `a, an, the`.<br>3. Sau tính từ sở hữu: `my, his, her, their...`.<br>4. Sau từ chỉ số lượng: `many, much, some, any, few, a lot of...`.<br>5. Đứng sau **Tính từ** (`Adj + N`).<br>6. Đứng sau **Giới từ** (`in, on, at, about, with...`). | *The **development** (`develop`) of renewable energy is vital.*<br>*She has a wide **knowledge** (`know`) of English literature.* |
 | **TÍNH TỪ** | `(Adj)` | 1. Đứng **trước Danh từ** để bổ nghĩa (`Adj + N`).<br>2. Đứng sau động từ liên kết (**Linking verbs**): `to be, seem, look, feel, become, taste, sound, smell, get`.<br>3. Cấu trúc đặc biệt: `make / find / keep + O + Adj`. | *It was a **successful** (`success`) presentation.*<br>*Online learning makes students more **independent** (`depend`).* |
@@ -37,7 +38,7 @@ flowchart LR
 
 ---
 
-## III. BẢNG TRA HẬU TỐ (SUFFIXES) & TIỀN TỐ (PREFIXES) TỦ ÔN VÀO 10
+## III. BẢNG TRA HẬU TỐ (SUFFIXES) & TIỀN TỐ (PREFIXES) thường gặp ôn vào 10
 
 ### 1. Các Hậu tố đổi từ loại thường gặp
 - **Tạo Danh từ (Noun Suffixes):**
@@ -56,13 +57,14 @@ flowchart LR
   - `-ify`: *beautify, simplify, purify*.
 
 ### 2. Tiền tố mang nghĩa phủ định (Negative Prefixes)
-> [!RED] **QUY TẮC GHÉP TIỀN TỐ PHỦ ĐỊNH CHÍNH XÁC:**
-> - **`IM-`**: Đi trước từ bắt đầu bằng chữ **`m`** hoặc **`p`** (*impatient, impossible, impolite*).
-> - **`IL-`**: Đi trước từ bắt đầu bằng chữ **`l`** (*illegal, illiterate, illogical*).
-> - **`IR-`**: Đi trước từ bắt đầu bằng chữ **`r`** (*irresponsible, irregular, irrelevant*).
-> - **`DIS-`**: Thường đi với động từ/tính từ (*disappear, disagree, dishonest, disable*).
-> - **`UN-`**: Tiền tố phổ biến nhất (*unhappy, unfriendly, uncomfortable, unnecessary*).
-> - **`IN-`**: Thường gặp trong các từ gốc Latinh (*inexpensive, convenient ➔ inconvenient, direct ➔ indirect*).
+::: danger QUY TẮC GHÉP TIỀN TỐ PHỦ ĐỊNH CHÍNH XÁC
+- **`IM-`**: Đi trước từ bắt đầu bằng chữ **`m`** hoặc **`p`** (*impatient, impossible, impolite*).
+- **`IL-`**: Đi trước từ bắt đầu bằng chữ **`l`** (*illegal, illiterate, illogical*).
+- **`IR-`**: Đi trước từ bắt đầu bằng chữ **`r`** (*irresponsible, irregular, irrelevant*).
+- **`DIS-`**: Thường đi với động từ/tính từ (*disappear, disagree, dishonest, disable*).
+- **`UN-`**: Tiền tố phổ biến nhất (*unhappy, unfriendly, uncomfortable, unnecessary*).
+- **`IN-`**: Thường gặp trong các từ gốc Latinh (*inexpensive, convenient ➔ inconvenient, direct ➔ indirect*).
+:::
 
 ---
 
@@ -88,23 +90,104 @@ CHỦ NGỮ SỐ NHIỀU ──► ĐỘNG TỪ SỐ NHIỀU (are, were, have, V
 
 ---
 
-## V. 10 CÂU BÀI TẬP THỰC CHIẾN (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU BÀI TẬP LUYỆN TẬP (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 ### Phần 1: Biến đổi từ loại trong ngoặc (Word Form - 5 câu)
-1. Solar energy is not only plentiful and clean but also completely ____________. (`RENEW`)
-2. The rapid growth of industrial zones has caused severe environmental ____________. (`POLLUTE`)
-3. My brother drives very ____________; he has never been involved in any accident. (`CARE`)
-4. Plastic bags are difficult to dissolve, so they are harmful to the ____________. (`ENVIRONMENT`)
-5. We were deeply impressed by the warm ____________ of the local people in Quang Ngai. (`FRIEND`)
 
-### Phần 2: Chia động từ hòa hợp Chủ - Vị (Subject-Verb Agreement - 5 câu)
-6. The news about the typhoon on television last night ____________ (`be`) very alarming.
-7. Neither the manager nor his assistants ____________ (`agree`) with the new proposal.
-8. The number of high school graduates applying for technical colleges ____________ (`be`) rising this year.
-9. Reading English books every day ____________ (`help`) expand your vocabulary significantly.
-10. Mr. Ba, along with his two sons, ____________ (`have`) traveled to Da Nang for the seminar.
+<QuizItem
+  :number="1"
+  type="transform"
+  question="Solar energy is not only plentiful and clean but also completely ____________. (`RENEW`)"
+  targetPrompt=""
+  sampleAnswer="completely"
+  explanation=". renewable:** Sau trạng từ `completely` và liên từ `not only... but also` cần một tính từ (`Adj`) song song với `clean`. `RENEW` ➔ Tính từ: `renewable` (*có thể tái tạo*)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  type="transform"
+  question="The rapid growth of industrial zones has caused severe environmental ____________. (`POLLUTE`)"
+  targetPrompt=""
+  sampleAnswer="environmental"
+  explanation=". pollution:** Sau tính từ `environmental` cần một danh từ (`N`). `POLLUTE` ➔ Danh từ: `pollution` (*sự ô nhiễm*)."
+/>
+
+<QuizItem
+  :number="3"
+  type="transform"
+  question="My brother drives very ____________; he has never been involved in any accident. (`CARE`)"
+  targetPrompt=""
+  sampleAnswer="drives"
+  explanation=". carefully:** Bổ nghĩa cho động từ thường `drives`, vế sau nói *&quot;chưa từng gặp tai nạn&quot;* ➔ Cần trạng từ tích cực `carefully` (*cẩn thận*)."
+/>
+
+<QuizItem
+  :number="4"
+  type="transform"
+  question="Plastic bags are difficult to dissolve, so they are harmful to the ____________. (`ENVIRONMENT`)"
+  targetPrompt=""
+  sampleAnswer="the"
+  explanation=". environment:** Sau mạo từ `the` cần một danh từ (`N`). `ENVIRONMENT` ➔ giữ nguyên dạng danh từ `environment` (*môi trường*)."
+/>
+
+<QuizItem
+  :number="5"
+  type="transform"
+  question="We were deeply impressed by the warm ____________ of the local people in Quang Ngai. (`FRIEND`)"
+  targetPrompt=""
+  sampleAnswer="warm"
+  explanation=". friendliness:** Sau tính từ `warm` cần một danh từ chỉ tính chất (`warm friendliness` = *sự thân thiện ấm áp*). Lưu ý không dùng `friendship` (*tình bạn*)."
+/>
+
+<QuizItem
+  :number="6"
+  type="transform"
+  question="The news about the typhoon on television last night ____________ (`be`) very alarming."
+  targetPrompt=""
+  sampleAnswer="The news"
+  explanation=". was:** `The news` là danh từ số ít (tin tức), kết hợp mốc thời gian quá khứ `last night` ➔ chia `was`."
+/>
+
+<QuizItem
+  :number="7"
+  type="transform"
+  question="Neither the manager nor his assistants ____________ (`agree`) with the new proposal."
+  targetPrompt=""
+  sampleAnswer="Neither... nor..."
+  explanation=". agrees:** Nối bằng `Neither... nor...`, động từ chia theo chủ ngữ gần nhất là `his assistants` (số nhiều) ➔ nếu hiện tại thì chia `agree` (hoặc `agreed` nếu quá khứ). Ở đây giả định thói quen/hiện tại: `agree` (trợ lý số nhiều)."
+/>
+
+<QuizItem
+  :number="8"
+  type="transform"
+  question="The number of high school graduates applying for technical colleges ____________ (`be`) rising this year."
+  targetPrompt=""
+  sampleAnswer="The number of + N(số nhiều)"
+  explanation=". is:** Cấu trúc `The number of + N(số nhiều)` biểu thị số lượng (con số) ➔ luôn chia động từ ở dạng số ít ➔ `is`."
+/>
+
+<QuizItem
+  :number="9"
+  type="transform"
+  question="Reading English books every day ____________ (`help`) expand your vocabulary significantly."
+  targetPrompt=""
+  sampleAnswer="Reading..."
+  explanation=". helps:** Chủ ngữ bắt đầu bằng danh động từ `Reading...` ➔ coi là số ít ➔ chia động từ thêm `-s`: `helps`."
+/>
+
+<QuizItem
+  :number="10"
+  type="transform"
+  question="Mr. Ba, along with his two sons, ____________ (`have`) traveled to Da Nang for the seminar."
+  targetPrompt=""
+  sampleAnswer="along with his two sons"
+  explanation=". has:** Chủ ngữ có thành phần chêm xen `along with his two sons`, động từ chia theo chủ ngữ số 1 là `Mr. Ba` (ngôi thứ 3 số ít) ➔ chia `has`."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. renewable:** Sau trạng từ `completely` và liên từ `not only... but also` cần một tính từ (`Adj`) song song với `clean`. `RENEW` ➔ Tính từ: `renewable` (*có thể tái tạo*).
 **2. pollution:** Sau tính từ `environmental` cần một danh từ (`N`). `POLLUTE` ➔ Danh từ: `pollution` (*sự ô nhiễm*).
 **3. carefully:** Bổ nghĩa cho động từ thường `drives`, vế sau nói *"chưa từng gặp tai nạn"* ➔ Cần trạng từ tích cực `carefully` (*cẩn thận*).
@@ -115,4 +198,5 @@ CHỦ NGỮ SỐ NHIỀU ──► ĐỘNG TỪ SỐ NHIỀU (are, were, have, V
 **8. is:** Cấu trúc `The number of + N(số nhiều)` biểu thị số lượng (con số) ➔ luôn chia động từ ở dạng số ít ➔ `is`.
 **9. helps:** Chủ ngữ bắt đầu bằng danh động từ `Reading...` ➔ coi là số ít ➔ chia động từ thêm `-s`: `helps`.
 **10. has:** Chủ ngữ có thành phần chêm xen `along with his two sons`, động từ chia theo chủ ngữ số 1 là `Mr. Ba` (ngôi thứ 3 số ít) ➔ chia `has`.
-+++
+
+</details>

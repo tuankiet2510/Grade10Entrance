@@ -1,6 +1,6 @@
-# 🎓 Cẩm Nang Ôn Thi Vào 10 - Grade 10 Entrance Portal
+# 🎓 Tài Liệu Ôn Tập Vào Lớp 10 - Grade 10 Entrance Portal
 
-> Hệ thống tài liệu ôn luyện tuyển sinh vào lớp 10 toàn diện, chuẩn hóa theo chương trình GDPT mới (Toán 9 & Tiếng Anh 9). Nền tảng được xây dựng theo kiến trúc **Docs-as-Code** (VitePress + Vue 3), hỗ trợ giao diện responsive tối ưu cho thiết bị di động (iPhone X, iPhone 12/13/14/15, iPad, Desktop) và xuất bản in ấn chuẩn mực.
+> Hệ thống tài liệu ôn tập và đề thi tuyển sinh vào lớp 10 môn Toán, Ngữ văn và Tiếng Anh bám sát chương trình GDPT mới. Nền tảng được xây dựng theo kiến trúc **Docs-as-Code** (VitePress + Vue 3), hỗ trợ giao diện responsive tối ưu cho thiết bị di động (iPhone X, iPhone 12/13/14/15, iPad, Desktop) và in ấn tài liệu rõ ràng, chuẩn mực.
 
 🌐 **Website Trực Tuyến (GitHub Pages):**  
 👉 **[https://tuankiet2510.github.io/Grade10Entrance/](https://tuankiet2510.github.io/Grade10Entrance/)**

@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 1: CÁCH PHÁT ÂM ĐUÔI "ED" BẰNG CÂU THẦN CHÚ & NGOẠI LỆ TÍNH TỪ
+# Chuyên Đề 1: Quy Tắc Phát Âm Đuôi -ed Và Ngoại Lệ Tính Từ
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì Quá khứ và Phân từ 2. Âm thanh thực tế phát ra phụ thuộc vào **Âm cuối cùng (Ending Sound)** của động từ trước khi thêm -ed:
 - **Âm rung (Hữu thanh):** Cổ họng rung ➔ Đuôi -ed phát âm là **/d/** (cùng tính chất rung).
 - **Âm không rung (Vô thanh):** Cổ họng không rung ➔ Đuôi -ed phát âm là **/t/** (cùng tính chất vô thanh).
@@ -9,7 +9,7 @@ Trong tiếng Anh, đuôi **`-ed`** chỉ là hình thái chữ viết cho thì 
 
 ---
 
-## I. SƠ ĐỒ CÂU THẦN CHÚ PHÁT ÂM ĐUÔI -ED TRONG 3 GIÂY
+## I. SƠ ĐỒ Mẹo ghi nhớ PHÁT ÂM ĐUÔI -ED 
 
 ```mermaid
 flowchart LR
@@ -27,7 +27,7 @@ flowchart LR
 
 ---
 
-## II. 3 QUY TẮC PHÁT ÂM "ED" KÈM BỘ THẦN CHÚ TIẾNG VIỆT BẤT HỦ
+## II. 3 QUY TẮC PHÁT ÂM "ED" KÈM Mẹo ghi nhớ bằng tiếng Việt
 
 ### 1. Quy tắc 1: Phát âm là `/ɪd/` (Thần chú: "TIỀN ĐÔ" hoặc "TÌNH ĐẦU")
 - **Dấu hiệu:** Động từ có âm kết thúc là **/t/** hoặc **/d/**.
@@ -66,7 +66,7 @@ flowchart LR
 
 ## III. BẢNG 10 TÍNH TỪ NGOẠI LỆ "VÀNG" (LUÔN PHÁT ÂM LÀ /ɪd/)
 
-::: danger BẪY GÀI 100% CỦA ĐỀ THI TUYỂN SINH VÀO 10
+::: danger Lỗi sai thường gặp khi làm bài thi
 Các từ dưới đây khi đóng vai trò là **Tính từ (Adjective)** thì đuôi **-ed LUÔN ĐỌC LÀ `/ɪd/`**, bất kể âm phía trước là gì!
 :::
 
@@ -91,7 +91,7 @@ Nếu các từ trên dùng như **Động từ thường (Verb)** chia thì qu�
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 Chọn từ có phần đuôi -ed phát âm khác với các từ còn lại:
 

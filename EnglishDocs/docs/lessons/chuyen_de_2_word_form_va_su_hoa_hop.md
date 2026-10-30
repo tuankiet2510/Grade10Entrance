@@ -1,13 +1,13 @@
-# CHUYÊN ĐỀ 2: CẤU TẠO TỪ (WORD FORM) & SỰ HÒA HỢP CHỦ - VỊ (SUBJECT-VERB AGREEMENT)
+# Chuyên Đề 2: Cấu Tạo Từ (Word Form) Và Sự Hòa Hợp Chủ - Vị
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 - **Cấu tạo từ (Word Form):** Tiếng Anh xây dựng nghĩa từ gốc từ (Root) thông qua **Tiền tố (Prefix - đổi nghĩa)** và **Hậu tố (Suffix - đổi từ loại N/V/Adj/Adv)**. Muốn làm đúng dạng này, bạn không cần tra từ điển hết mọi từ mà phải dùng kỹ thuật **Bắt mạch cú pháp (Syntax Check)** để xác định ô trống cần loại từ nào trước khi biến đổi.
 - **Sự hòa hợp Chủ - Vị (Subject-Verb Agreement):** Động từ số ít hay số nhiều phụ thuộc vào **Chủ ngữ cốt lõi (Head Noun)**, tuyệt đối không bị đánh lừa bởi các thành phần phụ chêm xen (*along with, as well as, of...*).
 :::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC BẮT MẠCH TỪ LOẠI (WORD FORM)
+## I. Sơ đồ 3 bước Xác định từ loại trong câu (WORD FORM)
 
 ```mermaid
 flowchart LR
@@ -27,9 +27,9 @@ flowchart LR
 
 ---
 
-## II. 4 VỊ TRÍ VÀNG NHẬN DIỆN TỪ LOẠI TRONG CÂU
+## II. 4 Vị trí thường gặp NHẬN DIỆN TỪ LOẠI TRONG CÂU
 
-| Từ loại | Ký hiệu | Các vị trí xuất hiện đặc trưng trong câu | Ví dụ minh họa thực chiến |
+| Từ loại | Ký hiệu | Các vị trí xuất hiện đặc trưng trong câu | Ví dụ minh họa luyện tập |
 | :--- | :--- | :--- | :--- |
 | **DANH TỪ** | `(N)` | 1. Đứng đầu câu làm **Chủ ngữ (S)**.<br>2. Sau mạo từ: `a, an, the`.<br>3. Sau tính từ sở hữu: `my, his, her, their...`.<br>4. Sau từ chỉ số lượng: `many, much, some, any, few, a lot of...`.<br>5. Đứng sau **Tính từ** (`Adj + N`).<br>6. Đứng sau **Giới từ** (`in, on, at, about, with...`). | *The **development** (`develop`) of renewable energy is vital.*<br>*She has a wide **knowledge** (`know`) of English literature.* |
 | **TÍNH TỪ** | `(Adj)` | 1. Đứng **trước Danh từ** để bổ nghĩa (`Adj + N`).<br>2. Đứng sau động từ liên kết (**Linking verbs**): `to be, seem, look, feel, become, taste, sound, smell, get`.<br>3. Cấu trúc đặc biệt: `make / find / keep + O + Adj`. | *It was a **successful** (`success`) presentation.*<br>*Online learning makes students more **independent** (`depend`).* |
@@ -38,7 +38,7 @@ flowchart LR
 
 ---
 
-## III. BẢNG TRA HẬU TỐ (SUFFIXES) & TIỀN TỐ (PREFIXES) TỦ ÔN VÀO 10
+## III. BẢNG TRA HẬU TỐ (SUFFIXES) & TIỀN TỐ (PREFIXES) thường gặp ôn vào 10
 
 ### 1. Các Hậu tố đổi từ loại thường gặp
 - **Tạo Danh từ (Noun Suffixes):**
@@ -90,7 +90,7 @@ CHỦ NGỮ SỐ NHIỀU ──► ĐỘNG TỪ SỐ NHIỀU (are, were, have, V
 
 ---
 
-## V. 10 CÂU BÀI TẬP THỰC CHIẾN (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU BÀI TẬP LUYỆN TẬP (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 ### Phần 1: Biến đổi từ loại trong ngoặc (Word Form - 5 câu)
 

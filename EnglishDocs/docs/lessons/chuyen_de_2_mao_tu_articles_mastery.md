@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 2: CẨM NANG MẠO TỪ (ARTICLES: A, AN, THE & ZERO ARTICLE) ÔN THI VÀO 10
+# Chuyên Đề 2: Mạo Từ (a, an, the) Và Trường Hợp Không Dùng Mạo Từ
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Mạo từ (Articles) là chiếc **"nhãn dán xác định"** đặt trước danh từ để báo hiệu cho người nghe:
 - **`A / AN` (Mạo từ bất định):** Danh từ này là **chung chung**, người nghe **chưa hề biết** đó là ai/cái gì.
 - **`THE` (Mạo từ xác định):** Cả người nói và người nghe **đều biết rõ 100%** danh từ đó là gì.
@@ -9,7 +9,7 @@ Mạo từ (Articles) là chiếc **"nhãn dán xác định"** đặt trước 
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC CHỌN MẠO TỪ TRONG 3 GIÂY
+## I. Sơ đồ 3 bước chọn mạo từ
 
 ```mermaid
 flowchart LR
@@ -30,7 +30,7 @@ flowchart LR
 
 ---
 
-## II. QUY TẮC SỬ DỤNG MẠO TỪ BẤT ĐỊNH (A / AN) & CÁC BẪY PHIÊN ÂM
+## II. QUY TẮC SỬ DỤNG MẠO TỪ BẤT ĐỊNH (A / AN) & CÁC LƯU Ý PHIÊN ÂM
 
 ::: danger LƯU Ý QUAN TRỌNG KHI DÙNG "A" VÀ "AN": XÉT THEO ÂM THANH (IPA), KHÔNG XÉT THEO CHỮ CÁI!
 - Dùng **`AN`** trước danh từ bắt đầu bằng một **NGUYÊN ÂM THEO PHIÊN ÂM IPA** (`/æ/, /e/, /ɪ/, /ɒ/, /ʌ/`...):
@@ -78,7 +78,7 @@ flowchart LR
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

@@ -1,12 +1,12 @@
-# CHUYÊN ĐỀ 2: MỆNH ĐỀ QUAN HỆ & RÚT GỌN MỆNH ĐỀ QUAN HỆ (RELATIVE CLAUSES MASTERY)
+# Chuyên Đề 2: Mệnh Đề Quan Hệ Và Rút Gọn Mệnh Đề Quan Hệ
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Mệnh đề quan hệ (Relative Clause) bản chất là **một tính từ dài (Adjective Clause)** đứng ngay sau danh từ để miêu tả, làm rõ danh từ đó mà không cần phải ngắt thành hai câu cụt lủn. Mấu chốt ăn điểm nằm ở: **Xác định từ được thay thế (Người hay Vật? Chủ ngữ hay Tân ngữ?)** và **Kỹ thuật rút gọn 3 bước (V-ing / V3-ed / To V-inf)**.
 :::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN CHỌN ĐẠI TỪ QUAN HỆ TRONG 3 GIÂY
+## I. Sơ đồ chọn đại từ quan hệ
 
 ```mermaid
 flowchart LR
@@ -41,7 +41,7 @@ flowchart LR
 
 ## II. MA TRẬN 8 ĐẠI TỪ & TRẠNG TỪ QUAN HỆ CỐT LÕI
 
-| Từ quan hệ | Thay thế cho | Chức năng trong MĐQH | Công thức & Vị trí | Ví dụ thực chiến |
+| Từ quan hệ | Thay thế cho | Chức năng trong MĐQH | Công thức & Vị trí | Ví dụ luyện tập |
 | :--- | :--- | :--- | :--- | :--- |
 | **`WHO`** | Danh từ chỉ **Người** | Làm **Chủ ngữ (S)** hoặc Tân ngữ (O) | `... N (người) + WHO + V + O` | *The girl **who** is singing on stage is my sister.* |
 | **`WHOM`** | Danh từ chỉ **Người** | Làm **Tân ngữ (O)** (Sau WHOM phải là S + V) | `... N (người) + WHOM + S + V` | *The teacher **whom** we respect most has just retired.* |
@@ -54,7 +54,7 @@ flowchart LR
 
 ---
 
-## III. 2 QUY TẮC SỐNG CÒN: MỆNH ĐỀ QUAN HỆ XÁC ĐỊNH VS. KHÔNG XÁC ĐỊNH
+## III. 2 Quy tắc quan trọng: MỆNH ĐỀ QUAN HỆ XÁC ĐỊNH VS. KHÔNG XÁC ĐỊNH
 
 ::: warning BẢNG ĐỐI CHIẾU 2 LOẠI MỆNH ĐỀ QUAN HỆ
 - **Mệnh đề xác định (Defining):** Cần thiết cho nghĩa của câu, không thể bỏ được, **KHÔNG CÓ DẤU PHẨY**.
@@ -68,7 +68,7 @@ flowchart LR
 | **Có được lược bỏ đại từ?** | Khi làm tân ngữ (O) thì **được quyền lược bỏ**. | **TUYỆT ĐỐI KHÔNG ĐƯỢC LƯỢC BỎ** đại từ quan hệ! |
 | **Ví dụ minh họa** | *The woman **(who/that)** you saw yesterday is my aunt.* | *Ba To, **which** is a mountainous district of Quang Ngai, is very peaceful.* |
 
-::: danger 2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI BẪY TRONG ĐỀ THI)
+::: danger 2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI LƯU Ý TRONG ĐỀ THI)
 1. **KHÔNG BAO GIỜ dùng `THAT` sau dấu phẩy `,`**
    - ❌ *Sai:* Quang Ngai, **that** is my hometown, has many scenic spots.
    - ✅ *Đúng:* Quang Ngai, **which** is my hometown, has many scenic spots.
@@ -113,16 +113,16 @@ MĐQH CẦN RÚT GỌN ─┼── BỊ ĐỘNG (Passive)   ──► Rút gọ
 
 ---
 
-## V. 3 LỖI SAI PHỔ BIẾN CẦN TRÁNH TRONG ĐỀ THI VÀO 10 (VIETLISH TRAPS)
+## V. 3 LỖI SAI PHỔ BIẾN CẦN TRÁNH TRONG ĐỀ THI VÀO 10 (Lỗi sai thường gặp)
 
-::: danger BẪY 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN
+::: danger LƯU Ý 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN
 - Dùng **`WHERE`** khi nơi chốn đóng vai trò **trạng từ** (sau đó là mệnh đề hoàn chỉnh S + V, không thiếu tân ngữ).
 - Dùng **`WHICH`** khi nơi chốn đóng vai trò **Chủ ngữ (S)** hoặc **Tân ngữ (O)** của động từ phía sau!
 - *Ví dụ A:* This is the hotel **which** we visited last summer. *(visit sth -> thiếu tân ngữ -> dùng WHICH)*
 - *Ví dụ B:* This is the hotel **where** we stayed last summer. *(stay at a hotel -> nơi chốn -> dùng WHERE)*
 :::
 
-::: danger BẪY 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`
+::: danger LƯU Ý 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`
 - **`WHOSE + Danh từ`**: Đại từ quan hệ chỉ sở hữu (*whose car, whose parents*).
 - **`WHO'S`**: Dạng viết tắt của `Who is` hoặc `Who has`!
 - ❌ *Sai:* I have a friend **who's** dog won the contest.
@@ -136,7 +136,7 @@ Khi muốn diễn tả ý *"điều đó / điều này"* thay cho toàn bộ s�
 
 ---
 
-## VI. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10)
+## VI. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10)
 
 ### Phần A: Trắc nghiệm điền đại từ / Rút gọn (5 câu)
 

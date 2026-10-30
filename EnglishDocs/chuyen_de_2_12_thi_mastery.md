@@ -1,11 +1,12 @@
-# CHUYÊN ĐỀ 2: HỆ THỐNG 12 THÌ, MA TRẬN SO SÁNH & PHỐI HỢP THÌ TRỌNG TÂM ÔN THI VÀO 10
+# Chuyên Đề 2: Hệ Thống 12 Thì Và Cách Phối Hợp Thì Trọng Tâm
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Tiếng Việt dùng từ chỉ thời gian (*đã, đang, sẽ*) đặt trước động từ nguyên thể, còn tiếng Anh **biến đổi trực tiếp hình thái của động từ (V)** theo 2 trục: **Thời gian (Time)** (Quá khứ - Hiện tại - Tương lai) và **Tính chất hành động (Aspect)** (Đơn - Tiếp diễn - Hoàn thành).
+::: info Kiến thức trọng tâm
+Tiếng Việt dùng từ chỉ thời gian (*đã, đang, sẽ*) đặt trước động từ nguyên thể, còn tiếng Anh **biến đổi trực tiếp hình thái của động từ (V)** theo 2 trục: **Thời gian (Time)** (Quá khứ - Hiện tại - Tương lai) và **Tính chất hành động (Aspect)** (Đơn - Tiếp diễn - Hoàn thành).
+:::
 
 ---
 
-## I. SƠ ĐỒ TRỤC THỜI GIAN (ASCII TIMELINE) & PHÂN NHÁNH CHỌN THÌ TRONG 3 GIÂY
+## I. SƠ ĐỒ TRỤC THỜI GIAN (ASCII TIMELINE) & PHÂN NHÁNH CHỌN THÌ 
 
 ### 1. Trục thời gian trực quan (ASCII Timeline)
 
@@ -22,7 +23,7 @@ QUÁ KHỨ (PAST)                        HIỆN TẠI (PRESENT)                 
                              Bắt đầu ở QK -> Kéo dài hoặc để lại KẾT QUẢ ở HT
 ```
 
-### 2. Sơ đồ thuật toán chọn nhanh Thì trong đề thi (Mermaid Flowchart)
+### 2. Sơ đồ quy trình chọn nhanh Thì trong đề thi (Mermaid Flowchart)
 
 ```mermaid
 flowchart LR
@@ -34,7 +35,7 @@ flowchart LR
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
     style B fill:#f1f5f9,stroke:#64748b,stroke-width:1.5px,color:#0f172a,font-weight:bold
-    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
+    style C fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
     style D fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
     style E fill:#ede9fe,stroke:#7c3aed,stroke-width:2px,color:#4c1d95,font-weight:bold
     style F fill:#fef3c7,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
@@ -44,10 +45,11 @@ flowchart LR
 
 ## II. BẢNG TỔNG HỢP CÔNG THỨC & DẤU HIỆU 12 THÌ TIẾNG ANH
 
-> [!GREEN] **MẸO NHỚ CÔNG THỨC GỐC CHO MỌI THÌ:**
-> - Hễ có chữ **Tiếp diễn (Continuous)** $\rightarrow$ Chắc chắn có `be + V-ing`.
-> - Hễ có chữ **Hoàn thành (Perfect)** $\rightarrow$ Chắc chắn có `have/has/had + V3/ed`.
-> - Hễ có chữ **Hoàn thành Tiếp diễn** $\rightarrow$ Ghép lại thành `have/has/had + been + V-ing`.
+::: tip MẸO NHỚ CÔNG THỨC GỐC CHO MỌI THÌ
+- Hễ có chữ **Tiếp diễn (Continuous)** $\rightarrow$ Chắc chắn có `be + V-ing`.
+- Hễ có chữ **Hoàn thành (Perfect)** $\rightarrow$ Chắc chắn có `have/has/had + V3/ed`.
+- Hễ có chữ **Hoàn thành Tiếp diễn** $\rightarrow$ Ghép lại thành `have/has/had + been + V-ing`.
+:::
 
 | Tên Thì (Tense) | Công thức Khẳng định (+) / Phủ định (-) / Nghi vấn (?) | Bản chất cốt lõi | Dấu hiệu nhận biết (Signal Words) |
 | :--- | :--- | :--- | :--- |
@@ -66,7 +68,7 @@ flowchart LR
 
 ---
 
-## III. MA TRẬN SO SÁNH 3 CẶP THÌ HAY GÀI BẪY NHẤT TRONG ĐỀ THI VÀO 10
+## III. MA TRẬN SO SÁNH 3 CẶP THÌ thường gây nhầm lẫn nhất TRONG ĐỀ THI VÀO 10
 
 ### 1. Hiện tại hoàn thành (`have/has + V3/ed`) vs. Quá khứ đơn (`V2/ed`)
 
@@ -77,27 +79,30 @@ flowchart LR
 | **Ví dụ đối chiếu 1** | *I **have lost** my key.* (Giờ vẫn chưa tìm thấy, không vào nhà được). | *I **lost** my key yesterday.* (Kể lại sự việc hôm qua; giờ có thể đã làm chìa mới). |
 | **Ví dụ đối chiếu 2** | *She **has lived** in Quang Ngai **for 10 years**.* (Hiện tại cô ấy vẫn đang sống ở Quảng Ngãi). | *She **lived** in Quang Ngai **for 10 years**.* (Giờ cô ấy đã chuyển đi nơi khác sống). |
 
-> [!RED] **BẪY NGƯỜI VIỆT HAY SAI (VIETLISH TRAP):**
-> Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nhưng trong tiếng Anh:
-> - ❌ **Sai:** *I **saw** that movie three times.* (Báo số lần tính đến nay mà chia QKĐ là sai).
-> - ✅ **Đúng:** *I **have seen** that movie three times.* (Trải nghiệm tính đến hiện tại phải dùng **Hiện tại hoàn thành**).
+::: danger LỖI THƯỜNG GẶP
+Người Việt thấy chữ *"đã"* là phản xạ chia Quá khứ đơn. Nhưng trong tiếng Anh:
+- ❌ **Sai:** *I **saw** that movie three times.* (Báo số lần tính đến nay mà chia QKĐ là sai).
+- ✅ **Đúng:** *I **have seen** that movie three times.* (Trải nghiệm tính đến hiện tại phải dùng **Hiện tại hoàn thành**).
+:::
 
 ### 2. Sự phối hợp thì giữa Quá khứ đơn (`V2/ed`) và Quá khứ tiếp diễn (`was/were + V-ing`)
 
-> [!BLUE] **3 CÔNG THỨC PHỐI HỢP VỚI `WHEN` & `WHILE`:**
-> - **Hành động đang diễn ra (dài) thì hành động khác cắt ngang (ngắn):**
->   `When + S + V2/ed (cắt ngang), S + was/were + V-ing (đang diễn ra)`
->   `While + S + was/were + V-ing (đang diễn ra), S + V2/ed (cắt ngang)`
-> - **Hai hành động diễn ra song song cùng lúc trong quá khứ:**
->   `While + S1 + was/were + V-ing, S2 + was/were + V-ing`
+::: info 3 CÔNG THỨC PHỐI HỢP VỚI `WHEN` & `WHILE`
+- **Hành động đang diễn ra (dài) thì hành động khác cắt ngang (ngắn):**
+  `When + S + V2/ed (cắt ngang), S + was/were + V-ing (đang diễn ra)`
+  `While + S + was/were + V-ing (đang diễn ra), S + V2/ed (cắt ngang)`
+- **Hai hành động diễn ra song song cùng lúc trong quá khứ:**
+  `While + S1 + was/were + V-ing, S2 + was/were + V-ing`
+:::
 
 - **Ví dụ 1 (Cắt ngang):** *When the teacher **came** (`/keɪm/`) in, the students **were talking** (`/wɜː ˈtɔːkɪŋ/`) noisily.*
 - **Ví dụ 2 (Song song):** *Last night, while my mother **was cooking** dinner, my father **was reading** a newspaper.*
 
 ### 3. Quy tắc Phối hợp thì với Liên từ chỉ Thời gian (`By the time`, `Since`, `After`, `Before`)
 
-> [!YELLOW] **LUẬT BẤT DI BẤT DỊCH TRONG MỆNH ĐỀ THỜI GIAN:**
-> **TUYỆT ĐỐI KHÔNG dùng `will` (Tương lai) ngay sau các liên từ thời gian** (`when, while, as soon as, before, after, until, till, by the time`). Để diễn tả tương lai, mệnh đề sau liên từ thời gian phải lùi về **Hiện tại đơn** hoặc **Hiện tại hoàn thành**!
+::: warning LUẬT BẤT DI BẤT DỊCH TRONG MỆNH ĐỀ THỜI GIAN
+**TUYỆT ĐỐI KHÔNG dùng `will` (Tương lai) ngay sau các liên từ thời gian** (`when, while, as soon as, before, after, until, till, by the time`). Để diễn tả tương lai, mệnh đề sau liên từ thời gian phải lùi về **Hiện tại đơn** hoặc **Hiện tại hoàn thành**!
+:::
 
 | Cấu trúc Liên từ | Công thức chuẩn xác (100% ra thi) | Ví dụ chuẩn |
 | :--- | :--- | :--- |
@@ -127,30 +132,100 @@ flowchart LR
 
 ---
 
-## V. 10 CÂU BÀI TẬP THỰC CHIẾN (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
+## V. 10 CÂU BÀI TẬP LUYỆN TẬP (TRÍCH ĐỀ THI VÀO 10 SỞ GD QUẢNG NGÃI)
 
-- **Câu 1 (Multiple Choice):** Look! The bus \_\_\_\_\_\_\_\_ (come). Run faster or we will miss it!
-  `A. comes` | `B. is coming` | `C. came` | `D. has come`
-- **Câu 2 (Multiple Choice):** My family \_\_\_\_\_\_\_\_ in Quang Ngai City since I was born.
-  `A. lived` | `B. lives` | `C. has lived` | `D. was living`
-- **Câu 3 (Multiple Choice):** While we \_\_\_\_\_\_\_\_ dinner last night, the electricity suddenly went out.
-  `A. had` | `B. were having` | `C. have had` | `D. had had`
-- **Câu 4 (Multiple Choice):** The train to Da Nang \_\_\_\_\_\_\_\_ at 7:30 a.m. tomorrow morning according to the schedule.
-  `A. leaves` | `B. is leaving` | `C. will leave` | `D. has left`
-- **Câu 5 (Multiple Choice):** By the time the firefighters arrived, the fire \_\_\_\_\_\_\_\_ three warehouses.
-  `A. destroyed` | `B. was destroying` | `C. has destroyed` | `D. had destroyed`
-- **Câu 6 (Multiple Choice):** I will send you the configuration file as soon as I \_\_\_\_\_\_\_\_ to the office.
-  `A. will get` | `B. got` | `C. get` | `D. am getting`
-- **Câu 7 (Sentence Transformation):** Nam began working as a systems administrator three years ago.
-  $\rightarrow$ *Viết lại bắt đầu bằng:* `Nam has...`
-- **Câu 8 (Sentence Transformation):** The last time we visited Ly Son Island was last summer.
-  $\rightarrow$ *Viết lại bắt đầu bằng:* `We haven't...`
-- **Câu 9 (Sentence Transformation):** I have never used such a fast automation tool before.
-  $\rightarrow$ *Viết lại bắt đầu bằng:* `This is the first time...`
-- **Câu 10 (Sentence Transformation):** It's two months since she last wrote to me.
-  $\rightarrow$ *Viết lại bắt đầu bằng:* `She hasn't...`
+<QuizItem
+  :number="1"
+  question="Look! The bus ________ (come). Run faster or we will miss it!"
+  options="A. comes | B. is coming | C. came | D. has come"
+  correct="B"
+  explanation="**Câu 1:** Chọn **B (`is coming`)** — Có dấu hiệu cảm thán `Look!` ở đầu câu chỉ hành động đang diễn ra ngay trước mắt lúc nói."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="My family ________ in Quang Ngai City since I was born."
+  options="A. lived | B. lives | C. has lived | D. was living"
+  correct="C"
+  explanation="**Câu 2:** Chọn **C (`has lived`)** — Cấu trúc thông dụng: `S + have/has + V3/ed + since + S + V2/ed` (`since I was born`)."
+/>
+
+<QuizItem
+  :number="3"
+  question="While we ________ dinner last night, the electricity suddenly went out."
+  options="A. had | B. were having | C. have had | D. had had"
+  correct="B"
+  explanation="**Câu 3:** Chọn **B (`were having`)** — Hành động đang diễn ra trong quá khứ (`While we were having dinner`) thì hành động khác cắt ngang (`went out`)."
+/>
+
+<QuizItem
+  :number="4"
+  question="The train to Da Nang ________ at 7:30 a.m. tomorrow morning according to the schedule."
+  options="A. leaves | B. is leaving | C. will leave | D. has left"
+  correct="A"
+  explanation="**Câu 4:** Chọn **A (`leaves`)** — Lưu ý khi làm bài thi! Dù có `tomorrow morning`, nhưng lịch trình tàu xe/máy bay cố định (`schedule`) luôn chia **Hiện tại đơn**."
+/>
+
+<QuizItem
+  :number="5"
+  question="By the time the firefighters arrived, the fire ________ three warehouses."
+  options="A. destroyed | B. was destroying | C. has destroyed | D. had destroyed"
+  correct="D"
+  explanation="**Câu 5:** Chọn **D (`had destroyed`)** — Công thức `By the time + S + V2/ed (arrived), S + had + V3/ed` (việc cháy rụi xảy ra trước khi lính cứu hỏa tới)."
+/>
+
+<QuizItem
+  :number="6"
+  question="I will send you the configuration file as soon as I ________ to the office."
+  options="A. will get | B. got | C. get | D. am getting"
+  correct="C"
+  explanation="**Câu 6:** Chọn **C (`get`)** — Sau liên từ chỉ thời gian `as soon as`, tuyệt đối không dùng `will`, phải lùi về **Hiện tại đơn** (`get`)."
+/>
+
+<QuizItem
+  :number="7"
+  type="transform"
+  question="Nam began working as a systems administrator three years ago.
+   *"
+  targetPrompt="Nam has..."
+  sampleAnswer="Nam has worked (hoặc has been working) as a systems administrator for three years."
+  explanation="**Câu 7:** `Nam has worked (hoặc has been working) as a systems administrator for three years.` (Đổi `began + V-ing ... ago` $\rightarrow$ `has + V3/ed + for ...`)."
+/>
+
+<QuizItem
+  :number="8"
+  type="transform"
+  question="The last time we visited Ly Son Island was last summer.
+   *"
+  targetPrompt="We haven't..."
+  sampleAnswer="We haven't visited Ly Son Island since last summer."
+  explanation="**Câu 8:** `We haven't visited Ly Son Island since last summer.` (Đổi `The last time ... was` $\rightarrow$ `haven't + V3/ed + since + mốc thời gian`)."
+/>
+
+<QuizItem
+  :number="9"
+  type="transform"
+  question="I have never used such a fast automation tool before.
+   *"
+  targetPrompt="This is the first time..."
+  sampleAnswer="This is the first time I have (ever) used such a fast automation tool."
+  explanation="**Câu 9:** `This is the first time I have (ever) used such a fast automation tool.` (Đổi `never ... before` $\rightarrow$ `This is the first time + HTHT`)."
+/>
+
+<QuizItem
+  :number="10"
+  type="transform"
+  question="It's two months since she last wrote to me.
+   *"
+  targetPrompt="She hasn't..."
+  sampleAnswer="She hasn't written to me for two months."
+  explanation="**Câu 10:** `She hasn't written to me for two months.` (Đổi `It's + khoảng TG + since + S + last V2` $\rightarrow$ `S + hasn't + V3 + for + khoảng TG`)."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **Câu 1:** Chọn **B (`is coming`)** — Có dấu hiệu cảm thán `Look!` ở đầu câu chỉ hành động đang diễn ra ngay trước mắt lúc nói.
 **Câu 2:** Chọn **C (`has lived`)** — Cấu trúc thông dụng: `S + have/has + V3/ed + since + S + V2/ed` (`since I was born`).
 **Câu 3:** Chọn **B (`were having`)** — Hành động đang diễn ra trong quá khứ (`While we were having dinner`) thì hành động khác cắt ngang (`went out`).
@@ -161,4 +236,5 @@ flowchart LR
 **Câu 8:** `We haven't visited Ly Son Island since last summer.` (Đổi `The last time ... was` $\rightarrow$ `haven't + V3/ed + since + mốc thời gian`).
 **Câu 9:** `This is the first time I have (ever) used such a fast automation tool.` (Đổi `never ... before` $\rightarrow$ `This is the first time + HTHT`).
 **Câu 10:** `She hasn't written to me for two months.` (Đổi `It's + khoảng TG + since + S + last V2` $\rightarrow$ `S + hasn't + V3 + for + khoảng TG`).
-+++
+
+</details>

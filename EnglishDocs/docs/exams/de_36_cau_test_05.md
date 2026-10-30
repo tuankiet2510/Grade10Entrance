@@ -1,7 +1,7 @@
 ---
 title: "Đề Luyện Thi Vào 10 Form 36 Câu - Test 05"
 category: "Bộ Đề Tuyển Sinh Vào 10"
-description: "Bộ đề rèn luyện thực chiến bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với trọng tâm làng nghề truyền thống, di sản văn hóa và lối sống đô thị hiện đại."
+description: "Bộ đề rèn luyện luyện tập bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi với trọng tâm làng nghề truyền thống, di sản văn hóa và lối sống đô thị hiện đại."
 source_type: "practice-exam"
 ---
 

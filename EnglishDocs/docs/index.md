@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: "Cẩm Nang Ôn Thi Vào 10"
+  name: "Tài Liệu Ôn Tập Vào Lớp 10"
   text: "Cổng Luyện Thi Toán 9, Ngữ Văn 9 & Tiếng Anh 9"
-  tagline: "Hệ thống toàn diện chuẩn GDPT 2018: 12 chuyên đề vàng & 48 bài học Toán 9, cẩm nang Đọc hiểu & Nghị luận Ngữ văn 9, 20 chuyên đề ngữ pháp và 27 bộ đề thi trắc nghiệm Tiếng Anh có giải chi tiết."
+  tagline: "Hệ thống toàn diện chuẩn GDPT 2018: 12 chuyên đề vàng & 48 bài học Toán 9, tài liệu Đọc hiểu & Nghị luận Ngữ văn 9, 20 chuyên đề ngữ pháp và 27 bộ đề thi trắc nghiệm Tiếng Anh có giải chi tiết."
   actions:
     - theme: brand
       text: Toán 9 (12 CĐ & 48 Bài) 📐
@@ -25,7 +25,7 @@ features:
     details: Phân loại theo cấu trúc thi vào 10 THPT công lập. Rút gọn căn thức, Hệ phương trình, Viète, Parabol, Bất đẳng thức đến Lượng giác và Hình học phẳng.
   - icon: 📖
     title: Ngữ Văn 9 Đổi Mới GDPT 2018
-    details: Bí quyết ăn trọn 4.0 điểm Đọc hiểu ngữ liệu ngoài SGK, công thức viết đoạn văn NLXH 200 chữ và cẩm nang phân tích tác phẩm thơ/truyện hiện đại.
+    details: Phương pháp đạt điểm tối đa phần Đọc hiểu ngữ liệu ngoài SGK, công thức viết đoạn văn NLXH 200 chữ và tài liệu phân tích tác phẩm thơ/truyện hiện đại.
   - icon: 🇬🇧
     title: Tiếng Anh 9 Chuẩn Global Success
     details: Hệ thống hóa từ vựng 12 Units, 4 chuyên đề ngữ pháp cốt lõi (Wh+to V, Phrasal verbs, So sánh kép, Modal verbs) và mẹo ngữ âm - trọng âm.

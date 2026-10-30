@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 2: DANH ĐỘNG TỪ & ĐỘNG TỪ NGUYÊN MẪU (GERUNDS & INFINITIVES: V-ING & TO-V)
+# Chuyên Đề 2: Danh Động Từ (V-ing) Và Động Từ Nguyên Mẫu (to-V)
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ hai phải biến đổi hình thái theo bản chất logic của hành động:
 - **`TO-V` (Infinitive):** Hướng về **Tương lai**, **Mục đích**, kế hoạch, hoặc hành động **chưa xảy ra**.
 - **`V-ING` (Gerund):** Hướng về **Trải nghiệm**, **Sự thật**, thói quen, hoặc hành động **đã/đang diễn ra**.
@@ -8,7 +8,7 @@ Trong tiếng Anh, khi hai động từ đứng liền nhau, động từ thứ 
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN PHÂN LOẠI DẠNG ĐỘNG TỪ TRONG 3 GIÂY
+## I. Sơ đồ phân loại dạng động từ V-ing và To-V
 
 ```mermaid
 flowchart LR
@@ -33,7 +33,7 @@ flowchart LR
 
 ## II. BẢNG TRA CỨU CÁC NHÓM ĐỘNG TỪ PHỔ BIẾN NHẤT TRONG ĐỀ THI VÀO 10
 
-| Nhóm | Động từ tiêu biểu (Đi kèm ví dụ thực chiến) | Công thức chuẩn |
+| Nhóm | Động từ tiêu biểu (Đi kèm ví dụ luyện tập) | Công thức chuẩn |
 | :--- | :--- | :--- |
 | **1. Bắt buộc đi với `V-ING`** | `avoid, admit, consider, deny, enjoy, finish, imagine, keep, mind, postpone, practice, suggest, miss, risk` | `S + V + V-ing`<br>*Ví dụ:* *She **avoids meeting** (`avoid meet`) him at the party.*<br>*We should **practice speaking** English every day.* |
 | **2. Bắt buộc đi với `TO-V`** | `agree, afford, decide, expect, hope, learn, manage, offer, plan, promise, refuse, tend, want, wish` | `S + V + TO V-inf`<br>*Ví dụ:* *They **decided to buy** (`decide buy`) a new apartment.*<br>*He **refused to answer** my question.* |
@@ -42,7 +42,7 @@ flowchart LR
 
 ---
 
-## III. 6 CẶP ĐỘNG TỪ ĐỔI NGHĨA KINH ĐIỂN (CHIẾM 80% LƯU Ý KHI LÀM BÀI THI)
+## III. 6 Các cặp động từ đổi nghĩa cần lưu ý (CHIẾM 80% LƯU Ý KHI LÀM BÀI THI)
 
 ::: danger QUY TẮC "QUÁ KHỨ DÙNG V-ING, TƯƠNG LAI/BỔN PHẬN DÙNG TO-V"
 Đây là dạng bài phân loại học sinh giỏi hay gặp nhất trong đề thi tuyển sinh lớp 10. Hãy đối chiếu thật kỹ nghĩa ngữ cảnh trước khi chọn:
@@ -61,7 +61,7 @@ flowchart LR
 
 ## IV. CÁC THÀNH NGỮ & CỤM TỪ CỐ ĐỊNH BẮT BUỘC ĐI VỚI `V-ING`
 
-::: warning BẪY GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM)
+::: warning LƯU Ý GÀI ĐUÔI "TO" NHƯNG LẠI ĐI VỚI V-ING (CỰC KỲ NGUY HIỂM)
 Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động từ nguyên mẫu `V-inf`. Nhưng trong các cụm sau, `to` đóng vai trò là **Giới từ (Preposition)**, nên động từ theo sau **BẮT BUỘC Ở DẠNG `V-ING`**:
 - **`look forward to + V-ing`**: Trông mong, háo hức (*I look forward to hearing from you*).
 - **`be / get used to + V-ing`**: Đã quen với việc gì ở hiện tại (*He is used to getting up early*).
@@ -78,7 +78,7 @@ Nhiều bạn học sinh thấy chữ `to` là phản xạ chọn ngay động t
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

@@ -4,7 +4,7 @@
 
 **Goal:** Khắc phục triệt để các lỗi nội dung copy-paste, loại bỏ rác SEO, và nâng cấp toàn diện hệ thống Ngữ âm (Phonetics) & Ngữ pháp (Grammar - Sentence Transformation) trên Notion `EnglishDocs` theo chuẩn sư phạm ELT và ma trận đề thi vào 10 (Sở GD Quảng Ngãi 36/45 câu).
 
-**Architecture:** Áp dụng mô hình Sư phạm 5 tầng (Bản chất -> Mẹo thần chú Mnemonic -> Bẫy Vietlish -> Bảng đối chiếu -> Đề thi thực chiến 10). Tận dụng Notion Color Callouts (Blue/Green/Yellow/Red/Purple), bảng biểu và sơ đồ trực quan. Xuất bản HTML offline tự động bằng script `notion_html_exporter.py` không tốn LLM token.
+**Architecture:** Áp dụng mô hình Sư phạm 5 tầng (Bản chất -> Mẹo mẹo nhớ Mnemonic -> Lỗi sai Vietlish -> Bảng đối chiếu -> Đề thi luyện tập 10). Tận dụng Notion Color Callouts (Blue/Green/Yellow/Red/Purple), bảng biểu và sơ đồ trực quan. Xuất bản HTML offline tự động bằng script `notion_html_exporter.py` không tốn LLM token.
 
 **Tech Stack:** Notion MCP (`@suekou/mcp-notion-server`), Python 3 (`notion_html_exporter.py`), Markdown, Mermaid.js.
 
@@ -15,9 +15,9 @@
 - Ví dụ tiếng Anh đi kèm phiên âm chuẩn IPA (Cambridge/Oxford) và dịch nghĩa cô đọng.
 - Triệt để tuân thủ bảng màu sư phạm Notion:
   - 🟦 Blue Callout: Công thức cốt lõi (Core Formula / Rule).
-  - 🟩 Green Callout: Mẹo nhớ nhanh thần chú (Mnemonic).
+  - 🟩 Green Callout: Mẹo nhớ nhanh mẹo nhớ (Mnemonic).
   - 🟨 Yellow Callout: Lưu ý quan trọng & Ngoại lệ (Exceptions).
-  - 🟥 Red Callout: Bẫy người Việt hay sai (Vietlish Traps / ❌ Sai -> ✅ Đúng).
+  - 🟥 Red Callout: Lỗi sai người Việt hay sai (Vietlish Traps / ❌ Sai -> ✅ Đúng).
   - 🟪 Purple Callout: Mở rộng nâng cao / Dạng thi chuyên.
 - Không để sót rác quảng cáo, liên kết web rác cào tự động.
 - Không in hàng nghìn dòng mã HTML thô ra cửa sổ chat; dùng `notion_html_exporter.py` để xuất file HTML.
@@ -27,7 +27,7 @@
 2. **Ngoại lệ phát âm đuôi -ed:** Học sinh thường quên các tính từ có đuôi -ed phát âm là /ɪd/ (*naked, wicked, sacred, beloved...*).
 3. **Thiếu chuyên đề Trọng âm (Word Stress):** Đề thi vào 10 luôn có 2 câu trọng âm (từ 2 âm tiết và 3 âm tiết), nhưng Notion chưa có trang nào. Cần tạo trang mới hoàn chỉnh.
 4. **Trùng lặp & rời rạc ở Ngữ pháp:** Hiện có nhiều subpage rời rạc cào từ Freetuts/Vietjack. Cần gom nhóm và tinh chỉnh theo ma trận đề thi 36 câu/45 câu.
-5. **Cấu trúc Viết lại câu (Sentence Transformation):** Đây là phần tự luận lấy điểm 9-10 nhưng đang bị phân tán trong các bài lý thuyết. Phải có cẩm nang biến đổi câu chuyên biệt.
+5. **Cấu trúc Viết lại câu (Sentence Transformation):** Đây là phần tự luận lấy điểm 9-10 nhưng đang bị phân tán trong các bài lý thuyết. Phải có tài liệu biến đổi câu chuyên biệt.
 
 ---
 
@@ -37,14 +37,14 @@
 
 #### Task 1.1: Sửa lỗi nghiêm trọng & làm mới trang "Phát âm S / ES chuẩn"
 - **Notion Page ID:** `26ceb70c-17c5-808d-8f05-eeb481030dcf`
-- **Mục tiêu:** Xóa bỏ hoàn toàn lỗi copy-paste nhầm quy tắc /iz/; viết lại 3 nhóm âm chuẩn kèm mẹo thần chú, bẫy Vietlish và bài tập đề thi vào 10.
+- **Mục tiêu:** Xóa bỏ hoàn toàn lỗi copy-paste nhầm quy tắc /iz/; viết lại 3 nhóm âm chuẩn kèm mẹo mẹo nhớ, lỗi sai Vietlish và bài tập đề thi vào 10.
 - [x] **Step 1:** Đọc toàn bộ các block hiện tại của trang `26ceb70c-17c5-808d-8f05-eeb481030dcf`.
 - [x] **Step 2:** Chuẩn bị nội dung chuẩn hóa:
   - 🟦 **Nhóm 1 (/s/):** Tận cùng là các âm vô thanh `/p, k, f, t, θ/`. Thần chú: *"Thời phong kiến phương Tây"* hoặc *"Thảo phải khao phở Thúy"*.
   - 🟦 **Nhóm 2 (/ɪz/):** Tận cùng là các âm gió (sibilants) `/s, z, ʃ, tʃ, ʒ, dʒ/` (Chữ cái: *s, ss, ch, sh, x, z, ge, ce*). Thần chú: *"Sông sáng chói sóng xô giáp ghềnh"*.
   - 🟦 **Nhóm 3 (/z/):** Tận cùng là các âm hữu thanh còn lại và nguyên âm.
-  - 🟥 **Bẫy Vietlish & Ngoại lệ:** *houses* /ˈhaʊ.zɪz/, *months* /mʌnθs/ vs *clothes* /kləʊðz/, đuôi *-es* trong *goes* /ɡəʊz/, *does* /dʌz/.
-  - 🟩 **10 câu trắc nghiệm thực chiến trích từ đề thi Sở GD Quảng Ngãi có đáp án và giải thích.**
+  - 🟥 **Lỗi sai Vietlish & Ngoại lệ:** *houses* /ˈhaʊ.zɪz/, *months* /mʌnθs/ vs *clothes* /kləʊðz/, đuôi *-es* trong *goes* /ɡəʊz/, *does* /dʌz/.
+  - 🟩 **10 câu trắc nghiệm luyện tập trích từ đề thi Sở GD Quảng Ngãi có đáp án và giải thích.**
 - [x] **Step 3:** Xóa các block cũ bị lỗi và append nội dung mới đã định dạng màu sắc sư phạm.
 - [x] **Step 4:** Kiểm tra lại trang qua Notion API.
 
@@ -56,7 +56,7 @@
   - 🟦 **/ɪd/:** Tận cùng là `/t/` và `/d/` (Thần chú: *"Tiền Đô"*).
   - 🟦 **/t/:** Tận cùng là âm vô thanh `/p, k, f, s, ʃ, tʃ/` (Thần chú: *"Chính phủ phát sách không thèm share"* / *"Phí sắm kính phật thoát"*).
   - 🟦 **/d/:** Các âm hữu thanh và nguyên âm còn lại.
-  - 🟥 **Bẫy đề thi tuyển sinh 10 (Các tính từ đuôi -ed luôn đọc là /ɪd/):** *naked, wicked, sacred, beloved, hatred, crooked, ragged, learned*.
+  - 🟥 **Lỗi sai đề thi tuyển sinh 10 (Các tính từ đuôi -ed luôn đọc là /ɪd/):** *naked, wicked, sacred, beloved, hatred, crooked, ragged, learned*.
   - 🟩 **10 câu trắc nghiệm đề thi tuyển sinh 10 có đáp án chi tiết.**
 - [x] **Step 3:** Ghi đè/cập nhật nội dung sạch lên Notion.
 - [x] **Step 4:** Kiểm tra tính chính xác của trang.
@@ -67,7 +67,7 @@
 - [x] **Step 1:** Rà soát các block trang `26ceb70c-17c5-80b7-9f42-c91372922a49`.
 - [x] **Step 2:** Bổ sung các Callout màu về:
   - Bảng tóm tắt 44 âm: 12 nguyên âm đơn, 8 nguyên âm đôi, 24 phụ âm (8 cặp vô thanh - hữu thanh đối xứng).
-  - 🟥 **Bẫy ngữ âm người Việt:** Thói quen nuốt âm cuối (*Ending Sounds* như `/t, d, s, z, k/`), nhầm lẫn âm ngắn/dài (`/i:/` - `/ɪ/`, `/u:/` - `/ʊ/`).
+  - 🟥 **Lỗi sai ngữ âm người Việt:** Thói quen nuốt âm cuối (*Ending Sounds* như `/t, d, s, z, k/`), nhầm lẫn âm ngắn/dài (`/i:/` - `/ɪ/`, `/u:/` - `/ʊ/`).
 - [x] **Step 3:** Cập nhật nội dung lên Notion.
 
 #### Task 1.4: Tinh chỉnh các trang ngữ âm chuyên sâu (/θ/ - /ð/, /æ/ - /e/)
@@ -103,7 +103,7 @@
   - Tương lai đơn (*will*) vs Tương lai gần (*be going to*) vs Hiện tại tiếp diễn chỉ kế hoạch.
 - [x] **Step 4:** Bổ sung quy tắc phối hợp thì với liên từ thời gian (*when, while, as soon as, by the time, until, since*).
 
-#### Task 2.2: Xây dựng Cẩm nang 10 Cấu trúc Biến đổi câu (Sentence Transformation Mastery)
+#### Task 2.2: Xây dựng Tài liệu 10 Cấu trúc Biến đổi câu (Sentence Transformation Mastery)
 - **Mục tiêu:** Hệ thống hóa toàn bộ các dạng bài tự luận viết lại câu chắc chắn có mặt trong đề thi vào 10 Quảng Ngãi (`26aeb70c-17c5-8013-8bf1-d5f84e60bc0b`).
 - [x] **Step 1:** 1. Câu điều kiện (Type 1, 2, 3, Unless = If not, Without, But for).
 - [x] **Step 2:** 2. Câu bị động (Bị động thì cơ bản, Bị động kép với *It is said that / S + is said to V*, Bị động nhờ vả *Have/Get sth done*).
@@ -131,32 +131,32 @@
 - **Subpage ID:** `26ceb70c-17c5-802b-818a-c5f8d7002c28`
 - [x] **Step 1:** Soạn thảo bản chất cốt lõi (Feynman core: To-V tương lai/chưa xảy ra vs V-ing trải nghiệm/đã xảy ra).
 - [x] **Step 2:** Bảng tổng hợp động từ đi với V-ing, To-V, và 6 cặp động từ đổi nghĩa kinh điển (*remember, forget, stop, try, regret, need*).
-- [x] **Step 3:** 10 câu trắc nghiệm thực chiến trích từ đề thi vào 10 Sở GD Quảng Ngãi có đáp án toggle.
+- [x] **Step 3:** 10 câu trắc nghiệm luyện tập trích từ đề thi vào 10 Sở GD Quảng Ngãi có đáp án toggle.
 - [x] **Step 4:** Đồng bộ lên Notion qua `notion_pedagogy_engine.py`.
 
 #### Task 2.6: Chuẩn hóa Câu hỏi đuôi & Trợ động từ (Question Tags Mastery)
 - **Subpage ID:** `274eb70c-17c5-8062-8c0e-f8d5428cb752`
 - [x] **Step 1:** Xây dựng quy tắc vàng "Trái dấu" (+ ➔ - và - ➔ +).
-- [x] **Step 2:** 8 trường hợp đặc biệt chắc chắn gài bẫy (*I am, Let's, Mệnh lệnh, Từ phủ định ngầm never/hardly, Đại từ bất định they/it, I think...*).
-- [x] **Step 3:** 10 câu trắc nghiệm câu hỏi đuôi thực chiến có giải thích chi tiết.
+- [x] **Step 2:** 8 trường hợp đặc biệt chắc chắn gây nhầm lẫn (*I am, Let's, Mệnh lệnh, Từ phủ định ngầm never/hardly, Đại từ bất định they/it, I think...*).
+- [x] **Step 3:** 10 câu trắc nghiệm câu hỏi đuôi luyện tập có giải thích chi tiết.
 - [x] **Step 4:** Đồng bộ lên Notion qua `notion_pedagogy_engine.py`.
 
 ---
 
-### PHẦN 3: TỐI ƯU HÓA CHUYÊN ĐỀ TỪ VỰNG TRỌNG TÂM (VOCABULARY MASTERY)
+### PHẦN 3: TỐI ƯU HÓA CHUYÊN ĐỀ TỪ VỰNG TRỌNG TÂM (VOCABULARY Trọng Tâm)
 
 #### Task 3.1: Top 50 Cụm động từ (Phrasal Verbs) Tủ Thi Vào 10
 - **Subpage ID:** `26ceb70c-17c5-8006-9227-c2066622f892` (`26ceb70c-17c5-80b8-b2cc-f0a12eda075d`)
 - [x] **Step 1:** Tổng hợp 50 cụm động từ tần suất cao nhất phân loại theo gốc động từ (*LOOK, GO, TAKE, TURN, GIVE, COME, PUT, RUN, GET*).
-- [x] **Step 2:** Bổ sung IPA, dịch nghĩa cô đọng, ví dụ theo ngữ cảnh đề thi và bẫy hay sai.
+- [x] **Step 2:** Bổ sung IPA, dịch nghĩa cô đọng, ví dụ theo ngữ cảnh đề thi và lỗi sai hay sai.
 - [x] **Step 3:** 10 câu trắc nghiệm phrasal verbs kèm đáp án toggle.
 - [x] **Step 4:** Đồng bộ lên Notion bằng chế độ append/replace an toàn qua `notion_pedagogy_engine.py`.
 
-#### Task 3.2: Cẩm nang Từ đồng nghĩa & Trái nghĩa (Synonyms & Antonyms Mastery)
+#### Task 3.2: Tài liệu Từ đồng nghĩa & Trái nghĩa (Synonyms & Antonyms Mastery)
 - **Subpage ID:** `26deb70c-17c5-809a-8749-e720654a8f22`
 - [x] **Step 1:** Chiến thuật làm dạng bài CLOSEST / OPPOSITE (Kỹ thuật đoán nghĩa theo ngữ cảnh Context Clues).
 - [x] **Step 2:** Bảng 40 cặp từ đồng nghĩa - trái nghĩa trọng điểm theo các chủ đề SGK lớp 9.
-- [x] **Step 3:** 10 câu trắc nghiệm thực chiến trích từ đề tuyển sinh vào 10 Sở GD Quảng Ngãi.
+- [x] **Step 3:** 10 câu trắc nghiệm luyện tập trích từ đề tuyển sinh vào 10 Sở GD Quảng Ngãi.
 - [x] **Step 4:** Đồng bộ lên Notion qua `notion_pedagogy_engine.py`.
 
 ---

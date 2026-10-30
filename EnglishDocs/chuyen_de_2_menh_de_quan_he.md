@@ -1,11 +1,12 @@
-# CHUYÊN ĐỀ 2: MỆNH ĐỀ QUAN HỆ & RÚT GỌN MỆNH ĐỀ QUAN HỆ (RELATIVE CLAUSES MASTERY)
+# Chuyên Đề 2: Mệnh Đề Quan Hệ Và Rút Gọn Mệnh Đề Quan Hệ
 
-> [!BLUE] **BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI:**
-> Mệnh đề quan hệ (Relative Clause) bản chất là **một tính từ dài (Adjective Clause)** đứng ngay sau danh từ để miêu tả, làm rõ danh từ đó mà không cần phải ngắt thành hai câu cụt lủn. Mấu chốt ăn điểm nằm ở: **Xác định từ được thay thế (Người hay Vật? Chủ ngữ hay Tân ngữ?)** và **Kỹ thuật rút gọn 3 bước (V-ing / V3-ed / To V-inf)**.
+::: info Kiến thức trọng tâm
+Mệnh đề quan hệ (Relative Clause) bản chất là **một tính từ dài (Adjective Clause)** đứng ngay sau danh từ để miêu tả, làm rõ danh từ đó mà không cần phải ngắt thành hai câu cụt lủn. Mấu chốt ăn điểm nằm ở: **Xác định từ được thay thế (Người hay Vật? Chủ ngữ hay Tân ngữ?)** và **Kỹ thuật rút gọn 3 bước (V-ing / V3-ed / To V-inf)**.
+:::
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN CHỌN ĐẠI TỪ QUAN HỆ TRONG 3 GIÂY
+## I. Sơ đồ chọn đại từ quan hệ
 
 ```mermaid
 flowchart LR
@@ -24,23 +25,23 @@ flowchart LR
     D --> D2["Thời gian ➔ WHEN (= on/in which)"]
     
     style A fill:#2563eb,stroke:#1d4ed8,stroke-width:2px,color:#ffffff,font-weight:bold
-    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e40af,font-weight:bold
-    style C fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#166534,font-weight:bold
-    style D fill:#fefce8,stroke:#ca8a04,stroke-width:2px,color:#854d0e,font-weight:bold
-    style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
-    style B2 fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
-    style B3 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95
-    style C1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d
-    style C2 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95
-    style D1 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e40af
-    style D2 fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f
+    style B fill:#eff6ff,stroke:#3b82f6,stroke-width:2px,color:#1e3a8a,font-weight:bold
+    style C fill:#f0fdf4,stroke:#16a34a,stroke-width:2px,color:#14532d,font-weight:bold
+    style D fill:#fefce8,stroke:#d97706,stroke-width:2px,color:#78350f,font-weight:bold
+    style B1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d,font-weight:bold
+    style B2 fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f,font-weight:bold
+    style B3 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95,font-weight:bold
+    style C1 fill:#dcfce7,stroke:#16a34a,stroke-width:1.5px,color:#14532d,font-weight:bold
+    style C2 fill:#ede9fe,stroke:#7c3aed,stroke-width:1.5px,color:#4c1d95,font-weight:bold
+    style D1 fill:#eff6ff,stroke:#3b82f6,stroke-width:1.5px,color:#1e3a8a,font-weight:bold
+    style D2 fill:#fef3c7,stroke:#d97706,stroke-width:1.5px,color:#78350f,font-weight:bold
 ```
 
 ---
 
 ## II. MA TRẬN 8 ĐẠI TỪ & TRẠNG TỪ QUAN HỆ CỐT LÕI
 
-| Từ quan hệ | Thay thế cho | Chức năng trong MĐQH | Công thức & Vị trí | Ví dụ thực chiến |
+| Từ quan hệ | Thay thế cho | Chức năng trong MĐQH | Công thức & Vị trí | Ví dụ luyện tập |
 | :--- | :--- | :--- | :--- | :--- |
 | **`WHO`** | Danh từ chỉ **Người** | Làm **Chủ ngữ (S)** hoặc Tân ngữ (O) | `... N (người) + WHO + V + O` | *The girl **who** is singing on stage is my sister.* |
 | **`WHOM`** | Danh từ chỉ **Người** | Làm **Tân ngữ (O)** (Sau WHOM phải là S + V) | `... N (người) + WHOM + S + V` | *The teacher **whom** we respect most has just retired.* |
@@ -53,11 +54,12 @@ flowchart LR
 
 ---
 
-## III. 2 QUY TẮC SỐNG CÒN: MỆNH ĐỀ QUAN HỆ XÁC ĐỊNH VS. KHÔNG XÁC ĐỊNH
+## III. 2 Quy tắc quan trọng: MỆNH ĐỀ QUAN HỆ XÁC ĐỊNH VS. KHÔNG XÁC ĐỊNH
 
-> [!YELLOW] **BẢNG ĐỐI CHIẾU 2 LOẠI MỆNH ĐỀ QUAN HỆ:**
-> - **Mệnh đề xác định (Defining):** Cần thiết cho nghĩa của câu, không thể bỏ được, **KHÔNG CÓ DẤU PHẨY**.
-> - **Mệnh đề không xác định (Non-defining):** Chỉ cung cấp thêm thông tin phụ, **BẮT BUỘC KẸP GIỮA HAI DẤU PHẨY (,)**.
+::: warning BẢNG ĐỐI CHIẾU 2 LOẠI MỆNH ĐỀ QUAN HỆ
+- **Mệnh đề xác định (Defining):** Cần thiết cho nghĩa của câu, không thể bỏ được, **KHÔNG CÓ DẤU PHẨY**.
+- **Mệnh đề không xác định (Non-defining):** Chỉ cung cấp thêm thông tin phụ, **BẮT BUỘC KẸP GIỮA HAI DẤU PHẨY (,)**.
+:::
 
 | Đặc điểm | Mệnh đề Xác định (Không có dấu phẩy) | Mệnh đề Không xác định (CÓ DẤU PHẨY `,`) |
 | :--- | :--- | :--- |
@@ -66,13 +68,14 @@ flowchart LR
 | **Có được lược bỏ đại từ?** | Khi làm tân ngữ (O) thì **được quyền lược bỏ**. | **TUYỆT ĐỐI KHÔNG ĐƯỢC LƯỢC BỎ** đại từ quan hệ! |
 | **Ví dụ minh họa** | *The woman **(who/that)** you saw yesterday is my aunt.* | *Ba To, **which** is a mountainous district of Quang Ngai, is very peaceful.* |
 
-> [!RED] **2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI BẪY TRONG ĐỀ THI):**
-> 1. **KHÔNG BAO GIỜ dùng `THAT` sau dấu phẩy `,`**
->    - ❌ *Sai:* Quang Ngai, **that** is my hometown, has many scenic spots.
->    - ✅ *Đúng:* Quang Ngai, **which** is my hometown, has many scenic spots.
-> 2. **KHÔNG BAO GIỜ dùng `THAT` ngay sau Giới từ (`in, on, at, with, about...`)**
->    - ❌ *Sai:* The house in **that** I was born is very old.
->    - ✅ *Đúng:* The house **in which** I was born is very old. *(hoặc: The house **that** I was born in...)*
+::: danger 2 ĐIỀU CẤM KỴ CỦA TỪ `THAT` (100% GÀI LƯU Ý TRONG ĐỀ THI)
+1. **KHÔNG BAO GIỜ dùng `THAT` sau dấu phẩy `,`**
+   - ❌ *Sai:* Quang Ngai, **that** is my hometown, has many scenic spots.
+   - ✅ *Đúng:* Quang Ngai, **which** is my hometown, has many scenic spots.
+2. **KHÔNG BAO GIỜ dùng `THAT` ngay sau Giới từ (`in, on, at, with, about...`)**
+   - ❌ *Sai:* The house in **that** I was born is very old.
+   - ✅ *Đúng:* The house **in which** I was born is very old. *(hoặc: The house **that** I was born in...)*
+:::
 
 ---
 
@@ -110,53 +113,127 @@ MĐQH CẦN RÚT GỌN ─┼── BỊ ĐỘNG (Passive)   ──► Rút gọ
 
 ---
 
-## V. 3 LỖI SAI PHỔ BIẾN CẦN TRÁNH TRONG ĐỀ THI VÀO 10 (VIETLISH TRAPS)
+## V. 3 LỖI SAI PHỔ BIẾN CẦN TRÁNH TRONG ĐỀ THI VÀO 10 (Lỗi sai thường gặp)
 
-> [!RED] **BẪY 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN**
-> - Dùng **`WHERE`** khi nơi chốn đóng vai trò **trạng từ** (sau đó là mệnh đề hoàn chỉnh S + V, không thiếu tân ngữ).
-> - Dùng **`WHICH`** khi nơi chốn đóng vai trò **Chủ ngữ (S)** hoặc **Tân ngữ (O)** của động từ phía sau!
-> - *Ví dụ A:* This is the hotel **which** we visited last summer. *(visit sth -> thiếu tân ngữ -> dùng WHICH)*
-> - *Ví dụ B:* This is the hotel **where** we stayed last summer. *(stay at a hotel -> nơi chốn -> dùng WHERE)*
+::: danger LƯU Ý 1: PHÂN BIỆT `WHERE` VS. `WHICH` KHI ĐỨNG SAU NƠI CHỐN
+- Dùng **`WHERE`** khi nơi chốn đóng vai trò **trạng từ** (sau đó là mệnh đề hoàn chỉnh S + V, không thiếu tân ngữ).
+- Dùng **`WHICH`** khi nơi chốn đóng vai trò **Chủ ngữ (S)** hoặc **Tân ngữ (O)** của động từ phía sau!
+- *Ví dụ A:* This is the hotel **which** we visited last summer. *(visit sth -> thiếu tân ngữ -> dùng WHICH)*
+- *Ví dụ B:* This is the hotel **where** we stayed last summer. *(stay at a hotel -> nơi chốn -> dùng WHERE)*
+:::
 
-> [!RED] **BẪY 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`**
-> - **`WHOSE + Danh từ`**: Đại từ quan hệ chỉ sở hữu (*whose car, whose parents*).
-> - **`WHO'S`**: Dạng viết tắt của `Who is` hoặc `Who has`!
-> - ❌ *Sai:* I have a friend **who's** dog won the contest.
-> - ✅ *Đúng:* I have a friend **whose** dog won the contest.
+::: danger LƯU Ý 2: PHÂN BIỆT `WHOSE` VS. `WHO'S`
+- **`WHOSE + Danh từ`**: Đại từ quan hệ chỉ sở hữu (*whose car, whose parents*).
+- **`WHO'S`**: Dạng viết tắt của `Who is` hoặc `Who has`!
+- ❌ *Sai:* I have a friend **who's** dog won the contest.
+- ✅ *Đúng:* I have a friend **whose** dog won the contest.
+:::
 
-> [!GREEN] **MẸO DÙNG `WHICH` THAY THẾ CHO CẢ MỆNH ĐỀ ĐỨNG TRƯỚC:**
-> Khi muốn diễn tả ý *"điều đó / điều này"* thay cho toàn bộ sự việc ở mệnh đề trước, ta dùng **, WHICH** (bắt buộc có dấu phẩy):
-> *He passed the exam with flying colors, **which** made his parents very proud.*
+::: tip MẸO DÙNG `WHICH` THAY THẾ CHO CẢ MỆNH ĐỀ ĐỨNG TRƯỚC
+Khi muốn diễn tả ý *"điều đó / điều này"* thay cho toàn bộ sự việc ở mệnh đề trước, ta dùng **, WHICH** (bắt buộc có dấu phẩy):
+*He passed the exam with flying colors, **which** made his parents very proud.*
+:::
 
 ---
 
-## VI. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10)
+## VI. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10)
 
 ### Phần A: Trắc nghiệm điền đại từ / Rút gọn (5 câu)
-1. The novel ______ my father bought for me on my birthday is very educational.
-   `A. who` | `B. which` | `C. whom` | `D. whose`
-2. Do you know the girl ______ bicycle was stolen yesterday afternoon?
-   `A. whose` | `B. who` | `C. whom` | `D. that's`
-3. Dr. Son, ______ gave an inspiring talk at our school yesterday, is a prominent scientist.
-   `A. that` | `B. whom` | `C. who` | `D. which`
-4. The smartphone ______ in Japan usually operates with high durability.
-   `A. making` | `B. made` | `C. was made` | `D. to make`
-5. Lan was the last student ______ the computer lab before the electricity went out.
-   `A. leaving` | `B. left` | `C. to leave` | `D. was leaving`
 
-### Phần B: Viết lại câu kết hợp Mệnh đề quan hệ (5 câu)
-6. The old woman is my grandmother. She is planting flowers in the garden.
-   ➔ *Viết lại:* `The old woman who...`
-7. The car broke down on the expressway. Tom had just bought it two days ago.
-   ➔ *Viết lại:* `The car which...`
-8. I met an architect yesterday. His design won the first prize in the national competition.
-   ➔ *Viết lại:* `I met an architect whose...`
-9. A high-tech stadium was built in our district. It can hold more than 30,000 spectators.
-   ➔ *Viết lại (dùng rút gọn V3/ed):* `The high-tech stadium built...`
-10. John was the first astronaut. He stepped out of the lunar module onto the lunar surface.
-   ➔ *Viết lại (dùng To-inf):* `John was the first astronaut to...`
+<QuizItem
+  :number="1"
+  question="The novel ______ my father bought for me on my birthday is very educational."
+  options="A. who | B. which | C. whom | D. whose"
+  correct="B"
+  explanation=". Đáp án B (which):** `The novel` là danh từ chỉ vật, đóng vai trò tân ngữ cho `bought`, dùng `which` (hoặc `that`)."
+/>
 
-+++ 👉 BẤM ĐỂ XEM ĐÁP ÁN & GIẢI THÍCH CHI TIẾT
+<QuizItem
+  :number="2"
+  question="Do you know the girl ______ bicycle was stolen yesterday afternoon?"
+  options="A. whose | B. who | C. whom | D. that's"
+  correct="A"
+  explanation=". Đáp án A (whose):** Phía sau có danh từ `bicycle`, biểu thị sở hữu (*chiếc xe đạp của cô gái*), dùng `whose`."
+/>
+
+<QuizItem
+  :number="3"
+  question="Dr. Son, ______ gave an inspiring talk at our school yesterday, is a prominent scientist."
+  options="A. that | B. whom | C. who | D. which"
+  correct="C"
+  explanation=". Đáp án C (who):** `Dr. Son` là danh từ riêng chỉ người, có dấu phẩy `,` (MĐQH không xác định), đóng vai trò chủ ngữ cho `gave` ➔ Dùng `who` (tuyệt đối không dùng `that` sau dấu phẩy)."
+/>
+
+<QuizItem
+  :number="4"
+  question="The smartphone ______ in Japan usually operates with high durability."
+  options="A. making | B. made | C. was made | D. to make"
+  correct="B"
+  explanation=". Đáp án B (made):** Rút gọn MĐQH ở thể bị động: `The smartphone which was made in Japan...` ➔ Rút gọn thành `The smartphone made in Japan...`."
+/>
+
+<QuizItem
+  :number="5"
+  question="Lan was the last student ______ the computer lab before the electricity went out."
+  options="A. leaving | B. left | C. to leave | D. was leaving"
+  correct="C"
+  explanation=". Đáp án C (to leave):** Có cụm từ chỉ thứ tự `the last student`, rút gọn MĐQH chủ động thành `to V-inf` ➔ `to leave`."
+/>
+
+<QuizItem
+  :number="6"
+  type="transform"
+  question="The old woman is my grandmother. She is planting flowers in the garden.
+   ➔ *Viết lại:* `The old woman who...`"
+  targetPrompt=""
+  sampleAnswer="The old woman who is planting flowers in the garden is my grandmother."
+  explanation=". Đáp án:** `The old woman who is planting flowers in the garden is my grandmother.` — Thay `She` bằng `who` làm chủ ngữ."
+/>
+
+<QuizItem
+  :number="7"
+  type="transform"
+  question="The car broke down on the expressway. Tom had just bought it two days ago.
+   ➔ *Viết lại:* `The car which...`"
+  targetPrompt=""
+  sampleAnswer="The car which (hoặc that) Tom had just bought two days ago broke down on the expressway."
+  explanation=". Đáp án:** `The car which (hoặc that) Tom had just bought two days ago broke down on the expressway.` — Thay `it` bằng `which/that`, bỏ `it` trong mệnh đề quan hệ."
+/>
+
+<QuizItem
+  :number="8"
+  type="transform"
+  question="I met an architect yesterday. His design won the first prize in the national competition.
+   ➔ *Viết lại:* `I met an architect whose...`"
+  targetPrompt=""
+  sampleAnswer="I met an architect whose design won the first prize in the national competition."
+  explanation=". Đáp án:** `I met an architect whose design won the first prize in the national competition.` — Thay tính từ sở hữu `His` bằng `whose`."
+/>
+
+<QuizItem
+  :number="9"
+  type="transform"
+  question="A high-tech stadium was built in our district. It can hold more than 30,000 spectators.
+   ➔ *Viết lại (dùng rút gọn V3/ed):* `The high-tech stadium built...`"
+  targetPrompt=""
+  sampleAnswer="The high-tech stadium built in our district can hold more than 30,000 spectators."
+  explanation=". Đáp án:** `The high-tech stadium built in our district can hold more than 30,000 spectators.` — Rút gọn bị động `which was built` thành `built`."
+/>
+
+<QuizItem
+  :number="10"
+  type="transform"
+  question="John was the first astronaut. He stepped out of the lunar module onto the lunar surface.
+   ➔ *Viết lại (dùng To-inf):* `John was the first astronaut to...`"
+  targetPrompt=""
+  sampleAnswer="John was the first astronaut to step out of the lunar module onto the lunar surface."
+  explanation=". Đáp án:** `John was the first astronaut to step out of the lunar module onto the lunar surface.` — Rút gọn với `the first` thành `to step`."
+/>
+
+
+<details class="study-accordion">
+<summary>📖 Bấm để xem Bảng tổng hợp đáp án & Giải thích chi tiết nhanh</summary>
+
 **1. Đáp án B (which):** `The novel` là danh từ chỉ vật, đóng vai trò tân ngữ cho `bought`, dùng `which` (hoặc `that`).
 **2. Đáp án A (whose):** Phía sau có danh từ `bicycle`, biểu thị sở hữu (*chiếc xe đạp của cô gái*), dùng `whose`.
 **3. Đáp án C (who):** `Dr. Son` là danh từ riêng chỉ người, có dấu phẩy `,` (MĐQH không xác định), đóng vai trò chủ ngữ cho `gave` ➔ Dùng `who` (tuyệt đối không dùng `that` sau dấu phẩy).
@@ -167,4 +244,5 @@ MĐQH CẦN RÚT GỌN ─┼── BỊ ĐỘNG (Passive)   ──► Rút gọ
 **8. Đáp án:** `I met an architect whose design won the first prize in the national competition.` — Thay tính từ sở hữu `His` bằng `whose`.
 **9. Đáp án:** `The high-tech stadium built in our district can hold more than 30,000 spectators.` — Rút gọn bị động `which was built` thành `built`.
 **10. Đáp án:** `John was the first astronaut to step out of the lunar module onto the lunar surface.` — Rút gọn với `the first` thành `to step`.
-+++
+
+</details>

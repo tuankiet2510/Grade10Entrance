@@ -6,7 +6,7 @@ const MODULE_NAMES: Record<string, string> = {
   "chuyen_de_1": "Phần 1: Ngữ Âm & Trọng Âm",
   "chuyen_de_2": "Phần 2: Ngữ Pháp & Cấu Trúc Trọng Tâm",
   "chuyen_de_3": "Phần 3: Từ Vựng Chọn Lọc",
-  "guide": "Cẩm Nang Phương Pháp",
+  "guide": "Tài Liệu Phương Pháp",
   "exams": "Bộ Đề Tuyển Sinh Vào 10",
   "math": "Chuyên Đề Toán 9 Vào 10",
   "literature": "Chuyên Đề Ngữ Văn 9 Vào 10"
@@ -166,8 +166,8 @@ function buildLiteratureSidebar(dirPath: string): any[] {
 
 export default defineConfig({
   base: '/Grade10Entrance/',
-  title: "Cẩm Nang Ôn Thi Vào 10",
-  description: "Cổng ôn luyện tuyển sinh vào lớp 10 toàn diện - Toán học, Ngữ văn & Tiếng Anh chuẩn GDPT mới",
+  title: "Tài Liệu Ôn Tập Vào Lớp 10",
+  description: "Tài liệu ôn thi vào lớp 10 môn Toán, Ngữ văn và Tiếng Anh - Toán học, Ngữ văn & Tiếng Anh chuẩn GDPT mới",
   lang: 'vi-VN',
   lastUpdated: true,
   cleanUrls: true,
@@ -193,7 +193,7 @@ export default defineConfig({
   },
 
   themeConfig: {
-    siteTitle: "Cẩm Nang Ôn Thi Vào 10",
+    siteTitle: "Tài Liệu Ôn Tập",
     nav: [
       { text: 'Trang chủ', link: '/' },
       { text: 'Toán 9 (12 CĐ & 48 Bài) 📐', link: '/math/' },
@@ -226,7 +226,7 @@ export default defineConfig({
     },
     outline: {
       level: [2, 3],
-      label: 'Mục lục trên trang'
+      label: 'Mục lục bài viết'
     },
     docFooter: {
       prev: '← Bài trước',

@@ -137,14 +137,15 @@
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-/* Study4 Style Tables - Clean, Clear, High-Contrast */
+/* Responsive Tables - Clean, Clear, High-Contrast */
 .vp-doc table {
   width: 100% !important;
-  display: table !important;
+  display: block !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch !important;
   border-collapse: separate !important;
   border-spacing: 0 !important;
   border-radius: 12px;
-  overflow: hidden;
   border: 1px solid var(--vp-c-divider) !important;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
   margin: 1.5rem 0 !important;
@@ -1014,5 +1015,62 @@ mjx-container {
 
   .VPHero .tagline {
     font-size: 0.95rem !important;
+  }
+}
+
+
+/* Additional Mobile & iPhone Responsive Fixes */
+@media (max-width: 640px) {
+  .vp-doc table {
+    min-width: 100% !important;
+    font-size: 0.86rem !important;
+  }
+  
+  .vp-doc th,
+  .vp-doc td {
+    padding: 0.65rem 0.75rem !important;
+  }
+
+  .options-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.55rem !important;
+  }
+
+  .study4-quiz-card {
+    padding: 1rem 0.95rem !important;
+    margin: 1.15rem 0 !important;
+    border-radius: 10px !important;
+  }
+
+  .transform-input-row {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+
+  .show-answer-btn {
+    width: 100% !important;
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+  }
+
+  .exam-meta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  .scoreboard-bar {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.75rem !important;
+    padding: 0.85rem !important;
+  }
+
+  .bar-right .submit-exam-btn {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr !important;
   }
 }

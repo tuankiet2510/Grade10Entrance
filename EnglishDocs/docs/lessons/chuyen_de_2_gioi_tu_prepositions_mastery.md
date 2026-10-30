@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 2: CẨM NANG GIỚI TỪ (PREPOSITIONS: TIME, PLACE & COLLOCATIONS) ÔN THI VÀO 10
+# Chuyên Đề 2: Giới Từ Thời Gian, Nơi Chốn Và Cụm Giới Từ
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Giới từ (Preposition) là từ nối định vị mối quan hệ giữa các thành phần trong câu theo 3 chiều kích: **Thời gian (Time)**, **Không gian / Nơi chốn (Place)** và **Sự kết hợp cố định (Collocations)**.
 Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn ➔ Cụ thể ➔ Chính xác tuyệt đối) sẽ giúp bạn giải quyết 90% câu hỏi giới từ thời gian và nơi chốn trong đề thi vào 10.
 :::
@@ -32,7 +32,7 @@ Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn �
 ::: tip CÁC CẶP TÍNH TỪ + GIỚI TỪ PHẢI THUỘC LÒNG (100% CÓ TRONG ĐỀ THI VÀO 10)
 :::
 
-| Cụm Tính từ + Giới từ | Phiên âm IPA | Nghĩa tiếng Việt | Ví dụ thực chiến |
+| Cụm Tính từ + Giới từ | Phiên âm IPA | Nghĩa tiếng Việt | Ví dụ luyện tập |
 | :--- | :--- | :--- | :--- |
 | **good at / bad at** | `/ɡʊd æt/` | Giỏi / Dở về lĩnh vực gì | *She is very **good at** English grammar.* |
 | **interested in** | /ˈɪn.trəs.tɪd ɪn/ | Quan tâm, hứng thú với | *Are you **interested in** joining our green club?* |
@@ -61,7 +61,7 @@ Nắm vững **Kim tự tháp tam giác IN - ON - AT** (đi từ Rộng lớn �
 
 ---
 
-## IV. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## IV. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ THI TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 <QuizItem
   :number="1"

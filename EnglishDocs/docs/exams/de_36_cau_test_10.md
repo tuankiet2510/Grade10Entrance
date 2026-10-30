@@ -1,7 +1,7 @@
 ---
 title: "Đề Luyện Thi Vào 10 Form 36 Câu - Test 10"
 category: "Bộ Đề Tuyển Sinh Vào 10"
-description: "Bộ đề rèn luyện thực chiến bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi Test 10 có chấm điểm tương tác và lời giải chi tiết."
+description: "Bộ đề rèn luyện luyện tập bám sát ma trận 36 câu tuyển sinh vào lớp 10 THPT tỉnh Quảng Ngãi Test 10 có chấm điểm tương tác và lời giải chi tiết."
 source_type: "practice-exam"
 ---
 

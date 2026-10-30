@@ -1,6 +1,6 @@
-# CHUYÊN ĐỀ 1: QUY TẮC TRỌNG ÂM TỪ (WORD STRESS MASTERY) & BỘ THẦN CHÚ TIẾNG VIỆT 5 GIÂY
+# Chuyên Đề 1: Quy Tắc Trọng Âm Từ Và Các Ngoại Lệ
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và DÀI HƠN** các âm tiết còn lại trong từ.
 
 💡 **NGUYÊN TẮC VÀNG ĐỀ THI VÀO 10 (SỞ GD QUẢNG NGÃI & TOÀN QUỐC):**
@@ -11,7 +11,7 @@ Trọng âm (Stress) là âm tiết được phát âm **TO HƠN, CAO HƠN và D
 
 ---
 
-## I. SƠ ĐỒ THUẬT TOÁN 3 BƯỚC XỬ LÝ TRỌNG ÂM ĐỀ THI VÀO 10
+## I. Sơ đồ 3 bước xác định trọng âm
 
 ```mermaid
 flowchart LR
@@ -62,9 +62,9 @@ flowchart LR
 
 ---
 
-## III. 5 BẪY NGOẠI LỆ KINH ĐIỂN CỦA TỪ 2 ÂM TIẾT
+## III. 5 Ngoại lệ thường gặp CỦA TỪ 2 ÂM TIẾT
 
-::: danger BẪY 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)
+::: danger LƯU Ý 1: ĐỘNG TỪ NHẤN ÂM 1 (CỰC HAY GẶP TRONG ĐỀ THI VÀO 10)
 Động từ có âm tiết thứ 2 là nguyên âm ngắn yếu `/ə/` hoặc `/ɪ/` thì trọng âm bị đẩy về **ÂM 1**:
 - *visit* /ˈvɪz.ɪt/ *(thăm)*
 - *answer* /ˈɑːn.sər/ *(trả lời)*
@@ -78,7 +78,7 @@ flowchart LR
 💡 **Thần chú ghi nhớ:** *"HÃY VÀO MỞ CỬA LẮNG NGHE CHUYỆN GÌ ĐÃ XẢY RA"* (Enter - Open - Listen - Happen).
 :::
 
-::: warning BẪY 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2
+::: warning LƯU Ý 2: DANH TỪ & TÍNH TỪ NHẤN ÂM 2
 Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng âm nhảy sang **ÂM 2**:
 - *machine* /məˈʃiːn/ *(máy móc)*
 - *mistake* /mɪˈsteɪk/ *(lỗi lầm)*
@@ -89,7 +89,7 @@ Danh từ/Tính từ có âm tiết đầu là `/ə/` hoặc `/ɪ/` thì trọng
 - *alive* /əˈlaɪv/ *(còn sống)*
 :::
 
-::: tip BẪY 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)
+::: tip LƯU Ý 3: TỪ LƯỠNG TÍNH (NOUN VS VERB ĐỔI TRỌNG ÂM)
 Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động từ nhấn ÂM 2**:
 - *`PRE-sent`* (Danh từ: món quà) vs *`pre-SENT`* (Động từ: thuyết trình, trao thưởng)
 - *`RE-cord`* (Danh từ: kỷ lục) vs *`re-CORD`* (Động từ: thu âm, ghi chép)
@@ -100,7 +100,7 @@ Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động
 
 ---
 
-## IV. QUY TẮC TRỌNG ÂM TỪ 3 ÂM TIẾT & BỘ THẦN CHÚ HẬU TỐ (SUFFIXES)
+## IV. QUY TẮC TRỌNG ÂM TỪ 3 ÂM TIẾT & BỘ Mẹo nhớ HẬU TỐ (SUFFIXES)
 
 ### 1. Thần chú Hút Trọng Âm: "GẶP LÀ ĐÈ NẶNG CHÍNH MÌNH"
 - **Các đuôi:** `-ee, -eer, -ese, -ique, -esque, -ain` (đối với động từ).
@@ -142,7 +142,7 @@ Cùng một chữ viết, nhưng làm **Danh từ nhấn ÂM 1**, làm **Động
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN TRỌNG ÂM ĐỀ THI TUYỂN SINH VÀO 10
+## V. 10 CÂU LUYỆN TẬP TRỌNG ÂM ĐỀ THI TUYỂN SINH VÀO 10
 
 Chọn từ có vị trí trọng âm khác với các từ còn lại:
 

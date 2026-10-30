@@ -97,7 +97,7 @@ onUnmounted(() => {
         </div>
       </div>
 
-      <!-- ĐỒNG HỒ BẤM GIỜ THỰC CHIẾN -->
+      <!-- ĐỒNG HỒ BẤM GIỜ LUYỆN TẬP -->
       <div :class="['timer-box', { 'is-running': isTimerRunning, 'is-low': isTimeLow }]">
         <div class="timer-display">
           <span class="timer-icon">⏳</span>

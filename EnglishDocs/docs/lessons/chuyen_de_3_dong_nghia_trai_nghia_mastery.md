@@ -1,8 +1,8 @@
-# CHUYÊN ĐỀ 3: CẨM NANG TỪ ĐỒNG NGHĨA & TRÁI NGHĨA (SYNONYMS & ANTONYMS MASTERY)
+# Chuyên Đề 3: Từ Đồng Nghĩa Và Từ Trái Nghĩa
 
-::: info BẢN CHẤT VÀ NGUYÊN TẮC CỐT LÕI
+::: info Kiến thức trọng tâm
 Dạng bài tìm từ **Đồng nghĩa (`CLOSEST IN MEANING`)** và **Trái nghĩa (`OPPOSITE IN MEANING`)** chiếm ít nhất **4 câu (1.0 điểm)** trong đề thi tuyển sinh vào 10.
-Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; bí quyết nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc bẫy tâm lý *"Đọc nhầm yêu cầu đề bài"*.
+Bạn không cần biết nghĩa của mọi từ vựng lạ trong đề; phương pháp nằm ở **Kỹ thuật đoán nghĩa theo ngữ cảnh (Context Clues)** kết hợp với việc kiểm tra các **Tiền tố phủ định (`un-, in-, dis-, im-`)** và tránh chiếc lỗi sai tâm lý *"Đọc nhầm yêu cầu đề bài"*.
 :::
 
 ---
@@ -46,7 +46,7 @@ Từ gạch chân sẽ có **cùng sắc thái** với từ đã biết đứng 
 ➔ Mưa to kéo dài 3 ngày ➔ khu vực trũng bị *ngập lụt* (`flooded`).
 :::
 
-::: danger BẪY TÂM LÝ KINH ĐIỂN CỦA HỌC SINH (VIETLISH TRAP)
+::: danger Lỗi sai do nhầm lẫn CỦA HỌC SINH (Lỗi sai thường gặp)
 Đề bài yêu cầu tìm từ **TRÁI NGHĨA (`OPPOSITE`)**, nhưng người ra đề luôn cố tình đặt **TỪ ĐỒNG NGHĨA ở ngay Đáp án A**!
 Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A mà quên mất đề đang hỏi từ TRÁI NGHĨA.
 - **Nguyên tắc sống còn:** Cầm bút chì gạch chân/khoanh tròn to chữ **`OPPOSITE`** hoặc **`CLOSEST`** ngay khi đọc đề!
@@ -108,7 +108,7 @@ Nhiều bạn nhìn thấy từ quen thuộc lập tức tô ngay Đáp án A m�
 
 ---
 
-## V. 10 CÂU THỰC CHIẾN (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
+## V. 10 CÂU LUYỆN TẬP (TRÍCH ĐỀ TUYỂN SINH VÀO 10 QUẢNG NGÃI)
 
 ### Phần A: Chọn từ đồng nghĩa (CLOSEST IN MEANING - 5 câu)
 
