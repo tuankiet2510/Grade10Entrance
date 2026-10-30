@@ -21,17 +21,17 @@ source_type: "practice-exam"
 <QuizItem
   :number="1"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. explored | B. travelled | C. launched | D. orbit"
+  options="A. explor**ed** | B. travell**ed** | C. launch**ed** | D. train**ed**"
   correct="C"
-  explanation="'launched' có tận cùng là âm vô thanh /tʃ/ nên phát âm đuôi -ed là /t/ (/lɔːntʃt/). Các từ còn lại phát âm là /d/ ('explored' /ɪkˈsplɔːd/, 'travelled' /ˈtrævld/)."
+  explanation="'launched' có tận cùng là âm vô thanh /tʃ/ nên phát âm đuôi -ed là /t/ (/lɔːntʃt/). Các từ còn lại phát âm là /d/ ('explored' /ɪkˈsplɔːd/, 'travelled' /ˈtrævld/, 'trained' /treɪnd/)."
 />
 
 <QuizItem
   :number="2"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. breathtaking | B. tourism | C. astronaut | D. destination"
-  correct="A"
-  explanation="'breathtaking' chữ 'ea' phát âm là /e/ (/ˈbreθteɪkɪŋ/). Các từ còn lại có nguyên âm phát âm khác."
+  options="A. br**ea**thtaking | B. pl**ea**sant | C. h**ea**lthy | D. f**ea**ture"
+  correct="D"
+  explanation="'feature' có 'ea' phát âm là /iː/ (/ˈfiːtʃə/). Các từ còn lại 'breathtaking' (/ˈbreθteɪkɪŋ/), 'pleasant' (/ˈpleznt/), 'healthy' (/ˈhelθi/) đều có 'ea' phát âm là /e/."
 />
 
 <QuizItem

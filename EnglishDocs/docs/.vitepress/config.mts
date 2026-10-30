@@ -8,7 +8,8 @@ const MODULE_NAMES: Record<string, string> = {
   "chuyen_de_3": "Phần 3: Từ Vựng Chọn Lọc",
   "guide": "Cẩm Nang Phương Pháp",
   "exams": "Bộ Đề Tuyển Sinh Vào 10",
-  "math": "Chuyên Đề Toán 9 Vào 10"
+  "math": "Chuyên Đề Toán 9 Vào 10",
+  "literature": "Chuyên Đề Ngữ Văn 9 Vào 10"
 }
 
 function formatFolderName(name: string): string {
@@ -74,8 +75,9 @@ function scanDirectoryRecursive(dirPath: string, urlPrefix: string): any[] {
       else if (f.rawName.startsWith('chuyen_de_5')) gKey = 'Phần 5: Kỹ Năng Viết Luận & Đoạn Văn'
       else if (f.rawName.startsWith('chuyen_de_6')) gKey = 'Phần 6: Trọng Tâm 12 Units SGK Lớp 9'
       else if (f.rawName.startsWith('guide')) gKey = 'Cẩm Nang Phương Pháp'
+      else if (f.rawName.startsWith('de_cuong')) gKey = '📘 Đề Cương Ôn Tập Giữa Kỳ'
       else if (f.rawName.includes('quang_ngai') || f.rawName.includes('da_nang')) gKey = '🏛️ Đề Thi Chính Thức Sở GD&ĐT'
-      else if (f.rawName.includes('hoc_ky')) gKey = '📖 Đề Thi Học Kỳ Lớp 9'
+      else if (f.rawName.includes('hoc_ky') || f.rawName.includes('giua_hoc_ky')) gKey = '📖 Đề Thi Giữa Kỳ & Học Kỳ Lớp 9'
       else if (f.rawName.includes('36_cau')) gKey = '📚 Bộ Đề Form 36 Câu (Quảng Ngãi)'
       else if (f.rawName.includes('45_cau')) gKey = '📝 Bộ Đề Form 45 Câu Tuyển Sinh'
 
@@ -99,15 +101,17 @@ function scanDirectoryRecursive(dirPath: string, urlPrefix: string): any[] {
   return items
 }
 
-// Sidebar riêng cho Toán 9 (48 chuyên đề)
+// Sidebar riêng cho Toán 9 (48 chuyên đề + 12 CĐ + Đề giữa kì)
 function buildMathSidebar(dirPath: string): any[] {
   if (!fs.existsSync(dirPath)) return []
   const files = fs.readdirSync(dirPath)
-    .filter(f => f.endsWith('.md') && f !== 'index.md' && f !== 'README.md')
+    .filter(f => f.endsWith('.md') && f !== 'index.md' && f !== 'README.md' && !f.includes('chuyen_de') && !f.includes('de_thi'))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
 
-  const items = [
-    { text: '📐 Tổng quan & Đề thi PDF', link: '/math/' }
+  const overview = [
+    { text: '📐 Tổng quan & Đề thi PDF', link: '/math/' },
+    { text: '🌟 12 Chuyên Đề Trọng Tâm Thi Vào 10', link: '/math/12_chuyen_de_on_thi_vao_10_toan' },
+    { text: '📝 Đề Kiểm Tra Giữa Học Kỳ 1 Toán 9', link: '/math/de_thi_giua_hoc_ky_1_toan_9' }
   ]
 
   // Gom theo cụm chuyên đề để sidebar gọn gàng
@@ -129,16 +133,41 @@ function buildMathSidebar(dirPath: string): any[] {
     else if (num >= 11 && num <= 20) g2.items.push(entry)
     else if (num >= 21 && num <= 30) g3.items.push(entry)
     else if (num >= 31 && num <= 40) g4.items.push(entry)
-    else g5.items.push(entry)
+    else if (num > 0) g5.items.push(entry)
   }
 
-  return [items[0], g1, g2, g3, g4, g5]
+  return [...overview, g1, g2, g3, g4, g5]
+}
+
+// Sidebar cho Ngữ Văn 9
+function buildLiteratureSidebar(dirPath: string): any[] {
+  return [
+    { text: '📖 Trung Tâm Ôn Luyện Ngữ Văn 9', link: '/literature/' },
+    {
+      text: '4 Chuyên Đề Cốt Lõi',
+      collapsed: false,
+      items: [
+        { text: 'Chuyên đề 1: Kỹ Năng Đọc Hiểu Văn Bản', link: '/literature/01_phuong_phap_doc_hieu_van_ban' },
+        { text: 'Chuyên đề 2: Cẩm Nang Nghị Luận Xã Hội (200 chữ)', link: '/literature/02_chuyen_de_nghi_luan_xa_hoi' },
+        { text: 'Chuyên đề 3: Kỹ Năng Nghị Luận Văn Học Lớp 9', link: '/literature/03_chuyen_de_nghi_luan_van_hoc' },
+        { text: 'Chuyên đề 4: Tổng Ôn Toàn Bộ Tiếng Việt Lớp 9', link: '/literature/04_tong_on_tieng_viet_lop_9' }
+      ]
+    },
+    {
+      text: 'Bộ Đề Thi & Barem Điểm Chi Tiết',
+      collapsed: false,
+      items: [
+        { text: '📝 Đề Kiểm Tra Giữa Học Kỳ 1 Ngữ Văn 9', link: '/literature/de_thi_giua_hoc_ky_1_ngu_van_9' },
+        { text: '🏛️ Đề Minh Họa Tuyển Sinh Vào 10 (Hà Nội & TP.HCM)', link: '/literature/de_thi_tuyen_sinh_vao_10_ngu_van_ha_noi_tphcm' }
+      ]
+    }
+  ]
 }
 
 export default defineConfig({
   base: '/Grade10Entrance/',
   title: "Cẩm Nang Ôn Thi Vào 10",
-  description: "Cổng ôn luyện tuyển sinh vào lớp 10 toàn diện - Toán học & Tiếng Anh chuẩn GDPT mới",
+  description: "Cổng ôn luyện tuyển sinh vào lớp 10 toàn diện - Toán học, Ngữ văn & Tiếng Anh chuẩn GDPT mới",
   lang: 'vi-VN',
   lastUpdated: true,
   cleanUrls: true,
@@ -167,12 +196,14 @@ export default defineConfig({
     siteTitle: "Cẩm Nang Ôn Thi Vào 10",
     nav: [
       { text: 'Trang chủ', link: '/' },
-      { text: 'Toán 9 (48 CĐ & Đề PDF) 📐', link: '/math/' },
-      { text: 'Tiếng Anh (Lý thuyết) 📚', link: '/catalog' },
-      { text: 'Luyện đề thi thử 🎯', link: '/exams/' }
+      { text: 'Toán 9 (12 CĐ & 48 Bài) 📐', link: '/math/' },
+      { text: 'Ngữ Văn 9 📖', link: '/literature/' },
+      { text: 'Tiếng Anh 9 (Lý thuyết) 🇬🇧', link: '/catalog' },
+      { text: 'Luyện Đề Tuyển Sinh 🎯', link: '/exams/' }
     ],
     sidebar: {
       '/math/': buildMathSidebar(path.resolve(__dirname, '../math')),
+      '/literature/': buildLiteratureSidebar(path.resolve(__dirname, '../literature')),
       '/lessons/': scanDirectoryRecursive(path.resolve(__dirname, '../lessons'), '/lessons'),
       '/exams/': scanDirectoryRecursive(path.resolve(__dirname, '../exams'), '/exams')
     },

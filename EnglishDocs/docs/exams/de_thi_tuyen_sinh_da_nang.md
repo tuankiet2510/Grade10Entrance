@@ -21,7 +21,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="1"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. visited | B. decided | C. wanted | D. looked"
+  options="A. visit**ed** | B. decid**ed** | C. want**ed** | D. look**ed**"
   correct="D"
   explanation="'looked' phát âm đuôi -ed là /t/ vì tận cùng là âm vô thanh /k/. Các từ còn lại tận cùng là /t/ và /d/ nên phát âm là /ɪd/ ('visited', 'decided', 'wanted')."
 />
@@ -29,7 +29,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="2"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. desks | B. maps | C. pens | D. books"
+  options="A. desk**s** | B. map**s** | C. pen**s** | D. book**s**"
   correct="C"
   explanation="'pens' phát âm đuôi -s là /z/ vì tận cùng là nguyên âm/phụ âm hữu thanh /n/. Các từ còn lại tận cùng là âm vô thanh /k/, /p/ nên phát âm là /s/."
 />

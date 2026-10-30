@@ -31,6 +31,34 @@ description: "Hệ thống 48 chuyên đề lý thuyết chuẩn hóa, 856 bài 
 
 ---
 
+## 🌟 Chuyên Đề Trọng Tâm & Đề Thi Khảo Sát Mới Nhất
+
+<div class="pdf-exam-grid">
+  <div class="pdf-card">
+    <div class="pdf-card-badge">Cẩm nang tuyển sinh 2026 - 2027</div>
+    <h3 class="pdf-card-title">12 Chuyên Đề Trọng Tâm Ôn Thi Vào Lớp 10 Môn Toán</h3>
+    <p class="pdf-card-desc">Bản đồ phân loại cấu trúc đề thi tuyển sinh 10 THPT công lập (Rút gọn biểu thức, Hệ PT, Viète, Parabol, BĐT, Tứ giác nội tiếp...).</p>
+    <div class="pdf-card-actions">
+      <a href="./12_chuyen_de_on_thi_vao_10_toan" class="pdf-btn view-btn">
+        Xem Bản Đồ 12 Chuyên Đề ↗
+      </a>
+    </div>
+  </div>
+
+  <div class="pdf-card">
+    <div class="pdf-card-badge">Khảo sát năng lực • 90 Phút</div>
+    <h3 class="pdf-card-title">Đề Kiểm Tra Giữa Học Kỳ 1 Toán 9 (Có Lời Giải Chi Tiết)</h3>
+    <p class="pdf-card-desc">Đề chuẩn ma trận GDPT 2018: 12 câu trắc nghiệm + 5 bài tự luận (rút gọn căn thức, giải hệ PT, ứng dụng lượng giác thực tế, BĐT điểm 10).</p>
+    <div class="pdf-card-actions">
+      <a href="./de_thi_giua_hoc_ky_1_toan_9" class="pdf-btn view-btn">
+        Làm Đề &amp; Xem Lời Giải ↗
+      </a>
+    </div>
+  </div>
+</div>
+
+---
+
 ## 🎯 Bộ Đề Thi Tuyển Sinh & Chuyên Đề Nâng Cao (PDF)
 
 Tải về hoặc xem trực tuyến đề thi chính thức các tỉnh và cẩm nang phân loại điểm 9, 10.

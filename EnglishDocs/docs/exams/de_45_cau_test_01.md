@@ -21,7 +21,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="1"
   question="Choose the word having the underlined part pronounced differently in each line."
-  options="A. community | B. bustling | C. hunt | D. suck"
+  options="A. comm**u**nity | B. b**u**stling | C. h**u**nt | D. s**u**ck"
   correct="A"
   explanation="'community' chữ 'u' phát âm là /juː/. Các từ còn lại phát âm là /ʌ/ ('bustling', 'hunt', 'suck')."
 />
@@ -29,7 +29,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="2"
   question="Choose the word having the underlined part pronounced differently in each line."
-  options="A. ghost | B. office | C. long | D. modern"
+  options="A. gh**o**st | B. **o**ffice | C. l**o**ng | D. m**o**dern"
   correct="A"
   explanation="'ghost' chữ 'o' phát âm là /əʊ/ (/ɡəʊst/). Các từ còn lại phát âm là /ɒ/ ('office', 'long', 'modern')."
 />
@@ -37,7 +37,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="3"
   question="Choose the word having the underlined part pronounced differently in each line."
-  options="A. chemistry | B. teach | C. speech | D. exchange"
+  options="A. **ch**emistry | B. tea**ch** | C. spee**ch** | D. ex**ch**ange"
   correct="A"
   explanation="'chemistry' nhóm 'ch' phát âm là /k/ (/ˈkemɪstri/). Các từ còn lại phát âm là /tʃ/ ('teach', 'speech', 'exchange')."
 />

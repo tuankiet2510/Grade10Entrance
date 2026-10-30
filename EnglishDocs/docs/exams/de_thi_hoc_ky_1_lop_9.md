@@ -21,7 +21,7 @@ source_type: "practice-exam"
 <QuizItem
   :number="1"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. community | B. bustling | C. custom | D. suburb"
+  options="A. comm**u**nity | B. b**u**stling | C. c**u**stom | D. s**u**burb"
   correct="A"
   explanation="'community' chữ 'u' phát âm là /juː/ (/kəˈmjuːnəti/). Các từ còn lại phát âm là /ʌ/ ('bustling' /ˈbʌslɪŋ/, 'custom' /ˈkʌstəm/, 'suburb' /ˈsʌbɜːb/)."
 />
@@ -29,9 +29,9 @@ source_type: "practice-exam"
 <QuizItem
   :number="2"
   question="Choose the word whose underlined part is pronounced differently from that of the others."
-  options="A. pottery | B. artisan | C. attraction | D. craftsman"
+  options="A. p**o**ttery | B. c**o**llect | C. pr**o**tect | D. c**o**nnect"
   correct="A"
-  explanation="'pottery' chữ 'o' phát âm là /ɒ/ (/ˈpɒtəri/). Các từ còn lại có nguyên âm 'a' phát âm là /æ/ hoặc /ɑː/."
+  explanation="'pottery' chữ 'o' phát âm là /ɒ/ (/ˈpɒtəri/). Các từ còn lại 'collect' (/kəˈlekt/), 'protect' (/prəˈtekt/), 'connect' (/kəˈnekt/) có âm 'o' phát âm là /ə/."
 />
 
 <QuizItem

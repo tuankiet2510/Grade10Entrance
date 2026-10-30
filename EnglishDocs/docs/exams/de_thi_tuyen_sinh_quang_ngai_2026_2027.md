@@ -23,7 +23,7 @@ source_type: "official-exam"
 <QuizItem
   :number="1"
   question="Chọn từ có phần gạch chân phát âm khác với các từ còn lại:"
-  options="A. pl**a**ced | B. lived | C. played | D. caused"
+  options="A. plac**ed** | B. liv**ed** | C. play**ed** | D. caus**ed**"
   correct="A"
   explanation="placed /pleɪst/ (đuôi -ed đọc là /t/). Các từ còn lại lived /lɪvd/, played /pleɪd/, caused /kɔːzd/ đuôi -ed đọc là /d/."
 />
