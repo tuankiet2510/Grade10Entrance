@@ -34,6 +34,17 @@ description: "Hệ thống 48 chuyên đề lý thuyết chuẩn hóa, 856 bài 
 ## 🌟 Chuyên Đề Trọng Tâm & Đề Thi Khảo Sát Mới Nhất
 
 <div class="pdf-exam-grid">
+  <div class="pdf-card" style="border: 2px solid var(--vp-c-brand-1);">
+    <div class="pdf-card-badge" style="background: var(--vp-c-brand-1); color: #fff;">Sổ tay bỏ túi • Tra cứu nhanh</div>
+    <h3 class="pdf-card-title">📖 Sổ Tay Toàn Bộ Công Thức Toán 9 (Tập 1 &amp; Tập 2)</h3>
+    <p class="pdf-card-desc">Hệ thống hóa 100% công thức: Căn thức, Hệ phương trình, Hàm số, Viète, Thống kê, Xác suất, Lượng giác, Đường tròn, Tứ giác nội tiếp, Hình trụ - nón - cầu.</p>
+    <div class="pdf-card-actions">
+      <a href="./so_tay_cong_thuc_toan_9" class="pdf-btn view-btn" style="background: var(--vp-c-brand-1); color: #fff;">
+        Xem Sổ Tay Công Thức ↗
+      </a>
+    </div>
+  </div>
+
   <div class="pdf-card">
     <div class="pdf-card-badge">Tài liệu tuyển sinh 2026 - 2027</div>
     <h3 class="pdf-card-title">12 Chuyên Đề Trọng Tâm Ôn Thi Vào Lớp 10 Môn Toán</h3>
@@ -64,6 +75,17 @@ description: "Hệ thống 48 chuyên đề lý thuyết chuẩn hóa, 856 bài 
 Tải về hoặc xem trực tuyến đề thi chính thức các tỉnh và tài liệu phân loại điểm 9, 10.
 
 <div class="pdf-exam-grid">
+  <div class="pdf-card" style="border: 2px solid var(--vp-c-brand-1);">
+    <div class="pdf-card-badge" style="background: var(--vp-c-brand-1); color: #fff;">Sổ tay bỏ túi • Tra cứu nhanh</div>
+    <h3 class="pdf-card-title">📖 Sổ Tay Toàn Bộ Công Thức Toán 9 (Tập 1 &amp; Tập 2)</h3>
+    <p class="pdf-card-desc">Hệ thống hóa 100% công thức: Căn thức, Hệ phương trình, Hàm số, Viète, Thống kê, Xác suất, Lượng giác, Đường tròn, Tứ giác nội tiếp, Hình trụ - nón - cầu.</p>
+    <div class="pdf-card-actions">
+      <a href="./so_tay_cong_thuc_toan_9" class="pdf-btn view-btn" style="background: var(--vp-c-brand-1); color: #fff;">
+        Xem Sổ Tay Công Thức ↗
+      </a>
+    </div>
+  </div>
+
   <div class="pdf-card">
     <div class="pdf-card-badge">Chuyên đề nâng cao & Điểm 9, 10</div>
     <h3 class="pdf-card-title">Tuyển tập các Bất Đẳng Thức ôn thi tuyển sinh vào lớp 10 môn Toán</h3>

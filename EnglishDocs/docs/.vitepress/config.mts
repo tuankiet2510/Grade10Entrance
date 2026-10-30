@@ -105,11 +105,12 @@ function scanDirectoryRecursive(dirPath: string, urlPrefix: string): any[] {
 function buildMathSidebar(dirPath: string): any[] {
   if (!fs.existsSync(dirPath)) return []
   const files = fs.readdirSync(dirPath)
-    .filter(f => f.endsWith('.md') && f !== 'index.md' && f !== 'README.md' && !f.includes('chuyen_de') && !f.includes('de_thi'))
+    .filter(f => f.endsWith('.md') && f !== 'index.md' && f !== 'README.md' && !f.includes('chuyen_de') && !f.includes('de_thi') && !f.includes('so_tay'))
     .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))
 
   const overview = [
     { text: '📐 Tổng quan & Đề thi PDF', link: '/math/' },
+    { text: '📖 Sổ Tay Toàn Bộ Công Thức Toán 9', link: '/math/so_tay_cong_thuc_toan_9' },
     { text: '🌟 12 Chuyên Đề Trọng Tâm Thi Vào 10', link: '/math/12_chuyen_de_on_thi_vao_10_toan' },
     { text: '📝 Đề Kiểm Tra Giữa Học Kỳ 1 Toán 9', link: '/math/de_thi_giua_hoc_ky_1_toan_9' }
   ]
@@ -143,6 +144,7 @@ function buildMathSidebar(dirPath: string): any[] {
 function buildLiteratureSidebar(dirPath: string): any[] {
   return [
     { text: '📖 Trung Tâm Ôn Luyện Ngữ Văn 9', link: '/literature/' },
+    { text: '📘 Sổ Tay Tổng Hợp Kiến Thức Ngữ Văn 9', link: '/literature/so_tay_kien_thuc_ngu_van_9' },
     {
       text: '4 Chuyên Đề Cốt Lõi',
       collapsed: false,
@@ -159,6 +161,23 @@ function buildLiteratureSidebar(dirPath: string): any[] {
       items: [
         { text: '📝 Đề Kiểm Tra Giữa Học Kỳ 1 Ngữ Văn 9', link: '/literature/de_thi_giua_hoc_ky_1_ngu_van_9' },
         { text: '🏛️ Đề Minh Họa Tuyển Sinh Vào 10 (Hà Nội & TP.HCM)', link: '/literature/de_thi_tuyen_sinh_vao_10_ngu_van_ha_noi_tphcm' }
+      ]
+    }
+  ]
+}
+
+
+// Sidebar cho KHTN 9 (Vật lí, Hóa học, Sinh học)
+function buildScienceSidebar(dirPath: string): any[] {
+  return [
+    { text: '🔬 Trung Tâm Ôn Luyện KHTN 9', link: '/science/' },
+    {
+      text: 'Sổ Tay Công Thức & Kiến Thức KHTN 9',
+      collapsed: false,
+      items: [
+        { text: '⚡ Sổ Tay Công Thức & Lý Thuyết Vật Lí 9', link: '/science/01_vat_li_9_cong_thuc_va_ly_thuyet' },
+        { text: '🧪 Sổ Tay Lý Thuyết & Phương Trình Hóa Học 9', link: '/science/02_hoa_hoc_9_ly_thuyet_va_phuong_trinh' },
+        { text: '🧬 Sổ Tay Di Truyền & Sinh Thái Học Sinh Học 9', link: '/science/03_sinh_hoc_9_di_truyen_va_sinh_thai' }
       ]
     }
   ]
@@ -199,11 +218,13 @@ export default defineConfig({
       { text: 'Toán 9 (12 CĐ & 48 Bài) 📐', link: '/math/' },
       { text: 'Ngữ Văn 9 📖', link: '/literature/' },
       { text: 'Tiếng Anh 9 (Lý thuyết) 🇬🇧', link: '/catalog' },
+      { text: 'KHTN 9 (Lý - Hóa - Sinh) 🔬', link: '/science/' },
       { text: 'Luyện Đề Tuyển Sinh 🎯', link: '/exams/' }
     ],
     sidebar: {
       '/math/': buildMathSidebar(path.resolve(__dirname, '../math')),
       '/literature/': buildLiteratureSidebar(path.resolve(__dirname, '../literature')),
+      '/science/': buildScienceSidebar(path.resolve(__dirname, '../science')),
       '/lessons/': scanDirectoryRecursive(path.resolve(__dirname, '../lessons'), '/lessons'),
       '/exams/': scanDirectoryRecursive(path.resolve(__dirname, '../exams'), '/exams')
     },

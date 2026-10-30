@@ -39,6 +39,17 @@ description: "Tài liệu toàn diện ôn thi vào lớp 10 môn Ngữ văn the
 ## 📚 4 Chuyên Đề Ôn Luyện Cốt Lõi
 
 <div class="pdf-exam-grid">
+  <div class="pdf-card" style="border: 2px solid var(--vp-c-brand-1); grid-column: 1 / -1;">
+    <div class="pdf-card-badge" style="background: var(--vp-c-brand-1); color: #fff;">Sổ tay cốt lõi • Đổi mới GDPT 2018</div>
+    <h3 class="pdf-card-title">📘 Sổ Tay Tổng Hợp Kiến Thức Ngữ Văn 9 (Bộ Sách Kết Nối Tri Thức)</h3>
+    <p class="pdf-card-desc">Hệ thống 10 bài học SGK Kết nối tri thức, công thức xử lý Đọc hiểu ngoài SGK, bảng 10 biện pháp tu từ, tổng ôn toàn diện Tiếng Việt 9 và cẩm nang viết đoạn văn NLXH 200 chữ.</p>
+    <div class="pdf-card-actions">
+      <a href="./so_tay_kien_thuc_ngu_van_9" class="pdf-btn view-btn" style="background: var(--vp-c-brand-1); color: #fff;">
+        Mở Sổ Tay Ngữ Văn 9 ↗
+      </a>
+    </div>
+  </div>
+
   <div class="pdf-card">
     <div class="pdf-card-badge">Chuyên đề 1 • Kỹ năng 4.0 điểm</div>
     <h3 class="pdf-card-title">Phương pháp xử lý Đọc hiểu văn bản</h3>
