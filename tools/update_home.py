@@ -51,3 +51,4 @@ home_content = home_content.replace(old_features, new_features)
 with open(home_path, "w", encoding="utf-8") as f:
     f.write(home_content)
 print("Updated index.md successfully!")
+

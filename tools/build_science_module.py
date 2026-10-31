@@ -419,3 +419,4 @@ $$\mathbf{\text{Gen (ADN)} \xrightarrow{\text{Phiên mã}} \text{mARN} \xrightar
 with open(os.path.join(SCIENCE_DIR, "03_sinh_hoc_9_di_truyen_va_sinh_thai.md"), "w", encoding="utf-8") as f:
     f.write(sinh_hoc_content)
 print("Created science/03_sinh_hoc_9_di_truyen_va_sinh_thai.md")
+

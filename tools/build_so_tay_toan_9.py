@@ -235,3 +235,4 @@ Tứ giác $ABCD$ nội tiếp một đường tròn khi thỏa mãn **một tro
 with open(file_path, "w", encoding="utf-8") as f:
     f.write(content)
 print("Created so_tay_cong_thuc_toan_9.md")
+

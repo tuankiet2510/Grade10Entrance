@@ -193,6 +193,7 @@ export default defineConfig({
   ignoreDeadLinks: true,
 
   markdown: {
+    math: true,
     lineNumbers: true,
     theme: {
       light: 'github-light',
