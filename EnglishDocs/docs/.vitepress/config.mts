@@ -111,9 +111,23 @@ function buildMathSidebar(dirPath: string): any[] {
   const overview = [
     { text: '📐 Tổng quan & Đề thi PDF', link: '/math/' },
     { text: '📖 Sổ Tay Toàn Bộ Công Thức Toán 9', link: '/math/so_tay_cong_thuc_toan_9' },
-    { text: '🌟 12 Chuyên Đề Trọng Tâm Thi Vào 10', link: '/math/12_chuyen_de_on_thi_vao_10_toan' },
-    { text: '📝 Đề Kiểm Tra Giữa Học Kỳ 1 Toán 9', link: '/math/de_thi_giua_hoc_ky_1_toan_9' }
+    { text: '🌟 12 Chuyên Đề Trọng Tâm Thi Vào 10', link: '/math/12_chuyen_de_on_thi_vao_10_toan' }
   ]
+
+  const onlineExams = {
+    text: '📝 Bộ Đề Thi Trực Tuyến Có Lời Giải',
+    collapsed: false,
+    items: [
+      { text: '📝 Đề Giữa Học Kỳ 1 Toán 9', link: '/math/de_thi_giua_hoc_ky_1_toan_9' },
+      { text: '📝 Đề Cuối Học Kỳ 1 Toán 9', link: '/math/de_thi_hoc_ky_1_toan_9' },
+      { text: '📝 Đề Giữa Học Kỳ 2 Toán 9', link: '/math/de_thi_giua_hoc_ky_2_toan_9' },
+      { text: '📝 Đề Cuối Học Kỳ 2 Toán 9', link: '/math/de_thi_hoc_ky_2_toan_9' },
+      { text: '🏛️ Đề Tuyển Sinh Vào 10 - Quảng Ngãi', link: '/math/de_thi_tuyen_sinh_vao_10_toan_quang_ngai' },
+      { text: '🏛️ Đề Tuyển Sinh Vào 10 - Hà Nội', link: '/math/de_thi_tuyen_sinh_vao_10_toan_ha_noi' },
+      { text: '🏛️ Đề Tuyển Sinh Vào 10 - TP.HCM', link: '/math/de_thi_tuyen_sinh_vao_10_toan_tphcm' },
+      { text: '🏛️ Đề Tuyển Sinh Vào 10 - Đà Nẵng', link: '/math/de_thi_tuyen_sinh_vao_10_toan_da_nang' }
+    ]
+  }
 
   // Gom theo cụm chuyên đề để sidebar gọn gàng
   const g1 = { text: 'Chuyên đề 01 - 10: Đại số & Căn bậc hai', collapsed: false, items: [] as any[] }
@@ -137,7 +151,7 @@ function buildMathSidebar(dirPath: string): any[] {
     else if (num > 0) g5.items.push(entry)
   }
 
-  return [...overview, g1, g2, g3, g4, g5]
+  return [...overview, onlineExams, g1, g2, g3, g4, g5]
 }
 
 // Sidebar cho Ngữ Văn 9

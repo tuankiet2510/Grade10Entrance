@@ -22,3 +22,4 @@ else:
         print("Added math: true to config.mts (CRLF)")
     else:
         print("Target not found!")
+
